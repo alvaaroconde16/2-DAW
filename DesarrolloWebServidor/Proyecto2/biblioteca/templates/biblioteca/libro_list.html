@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Libros</title>
+    </head>
+    <body>
+
+        <header>
+            <ul>
+                <li><h3><a href="/">Libros</a></h3></li>
+                <li><h3><a href="autor/">Autores</a></h3></li>
+                <li><h3><a href="miembro/">Miembros</a></h3></li>
+            </ul>
+        </header>
+
+        <h1>Libros</h1>
+        
+        {% for libro in libro_mostrar %}
+            <article>
+                <h2> {{ libro.titulo }} </h2>
+                <p> Autor: {{ libro.autor }} </p>
+                <p> Fecha de publicación: {{ libro.fecha_publicacion }} </p>
+            </article>
+        {% endfor %}
+
+    </body>
+</html>
+
+<style>
+    header {
+        display: flex;
+        justify-content: right;
+        align-items: center;
+        padding: 3px;
+        background-color: #F59380;
+        color: white;
+        margin: -7.8px;
+    }
+
+    ul{
+        margin-right: 30px;
+    }
+
+    li{
+        display: inline-block;
+        margin-left: 45px;
+    }
+
+    a{
+        text-decoration: none;
+        color: white;
+    }
+    a:hover{
+        color: lightblue;
+    }
+
+</style>
