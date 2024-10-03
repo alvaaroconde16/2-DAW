@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Colaboradores</title>
+    </head>
+    <body>
+
+        <header>
+            <h3><a href="/">Animales</a></h3>
+            <h3><a href="/protectoras/">Protectoras</a></h3>
+            <h3><a href="/colaboradores/">Colaboradores</a></h3>
+        </header>
+
+        <h1>Colaboradores</h1>
+        
+        {% for colaborador in colaborador_mostrar %}
+            <article>
+                <h2> {{ colaborador.nombre }} </h2>
+                <p> Cargo: {{ colaborador.cargo }} </p>
+                <p> Fecha de entrada a la protectora: {{ colaborador.fecha_entrada_protectora }} </p>
+            </article>
+        {% endfor %}
+
+    </body>
+</html>
+
+<style>
+    header {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 3px;
+        background-color: #4CAF50;
+        color: white;
+        margin: -7.8px;
+        gap: 3rem;
+    }
+
+    a{
+        text-decoration: none;
+        color: white;
+    }
+    a:hover{
+        color: lightblue;
+    }
+
+</style>
