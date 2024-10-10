@@ -1,4 +1,5 @@
 from django.db import models
+from django.utils import timezone
 
 # Create your models here.
 
@@ -38,7 +39,12 @@ class Cliente(models.Model):
     nombre = models.CharField(max_length=100)
     email = models.CharField(max_length=200, unique=True)
     puntos = models.FloatField(default=5.0, db_column="puntos")
-    libros = models.ManyToManyField(Libro, through='Prestamos')
+    libros = models.ManyToManyField(Libro, 
+                                    through='Prestamos',
+                                    related_name="libros")
+    libros_preferidos = models.ForeignKey(Libro,
+                                          on_delete=models.CASCADE,
+                                          related_name="favoritos")
     
     
 class DatosClientes(models.Model):
@@ -51,4 +57,4 @@ class DatosClientes(models.Model):
 class Prestamos(models.Model):
     cliente = models.ForeignKey(Cliente, on_delete=models.CASCADE)
     libro = models.ForeignKey(Libro, on_delete=models.CASCADE)
-    fecha_prestamo = models.DateTimeField()
+    fecha_prestamo = models.DateTimeField(default=timezone.now)

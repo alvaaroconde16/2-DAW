@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Gestor</title>
+    </head>
+    <body>
+
+        <header>
+            <h3><a href="/">Usuarios</a></h3>
+            <h3><a href="/tarea/">Tareas</a></h3>
+            <h3><a href="proyecto/">Proyectos</a></h3>
+            <h3><a href="/etiqueta/">Etiqueta</a></h3>
+            <h3><a href="/asignaciontarea/">Asignaciones Tareas</a></h3>
+            <h3><a href="/comentario/">Comentarios</a></h3>
+        </header>
+
+        <h1>Poyectos</h1>
+        
+        {% for proyecto in proyecto_mostrar %}
+            <article>
+                <h2> {{ proyecto.nombre }} </h2>
+                <p> Descripcion: {{ proyecto.descripcion }} </p>
+                <p> Duracion estimada: {{ proyecto.duracion_estimada }} </p>
+                <p> Fecha de inicio: {{ proyecto.fecha_inicio }} </p>
+                <p> Fecha de finalización: {{ proyecto.fecha_fin }} </p>
+
+            </article>
+        {% endfor %}
+
+    </body>
+</html>
+
+<style>
+    header {
+        display: flex;
+        justify-content: center;
+        align-items: center;<!DOCTYPE html>
+        <html>
+            <head>
+                <title>Animales</title>
+            </head>
+            <body>
+        
+                <header>
+                    <h3><a href="/">Usuarios</a></h3>
+                    <h3><a href="tarea/">Tareas</a></h3>
+                    <h3><a href="/proyecto/">Proyectos</a></h3>
+                    <h3><a href="/etiqueta/">Etiqueta</a></h3>
+                    <h3><a href="/asignaciontarea/">Asignaciones Tareas</a></h3>
+                    <h3><a href="/comentario/">Comentarios</a></h3>
+                </header>
+        
+                <h1>Usuarios</h1>
+                
+                {% for usuario in usuario_mostrar %}
+                    <article>
+                        <h2> {{ usuario.nombre }} </h2>
+                        <p> Correo: {{ usuario.correo }} </p>
+                        <p> Contraseña: {{ usuario.contrasenya }} </p>
+                        <p> Fecha del registro: {{ usuario.fecha_registro }} </p>
+                    </article>
+                {% endfor %}
+        
+            </body>
+        </html>
+        
+        <style>
+            header {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                padding: 3px;
+                background-color: #4CAF50;
+                color: white;
+                margin: -7.8px;
+                gap: 3rem;
+            }
+        
+            a{
+                text-decoration: none;
+                color: white;
+            }
+            a:hover{
+                color: lightblue;
+            }
+        
+        </style>
+        padding: 3px;
+        background-color: #4CAF50;
+        color: white;
+        margin: -7.8px;
+        gap: 3rem;
+    }
+
+    a{
+        text-decoration: none;
+        color: white;
+    }
+    a:hover{
+        color: lightblue;
+    }
+
+</style>

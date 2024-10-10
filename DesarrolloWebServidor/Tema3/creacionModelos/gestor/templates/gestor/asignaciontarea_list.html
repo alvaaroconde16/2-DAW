@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Gestor</title>
+    </head>
+    <body>
+
+        <header>
+            <h3><a href="/">Usuarios</a></h3>
+            <h3><a href="/tarea/">Tareas</a></h3>
+            <h3><a href="/proyecto/">Proyectos</a></h3>
+            <h3><a href="/etiqueta/">Etiqueta</a></h3>
+            <h3><a href="asignaciontarea/">Asignaciones Tareas</a></h3>
+            <h3><a href="/comentario/">Comentarios</a></h3>
+        </header>
+
+        <h1>Asignacion de Tarea</h1>
+        
+        {% for asignaciontarea in asignaciontarea_mostrar %}
+            <article>
+                <p> Observaciones: {{ asignaciontarea.observaciones }} </p>
+                <p> Fecha de asignacion: {{ asignaciontarea.fecha_asignacion }} </p>
+            </article>
+        {% endfor %}
+
+    </body>
+</html>
+
+<style>
+    header {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 3px;
+        background-color: #4CAF50;
+        color: white;
+        margin: -7.8px;
+        gap: 3rem;
+    }
+
+    a{
+        text-decoration: none;
+        color: white;
+    }
+    a:hover{
+        color: lightblue;
+    }
+
+</style>
