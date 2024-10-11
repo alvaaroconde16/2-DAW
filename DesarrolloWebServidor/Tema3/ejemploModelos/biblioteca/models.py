@@ -13,6 +13,7 @@ class Autor(models.Model):
     apellidos = models.CharField(max_length=200, blank=True)
     edad = models.IntegerField(null=True)
     
+#---------------------------------------------------------------------------------------------------------------------------------------------
     
 class Libro(models.Model):
     IDIOMAS = [
@@ -34,6 +35,7 @@ class Libro(models.Model):
     biblioteca = models.ForeignKey(Biblioteca, on_delete=models.CASCADE)
     autores = models.ManyToManyField(Autor)
     
+#---------------------------------------------------------------------------------------------------------------------------------------------
     
 class Cliente(models.Model):
     nombre = models.CharField(max_length=100)
@@ -45,7 +47,8 @@ class Cliente(models.Model):
     libros_preferidos = models.ForeignKey(Libro,
                                           on_delete=models.CASCADE,
                                           related_name="favoritos")
-    
+
+#---------------------------------------------------------------------------------------------------------------------------------------------
     
 class DatosClientes(models.Model):
     cliente = models.OneToOneField(Cliente, on_delete=models.CASCADE)
