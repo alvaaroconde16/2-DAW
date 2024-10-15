@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ELFSCAPE TRAVELS - Contacto</title>
+    <link rel="stylesheet" href="../css/headerFooter.css">
+    <link rel="icon" href="../imagenes/logotipo.png" type="image/png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
+</head>
+<body>
+
+    <!-- Header común -->
+    <header>
+
+        <div class="logo">
+            <img src="../imagenes/letrasLogotipo.png" alt="IMGLogo">
+        </div>
+             
+        <div class="nav-container">
+            <div class="separator"></div>
+            <nav>
+                <ul>
+                    <li><a href="paginaPrincipal.html">Inicio</a></li>
+                    <li><a href="blog.html">Blog</a></li>
+                    <li><a href="tienda.html">Tienda</a></li>
+                    <li><a href="contacto.html">Contacto</a></li>
+                </ul>
+            </nav>
+        </div>
+
+        <div class="number">
+            <i class="fa-solid fa-phone"></i>
+            <div class="texto-numero">
+                <p>Para reservar</p>
+                <span class="numero">+34 924 547 772</span>
+            </div>
+            <i class="fa-solid fa-circle-info"></i>
+        </div>
+
+        <div class="user">
+            <i class="fa-solid fa-user"></i>
+        </div>
+
+    </header>
+
+    <!-- Contenido de la página de contacto -->
+    <main>
+        <section id="contacto">
+            <h2>Contáctanos</h2>
+            <p>¿Tienes alguna pregunta o deseas reservar un viaje personalizado? ¡Escríbenos!</p>
+            <form action="procesar_formulario.php" method="post">
+                <label for="nombre">Nombre:</label>
+                <input type="text" id="nombre" name="nombre" required>
+
+                <label for="correo">Correo electrónico:</label>
+                <input type="email" name="correo" id="correo" required>
+
+                <label for="mensaje">Mensaje:</label>
+                <textarea id="mensaje" name="mensaje" required></textarea>
+
+                <button type="submit" class="btn">Enviar</button>
+            </form>
+        </section>
+
+        <!-- Integración de Google Maps -->
+        <section id="ubicacion">
+            <h2>Nuestra Ubicación</h2>
+            <div id="mapa" style="width: 100%; height: 400px;"></div>
+        </section>
+    </main>
+
+    <!-- Footer común -->
+    <footer>
+        <div class="footer-content">
+            <div class="contact-info">
+                <h3>CONTACTO</h3>
+                <p>Dirección: Calle de la Tierra Media, 123</p>
+                <p>Teléfono: (123) 456-7890</p>
+                <p>Email: info@elfscapetravels.com</p>
+            </div>
+
+            <div class="separador"></div>
+
+            <div class="quick-links">
+                <h3>ENLACES RÁPIDOS</h3>
+                <ul>
+                    <li><a href="index.html">Inicio</a></li>
+                    <li><a href="servicios.html">Servicios</a></li>
+                    <li><a href="destinos.html">Destinos</a></li>
+                    <li><a href="testimonios.html">Testimonios</a></li>
+                    <li><a href="equipo.html">Equipo</a></li>
+                    <li><a href="contacto.html">Contacto</a></li>
+                </ul>
+            </div>
+
+            <div class="separador"></div>
+
+            <div class="social-media">
+                <h3>REDES SOCIALES</h3>
+                <a href="https://facebook.com" target="_blank">Facebook</a>
+                <a href="https://instagram.com" target="_blank">Instagram</a>
+                <a href="https://twitter.com" target="_blank">Twitter</a>
+            </div>
+        </div>
+
+        <p class="derechos">&copy; 2024 ELFSCAPE TRAVELS. Todos los derechos reservados.</p>
+    </footer>
+</body>
+</html>

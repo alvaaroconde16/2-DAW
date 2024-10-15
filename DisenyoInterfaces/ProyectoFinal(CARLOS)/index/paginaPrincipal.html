@@ -6,7 +6,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" />  <!--FONTAWESOME-->
     <link rel="icon" href="../imagenes/logotipo.png" type="image/png">  <!--IMAGEN EN EL NAVEGADOR-->
     <title>ELFSCAPE TRAVELS</title>
-    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="stylesheet" href="../css/headerFooter.css">
 </head>
 <body>
 
@@ -24,6 +24,7 @@
                     <li><a href="index.html">Inicio</a></li>
                     <li><a href="blog.html">Blog</a></li>
                     <li><a href="tienda.html">Tienda</a></li>
+                    <li><a href="contacto.html">Contacto</a></li>
                 </ul>
             </nav>
         </div>
@@ -116,7 +117,7 @@
 
     <!--ESTA ES LA TERCERA PARTE EN LA QUE ESTÁN LOS TESTIMONIOS-->
     <section id="testimonios">
-        <div class="flex-testimonios">
+        <div class="grid-testimonios">
 
             <div class="testimonio">
                 <p>"Un viaje inolvidable a través de la Tierra Media. Los guías son increíbles!"</p>
@@ -153,38 +154,23 @@
     </section>
 
 
-    <!--ESTA ES LA QUINTA PARTE EN LA QUE ESTÁ EL CONTACTO-->
-    <section id="contacto">
-        <form action="">
-            <!--AQUÍ PEDIMOS EL NOMBRE-->
-            <label for="nombre">Nombre:</label>
-            <input type="text" id="nombre" name="nombre" required>
-
-            <!--AQUÍ PEDIMOS EL CORREO-->
-            <label for="correo">Correo electrónico:</label>
-            <input type="text" name="correo" id="correo" required>
-
-            <!--AQUÍ PEDIMOS EL MENSAJE-->
-            <textarea id="mensaje" name="mensaje" required></textarea>
-            <button type="submit" class="btn">Enviar</button>
-
-        </form>
-    </section>
-
-
     <!--AQUÍ COMIENZA EL FOOTER-->
     <footer>
         <div class="footer-content">
 
             <div class="contact-info">
-                <h3>Contacto</h3>
+                <h3>CONTACTO</h3>
+                <div class="under-foot"></div>
                 <p>Dirección: Calle de la Tierra Media, 123</p>
                 <p>Teléfono: (123) 456-7890</p>
                 <p>Email: info@tierramedia.com</a></p>
             </div>
 
+            <div class="separador"></div>
+
             <div class="quick-links">
-                <h3>Enlaces Rápidos</h3>
+                <h3>ENLACES RÁPIDOS</h3>
+                <div class="under-foot"></div>
                 <ul>
                     <li><a href="paginaPrincipal.html">Página Principal</a></li>
                     <li><a href="blog.html">Blog</a></li>
@@ -195,16 +181,23 @@
                 </ul>
             </div>
 
+            <div class="separador"></div>
+
             <div class="social-media">
-                <h3>Síguenos</h3>
-                <a href="https://facebook.com" target="_blank">Facebook</a>
-                <a href="https://instagram.com" target="_blank">Instagram</a>
-                <a href="https://twitter.com" target="_blank">Twitter</a>
+                <h3>REDES SOCIALES</h3>
+                <div class="under-foot"></div>
+                <div class="emoti">
+                    <i class="fa-brands fa-twitter"></i>
+                    <i class="fa-brands fa-instagram"></i>
+                    <i class="fa-brands fa-facebook"></i>
+                    <i class="fa-brands fa-youtube"></i>
+                    <i class="fa-brands fa-tiktok"></i>
+                </div>
             </div>
 
         </div>
 
-        <p>&copy; 2024 Viajes a través de la Tierra Media. Todos los derechos reservados.</p>
+        <p class="derechos">&copy; 2024 Viajes a través de la Tierra Media. Todos los derechos reservados. ©Copyright ELFSCAPE TRAVELS.</p>
 
     </footer>
 
