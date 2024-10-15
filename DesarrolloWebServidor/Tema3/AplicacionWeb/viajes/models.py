@@ -107,7 +107,7 @@ class Promocion(models.Model):
     #Relación Promoción con Alojamiento. One-to-one. Una promoción esta únicamente en un alojamiento 
     alojamiento = models.OneToOneField(Alojamiento, on_delete=models.CASCADE)
 
-    #Relación Promoción con Destino. Many-to-may. Una promoción puede estar disponible en varios destinos, y un destino puede tener varias promociones aplicadas.
+    #Relación Promoción con Destino. Many-to-many. Una promoción puede estar disponible en varios destinos, y un destino puede tener varias promociones aplicadas.
     destino = models.ManyToManyField(Destino)
 
 
