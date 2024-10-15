@@ -1,0 +1,61 @@
+/*DISEÑO HERO BANNER, IMAGEN DE FONDO Y TEXTO*/
+.hero-banner{
+    background-image: url(../imagenes/fondo.png);
+    background-size: cover; /* Hace que la imagen cubra todo el contenedor sin deformarse */
+    color: white;
+    height: 510px;
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    align-items: center; /*Alinea verticalmente al final*/
+}
+
+.align-end{
+    margin-bottom: 30px;
+}
+
+
+/*Diseño de los botones entre pagina. Sigue siendo Hero banner*/
+.banner-buttoms{
+    display: flex;
+    margin-top: 25px;
+    gap: 0.5rem;
+    align-items: center;
+    justify-content: center;
+}
+
+.banner-buttoms a{
+    text-decoration: none;
+    background-color: #35495a;
+    padding: 10px;
+    color: white;
+    font-size: 14px;
+}
+
+.banner-buttoms a:hover{
+    background-color: #263542;
+}
+
+
+/*COMIENZA El DISEÑO DEL CONTENIDO*/
+section{
+    padding: 30px;
+}
+
+h2{
+    text-align: center;
+}
+
+
+/*SECTION SERVICIOS*/
+.grid-servicio{
+    display: grid;
+    grid-template-columns: 350px 350px 350px;
+    gap: 2rem;
+    margin-top: 30px;
+    justify-content: center;
+}
+
+.service{
+    border: 1px solid gray;
+}

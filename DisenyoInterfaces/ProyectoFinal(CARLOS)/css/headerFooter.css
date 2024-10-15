@@ -77,7 +77,7 @@ nav ul li a{
     margin-left: 15px;
 }
 
-/*Font informacion*/
+/*Font recuadro informacion*/
 .fa-circle-info{
     margin-right: 15px;
 }
@@ -105,7 +105,7 @@ nav ul li a{
     margin-top: 0;
 }
 
-/*Font de icono informacion*/
+/*Font de icono i (informacion)*/
 .fa-circle-info{
     font-size: 20px;
 }
@@ -114,7 +114,7 @@ nav ul li a{
 .user{
     border: 3px #21663f solid;
     border-radius: 40px;
-    margin-right: 40px;
+    margin-right: 30px;
     margin-left: 20px;
     background-color: #21663f;
     color: white;
@@ -125,21 +125,39 @@ nav ul li a{
     font-size: 14px;
 }
 
+/*----------------------------------------------------------------------------------------------------------------------------------------------*/
 
 /*AQUÍ ESTÁ EL DISEÑO DEL FOOTER*/
 footer{
-    margin-top: 60px;
     justify-content: center;
-    background-color:   #35495a;
+    background-color: #35495a;
     color: #d2d7db;
-    padding: 20px;
+    padding-bottom: 20px;
     font-size: 14px;
+    margin-top: 50px;
 }
 
+/*Metodos de pago disponibles*/
+.metodo-pago{
+    background-color: #2E8B57;
+    justify-content: center;
+    text-align: center;
+    padding: 18px;
+    display: flex;
+    gap: 3rem;
+}
+
+.metodo-pago i{
+    font-size: 40px;
+}
+
+
+/*Contenido del footer*/
 .footer-content{
     display: flex;
     justify-content: center;
-    gap: 6rem;
+    gap: 5rem;
+    margin-top: 20px;
 }
 
 footer div h3{
@@ -147,25 +165,34 @@ footer div h3{
 }
 
 /*Linea separadora de los contenidos del footer*/
-.separador{
+/*.separador{
     width: 1px; 
     height: 230px; 
     background-color: white; 
     margin: 0 10px;
-}
+    border-right: 2px dotted white;
+    background-color: transparent;
+}*/
 
 /*Linea separadora del titulo con el contenido del footer*/
 .under-foot{
-    width: 30px;
+    width: 25px;
     height: 2px;
     background-color: white;
     margin: 15px 0 15px;
 }
 
-.derechos{
-    text-align: center;
-    margin-top: 30px;
+
+/*Diseño informacion*/
+.informacion ul{
+    list-style: none;
+    padding: 0;
 }
+
+.informacion ul li:hover{
+    text-decoration: underline;
+}
+
 
 /*Diseño de nuestros enlaces rápidos*/
 .quick-links ul{
@@ -182,9 +209,27 @@ footer div h3{
     text-decoration: underline;
 }
 
+
 /*Diseño de nuestras redes sociales con emoticonos*/
 .social-media .emoti{
     display: flex;
-    gap: 1rem;
+    gap: 1.5rem;
     justify-content: center;
+}
+
+.social-media .emoti i{
+    font-size: 22px;
+    color: #d2d7db;
+}
+
+.social-media .emoti i:hover{
+    color: white;
+}
+
+
+/*Esta es la ultima parte del footer*/
+.derechos{
+    text-align: center;
+    margin-top: 45px;
+    margin-bottom: 10px;
 }
