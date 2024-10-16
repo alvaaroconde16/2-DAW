@@ -53,8 +53,8 @@ nav ul li a{
     color: white;
 }
 
-.nav-container li:hover{
-    transform: scale(1.1);
+.nav-container li a:hover{
+    color: #96a89e;
 }
 
 /*Línea separadora del logo y el nav*/

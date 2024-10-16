@@ -3,7 +3,7 @@
     background-image: url(../imagenes/fondo.png);
     background-size: cover; /* Hace que la imagen cubra todo el contenedor sin deformarse */
     color: white;
-    height: 510px;
+    height: 515px;
     display: flex;
     text-align: center;
     justify-content: center;
@@ -35,8 +35,8 @@
 .banner-buttoms a:hover{
     background-color: #263542;
     transform: scale(1.1);
-    transition: 0.1s;
 }
+
 
 
 /*COMIENZA El DISEÑO DEL CONTENIDO*/
@@ -50,37 +50,43 @@ h2{
 }
 
 
+
 /*SECTION SERVICIOS*/
 #servicios{
-    margin-top: 20px;
+    margin-top: 30px;
 }
 
 /*Diseño con GRID de nuestros servicios, alinenadolos en columna con 350px de ancho*/
 .grid-servicio{
     display: grid;
-    grid-template-columns: 350px 350px 350px;
-    gap: 3rem;
-    margin-top: 40px;
+    grid-template-columns: 330px 330px 330px;
+    gap: 2rem;
+    margin-top: 50px;
     justify-content: center;
 }
 
 .service{
     border: 1px solid gray;
+    border-radius: 10px;
 }
 
 .service h3{
-    padding: 0 30px 10px 30px;
+    padding: 0 25px 10px 25px;
+    font-size: 18px;
 }
 
 .service p{
-    padding: 0 30px 20px 30px;
+    padding: 0 25px 25px 25px;
+    font-size: 16px;
+    text-align: justify;
 }
 
+/*Diseño del div que contiene nuestra imagen de lo que ofrecemos*/
 .image{
     display: flex;
     justify-content: center;
     height: 220px;
-    margin-bottom: 20px;
+    margin-bottom: 17px;
     width: 100%;
 }
 
@@ -88,4 +94,26 @@ h2{
     width: 100%;  
     height: 100%;
     object-fit: cover;
+    border-radius: 8px 8px 0 0;
+}
+
+
+
+/*SECTION DESTINOS POPULARES*/
+#destinos{
+    margin-top: 20px;
+}
+
+
+/*Diseño con GRID de nuestros destinos populares, alinenadolos haci abajo*/
+.galeria-destinos{
+    display: grid;
+    grid-template-rows: 3fr;  /*Colocamos un solo elemento por columna*/
+    gap: 2rem;
+    margin-top: 70px;
+    justify-content: center;
+}
+
+.destino{
+    border: 1px solid gray;
 }
