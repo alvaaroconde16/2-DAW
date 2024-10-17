@@ -20,6 +20,6 @@ let sumParam = (...restParams) => {
 
     return suma
 
-    }
+}
 
 alert(sumParam(2,3,5))
