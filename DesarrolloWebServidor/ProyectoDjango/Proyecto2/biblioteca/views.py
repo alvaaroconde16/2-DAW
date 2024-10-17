@@ -18,3 +18,8 @@ def autor_list(request):
 def miembro_list(request):
     miembros = Miembro.objects.all()
     return render(request, 'biblioteca/miembro_list.html', {"miembro_mostrar":miembros})
+
+def listar_libros(request):
+    libros = Libro.objects.select_related("biblioteca").prefetch_related("autores")
+    libros = libros.all()
+    return render(request, 'libro/lista.html', {"libros_mostrar": libros})
