@@ -6,7 +6,7 @@ from django.core.validators import MaxValueValidator, MinValueValidator
 # Create your models here.
 class Usuario(models.Model):
     nombre = models.CharField(max_length=200, verbose_name="Nombre Completo")
-    correo = models.EmailField()
+    correo = models.EmailField()  #Para introducir el email
     telefono = models.CharField(max_length=20)
     edad = models.IntegerField()
     contraseña = models.CharField(max_length=200)
@@ -18,7 +18,7 @@ class Destino(models.Model):
     nombre = models.CharField(max_length=200)
     pais = models.CharField(max_length=50)
     descripcion = models.TextField(null=True, blank=True)
-    popularidad = models.FloatField(validators=[MinValueValidator(0), MaxValueValidator(5)])
+    popularidad = models.FloatField(validators=[MinValueValidator(0), MaxValueValidator(5)])  #Con validator obligamos a introducir una calificacion entre 0 y 5.
 
 
 
@@ -27,7 +27,7 @@ class Reserva(models.Model):
     fecha_salida = models.DateTimeField()
     fecha_llegada = models.DateTimeField()
     numero_personas = models.PositiveIntegerField()
-    precio = models.DecimalField(max_digits=10, decimal_places=2)
+    precio = models.DecimalField(max_digits=10, decimal_places=2)  #Pedimos un numero decimal que puede tener como máximo 10 dígitos y 2 plazas decimales.
 
     #Relación Reserva con Usuario. Many-to-one. Un usuario puede realizar varias reservas, pero cada reserva está asociada a un único usuario.
     usuario = models.OneToOneField(Usuario, on_delete=models.CASCADE)
@@ -38,7 +38,7 @@ class Comentario(models.Model):
     titulo = models.CharField(max_length=100)
     contenido = models.TextField()
     fecha_comentario = models.DateTimeField(auto_now_add=True)
-    calificacion = models.FloatField(validators=[MinValueValidator(0), MaxValueValidator(5)])
+    calificacion = models.FloatField(validators=[MinValueValidator(0), MaxValueValidator(5)])  
 
     #Relación Comentario con Usuario. Many-to-one. Un usuario puede hacer muchos comentarios, pero cada comentario está asociado a un solo usuario.
     usuario = models.ForeignKey(Usuario, on_delete=models.CASCADE)
@@ -90,7 +90,7 @@ class Pasaporte(models.Model):
 
 class Transporte(models.Model):
     tipo = models.CharField(max_length=50)
-    capacidad = models.PositiveIntegerField()
+    capacidad = models.PositiveIntegerField()  #Pedimos un numero entero que obligatoriamente tiene que ser positivo.
     disponible = models.BooleanField(default=True)
     costo_por_persona = models.DecimalField(max_digits=8, decimal_places=2)
 
