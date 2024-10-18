@@ -8,7 +8,8 @@ function sumaArgPares(){
         }
     }
 
-    return suma
+    //return suma
+    return arguments.filter(arguments%2).map()
 }
 
 var sumaArgPares = (...restParam) => {
