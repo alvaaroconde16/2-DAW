@@ -31,7 +31,7 @@ class Libro(models.Model):
     descripcion = models.TextField()
     fecha_publicacion = models.DateField()
     biblioteca = models.ForeignKey(Biblioteca, on_delete = models.CASCADE)
-    autores =   models.ManyToManyField(Autor)
+    autores = models.ManyToManyField(Autor)
 
 
     

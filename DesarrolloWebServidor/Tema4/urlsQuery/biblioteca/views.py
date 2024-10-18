@@ -1,5 +1,6 @@
 from django.shortcuts import render
 from .models import Libro
+from .models import Cliente
 from django.db.models import Q
 
 # Create your views here.
@@ -45,4 +46,17 @@ def dame_libros_biblioteca(request, id_biblioteca, texto_libro):
     libros = Libro.objects.select_related("biblioteca").prefetch_related("autores")
     libros = libros.filter(biblioteca=id_biblioteca).filter(descripcion__contains=texto_libro).order_by("-nombre")  #-nombre es para ordenarlo en modo descendente
     
+    return render(request, 'libro/lista.html', {"libros_mostrar":libros})
+
+
+#Vamos a mostrar el ultimo cliente que se llevo un libro en concreto
+def dame_ultimo_cliente_libro(reques, libro):
+    cliente = Cliente.objects.filter(prestamo__libro=libro).order_by("-prestamo__fecha_prestamo")[:1].get()
+    return render(reques, 'cliente/cliente.html', {"cliente":cliente})
+
+
+#Vamos a ver los libros que no han sido prestados (Noe stá el nombre en prestamos)
+def libros_no_prestados(request):
+    libros = Libro.objects.select_related("biblioteca").prefetch_related("autores")
+    libros = libros.filter(prestamo=None)
     return render(request, 'libro/lista.html', {"libros_mostrar":libros})
