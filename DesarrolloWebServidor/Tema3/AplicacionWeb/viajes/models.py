@@ -54,7 +54,7 @@ class Alojamiento(models.Model):
     #Relación Alojamiento con Destino. Many-to-one. Muchos alojamientos pueden estar ubicados en un mismo destino, pero cada alojamiento pertenece a un único destino.
     destino = models.ForeignKey(Destino, on_delete=models.CASCADE)
     
-    #Relación Alojamiento con Destino. Many-to-one. Un alojamiento puede estar en varias reservas, pero una reserva solo puede tener un alojamiento.
+    #Relación Alojamiento con Reserva. Many-to-one. Un alojamiento puede estar en varias reservas, pero una reserva solo puede tener un alojamiento.
     reserva = models.ForeignKey(Reserva, on_delete=models.CASCADE)
 
 
@@ -130,3 +130,4 @@ class Factura (models.Model):
 class ExtraReserva(models.Model):
     reserva = models.ForeignKey(Reserva, on_delete=models.CASCADE)
     extra = models.ForeignKey(Extra, on_delete=models.CASCADE)
+    cantidad = models.PositiveIntegerField(default=1)
