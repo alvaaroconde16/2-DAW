@@ -124,4 +124,4 @@ Este es un modelo intermedio entre Extra y Reserva, que permite la relación man
 
 
 MODELO ENTIDAD RELACIÓN
-![Imagen Modelo Entidad Relación](/Tema3/AplicacionWeb/assests//Entidad-relacion_DWS.drawio.png)
+![Imagen Modelo Entidad Relación](assests/Entidad-relacion_DWS.drawio.png)
