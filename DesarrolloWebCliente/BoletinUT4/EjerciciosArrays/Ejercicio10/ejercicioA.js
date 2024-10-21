@@ -8,8 +8,6 @@
     }
 */
 
-var tripleAndFilter = (arr) => {
-    return arr
+var tripleAndFilter = (arr) => arr
     .map((value) => value * 3)
-    .filter((value) => value % 5 === 0)
-}
+    .filter((value) => value % 5 === 0);

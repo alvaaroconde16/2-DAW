@@ -8,8 +8,6 @@
     }
 */
 
-var doubleOddNumbers = (arr) => {
-    return arr
+var doubleOddNumbers = (arr) => arr
     .filter((val) => val % 2 !== 0)
-    .map((val) => val *2)
-}
+    .map((val) => val *2);

@@ -7,10 +7,12 @@ var datos = new Array();
 var i = 0;
 
 while (cadena != "") {
-    array = cadena.split(", ")
-    datos[i] = new Array(array)
+    let array = cadena.split(", ")
+    datos[i] = array
 
     i += 1;
     cadena = prompt("Introduce nombre, apellidos, DNI y fecha de nacimiento (separado por comas): ")
 
 }
+
+console.log(datos);
