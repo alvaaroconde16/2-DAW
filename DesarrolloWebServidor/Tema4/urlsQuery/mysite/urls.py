@@ -21,3 +21,5 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('biblioteca.urls')),
 ]
+
+handler404 = "biblioteca.views.mi_error_404"

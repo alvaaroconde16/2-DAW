@@ -1,7 +1,10 @@
 from django.shortcuts import render
 from .models import Libro
 from .models import Cliente
-from django.db.models import Q
+from .models import Biblioteca
+from django.db.models import Q, Prefetch, F
+from django.db.models import Avg, Max, Min
+from django.views.defaults import page_not_found
 
 # Create your views here.
 def index(request):
@@ -60,3 +63,33 @@ def libros_no_prestados(request):
     libros = Libro.objects.select_related("biblioteca").prefetch_related("autores")
     libros = libros.filter(prestamo=None)
     return render(request, 'libro/lista.html', {"libros_mostrar":libros})
+
+
+#Vamos a mostrar una biblioteca con todos sus libros
+def dame_biblioteca(request, id_biblioteca):
+    #biblioteca = Biblioteca.objects.get(id=id_biblioteca)
+    biblioteca = Biblioteca.objects.prefetch_related(Prefetch("libros_biblioteca")).get(id=id_biblioteca)
+    return render(request, 'biblioteca/biblioteca.html', {"biblioteca":biblioteca})
+
+
+#Una url que muestro los libros que contengan en la descripcion del titulo del libro
+def dame_libros_titulo_en_descripcion(request):
+    libros = Libro.objects.select_related("biblioteca").prefetch_related("autores")
+    libros = libros.filter(descripcion__contains=F("nombre"))
+    
+    return render(request, 'libro/lista.html', {"libros_mostrar":libros})
+
+
+#Una url que muestra la media, máximo y mínimo de puntos de todos los clientes de la Biblioteca
+def dame_agrupaciones_puntos_cliente(request):
+    resultado = Cliente.objects.aggregate(Avg("puntos"), Max("puntos"), Min("puntos"))
+    media = resultado["puntos__avg"]
+    maximo = resultado["puntos__max"]
+    minimo = resultado["puntos__min"]
+    
+    return render(request, 'cliente/agrupaciones.html', {"media":media, "maximo":maximo, "minimo":minimo})
+
+
+#Creamos la vista de nuestra página de error
+def mi_error_404(request, exception=None):
+    return render(request, 'errores/404.html', None, None, 404)
