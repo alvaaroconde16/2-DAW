@@ -67,7 +67,7 @@ class AsignacionTarea(models.Model):
     #Esta es la clave foránea de la tabla Usuario.
     usuario = models.ForeignKey(Usuario, on_delete=models.CASCADE)
 
-    #Esta es la clave foránea de la tabla Usuario.
+    #Esta es la clave foránea de la tabla Tarea.
     tarea = models.ForeignKey(Tarea, on_delete=models.CASCADE)
 
 #----------------------------------------------------------------------------------------------------------------------------------------------------------

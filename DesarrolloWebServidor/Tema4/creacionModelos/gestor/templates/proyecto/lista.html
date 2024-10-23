@@ -2,17 +2,17 @@
 <html>
     <head></head>
     <body>
-    <h1>Biblioteca</h1>
+    <h1>PROYECTOS</h1>
 
     {% for proyecto in proyecto_mostrar %}
         <div>
             <h2>Nombre: {{ proyecto.nombre }} </h2>
-            <h2>Descripcion: {{ proyecto.descripcion }}</h2>
-            <h2>Duración estimada: {{ proyecto.duracion_estimada }}</h2>
-            <h2>Fecha de inicio: {{ proyecto.fecha_inicio }}</h2>
-            <h2>Fecha de fin: {{ proyecto.fecha_fin }}</h2>
+            <p>Descripcion: {{ proyecto.descripcion }}</p>
+            <p>Duración estimada: {{ proyecto.duracion_estimada }}</p>
+            <p>Fecha de inicio: {{ proyecto.fecha_inicio }}</p>
+            <p>Fecha de fin: {{ proyecto.fecha_fin }}</p>
 
-            <h2>Administrador: {{ proyecto.administrador.nombre }}</h2>
+            <h3>Administrador: {{ proyecto.administrador.nombre }}</h3>
             <h2>Colaboradores</h2>
             <ul>
                 {% for usuario in proyecto.colaboradores.all %}
