@@ -15,7 +15,7 @@ while (cadena != "") {
         fechaNacimiento: new Date(array[3])
     }
 
-    datos[i] = array
+    datos[i] = persona
 
     i += 1;
     cadena = prompt("Introduce nombre, apellidos, DNI y fecha de nacimiento (separado por comas): ")
@@ -34,16 +34,25 @@ function mostrarDatos(){
 //Funcion flecha para conseguir los datos por apellidos o por DNI
 function buscarPersona(busqueda){
     for (let index = 0; index < datos.length; index++) {
-        datos[index]
-        .filter((persona) => persona.apellidos == busqueda) || ((persona) => persona.dni == busqueda) || ((persona) => calcularEdad(persona.fechaNacimiento) == busqueda)
+        persona = datos[index];
+        if((persona.apellidos == busqueda) || (persona.dni == busqueda) || (calcularEdad(persona.fechaNacimiento) == busqueda)){
+            console.log("Persona encontrada: " + persona)
+        }
     }
 }
 
 
 //Función para convertir la edad en años
-function calcularEdad(){
+function calcularEdad(fechaNacimiento){
     const hoy = new Date();
-    let edad = hoy.getFullYear() - persona.fechaNacimiento.getFullYear();
+    let edad = hoy.getFullYear() - fechaNacimiento.getFullYear();
+    const mes = hoy.getMonth() - fechaNacimiento.getMonth();
+    const dia = hoy.getDate() - fechaNacimiento.getDate();
+
+    if (mes < 0 || (mes == 0 && dia < 0)) {
+        edad--;
+    }
+
     return edad;
 }
 
