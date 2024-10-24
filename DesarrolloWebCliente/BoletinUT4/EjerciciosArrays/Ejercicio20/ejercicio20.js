@@ -1,26 +1,22 @@
 /*Implementar funciones para el ejercicio anterior para imprimir los datos y para buscar una persona por apellidos, por DNI o por edad. 
 ¿cómo podríamos optimizar la búsqueda?*/
 
-var cadena = prompt("Introduce nombre, apellidos, DNI y fecha de nacimiento (separado por comas): ")
+/*var cadena = prompt("Introduce nombre, apellidos, DNI y fecha de nacimiento (separado por comas): ")
 
 var datos = new Array();
 var i = 0;
 
 while (cadena != "") {
     let array = cadena.split(", ")
-    var persona = {
-        nombre: array[0],
-        apellidos: array[1],
-        dni: array[2],
-        fechaNacimiento: new Date(array[3])
-    }
 
-    datos[i] = persona
+    datos[i] = array
 
     i += 1;
     cadena = prompt("Introduce nombre, apellidos, DNI y fecha de nacimiento (separado por comas): ")
 
-}
+}*/
+
+datos = ["Alvaro", "Conde", "123A"], ["Luis", "Garcia", "123B"]
 
 
 //Función para mostrar los datos que contiene nuestro array de datos
@@ -32,13 +28,10 @@ function mostrarDatos(){
 
 
 //Funcion flecha para conseguir los datos por apellidos o por DNI
-function buscarPersona(busqueda){
-    for (let index = 0; index < datos.length; index++) {
-        persona = datos[index];
-        if((persona.apellidos == busqueda) || (persona.dni == busqueda) || (calcularEdad(persona.fechaNacimiento) == busqueda)){
-            console.log("Persona encontrada: " + persona)
-        }
-    }
+function buscarApellido(apellido){
+    let resultado = datos.filter((array) => array[1] == apellido)
+
+    return resultado;
 }
 
 
@@ -58,4 +51,19 @@ function calcularEdad(fechaNacimiento){
 
 
 mostrarDatos();
-buscarPersona("Alvaro");
+
+var opcion = prompt("Introduce opción para  buscar: " + 
+                      "1) Apellidos" + 
+                      "2) DNI" + 
+                      "3) Fecha Nacimiento")
+
+switch (opcion) {
+    case "1":
+        let apellido = prompt("Introduce el apellido por el que desea buscar: ")
+        console.log("Resultado de la búsqueda por apellido: ")
+        console.log(buscarApellido(apellido))
+        break;
+
+    default:
+        break;
+}
