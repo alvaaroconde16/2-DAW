@@ -8,4 +8,6 @@
         <li><a href="{% url 'listar_proyectos' %}">Proyectos</a></li>
         <li><a href="{% url 'listar_tareas' 2 %}">Tareas del proyecto 2</a></li>
         <li><a href="{% url 'listar_usuarios_tarea' 10 %}">Usuarios asignados a la tarea número 10</a></li>
+        <li><a href="{% url 'tareas_con_observaciones' 1 'Show' %}">Tareas del proyecto 1 con "Show" en las observaciones</a></li>
+        <li><a href="{% url 'tareas_completadas' '2023' '2024' %}">Tareas creadas entre 2023 y 2024 que estén completadas</a></li>
     </ul>
