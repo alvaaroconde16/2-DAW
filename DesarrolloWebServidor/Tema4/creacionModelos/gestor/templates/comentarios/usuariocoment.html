@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+    <head></head>
+    <body>
+    <h1>Último usuario en comentar</h1>
+
+
+        {% for comentario in comentario_mostrar %}
+            <div>
+                <h2>Usuario: {{ comentario.autor.nombre }} </h2>
+                <p>Correo: {{ comentario.autor.correo }} </p>
+                <p>Fecha de registro: {{ comentario.autor.fecha_registro }} </p>
+            </div>
+        {% endfor %}
+
+    </body>
+</html>

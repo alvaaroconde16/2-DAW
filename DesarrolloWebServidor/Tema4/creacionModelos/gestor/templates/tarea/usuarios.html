@@ -8,8 +8,8 @@
         {% for asignacion in asignacion_mostrar %}
             <div>
                 <h2>Usuario: {{ asignacion.usuario.nombre }} </h2>
-                <p>Observaciones: {{ asignacion.observaciones }} </p>
-                <p>Fecha de asignación: {{ asignacion.fecha_asignacion }} </p>
+                <p>Correo: {{ asignacion.usuario.correo }} </p>
+                <p>Fecha de registro: {{ asignacion.usuario.fecha_registro }} </p>
             </div>
         {% endfor %}
 

@@ -42,7 +42,7 @@ def listar_usuarios_tarea(request, id_tarea):
 def tareas_con_observaciones(request, id_proyecto ,observacion):
     asignacionesTareas = AsignacionTarea.objects.select_related("usuario", "tarea")
     #tarea = Tarea.objects.select_related("proyecto").select_related("creador").prefetch_related("usuarios")
-    asignacionesTareas = asignacionesTareas.filter(tarea__proyecto_id=id_proyecto).filter(observaciones__contains=observacion)
+    asignacionesTareas = asignacionesTareas.filter(tarea__proyecto=id_proyecto).filter(observaciones__contains=observacion)
 
     return render(request, 'tarea/observaciones.html', {'asignaciones':asignacionesTareas})
 
@@ -59,6 +59,16 @@ def tareas_completadas(request, anyo_inicio, anyo_fin):
 
 #Vamos a mostrar el úlitmo usuario que comentó en una tarea de un proyecto especifico
 def ultimo_usuario_comentar(request, id_proyecto):
-    #comentario = Tarea.objects.select_related("administrador").prefetch_related("colaboradores")
-    comentario = Tarea.objects.select_related("proyecto", "creador").prefetch_related("usuarios")
-    comentario = comentario.filter()
+    comentario = Comentario.objects.select_related("autor", "tarea")
+    comentario = comentario.filter(tarea__proyecto=id_proyecto).order_by("-fecha_comentario")[:1].all()
+    
+    return render(request, 'comentarios/usuariocoment.html', {'comentario_mostrar':comentario})
+
+
+
+#Mostramos los comentario de una tarea con la palabra que le digamos y de un año especifico
+def comentarios_tareas(request, id_tarea, palabra, anyo):
+    comentario = Comentario.objects.select_related("autor", "tarea")
+    comentario = comentario.filter(contenido__contains=palabra).filter(fecha_comentario__year=anyo).filter(tarea=id_tarea)
+    
+    return render(request, 'comentarios/comentTarea.html', {'comentTarea_mostrar':comentario})
