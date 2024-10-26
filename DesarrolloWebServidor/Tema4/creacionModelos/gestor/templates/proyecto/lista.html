@@ -28,6 +28,10 @@
                 <a href="{% url 'ultimo_usuario_comentar' proyecto.id %}">Pulsa para ver el último usuario en comentar</a>
             </h3>
 
+            <h3>Etiquetas asociadas: 
+                <a href="{% url 'etiquetas_tareas' proyecto.id %}">Pulsa para ver las etiquetas del proyecto</a>
+            </h3>
+
     {% endfor %}
 
     </body>

@@ -11,5 +11,7 @@
         <li><a href="{% url 'tareas_con_observaciones' 1 'Show' %}">Tareas del proyecto 1 con "Show" en las observaciones</a></li>
         <li><a href="{% url 'tareas_completadas' '2023' '2024' %}">Tareas creadas entre 2023 y 2024 que estén completadas</a></li>
         <li><a href="{% url 'ultimo_usuario_comentar' 1 %}">Último usuario en comentar en el proyecto 1</a></li>
-        <li><a href="{% url 'comentarios_tareas' 1 'Important' '2024' %}">Comentarios con la palabra 'Important' del año 2024</a></li>
+        <li><a href="{% url 'comentarios_tareas' 18 'Apply' '2024' %}">Comentarios de la tarea 18 con la palabra 'Apply' del año 2024</a></li>
+        <li><a href="{% url 'etiquetas_tareas' 1 %}">Etiquetas del proyecto 1</a></li>
+        <li><a href="{% url 'usuarios_no_asignados' %}">Usuarios no asignados a ninguna tarea</a></li>
     </ul>

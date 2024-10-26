@@ -55,7 +55,7 @@ class Tarea(models.Model):
 class Etiqueta(models.Model):
     nombre = models.CharField(max_length=200, unique=True)
     
-    #Relacion Tarea con Etiqueta. Una tarea puede tener varias etiquetas. Y una etiqueta puede estar asignada a varias tareas.
+    #Relacion Tarea con Tarea. Una tarea puede tener varias etiquetas. Y una etiqueta puede estar asignada a varias tareas.
     tareas = models.ManyToManyField(Tarea)
 
 #----------------------------------------------------------------------------------------------------------------------------------------------------------

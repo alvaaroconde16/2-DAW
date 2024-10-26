@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+    <head></head>
+    <body>
+    <h1>Comentarios</h1>
+
+
+        {% for usuario in sinTarea_mostrar %}
+            <div>
+                <h2>Usuario: {{ usuario.usuario.nombre }} </h2>
+                <p>Correo: {{ usuario.correo }} </p>
+                <p>Fecha de registro: {{ usuario.fecha_registro }} </p>
+                <p>Id de usuario: {{ usuario.id }} </p>
+            </div>
+        {% endfor %}
+
+    </body>
+</html>

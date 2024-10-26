@@ -5,7 +5,6 @@ from .models import Proyecto
 from .models import Etiqueta
 from .models import AsignacionTarea
 from .models import Comentario
-from django.db.models import Q
 
 # Create your views here.
 def index(request):
@@ -34,7 +33,7 @@ def listar_usuarios_tarea(request, id_tarea):
     asignacion = AsignacionTarea.objects.select_related("usuario", "tarea")
     asignacion = asignacion.filter(tarea_id=id_tarea).order_by('fecha_asignacion')
     
-    return render(request, 'tarea/usuarios.html', {'asignacion_mostrar':asignacion})
+    return render(request, 'usuarios/usuarios.html', {'asignacion_mostrar':asignacion})
 
 
 
@@ -69,6 +68,41 @@ def ultimo_usuario_comentar(request, id_proyecto):
 #Mostramos los comentario de una tarea con la palabra que le digamos y de un año especifico
 def comentarios_tareas(request, id_tarea, palabra, anyo):
     comentario = Comentario.objects.select_related("autor", "tarea")
-    comentario = comentario.filter(contenido__contains=palabra).filter(fecha_comentario__year=anyo).filter(tarea=id_tarea)
+    comentario = comentario.filter(tarea=id_tarea).filter(contenido__contains=palabra).filter(fecha_comentario__year=anyo)
     
     return render(request, 'comentarios/comentTarea.html', {'comentTarea_mostrar':comentario})
+
+
+
+#Vamos a mostrar las etiquetas que se usan en todas las tareas de un proyecto
+def etiquetas_tareas(request, id_proyecto):
+    etiquetas = Etiqueta.objects.prefetch_related("tareas")
+    etiquetas = etiquetas.filter(tareas__proyecto_id=id_proyecto)
+
+    return render(request, 'etiqueta/etiquetasTarea.html', {'etiqueta_mostrar':etiquetas})
+
+
+
+#Mostramos todos los usuarios que no están asignados a ninguna tarea
+def usuarios_no_asignados(request):
+    usuariosAsignados = AsignacionTarea.objects.select_related("usuario", "tarea")
+    usuariosAsignados = usuariosAsignados.values_list('usuario', flat=True) #La consulta devuelve una lista plana de valores en lugar de una lista de tuplas.
+
+    usuariosNoAsignados = Usuario.objects.exclude(id__in=usuariosAsignados)
+
+    return render(request, 'usuarios/usuarioSinTarea.html', {'sinTarea_mostrar':usuariosNoAsignados})
+
+
+
+#Ahora vamos a crear las 4 páginas de error
+def error_404_view(request, exception=None):
+    return render(request, 'errores/404.html', None, None, 404)
+
+def error_403_view(request, exception=None):
+    return render(request, 'errores/403.html', None, None, 403)
+
+def error_400_view(request, exception=None):
+    return render(request, 'errores/400.html', None, None, 400)
+
+def error_500_view(request, exception=None):
+    return render(request, 'errores/500.html', None, None,500)

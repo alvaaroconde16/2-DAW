@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+    <head></head>
+    <body>
+    <h1>Etiquetas</h1>
+
+
+        {% for etiquetas in etiqueta_mostrar %}
+            <div>
+                <h2>Nombre: {{ etiquetas.nombre }} </h2>
+                <p>Numero de etiqueta: {{ etiquetas.id }} </p>
+            </div>
+        {% endfor %}
+
+    </body>
+</html>

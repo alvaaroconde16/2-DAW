@@ -13,6 +13,7 @@
                 <p>Fecha de creación: {{ asignacionesTareas.tarea.fecha_creacion }} </p>
                 <p>Hora de vencimiento: {{ asignacionesTareas.tarea.hora_vencimiento }} </p>
                 <p>Descripcion: {{ asignacionesTareas.tarea.descripcion }}</p>
+                <p>Observación: {{ asignacionesTareas.observaciones }}</p>
 
             <h3>Usuarios asignados: 
                 <a href="{% url 'listar_usuarios_tarea' asignacionesTareas.tarea.id%}">Pulsa para ver los usuarios asignados</a>
