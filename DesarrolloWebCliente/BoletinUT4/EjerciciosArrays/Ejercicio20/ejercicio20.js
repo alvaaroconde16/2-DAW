@@ -33,6 +33,8 @@ function buscarApellido(apellido){
 
     return resultado;
 }
+//const buscarApellido = (apellido) => datos.filter((array) => array[1] == apellido)
+
 
 
 function buscarDni(dni){
@@ -40,6 +42,8 @@ function buscarDni(dni){
 
     return resultado;
 }
+//const buscarDni = (dni) => datos.find((array) => array[2] == dni)
+
 
 
 function buscarEdad(edad){
@@ -47,6 +51,8 @@ function buscarEdad(edad){
 
     return resultado;
 }
+//const buscarEdad = (edad) => datos.filter((array) => calcularEdad(array[3]) == edad)
+
 
 
 //Función para convertir la edad en años
