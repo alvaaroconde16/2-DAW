@@ -149,6 +149,7 @@ footer{
     text-align: center;
     padding: 18px;
     display: flex;
+    flex-wrap: wrap;
     gap: 3rem;
 }
 
@@ -160,6 +161,7 @@ footer{
 /*Contenido del footer*/
 .footer-content{
     display: flex;
+    flex-wrap: wrap;
     justify-content: center;
     gap: 5rem;
     margin-top: 20px;
@@ -237,4 +239,51 @@ footer div h3{
     text-align: center;
     margin-top: 45px;
     margin-bottom: 10px;
+}
+
+
+/*Responsividad*/
+@media (max-width: 1024px) {
+    .number{
+        visibility: hidden;
+        height: 0;
+        width: 0;
+    }
+}
+
+@media (max-width: 786px) {
+    header{
+        display: flex;
+        justify-content: space-between;
+    }
+
+    .number{
+        display: none;
+    }
+}
+
+@media (max-width: 768px) {
+    header{
+        display: flex;
+        flex-direction: column;
+        padding-bottom: 20px;
+        justify-content: space-between;
+    }
+    
+    .logo img{
+        display: inline-block;
+    }
+
+    nav{
+        margin: 0;
+    }
+
+    .separator, .user{
+        display: none;
+    }
+
+}   
+
+@media (max-width: 480px) {
+    
 }
