@@ -1,0 +1,17 @@
+<html>
+    <head></head>
+    <body>
+    <h1>GESTOR DE TAREAS</h1>
+
+    <h2>Listado de enlaces</h2>
+    <ul>
+        <li><a href="{% url 'listar_proyectos' %}">Proyectos</a></li>
+        <li><a href="{% url 'listar_tareas' 2 %}">Tareas del proyecto 2</a></li>
+        <li><a href="{% url 'listar_usuarios_tarea' 10 %}">Usuarios asignados a la tarea número 10</a></li>
+        <li><a href="{% url 'tareas_con_observaciones' 1 'Show' %}">Tareas del proyecto 1 con "Show" en las observaciones</a></li>
+        <li><a href="{% url 'tareas_completadas' '2023' '2024' %}">Tareas creadas entre 2023 y 2024 que estén completadas</a></li>
+        <li><a href="{% url 'ultimo_usuario_comentar' 1 %}">Último usuario en comentar en el proyecto 1</a></li>
+        <li><a href="{% url 'comentarios_tareas' 18 'Apply' '2024' %}">Comentarios de la tarea 18 con la palabra 'Apply' del año 2024</a></li>
+        <li><a href="{% url 'etiquetas_tareas' 1 %}">Etiquetas del proyecto 1</a></li>
+        <li><a href="{% url 'usuarios_no_asignados' %}">Usuarios no asignados a ninguna tarea</a></li>
+    </ul>
