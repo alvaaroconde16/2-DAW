@@ -40,7 +40,6 @@ nav {
 
 nav ul {
     display: flex;
-    flex-wrap: wrap;
     justify-content: center;
     list-style: none;
     gap: 2rem;
@@ -246,15 +245,19 @@ footer div h3{
 /*Responsividad*/
 @media (max-width: 1024px) {
     .number{
-        visibility: hidden;
+        /*visibility: hidden;
         height: 0;
-        width: 0;
+        width: 0;*/
+        display: none;
+    }
+
+    .user {
+        margin-left: auto;
     }
 }
 
 @media (max-width: 786px) {
     header{
-        display: flex;
         justify-content: space-between;
     }
 
@@ -283,8 +286,8 @@ footer div h3{
         display: none;
     }
 
-}   
+    .nav ul{
+        flex-wrap: wrap;
+    }
 
-@media (max-width: 480px) {
-    
-}
+}   
