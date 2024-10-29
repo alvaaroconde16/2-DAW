@@ -17,6 +17,8 @@ body{
 }
 
 .align-end{
+    display: flex;
+    flex-direction: column;
     margin-bottom: 30px;
     background-color: rgba(139, 139, 139, 0.575);
     padding: 20px;
@@ -27,6 +29,7 @@ body{
 /*Diseño de los botones entre pagina. Sigue siendo Hero banner*/
 .banner-buttoms{
     display: flex;
+    flex-wrap: wrap;
     margin-top: 25px;
     gap: 0.7rem;
     align-items: center;
@@ -332,4 +335,9 @@ h2{
     .guia{
         width: 60%;
     }
+
+    .testimonio{
+        padding: 30px 40px 30px 40px;
+    }
+
 }
