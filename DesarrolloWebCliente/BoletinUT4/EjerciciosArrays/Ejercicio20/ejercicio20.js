@@ -28,30 +28,30 @@ function mostrarDatos(){
 
 
 //Funcion flecha para conseguir los datos por apellidos
-function buscarApellido(apellido){
+/*function buscarApellido(apellido){
     let resultado = datos.filter((array) => array[1] == apellido);
 
     return resultado;
-}
-//const buscarApellido = (apellido) => datos.filter((array) => array[1] == apellido)
+}*/
+const buscarApellido = (apellido) => datos.filter((array) => array[1] == apellido)
 
 
 
-function buscarDni(dni){
+/*function buscarDni(dni){
     let resultado = datos.find((array) => array[2] == dni);
 
     return resultado;
-}
-//const buscarDni = (dni) => datos.find((array) => array[2] == dni)
+}*/
+const buscarDni = (dni) => datos.find((array) => array[2] == dni)
 
 
 
-function buscarEdad(edad){
+/*function buscarEdad(edad){
     let resultado = datos.filter((array) => calcularEdad(array[3]) == edad);
 
     return resultado;
-}
-//const buscarEdad = (edad) => datos.filter((array) => calcularEdad(array[3]) == edad)
+}*/
+const buscarEdad = (edad) => datos.filter((array) => calcularEdad(array[3]) == edad)
 
 
 
