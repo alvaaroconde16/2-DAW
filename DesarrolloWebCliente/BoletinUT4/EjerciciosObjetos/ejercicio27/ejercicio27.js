@@ -1,11 +1,12 @@
 /*Implementar el ejercicio 20 y 21(sólo imprimir los datos), usando objetos. (P.e. clase Persona)*/
 
+
 const persona1 = new Persona("Álvaro", "Conde", "123A", "16/07/2004")
 const persona2 = new Persona("Luis", "Garcia", "123B", "10/12/1998")
 
 var datos = new Array();
 
-datos = [[persona1], [persona2]]
+datos = [persona1, persona2]
 
 
 
@@ -18,7 +19,7 @@ function mostrarDatos(){
 
 
 //Funcion flecha para conseguir los datos por apellidos
-const buscarApellido = (apellido) => datos.filter((Persona) => Persona.apellido == apellido)
+const buscarApellido = (apellido) => datos.find(persona => persona.apellidos == apellido)
 
 
 //Funcion flecha para conseguir los datos por DNI
@@ -36,4 +37,28 @@ function calcularEdad(edad){
     let fecha = hoy.getFullYear() - año; 
 
     return fecha;
+}
+
+
+var opcion = prompt("Introduce opción para buscar:\n1) Apellidos\n2) DNI\n3) Fecha de Nacimiento\n"); 
+
+
+switch (opcion) {
+    case "1":
+        let apellido = prompt("Introduce el apellido por el que desea buscar: ")
+        alert(buscarApellido(apellido).toString())
+        break;
+
+    case "2":
+        let dni = prompt("Introduce el dni por el que desea buscar: ")
+        alert(buscarDni(dni).toString())
+        break;
+
+    case "3":
+        let edad = prompt("Introduce la edad por la que desea buscar: ")
+        alert(buscarEdad(edad).toString())
+        break;
+
+    default:
+        break;
 }

@@ -7,4 +7,8 @@ class Persona {
         this.dni = dni;
         this.fecha_nacimiento = fecha_nacimiento;
     }
+
+    toString() {
+        return "Nombre: " + this.nombre + ",  Apellidos: " + this.apellidos + ",  DNI: " + this.dni + ",  Fecha de nacimiento: " + this.fecha_nacimiento
+    }
 }
