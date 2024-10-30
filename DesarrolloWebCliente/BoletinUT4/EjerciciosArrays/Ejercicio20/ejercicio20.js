@@ -1,10 +1,10 @@
 /*Implementar funciones para el ejercicio anterior para imprimir los datos y para buscar una persona por apellidos, por DNI o por edad. 
 ¿cómo podríamos optimizar la búsqueda?*/
 
-/*var cadena = prompt("Introduce nombre, apellidos, DNI y fecha de nacimiento (separado por comas): ")
+/*var cadena = prompt("Introduce nombre, apellidos, DNI y fecha de nacimiento (separado por comas): ")*/
 
 var datos = new Array();
-var i = 0;
+/*var i = 0;
 
 while (cadena != "") {
     let array = cadena.split(",")
@@ -27,7 +27,7 @@ function mostrarDatos(){
 }
 
 
-//Funcion flecha para conseguir los datos por apellidos o por DNI
+//Funcion flecha para conseguir los datos por apellidos
 function buscarApellido(apellido){
     let resultado = datos.filter((array) => array[1] == apellido);
 
