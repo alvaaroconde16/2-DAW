@@ -19,15 +19,15 @@ function mostrarDatos(){
 
 
 //Funcion flecha para conseguir los datos por apellidos
-const buscarApellido = (apellido) => datos.find(persona => persona.apellidos == apellido)
+const buscarApellido = (apellido) => datos.find((persona) => persona.apellidos == apellido)
 
 
 //Funcion flecha para conseguir los datos por DNI
-const buscarDni = (dni) => datos.filter((Persona) => Persona.dni == dni)
+const buscarDni = (dni) => datos.filter((persona) => persona.dni == dni)
 
 
 //Función flecha para conseguir los datos por su edad
-const buscarEdad = (edad) => datos.filter((Persona) => Persona.dni == buscarEdad(edad))
+const buscarEdad = (edad) => datos.filter((persona) => persona.dni == buscarEdad(edad))
 
 
 //Función para convertir la edad en años
