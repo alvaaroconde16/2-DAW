@@ -123,6 +123,7 @@ h2{
 /*SECTION DESTINOS POPULARES*/
 #destinos{
     margin-top: 25px;
+    align-items: center;
 }
 
 
@@ -284,11 +285,12 @@ h2{
     /*Cambiamos los servicios y bajamos una fila*/
     .grid-servicio{
         grid-template-columns: 1fr 1fr;
+        width: 75%;
     }
 
     /*Aqui cambiamos los destino de a 2.*/
     .galeria-destinos{
-        grid-template-columns: 1fr 1fr;
+        grid-template-columns: 45% 45%;
         gap: 2rem;
     }
 
@@ -309,14 +311,11 @@ h2{
 @media (max-width: 768px) {
    .grid-servicio{
     grid-template-columns: 1fr;
-    padding-right: 70px;
-    padding-left: 70px;
+    width: 50%;
    }
 
    .galeria-destinos{
-    grid-template-columns: 1fr;
-    margin-left: 20px;
-    margin-right: 20px;
+    grid-template-columns: 75%;
    }
 
    .guia{
@@ -332,6 +331,10 @@ h2{
 
 /*Este media para dispositivos menores de 480px*/
 @media (max-width: 480px) {
+    .grid-servicio{
+        grid-template-columns: 1fr;
+    }
+
     .guia{
         width: 60%;
     }
