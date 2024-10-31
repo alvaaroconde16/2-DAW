@@ -1,17 +1,15 @@
 <html>
     <head></head>
     <body>
-    <h1>GESTOR DE TAREAS</h1>
+    <h1>AGENCIA DE VIAJES</h1>
 
     <h2>Listado de enlaces</h2>
     <ul>
-        <li><a href="{% url 'listar_proyectos' %}">Proyectos</a></li>
-        <li><a href="{% url 'listar_tareas' 2 %}">Tareas del proyecto 2</a></li>
-        <li><a href="{% url 'listar_usuarios_tarea' 10 %}">Usuarios asignados a la tarea número 10</a></li>
-        <li><a href="{% url 'tareas_con_observaciones' 1 'Show' %}">Tareas del proyecto 1 con "Show" en las observaciones</a></li>
-        <li><a href="{% url 'tareas_completadas' '2023' '2024' %}">Tareas creadas entre 2023 y 2024 que estén completadas</a></li>
-        <li><a href="{% url 'ultimo_usuario_comentar' 1 %}">Último usuario en comentar en el proyecto 1</a></li>
-        <li><a href="{% url 'comentarios_tareas' 18 'Apply' '2024' %}">Comentarios de la tarea 18 con la palabra 'Apply' del año 2024</a></li>
-        <li><a href="{% url 'etiquetas_tareas' 1 %}">Etiquetas del proyecto 1</a></li>
-        <li><a href="{% url 'usuarios_no_asignados' %}">Usuarios no asignados a ninguna tarea</a></li>
+        <li><a href="{% url 'listar_usuarios' %}">Usuarios</a></li>
+        <li><a href="{% url 'listar_reservas' 42 %}">Todas las reservas del usuario 42</a></li>
+        <li><a href="{% url 'reservas_rango' '2000-01-01' '2024-12-31' %}">Reservas entre el 01/01/2000 y el 12/31/2024</a></li>
+        <li><a href="{% url 'reservas_sin_extras' %}">Reservas que no tienen extras asociados</a></li>
+        <li><a href="{% url 'listar_destinos' %}">Destinos</a></li>
+        <li><a href="{% url 'pasaporte_nacionalidad' 'Española' %}">Mostramos los usuarios con nacionalidad Española en el pasaporte</a></li>
+        <li><a href="{% url 'ultimo_usuario_comentar' %}">Último usuario en realizar un comentario</a></li>
     </ul>

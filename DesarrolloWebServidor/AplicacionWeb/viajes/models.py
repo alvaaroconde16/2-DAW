@@ -41,7 +41,7 @@ class Comentario(models.Model):
     calificacion = models.FloatField(validators=[MinValueValidator(0), MaxValueValidator(5)])  
 
     #Relación Comentario con Usuario. Many-to-one. Un usuario puede hacer muchos comentarios, pero cada comentario está asociado a un solo usuario.
-    usuario = models.ForeignKey(Usuario, on_delete=models.CASCADE)
+    usuario = models.ForeignKey(Usuario, on_delete=models.CASCADE, related_name="comentarios")
 
 
 
@@ -85,7 +85,7 @@ class Pasaporte(models.Model):
     nacionalidad = models.CharField(max_length=50)
 
     #Relación Pasaporte con Usuario. One-to-one. Un usuario tiene un unico pasaporte, y un pasaporte pertenece a un solo usuario.
-
+    usuario = models.OneToOneField(Usuario, on_delete=models.CASCADE)
 
 
 class Transporte(models.Model):
