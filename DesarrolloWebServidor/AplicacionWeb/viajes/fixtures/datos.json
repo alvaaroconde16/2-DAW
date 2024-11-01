@@ -1,5 +1,239 @@
 [
 {
+    "model": "admin.logentry",
+    "pk": 1,
+    "fields": {
+        "action_time": "2024-10-31T16:00:49.305Z",
+        "user": 1,
+        "content_type": 16,
+        "object_id": "15",
+        "object_repr": "Pasaporte object (15)",
+        "action_flag": 2,
+        "change_message": "[{\"changed\": {\"fields\": [\"Nacionalidad\"]}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 2,
+    "fields": {
+        "action_time": "2024-10-31T16:00:59.022Z",
+        "user": 1,
+        "content_type": 16,
+        "object_id": "14",
+        "object_repr": "Pasaporte object (14)",
+        "action_flag": 2,
+        "change_message": "[{\"changed\": {\"fields\": [\"Nacionalidad\"]}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 3,
+    "fields": {
+        "action_time": "2024-10-31T16:01:04.720Z",
+        "user": 1,
+        "content_type": 16,
+        "object_id": "13",
+        "object_repr": "Pasaporte object (13)",
+        "action_flag": 2,
+        "change_message": "[{\"changed\": {\"fields\": [\"Nacionalidad\"]}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 4,
+    "fields": {
+        "action_time": "2024-10-31T16:01:11.020Z",
+        "user": 1,
+        "content_type": 16,
+        "object_id": "12",
+        "object_repr": "Pasaporte object (12)",
+        "action_flag": 2,
+        "change_message": "[{\"changed\": {\"fields\": [\"Nacionalidad\"]}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 5,
+    "fields": {
+        "action_time": "2024-10-31T16:01:17.885Z",
+        "user": 1,
+        "content_type": 16,
+        "object_id": "11",
+        "object_repr": "Pasaporte object (11)",
+        "action_flag": 2,
+        "change_message": "[{\"changed\": {\"fields\": [\"Nacionalidad\"]}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 6,
+    "fields": {
+        "action_time": "2024-10-31T16:01:23.665Z",
+        "user": 1,
+        "content_type": 16,
+        "object_id": "10",
+        "object_repr": "Pasaporte object (10)",
+        "action_flag": 2,
+        "change_message": "[{\"changed\": {\"fields\": [\"Nacionalidad\"]}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 7,
+    "fields": {
+        "action_time": "2024-10-31T16:01:31.236Z",
+        "user": 1,
+        "content_type": 16,
+        "object_id": "9",
+        "object_repr": "Pasaporte object (9)",
+        "action_flag": 2,
+        "change_message": "[{\"changed\": {\"fields\": [\"Nacionalidad\"]}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 8,
+    "fields": {
+        "action_time": "2024-10-31T16:01:37.160Z",
+        "user": 1,
+        "content_type": 16,
+        "object_id": "8",
+        "object_repr": "Pasaporte object (8)",
+        "action_flag": 2,
+        "change_message": "[{\"changed\": {\"fields\": [\"Nacionalidad\"]}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 9,
+    "fields": {
+        "action_time": "2024-10-31T16:01:43.077Z",
+        "user": 1,
+        "content_type": 16,
+        "object_id": "7",
+        "object_repr": "Pasaporte object (7)",
+        "action_flag": 2,
+        "change_message": "[{\"changed\": {\"fields\": [\"Nacionalidad\"]}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 10,
+    "fields": {
+        "action_time": "2024-10-31T16:01:45.573Z",
+        "user": 1,
+        "content_type": 16,
+        "object_id": "7",
+        "object_repr": "Pasaporte object (7)",
+        "action_flag": 2,
+        "change_message": "[]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 11,
+    "fields": {
+        "action_time": "2024-10-31T16:01:51.604Z",
+        "user": 1,
+        "content_type": 16,
+        "object_id": "6",
+        "object_repr": "Pasaporte object (6)",
+        "action_flag": 2,
+        "change_message": "[{\"changed\": {\"fields\": [\"Nacionalidad\"]}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 12,
+    "fields": {
+        "action_time": "2024-10-31T16:01:57.404Z",
+        "user": 1,
+        "content_type": 16,
+        "object_id": "5",
+        "object_repr": "Pasaporte object (5)",
+        "action_flag": 2,
+        "change_message": "[{\"changed\": {\"fields\": [\"Nacionalidad\"]}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 13,
+    "fields": {
+        "action_time": "2024-10-31T16:02:00.829Z",
+        "user": 1,
+        "content_type": 16,
+        "object_id": "5",
+        "object_repr": "Pasaporte object (5)",
+        "action_flag": 2,
+        "change_message": "[]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 14,
+    "fields": {
+        "action_time": "2024-10-31T16:02:05.972Z",
+        "user": 1,
+        "content_type": 16,
+        "object_id": "4",
+        "object_repr": "Pasaporte object (4)",
+        "action_flag": 2,
+        "change_message": "[{\"changed\": {\"fields\": [\"Nacionalidad\"]}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 15,
+    "fields": {
+        "action_time": "2024-10-31T16:02:08.877Z",
+        "user": 1,
+        "content_type": 16,
+        "object_id": "4",
+        "object_repr": "Pasaporte object (4)",
+        "action_flag": 2,
+        "change_message": "[]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 16,
+    "fields": {
+        "action_time": "2024-10-31T16:02:14.716Z",
+        "user": 1,
+        "content_type": 16,
+        "object_id": "3",
+        "object_repr": "Pasaporte object (3)",
+        "action_flag": 2,
+        "change_message": "[{\"changed\": {\"fields\": [\"Nacionalidad\"]}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 17,
+    "fields": {
+        "action_time": "2024-10-31T16:02:20.988Z",
+        "user": 1,
+        "content_type": 16,
+        "object_id": "2",
+        "object_repr": "Pasaporte object (2)",
+        "action_flag": 2,
+        "change_message": "[{\"changed\": {\"fields\": [\"Nacionalidad\"]}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 18,
+    "fields": {
+        "action_time": "2024-10-31T16:02:24.376Z",
+        "user": 1,
+        "content_type": 16,
+        "object_id": "1",
+        "object_repr": "Pasaporte object (1)",
+        "action_flag": 2,
+        "change_message": "[{\"changed\": {\"fields\": [\"Nacionalidad\"]}}]"
+    }
+},
+{
     "model": "auth.permission",
     "pk": 1,
     "fields": {
@@ -612,6 +846,24 @@
     }
 },
 {
+    "model": "auth.user",
+    "pk": 1,
+    "fields": {
+        "password": "pbkdf2_sha256$870000$vypecTBr7KmEsWHXHd1bnt$OSlFlkTLl8DPeEvlr9Uurm+EAfWP2I2iO5l6c49dQpQ=",
+        "last_login": "2024-10-31T16:00:33.660Z",
+        "is_superuser": true,
+        "username": "alvaro",
+        "first_name": "",
+        "last_name": "",
+        "email": "alvaro@gmail.com",
+        "is_staff": true,
+        "is_active": true,
+        "date_joined": "2024-10-31T16:00:19.457Z",
+        "groups": [],
+        "user_permissions": []
+    }
+},
+{
     "model": "contenttypes.contenttype",
     "pk": 1,
     "fields": {
@@ -745,6 +997,14 @@
     "fields": {
         "app_label": "viajes",
         "model": "comentario"
+    }
+},
+{
+    "model": "sessions.session",
+    "pk": "45sckq1z3rkzj6s9j1j7v7qlny2hg33z",
+    "fields": {
+        "session_data": ".eJxVjDsOwyAQRO9CHSE-C5iU6X0GxC4QnERYMnYV5e6xJRdJM8W8N_NmIW5rDVvPS5gSuzLJLr8dRnrmdoD0iO0-c5rbukzID4WftPNxTvl1O92_gxp73deAzkBxUpDyiDmS1kLqwXoSEjINAAaBlMLi93BWGYygbUmA1mef2OcL0Wk3mw:1t6Xb7:EPrXDohnw1FsHtRw_Vg3SPgfRbft5UAUDh2fGgLJOZg",
+        "expire_date": "2024-11-14T16:00:33.666Z"
     }
 },
 {
@@ -1759,7 +2019,7 @@
         "numero": "Statement away born.",
         "fecha_emision": "1982-05-14",
         "fecha_expiracion": "2001-11-29",
-        "nacionalidad": "Director possible every modern.",
+        "nacionalidad": "Alemana",
         "usuario": 12
     }
 },
@@ -1770,7 +2030,7 @@
         "numero": "Condition chance without leg born movement.",
         "fecha_emision": "2015-12-29",
         "fecha_expiracion": "2013-08-18",
-        "nacionalidad": "Sea peace but recent travel.",
+        "nacionalidad": "Alemana",
         "usuario": 10
     }
 },
@@ -1781,7 +2041,7 @@
         "numero": "Newspaper stay eat move ok. Drug certainly build.",
         "fecha_emision": "1970-10-21",
         "fecha_expiracion": "1995-01-28",
-        "nacionalidad": "Rather card military behavior office.",
+        "nacionalidad": "Inglesa",
         "usuario": 15
     }
 },
@@ -1792,7 +2052,7 @@
         "numero": "Table produce free total sit.",
         "fecha_emision": "2005-03-08",
         "fecha_expiracion": "1989-12-04",
-        "nacionalidad": "Nice mention soldier deep.",
+        "nacionalidad": "Española",
         "usuario": 7
     }
 },
@@ -1803,7 +2063,7 @@
         "numero": "Mother discover career learn I fill stop.",
         "fecha_emision": "2002-07-31",
         "fecha_expiracion": "1984-10-13",
-        "nacionalidad": "Power player visit short end.",
+        "nacionalidad": "Española",
         "usuario": 5
     }
 },
@@ -1814,7 +2074,7 @@
         "numero": "Can high economy bit structure.",
         "fecha_emision": "1996-03-06",
         "fecha_expiracion": "2003-10-30",
-        "nacionalidad": "This ten word significant back.",
+        "nacionalidad": "Alemana",
         "usuario": 4
     }
 },
@@ -1825,7 +2085,7 @@
         "numero": "Subject now hope.",
         "fecha_emision": "2011-04-14",
         "fecha_expiracion": "1986-02-21",
-        "nacionalidad": "Charge dream dream get.",
+        "nacionalidad": "Española",
         "usuario": 6
     }
 },
@@ -1836,7 +2096,7 @@
         "numero": "Car test would. Worry become development sound.",
         "fecha_emision": "1996-03-08",
         "fecha_expiracion": "2005-03-30",
-        "nacionalidad": "Degree if thousand over everyone record.",
+        "nacionalidad": "Alemana",
         "usuario": 11
     }
 },
@@ -1847,7 +2107,7 @@
         "numero": "One computer if day no.",
         "fecha_emision": "1999-02-20",
         "fecha_expiracion": "1992-08-26",
-        "nacionalidad": "Especially choose audience each let fear image.",
+        "nacionalidad": "Inglesa",
         "usuario": 8
     }
 },
@@ -1858,7 +2118,7 @@
         "numero": "Mind reveal up receive.",
         "fecha_emision": "2015-12-02",
         "fecha_expiracion": "1983-03-19",
-        "nacionalidad": "Control you election him study common.",
+        "nacionalidad": "Inglesa",
         "usuario": 14
     }
 },
@@ -1869,7 +2129,7 @@
         "numero": "Major century sign scene.",
         "fecha_emision": "1970-09-16",
         "fecha_expiracion": "2024-08-15",
-        "nacionalidad": "Appear stop voice.",
+        "nacionalidad": "Española",
         "usuario": 9
     }
 },
@@ -1880,7 +2140,7 @@
         "numero": "Stand alone language customer.",
         "fecha_emision": "1990-07-04",
         "fecha_expiracion": "1986-10-03",
-        "nacionalidad": "Before me their position new.",
+        "nacionalidad": "Española",
         "usuario": 1
     }
 },
@@ -1891,7 +2151,7 @@
         "numero": "Though thank current fast country head article.",
         "fecha_emision": "2022-11-22",
         "fecha_expiracion": "2019-08-19",
-        "nacionalidad": "Imagine it local wall.",
+        "nacionalidad": "Española",
         "usuario": 3
     }
 },
@@ -1902,7 +2162,7 @@
         "numero": "Building whole physical amount keep industry.",
         "fecha_emision": "1987-09-29",
         "fecha_expiracion": "2012-01-16",
-        "nacionalidad": "Top audience ahead kind sort detail.",
+        "nacionalidad": "Alemana",
         "usuario": 2
     }
 },
@@ -1913,7 +2173,7 @@
         "numero": "Short less send across onto.",
         "fecha_emision": "1978-03-14",
         "fecha_expiracion": "2013-02-03",
-        "nacionalidad": "Rich finally score talk. Such star rich.",
+        "nacionalidad": "Inglesa",
         "usuario": 13
     }
 },

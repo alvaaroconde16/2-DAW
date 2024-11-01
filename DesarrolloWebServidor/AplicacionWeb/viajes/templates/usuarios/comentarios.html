@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+    <head></head>
+    <body>
+    <h1>COMENTARIOS</h1>
+
+    {% for comentarios in comentarios_mostrar %}
+        <div>
+            <h2>Título: {{ comentarios.titulo }} </h2>
+            <p>Contenido: {{ comentarios.contenido }}</p>
+            <p>Fecha del comentario: {{ comentarios.fecha_comentario }}</p>
+            <p>Calificación: {{ comentarios.calificacion }}</p>
+            <p>Usuario: {{ comentarios.usuario.nombre }}</p>
+        </div>
+
+
+    {% endfor %}
+
+    </body>
+</html>

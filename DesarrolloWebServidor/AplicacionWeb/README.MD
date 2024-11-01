@@ -125,3 +125,100 @@ Este es un modelo intermedio entre Extra y Reserva, que permite la relación man
 
 MODELO ENTIDAD RELACIÓN
 ![Imagen Modelo Entidad Relación](assests/Entidad-relacion_DWS.drawio.png)
+
+
+# #########################################################################################################################################################################
+
+
+URLs y Vistas
+A continuación se detallan todas las URLs de la aplicación, especificando lo que hace cada vista y los requisitos que cumplen.
+
+1. URL: path('', views.index, name='index'),
+- Funcionalidad: Muestra la página de inicio de la aplicación.
+- Requisitos: No requiere autenticación.
+
+
+
+2. URL: path('usuarios/listar', views.listar_usuarios, name='listar_usuarios'),
+- Funcionalidad: Muestra una lista de todos los usuarios registrados en la plataforma.
+- Requisitos: No requiere autenticación.
+
+
+
+3. URL: path('usuarios/<int:id_usuario>/reservas', views.listar_reservas, name='listar_reservas'),
+- Funcionalidad: Muestra todas las reservas realizadas por un usuario específico, utilizando el id_usuario proporcionado.
+- Requisitos: El id_usuario debe ser un entero válido. Utiliza la relación inversa entre los modelos Usuario y Reserva.
+
+
+
+4. URL: path('reservas/<str:fecha_inicio>/<str:fecha_fin>', views.reservas_rango, name='reservas_rango'),
+- Funcionalidad: Muestra las reservas que están comprendidas entre las fechas de inicio y fin proporcionadas.
+- Requisitos: Ambas fechas deben estar en formato de cadena válido. Utiliza dos parámetros de tipo str. Se usa AND para indicar que sea mayor o igual que y menor o igual que.
+
+
+
+5. URL: re_path(r'^reservas/sin_extras/[a-zA-Z0-9]*$', views.reservas_sin_extras, name='reservas_sin_extras'),
+- Funcionalidad: Muestra las reservas que no tienen ningún extra asociado.
+- Requisitos: Utiliza filter para comprobar que extrareserva (tabla intermedia) sea None. En la URL usa el re_path.
+
+
+
+6. URL: path('destinos/listar', views.listar_destinos, name='listar_destinos'),
+- Funcionalidad: Muestra una lista de todos los destinos turísticos disponibles en la plataforma.
+- Requisitos: No requiere autenticación.
+
+
+
+7. URL: path('destinos/<int:id_destino>/alojamientos', views.alojamientos_destino, name='alojamientos_destino'),
+- Funcionalidad: Muestra todos los alojamientos disponibles para un destino específico, utilizando el id_destino proporcionado.
+- Requisitos: El id_destino debe ser un entero válido.
+
+
+
+8. URL: path('usuarios/pasaporte/<str:nacionalidad>', views.pasaporte_nacionalidad, name='pasaporte_nacionalidad'),
+- Funcionalidad: Muestra todos los usuarios que tienen la misma nacionalidad especificada en el parámetro, o aquellos cuya nacionalidad es 'Española'.
+- Requisitos: Se usa el operador OR para indicar que sea de su nacionalidad o 'Española'.
+
+
+
+9. URL: path('usuarios/ultimo_comentario/', views.ultimo_usuario_comentar, name='ultimo_usuario_comentar'),
+- Funcionalidad: Muestra el último comentario realizado en la plataforma.
+- Requisitos: Utiliza order_by("-fecha_comentario") y limit para obtener el último comentario.
+
+
+
+10. URL: path('usuarios/<int:id_usuario>/comentarios', views.comentarios_usuario, name='comentarios_usuario'),
+- Funcionalidad: Muestra todos los comentarios realizados por un usuario específico, utilizando el id_usuario proporcionado.
+- Requisitos: El id_usuario debe ser un entero válido.
+
+
+
+11. URL: path('reservas/total_precios', views.total_precios_reservas, name='total_precios_reservas'),
+- Funcionalidad: Muestra la suma total de todos los precios de las reservas realizadas.
+- Requisitos: Utiliza aggregate y Sum para calcular el precio total de las reservas.
+
+
+
+PÁGINAS DE ERRORES
+
+12. URL: error_404_view
+- Funcionalidad: Muestra una página de error 404 personalizada.
+- Requisitos: Se activa automáticamente cuando se accede a una URL no válida.
+
+
+
+13. URL: error_403_view
+- Funcionalidad: Muestra una página de error 403 personalizada.
+- Requisitos: Se activa automáticamente cuando el acceso a una URL es denegado.
+
+
+
+14. URL: error_400_view
+- Funcionalidad: Muestra una página de error 400 personalizada.
+- Requisitos: Se activa automáticamente para errores de solicitud incorrecta.
+
+
+
+15. URL: error_500_view
+- Funcionalidad: Muestra una página de error 500 personalizada.
+- Requisitos: Se activa automáticamente para errores de servidor interno.
