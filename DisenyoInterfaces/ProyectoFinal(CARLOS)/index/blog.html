@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog | ELFSCAPE TRAVELS</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+</head>
+<body class="bg-gray-100 font-sans">
+
+    <!-- HEADER -->
+    <header class="bg-indigo-900 text-white">
+        <div class="container mx-auto flex justify-between items-center py-4">
+            <div class="flex items-center space-x-4">
+                <img src="../imagenes/logo.png" alt="Blog Logo" class="h-10">
+                <h1 class="text-2xl font-bold">ELFSCAPE BLOG</h1>
+            </div>
+            <nav class="space-x-6">
+                <a href="index.html" class="hover:text-yellow-400">Home</a>
+                <a href="#categories" class="hover:text-yellow-400">Categories</a>
+                <a href="#about" class="hover:text-yellow-400">About Us</a>
+                <a href="contact.html" class="hover:text-yellow-400">Contact</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- HERO SECTION -->
+    <section class="bg-cover bg-center" style="background-image: url('../imagenes/hero-blog.jpg');">
+        <div class="bg-black bg-opacity-50 py-16">
+            <div class="container mx-auto text-center text-white">
+                <h2 class="text-4xl font-bold mb-4">Explora la Sabiduría y Aventuras de la Tierra Media</h2>
+                <p class="text-lg mb-8">Descubre artículos, guías, y relatos mágicos de los rincones más asombrosos de la Tierra Media</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- SEARCH BAR & CATEGORIES -->
+    <section class="container mx-auto my-8">
+        <div class="flex justify-between items-center mb-8">
+            <input type="text" placeholder="Buscar artículos..." class="p-3 border border-gray-300 rounded-lg w-full max-w-md">
+            <a href="#categories" class="ml-4 p-3 bg-yellow-500 text-white rounded-lg">Ver Categorías</a>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <!-- ARTICLE CARDS -->
+            <div class="bg-white shadow-lg rounded-lg overflow-hidden">
+                <img src="../imagenes/article1.jpg" alt="Article Image" class="w-full h-48 object-cover">
+                <div class="p-4">
+                    <h3 class="font-bold text-lg mb-2">Explorando Rivendell</h3>
+                    <p class="text-gray-700">Una introducción a la mágica tierra de Rivendell, hogar de los Elfos...</p>
+                    <p class="text-gray-500 text-sm mt-2">Publicado por Bilbo Baggins | 14 Septiembre, 2024</p>
+                    <a href="article1.html" class="text-indigo-700 mt-4 block">Leer más</a>
+                </div>
+            </div>
+            <!-- Repite para otros artículos -->
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="bg-indigo-900 text-white py-6">
+        <div class="container mx-auto text-center">
+            <p>&copy; 2024 ELFSCAPE TRAVELS. Todos los derechos reservados.</p>
+            <div class="mt-4 flex justify-center space-x-4">
+                <a href="#" class="hover:text-yellow-400">Facebook</a>
+                <a href="#" class="hover:text-yellow-400">Instagram</a>
+                <a href="#" class="hover:text-yellow-400">Twitter</a>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>
