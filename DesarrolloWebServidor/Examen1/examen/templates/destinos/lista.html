@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+    <head></head>
+    <body>
+    <h1>DESTINOS</h1>
+
+    {% for destino in destinos_mostrar %}
+        <div>
+            <h2>Nombre: {{ destino.nombre }} </h2>
+            <p>País: {{ destino.pais }}</p>
+            <p>descripción: {{ destino.descripcion }}</p>
+            <p>Popularidad: {{ destino.popularidad }}</p>
+        </div>
+
+
+    {% endfor %}
+
+    </body>
+</html>
