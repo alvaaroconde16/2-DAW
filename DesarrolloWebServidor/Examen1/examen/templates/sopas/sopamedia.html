@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+    <head></head>
+    <body>
+    <h1>SOPAS CON PUNTUACIÓN MEDIA MAYOR A 2.5</h1>
+
+    {% for sopa in sopasmedia_mostrar %}
+        <div>
+            <h2>Sabor: {{ voto.sopa.sabor }} </h2>
+            <p>Proveedor: {{ voto.sopa.proveedor }}</p>
+            <p>Fecha de producción: {{ voto.sopa.fecha_produccion }}</p>
+            <p>Fecha de caducidad: {{ voto.sopa.fecha_caducidad }}</p>
+
+            <h4>Puntuación: {{ voto.puntuacion }} </h4>
+            <p>Comentario: {{ voto.comentario }}</p>
+            <p>Fecha de votación: {{ voto.fecha_votacion }}</p>
+
+            <h4>Usuario: {{ voto.usuario.nombre }}</h4>
+            <p>Correo: {{ voto.usuario.correo }}</p>
+            <p>Telefono: {{ voto.usuario.telefono }}</p>
+            <p>Edad: {{ voto.usuario.edad }}</p>
+        </div>
+
+    {% endfor %}
+
+    </body>
+</html>

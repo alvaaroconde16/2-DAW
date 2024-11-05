@@ -56,5 +56,7 @@ def votos_usuarios(request):
 
 
 def sopas_media(request):
-    resultado = Sopa.objects.aggregate(Avg("puntuacion"))
-    sopa = Sopa.objects.all().filter()
+    resultado = Votacion.objects.aggregate(Avg("puntuacion"))
+    voto = Votacion.objects.all().filter(resultado>=2.5)
+    
+    return render(request, 'sopas/sopaMedia.html', {'sopamedia_mostrar':voto})
