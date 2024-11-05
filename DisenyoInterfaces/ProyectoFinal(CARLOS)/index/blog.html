@@ -1,73 +1,115 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Blog | ELFSCAPE TRAVELS</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" />  <!--FONTAWESOME-->
-    <link rel="icon" href="../imagenes/logo.png" type="image/png">  <!--IMAGEN EN EL NAVEGADOR-->
+    <link rel="icon" href="../imagenes/logo.png" type="image/png">
+    <title>ELFSCAPE TRAVELS - Blog</title>
 </head>
 
+<body class="bg-gray-100 font-sans">
 
-<body class="bg-gray-100 text-gray-800 font-serif">
-
-    <header class="bg-green-700 p-4 flex items-center justify-between px-10">
-
-        <div class="flex items-center">
-            <img src="../imagenes/logo.png" alt="Logo de Elfscape Travels" class="h-10 w-10 mr-2">
-            <h1 class="text-white text-xl font-bold">BLOG ELFSCAPE TRAVELS</h1>
+    <!-- Header -->
+    <header class="bg-white shadow">
+        <div class="px-10 py-4 flex items-center justify-between">
+            <div class="flex items-center">
+                <img src="../imagenes/logo.png" alt="Logo" class="h-12 w-auto">
+                <span class="text-xl font-bold ml-4">ELFSCAPE TRAVELS</span>
+            </div>
+            <nav class="space-x-4">
+                <a href="paginaPrincipal.html" class="text-gray-700 hover:text-blue-500">Home</a>
+                <a href="#categories" class="text-gray-700 hover:text-blue-500">Categories</a>
+                <a href="#about" class="text-gray-700 hover:text-blue-500">About Us</a>
+                <a href="contacto.html" class="text-gray-700 hover:text-blue-500">Contact</a>
+            </nav>
         </div>
-
-        <nav class="text-white">
-            <ul class="flex gap-10">
-                <li><a href="index.html" class="hover:underline">Inicio</a></li>
-                <li><a href="categorias.html" class="hover:underline">Categorías</a></li>
-                <li><a href="about.html" class="hover:underline">Sobre Nosotros</a></li>
-                <li><a href="contacto.html" class="hover:underline">Contacto</a></li>
-            </ul>
-        </nav>
-
     </header>
 
 
-
-    <main class="container mx-auto p-4">
-
-        <section class="my-8">
-            <h2 class="text-xl font-semibold mb-4">Artículos Recientes</h2>
-
-            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-                <!-- Card de Artículo -->
-                <article class="bg-white p-4 rounded-lg shadow-md">
-                    <img src="ruta/a/imagen.jpg" alt="Título del Artículo" class="rounded-t-lg w-full h-48 object-cover">
-                    <h3 class="text-lg font-bold mt-2">Título del Artículo</h3>
-                    <p class="text-gray-600">Resumen breve del artículo...</p>
-                    <p class="text-gray-500 text-sm">Publicado el 01/11/2024 por Autor</p>
-                    <a href="pagina-del-articulo.html" class="text-green-600 hover:underline mt-2 block">Leer Más</a>
-                </article>
-                <!-- Repetir Card de Artículo según sea necesario -->
+    <!-- Featured Image Section -->
+    <section class="mt-6">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="relative rounded-lg overflow-hidden">
+                <img src="../imagenes/heroBlog.png" alt="Featured" class="w-full h-64 object-cover">
+                <div class="absolute bottom-0 bg-black bg-opacity-50 text-white p-4">
+                    <h2 class="text-2xl font-bold">Welcome to the Elfscape Travels Blog</h2>
+                    <p class="mt-2">Discover the latest articles and adventures in Middle-Earth.</p>
+                </div>
             </div>
-
-        </section>
-
-
-        <section class="my-8">
-            <h2 class="text-xl font-semibold mb-4">Buscar</h2>
-            <form>
-                <input type="text" placeholder="Buscar..." class="p-2 rounded border border-gray-300 w-full">
-            </form>
-        </section>
+        </div>
+    </section>
 
 
-        <footer class="bg-green-600 text-white p-4 mt-8">
+    <!-- Articles Section -->
+    <section class="mt-6" id="articles">
+        <div class="max-w-7xl mx-auto px-4">
+            <h2 class="text-3xl font-bold mb-4">Recent Articles</h2>
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
 
-            <div class="container mx-auto text-center">
-                <p>Información de contacto | Redes sociales</p>
-                <p>&copy; 2024 Blog de Middle-Earth</p>
+                <!-- Article Card -->
+                <div class="bg-white p-4 rounded-lg shadow hover:shadow-lg transition-shadow">
+                    <img src="../imagenes/article1.jpg" alt="Article 1" class="h-40 w-full object-cover rounded">
+                    <h3 class="text-xl font-semibold mt-2">Exploring Rivendell</h3>
+                    <p class="mt-1 text-gray-600">An in-depth look at the beauty and culture of Rivendell.</p>
+                    <p class="mt-2 text-gray-500">Published on: Nov 1, 2024 by Frodo Baggins</p>
+                    <a href="articulo.html" class="text-blue-500 hover:underline mt-2 block">Read More</a>
+                </div>
+
+                <div class="bg-white p-4 rounded-lg shadow hover:shadow-lg transition-shadow">
+                    <img src="../imagenes/article1.jpg" alt="Article 1" class="h-40 w-full object-cover rounded">
+                    <h3 class="text-xl font-semibold mt-2">Exploring Rivendell</h3>
+                    <p class="mt-1 text-gray-600">An in-depth look at the beauty and culture of Rivendell.</p>
+                    <p class="mt-2 text-gray-500">Published on: Nov 1, 2024 by Frodo Baggins</p>
+                    <a href="article1.html" class="text-blue-500 hover:underline mt-2 block">Read More</a>
+                </div>
+
+                <div class="bg-white p-4 rounded-lg shadow hover:shadow-lg transition-shadow">
+                    <img src="../imagenes/article1.jpg" alt="Article 1" class="h-40 w-full object-cover rounded">
+                    <h3 class="text-xl font-semibold mt-2">Exploring Rivendell</h3>
+                    <p class="mt-1 text-gray-600">An in-depth look at the beauty and culture of Rivendell.</p>
+                    <p class="mt-2 text-gray-500">Published on: Nov 1, 2024 by Frodo Baggins</p>
+                    <a href="article1.html" class="text-blue-500 hover:underline mt-2 block">Read More</a>
+                </div>
+
             </div>
+        </div>
+    </section>
 
-        </footer>
-    </main>
+    <!-- Categories Section -->
+    <section class="mt-6" id="categories">
+        <div class="max-w-7xl mx-auto px-4">
+            <h2 class="text-3xl font-bold mb-4">Categories</h2>
+            <ul class="flex flex-wrap">
+                <li class="bg-blue-500 text-white px-4 py-2 rounded-full m-2">Adventure</li>
+                <li class="bg-blue-500 text-white px-4 py-2 rounded-full m-2">Guides</li>
+                <li class="bg-blue-500 text-white px-4 py-2 rounded-full m-2">Travel Tips</li>
+                <li class="bg-blue-500 text-white px-4 py-2 rounded-full m-2">Legends</li>
+            </ul>
+        </div>
+    </section>
+
+    <!-- Search Bar -->
+    <section class="mt-6">
+        <div class="max-w-7xl mx-auto px-4">
+            <input type="text" placeholder="Search..." class="w-full p-2 border rounded" />
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-white mt-8 py-4">
+        <div class="max-w-7xl mx-auto px-4 flex justify-between">
+            <div>
+                <p class="text-gray-600">© 2024 Elfscape Travels. All rights reserved.</p>
+            </div>
+            <div>
+                <a href="#" class="text-gray-700 hover:text-blue-500 mx-2"><i class="fab fa-twitter"></i></a>
+                <a href="#" class="text-gray-700 hover:text-blue-500 mx-2"><i class="fab fa-instagram"></i></a>
+                <a href="#" class="text-gray-700 hover:text-blue-500 mx-2"><i class="fab fa-facebook"></i></a>
+            </div>
+        </div>
+    </footer>
+
 </body>
 </html>
