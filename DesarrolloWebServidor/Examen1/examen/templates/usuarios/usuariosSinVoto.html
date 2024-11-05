@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+    <head></head>
+    <body>
+    <h1>USUARIOS QUE NUNCA HAN VOTADO</h1>
+
+    {% for usuario in usuarios_mostrar %}
+        <div>
+            <h2>Usuario: {{ usuario.nombre }}</h2>
+            <p>Correo: {{ usuario.correo }}</p>
+            <p>Telefono: {{ usuario.telefono }}</p>
+            <p>Edad: {{ usuario.edad }}</p>
+        </div>
+
+    {% endfor %}
+
+    </body>
+</html>

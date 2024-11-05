@@ -19,11 +19,6 @@ from django.urls import path, include
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', include('viajes.urls')),
+    path('', include('examen.urls')),
     path("__debug__/", include("debug_toolbar.urls")),
 ]
-
-handler404 = 'viajes.views.error_404_view'
-handler403 = 'viajes.views.error_403_view'
-handler400 = 'viajes.views.error_400_view'
-handler500 = 'viajes.views.error_500_view'

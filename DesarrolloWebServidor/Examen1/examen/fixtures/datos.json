@@ -1,0 +1,1048 @@
+[
+{
+    "model": "admin.logentry",
+    "pk": 1,
+    "fields": {
+        "action_time": "2024-11-05T08:16:17.780Z",
+        "user": 1,
+        "content_type": 8,
+        "object_id": "1",
+        "object_repr": "Usuario object (1)",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 2,
+    "fields": {
+        "action_time": "2024-11-05T08:16:30.653Z",
+        "user": 1,
+        "content_type": 8,
+        "object_id": "2",
+        "object_repr": "Usuario object (2)",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 3,
+    "fields": {
+        "action_time": "2024-11-05T08:16:39.715Z",
+        "user": 1,
+        "content_type": 8,
+        "object_id": "3",
+        "object_repr": "Usuario object (3)",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 4,
+    "fields": {
+        "action_time": "2024-11-05T08:16:56.710Z",
+        "user": 1,
+        "content_type": 8,
+        "object_id": "4",
+        "object_repr": "Usuario object (4)",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 5,
+    "fields": {
+        "action_time": "2024-11-05T08:17:07.315Z",
+        "user": 1,
+        "content_type": 8,
+        "object_id": "5",
+        "object_repr": "Usuario object (5)",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 6,
+    "fields": {
+        "action_time": "2024-11-05T08:17:25.916Z",
+        "user": 1,
+        "content_type": 7,
+        "object_id": "1",
+        "object_repr": "Sopa object (1)",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 7,
+    "fields": {
+        "action_time": "2024-11-05T08:17:42.411Z",
+        "user": 1,
+        "content_type": 7,
+        "object_id": "2",
+        "object_repr": "Sopa object (2)",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 8,
+    "fields": {
+        "action_time": "2024-11-05T08:18:01.188Z",
+        "user": 1,
+        "content_type": 7,
+        "object_id": "3",
+        "object_repr": "Sopa object (3)",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 9,
+    "fields": {
+        "action_time": "2024-11-05T08:18:15.151Z",
+        "user": 1,
+        "content_type": 7,
+        "object_id": "4",
+        "object_repr": "Sopa object (4)",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 10,
+    "fields": {
+        "action_time": "2024-11-05T08:18:30.220Z",
+        "user": 1,
+        "content_type": 7,
+        "object_id": "5",
+        "object_repr": "Sopa object (5)",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 11,
+    "fields": {
+        "action_time": "2024-11-05T08:19:04.104Z",
+        "user": 1,
+        "content_type": 10,
+        "object_id": "1",
+        "object_repr": "Votacion object (1)",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 12,
+    "fields": {
+        "action_time": "2024-11-05T08:19:47.337Z",
+        "user": 1,
+        "content_type": 10,
+        "object_id": "2",
+        "object_repr": "Votacion object (2)",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 13,
+    "fields": {
+        "action_time": "2024-11-05T08:21:17.097Z",
+        "user": 1,
+        "content_type": 10,
+        "object_id": "3",
+        "object_repr": "Votacion object (3)",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 14,
+    "fields": {
+        "action_time": "2024-11-05T08:22:03.494Z",
+        "user": 1,
+        "content_type": 10,
+        "object_id": "4",
+        "object_repr": "Votacion object (4)",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 15,
+    "fields": {
+        "action_time": "2024-11-05T08:22:51.465Z",
+        "user": 1,
+        "content_type": 10,
+        "object_id": "5",
+        "object_repr": "Votacion object (5)",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 16,
+    "fields": {
+        "action_time": "2024-11-05T08:23:27.297Z",
+        "user": 1,
+        "content_type": 10,
+        "object_id": "6",
+        "object_repr": "Votacion object (6)",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 17,
+    "fields": {
+        "action_time": "2024-11-05T08:24:18.135Z",
+        "user": 1,
+        "content_type": 10,
+        "object_id": "7",
+        "object_repr": "Votacion object (7)",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 18,
+    "fields": {
+        "action_time": "2024-11-05T08:24:56.550Z",
+        "user": 1,
+        "content_type": 10,
+        "object_id": "8",
+        "object_repr": "Votacion object (8)",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 19,
+    "fields": {
+        "action_time": "2024-11-05T08:25:51.758Z",
+        "user": 1,
+        "content_type": 10,
+        "object_id": "9",
+        "object_repr": "Votacion object (9)",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 20,
+    "fields": {
+        "action_time": "2024-11-05T08:26:15.060Z",
+        "user": 1,
+        "content_type": 10,
+        "object_id": "10",
+        "object_repr": "Votacion object (10)",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 21,
+    "fields": {
+        "action_time": "2024-11-05T08:26:34.390Z",
+        "user": 1,
+        "content_type": 9,
+        "object_id": "1",
+        "object_repr": "Cuenta object (1)",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 22,
+    "fields": {
+        "action_time": "2024-11-05T08:26:44.715Z",
+        "user": 1,
+        "content_type": 9,
+        "object_id": "2",
+        "object_repr": "Cuenta object (2)",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 23,
+    "fields": {
+        "action_time": "2024-11-05T08:27:25.579Z",
+        "user": 1,
+        "content_type": 9,
+        "object_id": "3",
+        "object_repr": "Cuenta object (3)",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 24,
+    "fields": {
+        "action_time": "2024-11-05T08:27:51.766Z",
+        "user": 1,
+        "content_type": 9,
+        "object_id": "4",
+        "object_repr": "Cuenta object (4)",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 25,
+    "fields": {
+        "action_time": "2024-11-05T08:28:08.370Z",
+        "user": 1,
+        "content_type": 9,
+        "object_id": "5",
+        "object_repr": "Cuenta object (5)",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}]"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 1,
+    "fields": {
+        "name": "Can add log entry",
+        "content_type": 1,
+        "codename": "add_logentry"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 2,
+    "fields": {
+        "name": "Can change log entry",
+        "content_type": 1,
+        "codename": "change_logentry"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 3,
+    "fields": {
+        "name": "Can delete log entry",
+        "content_type": 1,
+        "codename": "delete_logentry"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 4,
+    "fields": {
+        "name": "Can view log entry",
+        "content_type": 1,
+        "codename": "view_logentry"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 5,
+    "fields": {
+        "name": "Can add permission",
+        "content_type": 2,
+        "codename": "add_permission"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 6,
+    "fields": {
+        "name": "Can change permission",
+        "content_type": 2,
+        "codename": "change_permission"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 7,
+    "fields": {
+        "name": "Can delete permission",
+        "content_type": 2,
+        "codename": "delete_permission"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 8,
+    "fields": {
+        "name": "Can view permission",
+        "content_type": 2,
+        "codename": "view_permission"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 9,
+    "fields": {
+        "name": "Can add group",
+        "content_type": 3,
+        "codename": "add_group"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 10,
+    "fields": {
+        "name": "Can change group",
+        "content_type": 3,
+        "codename": "change_group"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 11,
+    "fields": {
+        "name": "Can delete group",
+        "content_type": 3,
+        "codename": "delete_group"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 12,
+    "fields": {
+        "name": "Can view group",
+        "content_type": 3,
+        "codename": "view_group"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 13,
+    "fields": {
+        "name": "Can add user",
+        "content_type": 4,
+        "codename": "add_user"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 14,
+    "fields": {
+        "name": "Can change user",
+        "content_type": 4,
+        "codename": "change_user"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 15,
+    "fields": {
+        "name": "Can delete user",
+        "content_type": 4,
+        "codename": "delete_user"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 16,
+    "fields": {
+        "name": "Can view user",
+        "content_type": 4,
+        "codename": "view_user"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 17,
+    "fields": {
+        "name": "Can add content type",
+        "content_type": 5,
+        "codename": "add_contenttype"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 18,
+    "fields": {
+        "name": "Can change content type",
+        "content_type": 5,
+        "codename": "change_contenttype"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 19,
+    "fields": {
+        "name": "Can delete content type",
+        "content_type": 5,
+        "codename": "delete_contenttype"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 20,
+    "fields": {
+        "name": "Can view content type",
+        "content_type": 5,
+        "codename": "view_contenttype"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 21,
+    "fields": {
+        "name": "Can add session",
+        "content_type": 6,
+        "codename": "add_session"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 22,
+    "fields": {
+        "name": "Can change session",
+        "content_type": 6,
+        "codename": "change_session"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 23,
+    "fields": {
+        "name": "Can delete session",
+        "content_type": 6,
+        "codename": "delete_session"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 24,
+    "fields": {
+        "name": "Can view session",
+        "content_type": 6,
+        "codename": "view_session"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 25,
+    "fields": {
+        "name": "Can add sopa",
+        "content_type": 7,
+        "codename": "add_sopa"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 26,
+    "fields": {
+        "name": "Can change sopa",
+        "content_type": 7,
+        "codename": "change_sopa"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 27,
+    "fields": {
+        "name": "Can delete sopa",
+        "content_type": 7,
+        "codename": "delete_sopa"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 28,
+    "fields": {
+        "name": "Can view sopa",
+        "content_type": 7,
+        "codename": "view_sopa"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 29,
+    "fields": {
+        "name": "Can add usuario",
+        "content_type": 8,
+        "codename": "add_usuario"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 30,
+    "fields": {
+        "name": "Can change usuario",
+        "content_type": 8,
+        "codename": "change_usuario"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 31,
+    "fields": {
+        "name": "Can delete usuario",
+        "content_type": 8,
+        "codename": "delete_usuario"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 32,
+    "fields": {
+        "name": "Can view usuario",
+        "content_type": 8,
+        "codename": "view_usuario"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 33,
+    "fields": {
+        "name": "Can add cuenta",
+        "content_type": 9,
+        "codename": "add_cuenta"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 34,
+    "fields": {
+        "name": "Can change cuenta",
+        "content_type": 9,
+        "codename": "change_cuenta"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 35,
+    "fields": {
+        "name": "Can delete cuenta",
+        "content_type": 9,
+        "codename": "delete_cuenta"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 36,
+    "fields": {
+        "name": "Can view cuenta",
+        "content_type": 9,
+        "codename": "view_cuenta"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 37,
+    "fields": {
+        "name": "Can add votacion",
+        "content_type": 10,
+        "codename": "add_votacion"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 38,
+    "fields": {
+        "name": "Can change votacion",
+        "content_type": 10,
+        "codename": "change_votacion"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 39,
+    "fields": {
+        "name": "Can delete votacion",
+        "content_type": 10,
+        "codename": "delete_votacion"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 40,
+    "fields": {
+        "name": "Can view votacion",
+        "content_type": 10,
+        "codename": "view_votacion"
+    }
+},
+{
+    "model": "auth.user",
+    "pk": 1,
+    "fields": {
+        "password": "pbkdf2_sha256$870000$gEzvkYGHomBV6Qo2pVix3P$S7E7wQoEaOekXYs6dToJ2nRUO9jk5BtngogSRfjTMa0=",
+        "last_login": "2024-11-05T08:16:05.292Z",
+        "is_superuser": true,
+        "username": "alvaro",
+        "first_name": "",
+        "last_name": "",
+        "email": "alvaro@gmail.com",
+        "is_staff": true,
+        "is_active": true,
+        "date_joined": "2024-11-05T08:15:49.821Z",
+        "groups": [],
+        "user_permissions": []
+    }
+},
+{
+    "model": "contenttypes.contenttype",
+    "pk": 1,
+    "fields": {
+        "app_label": "admin",
+        "model": "logentry"
+    }
+},
+{
+    "model": "contenttypes.contenttype",
+    "pk": 2,
+    "fields": {
+        "app_label": "auth",
+        "model": "permission"
+    }
+},
+{
+    "model": "contenttypes.contenttype",
+    "pk": 3,
+    "fields": {
+        "app_label": "auth",
+        "model": "group"
+    }
+},
+{
+    "model": "contenttypes.contenttype",
+    "pk": 4,
+    "fields": {
+        "app_label": "auth",
+        "model": "user"
+    }
+},
+{
+    "model": "contenttypes.contenttype",
+    "pk": 5,
+    "fields": {
+        "app_label": "contenttypes",
+        "model": "contenttype"
+    }
+},
+{
+    "model": "contenttypes.contenttype",
+    "pk": 6,
+    "fields": {
+        "app_label": "sessions",
+        "model": "session"
+    }
+},
+{
+    "model": "contenttypes.contenttype",
+    "pk": 7,
+    "fields": {
+        "app_label": "examen",
+        "model": "sopa"
+    }
+},
+{
+    "model": "contenttypes.contenttype",
+    "pk": 8,
+    "fields": {
+        "app_label": "examen",
+        "model": "usuario"
+    }
+},
+{
+    "model": "contenttypes.contenttype",
+    "pk": 9,
+    "fields": {
+        "app_label": "examen",
+        "model": "cuenta"
+    }
+},
+{
+    "model": "contenttypes.contenttype",
+    "pk": 10,
+    "fields": {
+        "app_label": "examen",
+        "model": "votacion"
+    }
+},
+{
+    "model": "sessions.session",
+    "pk": "sw8eqnjtuqh6jh81v995472mdzvg6ofo",
+    "fields": {
+        "session_data": ".eJxVjDsOwjAQRO_iGlne9RdKes5grb02CaBYipMKcXcSKQVIU817M28RaV2GuPYyx5HFRYA4_XaJ8rNMO-AHTfcmc5uWeUxyV-RBu7w1Lq_r4f4dDNSHba0plwBgUJ1tZqO8M4GB2VYCDTZV53VQBtCzTYi1oKtUEZ2nLbaKzxfK-Tdm:1t8EjN:-ifn4nmLFpC4SiDljx-fqNP-Vj2shOsYOM5_1wq6apI",
+        "expire_date": "2024-11-19T08:16:05.315Z"
+    }
+},
+{
+    "model": "examen.sopa",
+    "pk": 1,
+    "fields": {
+        "sabor": "calabaza",
+        "proveedor": "BGrup",
+        "fecha_produccion": "2023-10-10",
+        "fecha_caducidad": "2024-11-30"
+    }
+},
+{
+    "model": "examen.sopa",
+    "pk": 2,
+    "fields": {
+        "sabor": "curry",
+        "proveedor": "Serhos",
+        "fecha_produccion": "2024-06-12",
+        "fecha_caducidad": "2026-04-26"
+    }
+},
+{
+    "model": "examen.sopa",
+    "pk": 3,
+    "fields": {
+        "sabor": "Guacamole",
+        "proveedor": "Dietisur",
+        "fecha_produccion": "2024-11-05",
+        "fecha_caducidad": "2027-02-10"
+    }
+},
+{
+    "model": "examen.sopa",
+    "pk": 4,
+    "fields": {
+        "sabor": "lentejas",
+        "proveedor": "BGrup",
+        "fecha_produccion": "2023-09-21",
+        "fecha_caducidad": "2025-05-14"
+    }
+},
+{
+    "model": "examen.sopa",
+    "pk": 5,
+    "fields": {
+        "sabor": "Zanahoria",
+        "proveedor": "Serhos",
+        "fecha_produccion": "2022-10-17",
+        "fecha_caducidad": "2024-11-05"
+    }
+},
+{
+    "model": "examen.usuario",
+    "pk": 1,
+    "fields": {
+        "nombre": "Alvaro Conde",
+        "correo": "alvaro@gmail.com",
+        "telefono": "612358745",
+        "edad": 20
+    }
+},
+{
+    "model": "examen.usuario",
+    "pk": 2,
+    "fields": {
+        "nombre": "Luisa Gomez",
+        "correo": "luisa@gmail.com",
+        "telefono": "623334874",
+        "edad": 75
+    }
+},
+{
+    "model": "examen.usuario",
+    "pk": 3,
+    "fields": {
+        "nombre": "Maria Ríos",
+        "correo": "maria@gmail.com",
+        "telefono": "666555444",
+        "edad": 26
+    }
+},
+{
+    "model": "examen.usuario",
+    "pk": 4,
+    "fields": {
+        "nombre": "Mario Soria",
+        "correo": "mario@gmail.com",
+        "telefono": "678239874",
+        "edad": 38
+    }
+},
+{
+    "model": "examen.usuario",
+    "pk": 5,
+    "fields": {
+        "nombre": "Juan Alberto",
+        "correo": "jalberto@gmail.com",
+        "telefono": "748659412",
+        "edad": 49
+    }
+},
+{
+    "model": "examen.votacion",
+    "pk": 1,
+    "fields": {
+        "puntuacion": 5.0,
+        "comentario": "La mejor sopa que he probado en mi vida, es espectacular.",
+        "fecha_votacion": "2024-11-05T08:18:55Z",
+        "sopa": 5,
+        "usuario": 1
+    }
+},
+{
+    "model": "examen.votacion",
+    "pk": 2,
+    "fields": {
+        "puntuacion": 3.0,
+        "comentario": "Una sopa aceptable, falta un toque más de sabor, pero por lo demás es comestible.",
+        "fecha_votacion": "2024-06-12T10:20:36Z",
+        "sopa": 2,
+        "usuario": 4
+    }
+},
+{
+    "model": "examen.votacion",
+    "pk": 3,
+    "fields": {
+        "puntuacion": 1.0,
+        "comentario": "La peor sopa que he probado en mi vida, no tiene nada de sabor y es incomestible.",
+        "fecha_votacion": "2024-11-05T08:21:10Z",
+        "sopa": 3,
+        "usuario": 3
+    }
+},
+{
+    "model": "examen.votacion",
+    "pk": 4,
+    "fields": {
+        "puntuacion": 2.0,
+        "comentario": "Malísima. Una sopa espeluznante, no le desearía a nadie esta sopa.",
+        "fecha_votacion": "2024-10-16T07:21:55Z",
+        "sopa": 4,
+        "usuario": 2
+    }
+},
+{
+    "model": "examen.votacion",
+    "pk": 5,
+    "fields": {
+        "puntuacion": 5.0,
+        "comentario": "Perfecta. Una explosión de sabores que conlleva a ser la mejor sopa que he pobrado jamás.",
+        "fecha_votacion": "2024-11-02T08:22:44Z",
+        "sopa": 5,
+        "usuario": 1
+    }
+},
+{
+    "model": "examen.votacion",
+    "pk": 6,
+    "fields": {
+        "puntuacion": 4.0,
+        "comentario": "Bastante buena, la recomendaría.",
+        "fecha_votacion": "2024-11-05T08:23:18Z",
+        "sopa": 5,
+        "usuario": 1
+    }
+},
+{
+    "model": "examen.votacion",
+    "pk": 7,
+    "fields": {
+        "puntuacion": 2.0,
+        "comentario": "Se queda muy corta, le faltan muchos ingredientes.",
+        "fecha_votacion": "2024-01-10T21:23:10Z",
+        "sopa": 4,
+        "usuario": 2
+    }
+},
+{
+    "model": "examen.votacion",
+    "pk": 8,
+    "fields": {
+        "puntuacion": 3.0,
+        "comentario": "Es aceptable, no esta mala pero tampoco es la mejor.",
+        "fecha_votacion": "2024-11-05T08:24:41Z",
+        "sopa": 3,
+        "usuario": 2
+    }
+},
+{
+    "model": "examen.votacion",
+    "pk": 9,
+    "fields": {
+        "puntuacion": 1.0,
+        "comentario": "La peor que he probado hasta ahora",
+        "fecha_votacion": "2024-11-05T08:25:48Z",
+        "sopa": 2,
+        "usuario": 4
+    }
+},
+{
+    "model": "examen.votacion",
+    "pk": 10,
+    "fields": {
+        "puntuacion": 5.0,
+        "comentario": "Muy buena, la recomiendo",
+        "fecha_votacion": "2024-11-05T08:26:08Z",
+        "sopa": 1,
+        "usuario": 5
+    }
+},
+{
+    "model": "examen.cuenta",
+    "pk": 1,
+    "fields": {
+        "banco": "caixa",
+        "numero_cuenta": 21458,
+        "usuario": 1
+    }
+},
+{
+    "model": "examen.cuenta",
+    "pk": 2,
+    "fields": {
+        "banco": "bbva",
+        "numero_cuenta": 32597,
+        "usuario": 2
+    }
+},
+{
+    "model": "examen.cuenta",
+    "pk": 3,
+    "fields": {
+        "banco": "unicaja",
+        "numero_cuenta": 23587,
+        "usuario": 5
+    }
+},
+{
+    "model": "examen.cuenta",
+    "pk": 4,
+    "fields": {
+        "banco": "ing",
+        "numero_cuenta": 24856,
+        "usuario": 4
+    }
+},
+{
+    "model": "examen.cuenta",
+    "pk": 5,
+    "fields": {
+        "banco": "caixa",
+        "numero_cuenta": 2458,
+        "usuario": 3
+    }
+}
+]

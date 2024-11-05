@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+    <head></head>
+    <body>
+    <h1>CUENTAS BANCARIAS DE LA CAIXA O UNICAJA QUE CONTIENEN UN NOMBRE EN CONCRETO</h1>
+
+    {% for cuenta in cuentas_mostrar %}
+        <div>
+            <h2>Banco: {{ cuenta.banco }} </h2>
+            <p>Numero de cuenta: {{ cuenta.numero_cuenta }}</p>
+            
+            <h4>Usuario: {{ cuenta.usuario.nombre }}</h4>
+            <p>Correo: {{ cuenta.usuario.correo }}</p>
+            <p>Telefono: {{ cuenta.usuario.telefono }}</p>
+            <p>Edad: {{ cuenta.usuario.edad }}</p>
+
+    {% endfor %}
+
+    </body>
+</html>

@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+    <head></head>
+    <body>
+    <h1>SOPAS</h1>
+
+    {% for sopa in sopas_mostrar %}
+        <div>
+            <h2>Sabor: {{ sopa.sabor }} </h2>
+            <p>Proveedor: {{ sopa.proveedor }}</p>
+            <p>Fecha de producción: {{ sopa.fecha_produccion }}</p>
+            <p>Fecha de caducidad: {{ sopa.fecha_caducidad }}</p>
+
+            <h4>Último voto: <a href="{% url 'ultimo_voto' sopa.id %}"> Pulsa para ver el último voto</a></h4>
+        </div>
+
+
+    {% endfor %}
+
+    </body>
+</html>

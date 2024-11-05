@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+    <head></head>
+    <body>
+    <h1>CUENTAS BANCARIAS DE LA CAIXA O UNICAJA QUE CONTIENEN UN NOMBRE EN CONCRETO</h1>
+
+    {% for voto in votosfecha_mostrar %}
+    <div>
+        <h2>Puntuación: {{ voto.puntuacion }} </h2>
+        <p>Comentario: {{ voto.comentario }}</p>
+        <p>Fecha de votación: {{ voto.fecha_votacion }}</p>
+
+        <h3>Usuario: {{ voto.usuario.nombre }}</h3>
+        <p>Correo: {{ voto.usuario.correo }}</p>
+        <p>Telefono: {{ voto.usuario.telefono }}</p>
+        <p>Edad: {{ voto.usuario.edad }}</p>
+    </div>
+
+    {% endfor %}
+
+    </body>
+</html>
