@@ -1,12 +1,12 @@
 class Alumno{
-    constructor(persona1, curso, notas){
-        this.persona1 = persona1;
+    constructor(persona, curso, notas){
+        this.persona = persona;
         this.curso = curso;
         this.notas = notas;
     }
 
     imprimirAlumno(){
-        console.log(this.persona1.toString() + ",  Curso: " + this.curso + ",  Notas: " + this.notas)
+        console.log(this.persona.toString() + ",  Curso: " + this.curso + ",  Notas: " + this.notas)
     }
 
     calcularNotaMedia(){
