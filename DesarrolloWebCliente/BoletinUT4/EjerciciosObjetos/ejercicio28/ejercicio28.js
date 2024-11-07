@@ -22,6 +22,7 @@ var aula1 = new Aula()
 aula1.alumnos.push(juan, maria)
 
 
-console.log(aula1.buscarAlumnoDni('123A'))
-console.log(aula1.ordenarNota())
-console.log(aula1.ordenarApellido())
+console.log("Buscar alumno por DNI '123A':\n" + aula1.buscarAlumnoDni('123A'))
+console.log("Ordenar el array de alumnos por nota:\n" + aula1.ordenarNota())
+console.log("Ordenar el array de alumnos por Apellido:\n" + aula1.ordenarApellido())
+console.log("Imprimir los alumnos:\n" + aula1.imprimirAlumnos())

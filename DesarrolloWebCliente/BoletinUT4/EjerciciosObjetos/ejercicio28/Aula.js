@@ -28,6 +28,6 @@ class Aula{
     }
 
     imprimirAlumnos(){
-        return this.alumnos
+        return this.alumnos.map(alumnos => alumnos.persona.toString());
     }
 }
