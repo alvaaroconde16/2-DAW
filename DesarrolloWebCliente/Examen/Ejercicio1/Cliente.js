@@ -36,9 +36,15 @@ class Cliente{
             nuevaVentana.document.write('<h1> Su cita es mañana </h1>')
             nuevaVentana.focus();
         }
-        
+
         nIntervId = setInterval(this.recordatorio, 60000)
 
+    }
+
+
+    iniciarRecordatorio() {
+        // Iniciamos el intervalo con un tiempo de 60000 milisegundos(1 minuto)
+        setInterval(() => this.recordatorio(), 60000);
     }
 
 

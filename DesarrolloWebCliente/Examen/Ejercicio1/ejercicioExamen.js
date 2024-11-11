@@ -12,3 +12,7 @@ var cliente1 = new Cliente("Alberto", "García", "123A")
 console.log(cliente1.agregarCita(cita1))
 console.log(cliente1.agregarCita(cita3))
 console.log(cliente1.agregarCita(cita2))
+
+
+//Vamos a iniciar el recordatorio para el cliente1
+cliente1.iniciarRecordatorio()
