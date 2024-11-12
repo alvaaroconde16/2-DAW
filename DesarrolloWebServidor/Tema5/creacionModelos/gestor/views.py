@@ -8,7 +8,7 @@ from .models import Comentario
 
 # Create your views here.
 def index(request):
-    return render(request, 'index.html')
+    return render(request, 'principal.html')
 
 #Mostramos todos los proyectos con sus datos correspondientes
 def listar_proyectos(request):

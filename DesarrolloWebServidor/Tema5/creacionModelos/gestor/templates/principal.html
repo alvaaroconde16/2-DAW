@@ -1,10 +1,40 @@
 <!DOCTYPE html>
-<html>
-    <head></head>
-    <body>
-        <h1>GESTOR DE TAREAS</h1>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gestor de Tareas</title>
 
-            
+     <!-- Cargar el archivo CSS -->
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
 
-        </body>
+    <!-- Cargar el archivo JavaScript -->
+    <script src="{% static 'js/script.js' %}" defer></script>
+
+</head>
+<body>
+
+    <!-- Menú de navegación -->
+    {% include 'estructura/menu.html' %}
+
+    <!-- Cabecera -->
+    <header>
+        {% block cabecera %}
+        <h1>Bienvenido al Gestor de Tareas</h1>
+        <img src="{% static 'images/logo.png' %}" alt="Logo"/>
+        {% endblock %}
+    </header>
+
+    <!-- Contenido principal -->
+    <main>
+        {% block contenido %}
+        <p>Aquí irá el contenido de cada página.</p>
+        {% endblock %}
+    </main>
+
+    <!-- Pie de página -->
+    {% include 'estructura/footer.html' %}
+
+</body>
 </html>
