@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+    <head></head>
+    <body>
+    <h1>Tareas</h1>
+
+        <div>
+            {% for tareas in completadas %}
+                <h2>Titulo: {{ tareas.titulo }} </h2>
+                <p>Prioridad: {{ tareas.prioridad }} </p>
+                <p>Estado: {{ tareas.estado }} </p>
+                <p>Completada: {{ tareas.completada }} </p>
+                <p>Fecha de creación: {{ tareas.fecha_creacion }} </p>
+                <p>Hora de vencimiento: {{ tareas.hora_vencimiento }} </p>
+                <p>Descripcion: {{ tareas.descripcion }}</p>
+
+            <h3>Usuarios asignados: 
+                <a href="{% url 'listar_usuarios_tarea' tareas.id%}">Pulsa para ver los usuarios asignados</a>
+            </h3>
+
+            {% endfor %}
+
+        </div>
+
+    </body>
+</html>

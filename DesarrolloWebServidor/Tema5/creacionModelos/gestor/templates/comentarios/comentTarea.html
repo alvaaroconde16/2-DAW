@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+    <head></head>
+    <body>
+    <h1>Comentarios</h1>
+
+
+        {% for comentario in comentTarea_mostrar %}
+            <div>
+                <h2>Comentario {{ comentario.id }} </h2>
+                <p>Contenido: {{ comentario.contenido }} </p>
+                <p>Fecha de comentario: {{ comentario.fecha_comentario }} </p>
+            </div>
+        {% endfor %}
+
+    </body>
+</html>

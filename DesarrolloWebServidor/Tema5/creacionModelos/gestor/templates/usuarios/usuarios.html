@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+    <head></head>
+    <body>
+    <h1>Usuarios Asignados</h1>
+
+
+        {% for asignacion in asignacion_mostrar %}
+            <div>
+                <h2>Usuario: {{ asignacion.usuario.nombre }} </h2>
+                <p>Correo: {{ asignacion.usuario.correo }} </p>
+                <p>Fecha de registro: {{ asignacion.usuario.fecha_registro }} </p>
+            </div>
+        {% endfor %}
+
+    </body>
+</html>
