@@ -1,107 +1,98 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
-    <link rel="icon" href="../imagenes/logo.png" type="image/png">
-    <title>ELFSCAPE TRAVELS - Blog</title>
+    <link rel="icon" href="../../imagenes/logo.png" type="image/png">
+    <title>ELFSCAPE TRAVELS - Artículo de Aragorn</title>
 </head>
-
-<body class="bg-gray-100 font-sans">
+<body class="bg-gray-100">
 
 
     <!-- Header -->
     <header class="bg-green-600 text-white px-10 py-3 flex justify-between items-center">
         <div class="flex items-center">
-            <img src="../imagenes/logo.png" alt="Logo" class="h-12 w-auto">
+            <img src="../../imagenes/logo.png" alt="Logo" class="h-12 w-auto">
             <span class="text-xl font-bold ml-4">ELFSCAPE TRAVELS</span>
         </div>
         <nav class="flex gap-9 font-bold">
-            <a href="./paginaPrincipal.html" class="hover:text-blue-500">Inicio</a>
-            <a href="blog.html" class="hover:text-blue-500">Blog</a>
+            <a href="../paginaPrincipal.html" class="hover:text-blue-500">Inicio</a>
+            <a href="../blog.html" class="hover:text-blue-500">Blog</a>
             <a href="#about" class="hover:text-blue-500">Tienda</a>
-            <a href="./contacto.html" class="hover:text-blue-500">Contacto</a>
+            <a href="../contacto.html" class="hover:text-blue-500">Contacto</a>
         </nav>
     </header>
 
 
-    
-    <!-- Hero Section -->
-    <!-- Coloco el div principal como relativo y el div del mensaje de bienvenida como absolute para que se dirija hacia el padre y con el bottom colocarlo abajo. -->
-    <section class="mt-8 max-w-7xl mx-auto">
-        <div class="relative">
-            <img src="../imagenes/heroBlog.png" alt="Featured" class="w-full rounded-lg">
-            <div class="absolute bottom-0 bg-black bg-opacity-40 text-white p-5">
-                <h2 class="text-2xl font-bold">Welcome to the Elfscape Travels Blog</h2>
-                <p class="mt-2">Discover the latest articles and adventures in Middle-Earth.</p>
+    <!-- Artículo de Aragorn -->
+    <section class="max-w-7xl mx-auto mt-8">
+        <div>
+            <div class="text-center">
+                <h1 class="text-4xl font-bold">El Legado de Aragorn</h1>
+                <p class="text-gray-500 text-xl mt-2">Aragorn, El Rey de Gondor</p>
+                
+                <!-- Imagen de Aragorn -->
+                <div class="mt-8 text-center">
+                    <img src="../../imagenes/aragorn.png" alt="Aragorn" class="w-48 h-48 rounded-full mx-auto">
+                </div>  
+                
+                <!-- Biografía de Aragorn -->
+                <div class="mt-8">
+                    <h2 class="text-2xl font-semibold">Biografía Completa</h2>
+                    <p class="mt-4 text-gray-700">Aragorn, hijo de Arathorn, es el último de los descendientes de Isildur y el legítimo heredero al trono de Gondor. Desde joven, Aragorn fue criado en Rivendell por Elrond, quien le enseñó todo lo que necesitaba saber para convertirse en el líder de su pueblo y la clave para vencer la sombra de Sauron.</p>
+                    
+                    <p class="mt-4 text-gray-700">Durante su vida, Aragorn desempeñó múltiples roles, desde ranger errante hasta líder militar, hasta convertirse en el Rey de Gondor. Fue un hombre que abrazó su destino, a pesar de los desafíos que enfrentó. Su valentía y lealtad lo convirtieron en uno de los más grandes héroes de la Tierra Media.</p>
+                    
+                    <p class="mt-4 text-gray-700">En la Guerra del Anillo, Aragorn se alzó como líder de la resistencia contra Sauron. Su gran habilidad como estratega y su capacidad para unir a diferentes pueblos fueron fundamentales para la derrota del Señor Oscuro. Además, su relación con los hobbits, especialmente con Frodo Baggins, jugó un papel crucial en la destrucción del Anillo Único.</p>
+                    
+                    <h3 class="text-xl font-semibold mt-8">La Coronación de Aragorn</h3>
+                    <p class="mt-4 text-gray-700">Después de la derrota de Sauron, Aragorn fue coronado Rey de Gondor. Con su coronación, trajo una nueva era de paz y prosperidad para su pueblo y la Tierra Media. Aragorn es recordado no solo por su habilidad en la batalla, sino también por su sabiduría, su capacidad para liderar y su dedicación a la justicia.</p>
+                    
+                    <h3 class="text-xl font-semibold mt-8">El Legado de Aragorn</h3>
+                    <p class="mt-4 text-gray-700">El legado de Aragorn como líder, guerrero y rey ha perdurado a lo largo de los siglos. Es un símbolo de lo que significa luchar por lo que es justo y noble, y de cómo el verdadero liderazgo no se mide solo por la fuerza, sino también por la compasión y la sabiduría.</p>
+                </div>  
             </div>
-        </div>
-    </section>
 
 
+            <!-- Artículos Escrito por Aragorn -->
+            <h2 class="text-3xl font-bold mt-20 mb-8">Artículos Publicados</h2>
+            <div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
 
-    <!-- Articles Section -->
-    <section id="article" class="mt-20 max-w-7xl mx-auto">
-        <h2 class="text-3xl font-bold mb-7">Recent Articles</h2>
-        <div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-
-            <!-- Artículos -->
             <div class="bg-white rounded-lg shadow hover:shadow-lg transition-shadow">
-                <img src="../imagenes/rivendell2.png" alt="Exploring Rivendell" class="h-auto rounded">
+                <img src="../../imagenes/rivendell2.png" alt="Exploring Rivendell" class="h-auto rounded">
                 <div class="p-4">
                     <h3 class="text-xl font-semibold mt-2">Explorando Rivendell</h3>
                     <p class="mt-1 text-gray-600 mb-5">Un recorrido por el hogar de los elfos, lleno de paz, conocimiento y belleza en medio de las montañas.</p>
-                    <p class="mt-10 text-gray-500">Publicado el: Nov 1, 2024 por <a href="autores/autorElrond.html" class="font-semibold hover:underline hover:text-blue-500">Elrond</a></p>
-                    <a href="articulos/articuloRivendel.html" class="text-blue-500 hover:underline mt-1 block mb-2">Leer más</a>
+                    <p class="mt-10 text-gray-500">Publicado el: Nov 1, 2024 por <a href="autorElrond.html" class="font-semibold hover:underline hover:text-blue-500">Elrond</a></p>
+                    <a href="../articulos/articuloRivendel.html" class="text-blue-500 hover:underline mt-1 block mb-2">Leer más</a>
                 </div>
                 
             </div>
             
             <div class="bg-white rounded-lg shadow hover:shadow-lg transition-shadow">
-                <img src="../imagenes/moria.png" alt="Discovering Moria" class="h-auto object-cover rounded">
+                <img src="../../imagenes/moria.png" alt="Discovering Moria" class="h-auto object-cover rounded">
                 <div class="p-4">
                     <h3 class="text-xl font-semibold mt-2">Descubriendo Moria</h3>
                     <p class="mt-1 text-gray-600 mb-5">Explora todos los secretos de la ciudad subterránea de los enanos, un lugar lleno de historia y misterios.</p>
-                    <p class="mt-10 text-gray-500">Publicado el: Oct 20, 2024 por <a href="autores/autorGandalf.html" class="font-semibold hover:underline hover:text-blue-500">Gandalf</a></p>
-                    <a href="articulos/articuloMoria.html" class="text-blue-500 hover:underline mt-1 block mb-2">Leer más</a>
+                    <p class="mt-10 text-gray-500">Publicado el: Oct 20, 2024 por <a href="autorGandalf.html" class="font-semibold hover:underline hover:text-blue-500">Gandalf</a></p>
+                    <a href="../articulos/articuloMoria.html" class="text-blue-500 hover:underline mt-1 block mb-2">Leer más</a>
                 </div>
             </div>
             
             <div class="bg-white rounded-lg shadow hover:shadow-lg transition-shadow">
-                <img src="../imagenes/minas.png" alt="Experiencing the Shire" class="h-auto object-cover rounded">
+                <img src="../../imagenes/minas.png" alt="Experiencing the Shire" class="h-auto object-cover rounded">
                 <div class="p-4">
                     <h3 class="text-xl font-semibold mt-2">Explorando Minas Tirith</h3>
                     <p class="mt-1 text-gray-600 mb-5">La majestuosa ciudad blanca, una fortaleza de historia, defensa y misterio.</p>
-                    <p class="mt-10 text-gray-500">Publicado el: Oct 15, 2024 por <a href="autores/autorAragorn.html"  class="font-semibold hover:underline hover:text-blue-500">Aragorn</a></p>
-                    <a href="articulos/articulo.html" class="text-blue-500 hover:underline block mt-1 mb-2">Leer más</a>    
+                    <p class="mt-10 text-gray-500">Publicado el: Oct 15, 2024 por <a href="autorAragorn.html"  class="font-semibold hover:underline hover:text-blue-500">Aragorn</a></p>
+                    <a href="../articulos/articuloMinas.html" class="text-blue-500 hover:underline block mt-1 mb-2">Leer más</a>    
                 </div>
             </div>
 
-            
         </div>
     </section>
-
-
-    <!-- Categories Section -->
-    <section id="categories" class="mt-10 max-w-7xl mx-auto">
-        <h2 class="text-3xl font-bold mt-20 mb-6">Categories</h2>
-        <ul class="flex flex-wrap">
-            <li class="bg-blue-500 text-white px-4 py-2 rounded-full m-2">Adventure</li>
-            <li class="bg-blue-500 text-white px-4 py-2 rounded-full m-2">Guides</li>
-            <li class="bg-blue-500 text-white px-4 py-2 rounded-full m-2">Travel Tips</li>
-            <li class="bg-blue-500 text-white px-4 py-2 rounded-full m-2">Legends</li>
-        </ul>
-    </section>
-
-
-
-    <!-- Search Bar -->
-    <section class="mt-10 max-w-7xl mx-auto mb-8">
-        <input type="text" placeholder="Search..." class="w-full p-2 border rounded" />
-    </section>
-
 
 
     <!-- Footer -->
@@ -121,14 +112,11 @@
             </div>
         </div>
 
-
         <div class="bg-gray-700 p-6">
             <div class="flex justify-between max-w-7xl mx-auto">
 
-                <!-- Ponemos grid-cols-1 para móvil que sea todo vertical, pero mientras no que sean 4. -->
                 <div class="grid grid-cols-1 md:grid-cols-4 gap-14 px-4">
-            
-                    <!-- Información -->
+
                     <div>
                         <h3 class="text-lg font-semibold">INFORMACIÓN</h3>
                         <div class="border-t-2 border-green-600 my-4"></div>
@@ -141,8 +129,7 @@
                             <li><a href="#" class="hover:text-green-400">¿Quiénes somos?</a></li>
                         </ul>
                     </div>
-        
-                    <!-- Contacto -->
+
                     <div>
                         <h3 class="text-lg font-semibold">CONTACTO</h3>
                         <div class="border-t-2 border-green-600 my-4"></div>
@@ -150,21 +137,19 @@
                         <p>Teléfono: (123) 456-7890</p>
                         <p>Email: <a href="mailto:info@tierramedia.com" class="hover:text-green-400">info@tierramedia.com</a></p>
                     </div>
-        
-                    <!-- Enlaces rápidos -->
+
                     <div>
                         <h3 class="text-lg font-semibold">ENLACES RÁPIDOS</h3>
                         <div class="border-t-2 border-green-600 my-4"></div>
                         <ul>
-                            <li><a href="paginaPrincipal.html" class="hover:text-green-400">Página Principal</a></li>
-                            <li><a href="blog.html" class="hover:text-green-400">Blog</a></li>
-                            <li><a href="tienda.html" class="hover:text-green-400">Tienda</a></li>
+                            <li><a href="../../paginaPrincipal.html" class="hover:text-green-400">Página Principal</a></li>
+                            <li><a href="../../blog.html" class="hover:text-green-400">Blog</a></li>
+                            <li><a href="../../tienda.html" class="hover:text-green-400">Tienda</a></li>
                             <li><a href="#categories" class="hover:text-green-400">Categorías</a></li>
-                            <li><a href="contacto.html" class="hover:text-green-400">Contáctanos</a></li>
+                            <li><a href="../../contacto.html" class="hover:text-green-400">Contáctanos</a></li>
                         </ul>
                     </div>
-        
-                    <!-- Redes sociales -->
+
                     <div>
                         <h3 class="text-lg font-semibold">REDES SOCIALES</h3>
                         <div class="border-t-2 border-green-600 my-4"></div>
@@ -180,9 +165,8 @@
             </div>
 
             <p class="flex justify-center mt-10">&copy; 2024 Viajes a través de la Tierra Media. Todos los derechos reservados. © Copyright ELFSCAPE TRAVELS.</p>
-            
+
         </div>
     </footer>
-
 </body>
 </html>
