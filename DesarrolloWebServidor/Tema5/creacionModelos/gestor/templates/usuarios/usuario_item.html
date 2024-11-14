@@ -1,0 +1,7 @@
+<!-- usuario_item.html -->
+<div>
+    <h2>Usuario: {{ usuario.nombre|truncatechars:50|capfirst }} </h2>
+    <p>Correo: {{ usuario.correo|upper }} </p>
+    <p>Fecha de registro: {{ usuario.fecha_registro }} </p>
+    <p>Id de usuario: {{ usuario.id }}</p>
+</div>

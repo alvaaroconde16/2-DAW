@@ -1,17 +1,18 @@
-<!DOCTYPE html>
-<html>
-    <head></head>
-    <body>
-    <h1>Último usuario en comentar</h1>
+{% extends 'principal.html' %}
 
+{% load static %}
 
-        {% for comentario in comentario_mostrar %}
-            <div>
-                <h2>Usuario: {{ comentario.autor.nombre }} </h2>
-                <p>Correo: {{ comentario.autor.correo }} </p>
-                <p>Fecha de registro: {{ comentario.autor.fecha_registro }} </p>
-            </div>
-        {% endfor %}
+{% block cabecera %}
+<h1>Último Usuario en Comentar</h1>
+<img src="{% static 'images/logo.png' %}" alt="Logo"/>
+{% endblock %}
 
-    </body>
-</html>
+{% block contenido %}
+    {% for comentario in comentario_mostrar %}
+        <div>
+            <h2>Usuario: {{ comentario.autor.nombre }}</h2>
+            <p>Correo: {{ comentario.autor.correo }}</p>
+            <p>Fecha de registro: {{ comentario.autor.fecha_registro }}</p>
+        </div>
+    {% endfor %}
+{% endblock %}

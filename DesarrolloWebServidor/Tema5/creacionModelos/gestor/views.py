@@ -30,10 +30,10 @@ def listar_tareas(request, id_proyecto):
 
 #Vamos a mostrar todos los usuarios que están asignados a una tarea ordenandolos por fecha de asignacion de forma ascendente
 def listar_usuarios_tarea(request, id_tarea):
-    asignacion = AsignacionTarea.objects.select_related("usuario", "tarea")
-    asignacion = asignacion.filter(tarea_id=id_tarea).order_by('fecha_asignacion')
+    usuario = Usuario.objects.filter(asignaciontarea__tarea_id=id_tarea)
+    usuario = usuario.order_by('asignaciontarea__fecha_asignacion')
     
-    return render(request, 'usuarios/usuarios.html', {'asignacion_mostrar':asignacion})
+    return render(request, 'usuarios/usuarios.html', {'asignacion_mostrar':usuario})
 
 
 
@@ -88,9 +88,9 @@ def usuarios_no_asignados(request):
     usuariosAsignados = AsignacionTarea.objects.select_related("usuario", "tarea")
     usuariosAsignados = usuariosAsignados.values_list('usuario', flat=True) #La consulta devuelve una lista plana de valores en lugar de una lista de tuplas.
 
-    usuariosNoAsignados = Usuario.objects.exclude(id__in=usuariosAsignados)
+    usuario = Usuario.objects.exclude(id__in=usuariosAsignados)
 
-    return render(request, 'usuarios/usuarioSinTarea.html', {'sinTarea_mostrar':usuariosNoAsignados})
+    return render(request, 'usuarios/usuarioSinTarea.html', {'sinTarea_mostrar':usuario})
 
 
 

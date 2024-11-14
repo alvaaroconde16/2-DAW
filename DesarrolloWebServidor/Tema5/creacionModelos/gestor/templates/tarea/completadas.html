@@ -1,26 +1,19 @@
-<!DOCTYPE html>
-<html>
-    <head></head>
-    <body>
-    <h1>Tareas</h1>
+{% extends 'principal.html' %}
 
-        <div>
-            {% for tareas in completadas %}
-                <h2>Titulo: {{ tareas.titulo }} </h2>
-                <p>Prioridad: {{ tareas.prioridad }} </p>
-                <p>Estado: {{ tareas.estado }} </p>
-                <p>Completada: {{ tareas.completada }} </p>
-                <p>Fecha de creación: {{ tareas.fecha_creacion }} </p>
-                <p>Hora de vencimiento: {{ tareas.hora_vencimiento }} </p>
-                <p>Descripcion: {{ tareas.descripcion }}</p>
+{% load static %}
 
-            <h3>Usuarios asignados: 
-                <a href="{% url 'listar_usuarios_tarea' tareas.id%}">Pulsa para ver los usuarios asignados</a>
-            </h3>
+{% block cabecera %}
+<h1>Tareas Completadas</h1>
+<img src="{% static 'images/logo.png' %}" alt="Logo"/>
+{% endblock %}
 
-            {% endfor %}
-
-        </div>
-
-    </body>
-</html>
+{% block contenido %}
+    <div>
+        <h2>Total de tareas completadas: {{ completadas|length }}</h2>
+        {% for tarea in completadas %}
+            {% include 'tarea/tarea_item.html' %}
+        {% empty %}
+            <p>No hay tareas completadas</p>
+        {% endfor %}
+    </div>
+{% endblock %}

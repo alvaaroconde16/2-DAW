@@ -1,18 +1,16 @@
-<!DOCTYPE html>
-<html>
-    <head></head>
-    <body>
-    <h1>Comentarios</h1>
+{% extends 'principal.html' %}
 
+{% load static %}
 
-        {% for usuario in sinTarea_mostrar %}
-            <div>
-                <h2>Usuario: {{ usuario.usuario.nombre }} </h2>
-                <p>Correo: {{ usuario.correo }} </p>
-                <p>Fecha de registro: {{ usuario.fecha_registro }} </p>
-                <p>Id de usuario: {{ usuario.id }} </p>
-            </div>
-        {% endfor %}
+{% block cabecera %}
+<h1>Usuarios sin Tarea</h1>
+<img src="{% static 'images/logo.png' %}" alt="Logo"/>
+{% endblock %}
 
-    </body>
-</html>
+{% block contenido %}
+    {% for usuario in sinTarea_mostrar %}
+        {% include 'usuarios/usuario_item.html' %}
+    {% empty %}
+        <p>No hay usuarios sin tareas</p>
+    {% endfor %}
+{% endblock %}

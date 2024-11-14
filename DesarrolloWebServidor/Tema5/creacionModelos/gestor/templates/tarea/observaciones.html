@@ -1,27 +1,27 @@
-<!DOCTYPE html>
-<html>
-    <head></head>
-    <body>
-    <h1>Tareas</h1>
+{% extends 'principal.html' %}
 
-        <div>
-            {% for asignacionesTareas in asignaciones %}
-                <h2>Titulo: {{ asignacionesTareas.tarea.titulo }} </h2>
-                <p>Prioridad: {{ asignacionesTareas.tarea.prioridad }} </p>
-                <p>Estado: {{ asignacionesTareas.tarea.estado }} </p>
-                <p>Completada: {{ asignacionesTareas.tarea.completada }} </p>
-                <p>Fecha de creación: {{ asignacionesTareas.tarea.fecha_creacion }} </p>
-                <p>Hora de vencimiento: {{ asignacionesTareas.tarea.hora_vencimiento }} </p>
-                <p>Descripcion: {{ asignacionesTareas.tarea.descripcion }}</p>
-                <p>Observación: {{ asignacionesTareas.observaciones }}</p>
+{% load static %}
 
-            <h3>Usuarios asignados: 
-                <a href="{% url 'listar_usuarios_tarea' asignacionesTareas.tarea.id%}">Pulsa para ver los usuarios asignados</a>
+{% block cabecera %}
+<h1>Observaciones de Tareas</h1>
+<img src="{% static 'images/logo.png' %}" alt="Logo"/>
+{% endblock %}
+
+{% block contenido %}
+    <div>
+        {% for asignacionesTareas in asignaciones %}
+            <h2>Titulo: {{ asignacionesTareas.tarea.titulo }}</h2>
+            <p>Prioridad: {{ asignacionesTareas.tarea.prioridad }}</p>
+            <p>Estado: {{ asignacionesTareas.tarea.estado }}</p>
+            <p>Completada: {{ asignacionesTareas.tarea.completada }}</p>
+            <p>Fecha de creación: {{ asignacionesTareas.tarea.fecha_creacion }}</p>
+            <p>Hora de vencimiento: {{ asignacionesTareas.tarea.hora_vencimiento }}</p>
+            <p>Descripcion: {{ asignacionesTareas.tarea.descripcion }}</p>
+            <p>Observación: {{ asignacionesTareas.observaciones }}</p>
+
+            <h3>Usuarios asignados:
+                <a href="{% url 'listar_usuarios_tarea' asignacionesTareas.tarea.id %}">Pulsa para ver los usuarios asignados</a>
             </h3>
-
-            {% endfor %}
-
-        </div>
-
-    </body>
-</html>
+        {% endfor %}
+    </div>
+{% endblock %}

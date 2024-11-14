@@ -1,17 +1,17 @@
-<!DOCTYPE html>
-<html>
-    <head></head>
-    <body>
-    <h1>Usuarios Asignados</h1>
+{% extends 'principal.html' %}
 
+{% load static %}
 
-        {% for asignacion in asignacion_mostrar %}
-            <div>
-                <h2>Usuario: {{ asignacion.usuario.nombre }} </h2>
-                <p>Correo: {{ asignacion.usuario.correo }} </p>
-                <p>Fecha de registro: {{ asignacion.usuario.fecha_registro }} </p>
-            </div>
-        {% endfor %}
+{% block cabecera %}
+<h1>Usuarios Asignados</h1>
+<img src="{% static 'images/logo.png' %}" alt="Logo"/>
+{% endblock %}
 
-    </body>
-</html>
+{% block contenido %}
+    <h2>Numero de usuarios: {{ asignacion_mostrar|length }} usuario{{ asignacion_mostrar|pluralize }}</h2>
+    {% for usuario in asignacion_mostrar %}
+        {% include 'usuarios/usuario_item.html' %}
+    {% empty %}
+        <p>No hay usuarios</p>
+    {% endfor %}
+{% endblock %}

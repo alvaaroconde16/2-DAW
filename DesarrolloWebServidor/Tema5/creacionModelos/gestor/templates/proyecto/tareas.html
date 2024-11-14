@@ -1,31 +1,19 @@
-<!DOCTYPE html>
-<html>
-    <head></head>
-    <body>
-    <h1>Tareas</h1>
+{% extends 'principal.html' %}
 
-        <div>
-            {% for tarea in tarea_mostrar %}
-                <h2>Titulo: {{ tarea.titulo }} </h2>
-                <p>Prioridad: {{ tarea.prioridad }} </p>
-                <p>Numero de tarea: {{ tarea.id }} </p>
-                <p>Estado: {{ tarea.estado }} </p>
-                <p>Completada: {{ tarea.completada }} </p>
-                <p>Fecha de creación: {{ tarea.fecha_creacion }} </p>
-                <p>Hora de vencimiento: {{ tarea.hora_vencimiento }} </p>
-                <p>Descripcion: {{ tarea.descripcion }}</p>
+{% load static %}
 
-            <h3>Usuarios asignados: 
-                <a href="{% url 'listar_usuarios_tarea' tarea.id%}">Pulsa para ver los usuarios asignados</a>
-            </h3>
+{% block cabecera %}
+<h1>Tareas</h1>
+<img src="{% static 'images/logo.png' %}" alt="Logo"/>
+{% endblock %}
 
-            <h3>Comentarios que comienzan por la palabra Apply del año 2024:
-                <a href="{% url 'comentarios_tareas' tarea.id 'Apply' '2024' %}">Pulsa para ver los usuarios asignados</a>
-            </h3>
-
-            {% endfor %}
-
-        </div>
-
-    </body>
-</html>
+{% block contenido %}
+    <div>
+        <h2>Total de tareas: {{ tarea_mostrar|length }}</h2>
+        {% for tarea in tarea_mostrar %}
+            {% include 'tarea/tarea_item.html' %}
+        {% empty %}
+            <p>No hay tareas</p>
+        {% endfor %}
+    </div>
+{% endblock %}

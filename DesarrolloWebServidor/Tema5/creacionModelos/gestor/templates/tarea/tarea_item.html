@@ -1,0 +1,28 @@
+<!-- tarea_item.html -->
+<h2>Titulo: {{ tarea.titulo }} </h2>
+<p>Prioridad: {{ tarea.prioridad }} </p>
+<p>Estado: {% if tarea.completada %}
+                Completada
+            {% else %}
+                Pendiente
+            {% endif %} 
+</p>
+<p>Completada: {{ tarea.completada|yesno:"Sí,No" }} </p>
+<p>Fecha de creación: {{ tarea.fecha_creacion|date:"d-m-Y" }} </p>
+<p>Hora de vencimiento: {{ tarea.hora_vencimiento }} </p>
+<p>Descripcion: {{ tarea.descripcion|default:"Sin descripción disponible." }}</p>
+
+<p>Ítem número: {{ forloop.counter }}</p>
+
+<h3>Usuarios asignados: 
+    <a href="{% url 'listar_usuarios_tarea' tarea.id %}">Pulsa para ver los usuarios asignados</a>
+</h3>
+
+<h3>Comentarios que comienzan por la palabra Apply del año 2024:
+    <a href="{% url 'comentarios_tareas' tarea.id 'Apply' '2024' %}">Pulsa para ver los comentarios</a>
+</h3>
+
+
+{% comment "Este es un comentario interno, no visible para el usuario" %}
+    Información adicional o comentario para el desarrollador
+{% endcomment %}

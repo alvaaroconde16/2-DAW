@@ -1,38 +1,15 @@
-<!DOCTYPE html>
-<html>
-    <head></head>
-    <body>
-    <h1>PROYECTOS</h1>
+{% extends 'principal.html' %}
 
+{% load static %}
+
+{% block cabecera %}
+<h1>PROYECTOS</h1>
+<img src="{% static 'images/logo.png' %}" alt="Logo"/>
+{% endblock %}
+
+{% block contenido %}
+    <h2>Total de proyectos: {{ proyecto_mostrar|length }}</h2>
     {% for proyecto in proyecto_mostrar %}
-        <div>
-            <h2>Nombre: {{ proyecto.nombre }} </h2>
-            <p>Descripcion: {{ proyecto.descripcion }}</p>
-            <p>Duración estimada: {{ proyecto.duracion_estimada }}</p>
-            <p>Fecha de inicio: {{ proyecto.fecha_inicio }}</p>
-            <p>Fecha de fin: {{ proyecto.fecha_fin }}</p>
-
-            <h3>Administrador: {{ proyecto.administrador.nombre }}</h3>
-            <h2>Colaboradores</h2>
-            <ul>
-                {% for usuario in proyecto.colaboradores.all %}
-                    <li>{{ usuario.nombre }}</li>
-                {% endfor%}
-            </ul>
-
-            <h3>Tareas asociadas: 
-                <a href="{% url 'listar_tareas' proyecto.id %}">Pulsa para ver las tareas asociadas</a>
-            </h3>
-
-            <h3>Último usuario en comentar: 
-                <a href="{% url 'ultimo_usuario_comentar' proyecto.id %}">Pulsa para ver el último usuario en comentar</a>
-            </h3>
-
-            <h3>Etiquetas asociadas: 
-                <a href="{% url 'etiquetas_tareas' proyecto.id %}">Pulsa para ver las etiquetas del proyecto</a>
-            </h3>
-
+        {% include 'proyecto/proyecto_item.html' %}
     {% endfor %}
-
-    </body>
-</html>
+{% endblock %}
