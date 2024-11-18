@@ -1,3 +1,3 @@
 // script.js
 
-alert("La página se ha cargado correctamente")
+console.log("La página se ha cargado correctamente")
