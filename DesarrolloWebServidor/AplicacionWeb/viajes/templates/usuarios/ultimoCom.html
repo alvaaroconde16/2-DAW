@@ -1,9 +1,13 @@
-<!DOCTYPE html>
-<html>
-    <head></head>
-    <body>
-    <h1>ÚLTIMO USUARIO EN COMENTAR</h1>
+{% extends 'principal.html' %}
 
+{% load static %}
+
+{% block cabecera %}
+<h1>ÚLTIMO USUARIO EN COMENTAR</h1>
+<img src="{% static 'images/logo.png' %}" alt="Logo"/>
+{% endblock %}
+
+{% block contenido %}
     {% for comentario in comentarios_mostrar %}
         <div>
             <h2>Nombre usuario: {{ comentario.usuario.nombre }} </h2>
@@ -15,12 +19,7 @@
             <p>Nacionalidad: {{ comentario.usuario.pasaporte.nacionalidad }}</p>
 
             <h3>Reservas: <a href="{% url 'listar_reservas' comentario.usuario.id %}"> Pulsa para ver las reservas</h3></a>
-
             <h2>Comentario: {{ comentario.contenido }}</h2>
         </div>
-
-
     {% endfor %}
-
-    </body>
-</html>
+{% endblock %}

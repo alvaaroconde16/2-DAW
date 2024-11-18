@@ -3,12 +3,12 @@
 {% load static %}
 
 {% block cabecera %}
-<h1>ALOJAMIENTOS</h1>
+<h1>DESTINOS</h1>
 <img src="{% static 'images/logo.png' %}" alt="Logo"/>
 {% endblock %}
 
 {% block contenido %}
-    {% for alojamiento in alojamientos_mostrar %}
-        {% include 'destinos/alojamientos_item.html' %}
+    {% for destino in destinos_mostrar %}
+        {% include 'destinos/destinos_item.html' %}
     {% endfor %}
 {% endblock %}

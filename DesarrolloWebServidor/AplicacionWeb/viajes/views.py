@@ -4,7 +4,7 @@ from django.db.models import Q, Sum
 
 # Create your views here.
 def index(request):
-    return render(request, 'index.html')
+    return render(request, 'principal.html')
 
 
 #Empezamos mostrando una lista con todos los usuarios
@@ -39,7 +39,7 @@ def reservas_sin_extras(request):
 def listar_destinos(request):
     destino = Destino.objects.all()
 
-    return render(request, 'destinos/lista.html', {'destinos_mostrar':destino})
+    return render(request, 'destinos/destinos.html', {'destinos_mostrar':destino})
 
 
 

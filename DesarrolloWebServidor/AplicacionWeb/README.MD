@@ -222,3 +222,83 @@ PÁGINAS DE ERRORES
 15. URL: error_500_view
 - Funcionalidad: Muestra una página de error 500 personalizada.
 - Requisitos: Se activa automáticamente para errores de servidor interno.
+
+
+# #########################################################################################################################################################################
+
+
+TEMPLATES APLICACIÓN WEB
+
+ESTOS SON LOS 5 TEMPLATE TAGS QUE HE UTILIZADO:
+
+    - FOR...EMPTY: Se utiliza para iterar sobre listas o objetos. Si la lista está vacía, se ejecuta el bloque {% empty %}. Lo he usado en templates como alojamientos.html, comentarios.html, destinos.html, reservas.html, usuarios.html.
+
+    - INCLUDE: Permite incluir el contenido de otro archivo HTML dentro de la plantilla actual. Lo he usado en todas las templates que tenían un bucle for, como alojamientos.html, destinos.html, reservas.html, etc.
+
+    - IF-ELSE: Para mostrar información condicionalmente (por ejemplo, si una reserva tiene extras asociados o si un usuario tiene comentarios registrados). Usada en la template usuarios.html, reservas.html, comentarios.html.
+
+    - FORLOOP.COUNTER: Muestra el número de la iteración actual dentro de un bucle for. Usado en las templates alojamientos.html, destinos.html, reservas.html para mostrar el número de cada ítem listado.
+
+    - COMMENT...ENDCOMMENT: Permite agregar comentarios en el código de la plantilla que no se muestran en el HTML renderizado. Usado para agregar comentarios explicativos dentro de las templates.
+
+
+
+
+
+ESTOS SON LOS 5 OPERADORES QUE HE UTILIZADO:
+
+    - LENGTH: Se utiliza para obtener la longitud de un objeto iterable (como una lista o queryset). Usado en templates como usuarios.html, reservas.html, destinos.html.
+
+    - DEFAULT: Este operador se usa para establecer un valor por defecto si una variable no tiene valor (es None o vacía). Usado en templates como usuarios.html, comentarios.html.
+
+    - DATE: Permite formatear fechas de acuerdo con el formato especificado. Usado en las templates reservas.html, comentarios.html.
+
+    - UPPER: Convierte un texto a mayúsculas. Usado en las templates usuarios.html, comentarios.html.
+
+    - LOWER: Convierte un texto a minúsculas. Usado en la template destinos.html.
+
+
+
+
+
+ESTOS SON LOS 10 TEMPLATE FILTERS QUE HE UTILIZADO:
+
+    - DATE: Formatear fechas.
+
+        <p>Fecha de salida: {{ reserva.fecha_salida|date:"d-m-Y" }}</p>
+
+    - LENGTH: Obtener la cantidad de elementos de una lista.
+
+        <p>Total de usuarios: {{ usuarios_mostrar|length }}</p>
+    
+    - DEFAULT: Establecer un valor predeterminado si el valor es vacío.
+    
+        <p>Descripción: {{ comentario.contenido|default:"No hay contenido disponible." }}</p>
+    
+    - UPPER: Convertir texto a mayúsculas.
+    
+        <h2>Nombre: {{ usuario.nombre|upper }}</h2>
+    
+    - LOWER: Convertir texto a minúsculas.
+    
+        <h2>Destino: {{ destino.nombre|lower }}</h2>
+    
+    - YESNO: Mostrar valores personalizados para booleanos.
+    
+        <p>¿Activo? {{ usuario.activo|yesno:"Sí,No" }}</p>
+    
+    - TRUNCATECHARS: Limitar el texto a un número específico de caracteres.
+    
+        <h3>Comentario: {{ comentario.contenido|truncatechars:50 }}</h3>
+    
+    - PLURALIZE: Manejar el plural dinámico de las palabras.
+    
+        <p>Comentarios: {{ comentarios|length }} comentario{{ comentarios|pluralize }}</p>
+    
+    - CAPFIRST: Convierte en mayúscula la primera letra.
+    
+        <h3>Título: {{ comentario.titulo|capfirst }}</h3>
+    
+    - FLOATFORMAT: Formatea números de punto flotante a un número fijo de decimales.
+    
+        <p>Precio: {{ reserva.precio|floatformat:2 }}</p>

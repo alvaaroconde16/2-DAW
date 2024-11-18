@@ -1,19 +1,14 @@
-<!DOCTYPE html>
-<html>
-    <head></head>
-    <body>
-    <h1>RESERVAS</h1>
+{% extends 'principal.html' %}
 
+{% load static %}
+
+{% block cabecera %}
+<h1>RESERVAS</h1>
+<img src="{% static 'images/logo.png' %}" alt="Logo"/>
+{% endblock %}
+
+{% block contenido %}
     {% for reserva in reservas_mostrar %}
-        <div>
-            <h2>Código de reserva: {{ reserva.codigo_reserva }} </h2>
-            <p>Fecha de salida: {{ reserva.fecha_salida }}</p>
-            <p>Fecha de llegada: {{ reserva.fecha_llegada }}</p>
-            <p>Número de personas: {{ reserva.numero_personas }}</p>
-            <p>Precio: {{ reserva.precio }}</p>
-        </div>
-
+        {% include 'reservas/reservas_item.html' %}
     {% endfor %}
-
-    </body>
-</html>
+{% endblock %}

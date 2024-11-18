@@ -1,20 +1,15 @@
-<!DOCTYPE html>
-<html>
-    <head></head>
-    <body>
-    <h1>COMENTARIOS</h1>
+{% extends 'principal.html' %}
 
-    {% for comentarios in comentarios_mostrar %}
-        <div>
-            <h2>Título: {{ comentarios.titulo }} </h2>
-            <p>Contenido: {{ comentarios.contenido }}</p>
-            <p>Fecha del comentario: {{ comentarios.fecha_comentario }}</p>
-            <p>Calificación: {{ comentarios.calificacion }}</p>
-            <p>Usuario: {{ comentarios.usuario.nombre }}</p>
-        </div>
+{% load static %}
 
+{% block cabecera %}
+<h1>COMENTARIOS</h1>
+<img src="{% static 'images/logo.png' %}" alt="Logo"/>
+{% endblock %}
 
+{% block contenido %}
+    {% for comentario in comentarios_mostrar %}
+        {% include 'usuarios/comentarios_item.html' %}
+        <p>No hay usuarios disponibles.</p>
     {% endfor %}
-
-    </body>
-</html>
+{% endblock %}

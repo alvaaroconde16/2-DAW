@@ -1,15 +1,14 @@
-<!DOCTYPE html>
-<html>
-    <head></head>
-    <body>
-    <h1>TOTAL PRECIO RESERVAS</h1>
+{% extends 'principal.html' %}
 
-        <div>
-            <!--Tenemos que usar el .precio__sum porque el aggregate nos devuelve un diccionario donde la clave corresponde al calculo que hemos realizado
-                En este caso, como hemos usado Sum('precio'), Nos genera una clave con el nombre del campo seguido del tipo de cáculo realizado, en este
-                caso: precio__sum-->
-            <h2>El total de precios de todas las reservas: {{ precio_mostrar.precio__sum }} </h2>
-        </div>
+{% load static %}
 
-    </body>
-</html>
+{% block cabecera %}
+<h1>TOTAL PRECIO RESERVAS</h1>
+<img src="{% static 'images/logo.png' %}" alt="Logo"/>
+{% endblock %}
+
+{% block contenido %}
+    <div>
+        <h2>El total de precios de todas las reservas: {{ precio_mostrar.precio__sum }} </h2>
+    </div>
+{% endblock %}
