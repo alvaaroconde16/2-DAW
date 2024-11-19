@@ -10,5 +10,7 @@
 {% block contenido %}
     {% for reserva in reservas_mostrar %}
         {% include 'reservas/reservas_item.html' %}
+    {% empty %}
+        <p>No hay reservas</p>
     {% endfor %}
 {% endblock %}

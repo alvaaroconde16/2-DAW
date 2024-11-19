@@ -10,5 +10,7 @@
 {% block contenido %}
     {% for alojamiento in alojamientos_mostrar %}
         {% include 'destinos/alojamientos_item.html' %}
+    {% empty %}
+        <p>No hay alojamientos disponibles.</p>
     {% endfor %}
 {% endblock %}

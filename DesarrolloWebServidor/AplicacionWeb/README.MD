@@ -231,11 +231,11 @@ TEMPLATES APLICACIÓN WEB
 
 ESTOS SON LOS 5 TEMPLATE TAGS QUE HE UTILIZADO:
 
-    - FOR...EMPTY: Se utiliza para iterar sobre listas o objetos. Si la lista está vacía, se ejecuta el bloque {% empty %}. Lo he usado en templates como alojamientos.html, comentarios.html, destinos.html, reservas.html, usuarios.html.
+    - FOR...EMPTY: Se utiliza para iterar sobre listas o objetos. Si la lista está vacía, se ejecuta el bloque {% empty %}. Lo he usado en templates como alojamientos.html, comentarios.html, destinos.html, reservas.html, lista.html.
 
     - INCLUDE: Permite incluir el contenido de otro archivo HTML dentro de la plantilla actual. Lo he usado en todas las templates que tenían un bucle for, como alojamientos.html, destinos.html, reservas.html, etc.
 
-    - IF-ELSE: Para mostrar información condicionalmente (por ejemplo, si una reserva tiene extras asociados o si un usuario tiene comentarios registrados). Usada en la template usuarios.html, reservas.html, comentarios.html.
+    - IF-ELSE: Para mostrar información condicionalmente (por ejemplo, si una reserva tiene extras asociados o si un usuario tiene comentarios registrados). Usada en la template lista.html, reservas.html, comentarios.html.
 
     - FORLOOP.COUNTER: Muestra el número de la iteración actual dentro de un bucle for. Usado en las templates alojamientos.html, destinos.html, reservas.html para mostrar el número de cada ítem listado.
 

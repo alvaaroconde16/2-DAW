@@ -10,6 +10,7 @@
 {% block contenido %}
     {% for comentario in comentarios_mostrar %}
         {% include 'usuarios/comentarios_item.html' %}
-        <p>No hay usuarios disponibles.</p>
+    {% empty %}
+        <p>No hay comentarios.</p>
     {% endfor %}
 {% endblock %}

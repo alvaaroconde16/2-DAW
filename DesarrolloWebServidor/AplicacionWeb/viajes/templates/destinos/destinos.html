@@ -10,5 +10,7 @@
 {% block contenido %}
     {% for destino in destinos_mostrar %}
         {% include 'destinos/destinos_item.html' %}
+    {% empty %}
+        <p>No hay destinos disponibles.</p>
     {% endfor %}
 {% endblock %}
