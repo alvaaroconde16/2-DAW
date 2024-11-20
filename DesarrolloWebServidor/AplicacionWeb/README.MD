@@ -282,7 +282,7 @@ A continuación se detallan todas las URLs de la aplicación, especificando lo q
 
 
 
-<br>ESTOS SON LOS 5 OPERADORES QUE HE UTILIZADO:
+<br><br>ESTOS SON LOS 5 OPERADORES QUE HE UTILIZADO:
 
 1. **`!=` (Diferente de)**: Comprueba si dos valores son diferentes. Ejemplo:
    - En `comentarios_item.html`, destacamos los comentarios que no tienen la calificación máxima:
