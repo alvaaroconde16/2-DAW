@@ -327,7 +327,7 @@ ESTOS SON LOS 5 OPERADORES QUE HE UTILIZADO:
 
 
 
-ESTOS SON LOS 10 TEMPLATE FILTERS QUE HE UTILIZADO:
+<br>ESTOS SON LOS 10 TEMPLATE FILTERS QUE HE UTILIZADO:
 
 1. **`date` (Formatear fechas)**: Permite formatear fechas en el formato deseado. Ejemplo:
    - En `usuario_item.html`, `ultimoCom.html` y `comentarios_item.html`, se muestra la fecha de salida de una reserva en formato día-mes-año:
