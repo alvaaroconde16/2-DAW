@@ -1,6 +1,9 @@
 /* Usar JS para mostrar el contenido, en mayúsculas, del formulario anterior en la misma ventana. Modifica el script para mandar los datos a una nueva ventana. */
 
-function mostrarDatos() {
+function mostrarDatos(event) {
+
+    // Evitar el envío del formulario (previene la recarga de la página)
+    event.preventDefault();
 
     // Obtener los valores del formulario
     var nombre = document.getElementById('nombre').value.toUpperCase();
@@ -15,24 +18,20 @@ function mostrarDatos() {
     var correo = document.getElementById('correo').value.toUpperCase();
     var ubicacion = document.getElementById('ubicacion').value.toUpperCase();
 
-    document.getElementById("boton").addEventListener('click',crearNueva);
+    var nuevaVentana = window.open('', '', 'width=800,height=400');
+    nuevaVentana.document.write(`
+        <h2>Datos Registrados</h2>
+        <p><strong>Nombre:</strong> ${nombre}</p>
+        <p><strong>Apellidos:</strong> ${apellidos}</p>
+        <p><strong>Nombre de usuario:</strong> ${usuario}</p>
+        <p><strong>Contraseña:</strong> ${contraseña}</p>
+        <p><strong>Fecha de Nacimiento:</strong> ${dia} ${mes} ${año}</p>
+        <p><strong>Sexo:</strong> ${sexo}</p>
+        <p><strong>Móvil:</strong> ${movil}</p>
+        <p><strong>Correo Electrónico:</strong> ${correo}</p>
+        <p><strong>Ubicación:</strong> ${ubicacion}</p>
+    `);
 
-    var nuevaVentana;
-    function crearNueva(){
-        var nuevaVentana = window.open('', '', 'width=600,height=400');
-        nuevaVentana.document.write(`
-            <h2>Datos Registrados</h2>
-            <p><strong>Nombre:</strong> ${nombre}</p>
-            <p><strong>Apellidos:</strong> ${apellidos}</p>
-            <p><strong>Nombre de usuario:</strong> ${usuario}</p>
-            <p><strong>Contraseña:</strong> ${contraseña}</p>
-            <p><strong>Fecha de Nacimiento:</strong> ${dia} ${mes} ${año}</p>
-            <p><strong>Sexo:</strong> ${sexo}</p>
-            <p><strong>Móvil:</strong> ${movil}</p>
-            <p><strong>Correo Electrónico:</strong> ${correo}</p>
-            <p><strong>Ubicación:</strong> ${ubicacion}</p>
-        `);
-    }
-    
-    window.onload = mostrarDatos;
 }
+    
+document.getElementById('boton').addEventListener('click', mostrarDatos);
