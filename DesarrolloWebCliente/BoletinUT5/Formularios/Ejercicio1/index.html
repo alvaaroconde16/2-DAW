@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulario de Registro</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f9;
+            display: flex;
+            justify-content: center;
+            padding: 50px;
+        }
+
+        form {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 500px;
+        }
+
+        select{
+            width: 100%;
+        }
+
+        input[type="text"], input[type="password"], input[type="email"], input[type="tel"], input[type="date"], select {
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+        }
+
+        label {
+            font-weight: bold;
+        }
+
+        button {
+            width: 100%;
+            padding: 10px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 20px;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+
+        .campo-flex {
+            display: flex;
+            justify-content: space-between;
+            gap: 10px;
+        }
+        
+        .campo-flex input {
+            width: 100%; /* Ajusta el ancho de los inputs */
+        }
+
+    </style>
+
+</head>
+<body onload="mostrarDatos()">
+
+    <form action="#" method="POST">
+        <h2>Formulario de Registro</h2>
+
+        <!-- Nombre y Apellidos en la misma fila -->
+        <div>
+            <label for="nombre">Nombre:</label>
+            <div class="campo-flex">
+                <input type="text" name="nombre" id="nombre" pattern="[A-Za-záéíóúÁÉÍÓÚ ]+" placeholder="Nombre" />
+                <input type="text" name="apellidos" id="apellidos" pattern="[A-Za-záéíóúÁÉÍÓÚ ]+" placeholder="Apellidos" />
+            </div>
+        </div>
+
+
+        <!-- Nombre de usuario -->
+        <label for="usuario">Nombre de usuario:</label>
+        <div class="campo-flex">
+            <input type="text" name="usuario" id="usuario" placeholder="Ej. juan123" />
+        </div>
+
+
+        <!-- Contraseña -->
+        <label for="contraseña">Contraseña:</label>
+        <div class="campo-flex">
+            <input type="password" name="contraseña" id="contraseña" placeholder="Ej. abc123!" />
+        </div>
+
+
+        <!-- Fecha de nacimiento -->
+        <label for="fecha_nac">Fecha de Nacimiento:</label>
+        <div class="campo-flex">
+            <input type="text" name="dia" id="dia" placeholder="Día" />
+            <select name="mes" id="mes">
+                <option value="">Mes</option>
+                <option value="enero">Enero</option>
+                <option value="febrero">Febrero</option>
+                <option value="marzo">Marzo</option>
+                <option value="abril">Abril</option>
+                <option value="mayo">Mayo</option>
+                <option value="junio">Junio</option>
+                <option value="julio">Julio</option>
+                <option value="agosto">Agosto</option>
+                <option value="septiembre">Septiembre</option>
+                <option value="octubre">Octubre</option>
+                <option value="noviembre">Noviembre</option>
+                <option value="diciembre">Diciembre</option>
+            </select>
+            <input type="text" name="año" id="año" placeholder="Año" />
+        </div>
+
+
+        <!-- Sexo -->
+        <label for="sexo">Sexo:</label>
+        <div>
+            <select id="sexo" name="sexo" required>
+                <option value="">Seleccione</option>
+                <option value="masculino">Masculino</option>
+                <option value="femenino">Femenino</option>
+                <option value="otro">Otro</option>
+            </select>
+        </div>
+
+
+        <!-- Teléfono móvil -->
+        <label for="movil">Móvil:</label>
+        <div class="campo-flex">
+            <input type="tel" id="movil" name="movil" required pattern="\d{9}" title="El número debe tener 9 dígitos" placeholder="Ej. 612345678" />
+        </div>
+
+
+        <!-- Correo electrónico -->
+        <label for="correo">Correo Electrónico:</label>
+        <div class="campo-flex">
+            <input type="email" id="correo" name="correo" required placeholder="ejemplo@dominio.com" />
+        </div>
+
+
+        <!-- Ubicación -->
+        <label for="ubicacion">Ubicación:</label>
+        <div class="campo-flex">
+            <input type="text" id="ubicacion" name="ubicacion" required placeholder="Ej. Madrid, España" />
+        </div>
+
+
+        <!-- Botón de envío -->
+        <button type="submit" id="boton">Registrar</button>
+    </form>
+
+    <script type="text/javascript" src="ejercicio1.js"></script>
+
+</body>
+</html>
