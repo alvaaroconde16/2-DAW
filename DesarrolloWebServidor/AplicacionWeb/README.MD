@@ -123,14 +123,14 @@ Este es un modelo intermedio entre Extra y Reserva, que permite la relación man
 
 
 
-<br>MODELO ENTIDAD RELACIÓN
+<br><br>MODELO ENTIDAD RELACIÓN
 ![Imagen Modelo Entidad Relación](assests/Entidad-relacion_DWS.drawio.png)
 
 
 # #########################################################################################################################################################################
 
 
-<br>URLs y Vistas
+<br><br>URLs y Vistas
 A continuación se detallan todas las URLs de la aplicación, especificando lo que hace cada vista y los requisitos que cumplen.
 
 1. URL: path('', views.index, name='index'),
@@ -227,7 +227,7 @@ A continuación se detallan todas las URLs de la aplicación, especificando lo q
 # #########################################################################################################################################################################
 
 
-<br>TEMPLATES APLICACIÓN WEB
+<br><br>TEMPLATES APLICACIÓN WEB
 
 <br>ESTOS SON LOS 5 TEMPLATE TAGS QUE HE UTILIZADO:
 
@@ -327,7 +327,7 @@ A continuación se detallan todas las URLs de la aplicación, especificando lo q
 
 
 
-<br>ESTOS SON LOS 10 TEMPLATE FILTERS QUE HE UTILIZADO:
+<br><br>ESTOS SON LOS 10 TEMPLATE FILTERS QUE HE UTILIZADO:
 
 1. **`date` (Formatear fechas)**: Permite formatear fechas en el formato deseado. Ejemplo:
    - En `usuario_item.html`, `ultimoCom.html` y `comentarios_item.html`, se muestra la fecha de salida de una reserva en formato día-mes-año:
