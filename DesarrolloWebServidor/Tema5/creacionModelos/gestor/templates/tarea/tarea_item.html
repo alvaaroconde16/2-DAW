@@ -1,10 +1,10 @@
 <!-- tarea_item.html -->
 <h2>Titulo: {{ tarea.titulo }} </h2>
 <p>Prioridad: {{ tarea.prioridad }} </p>
-<p>Estado: {% if tarea.completada %}
-                Completada
+<p>Estado: {% if tarea.estado == 'Completada' %}
+                La tarea ya está completada.
             {% else %}
-                Pendiente
+                La tarea aún falta por completar.
             {% endif %} 
 </p>
 <p>Completada: {{ tarea.completada|yesno:"Sí,No" }} </p>
