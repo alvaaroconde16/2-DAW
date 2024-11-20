@@ -1,6 +1,13 @@
 <!-- tarea_item.html -->
 <h2>Titulo: {{ tarea.titulo }} </h2>
 <p>Prioridad: {{ tarea.prioridad }} </p>
+
+{% if tarea.prioridad > 0 %}
+    <p>Esta tarea tiene una alta prioridad.</p>
+{% else %}
+    <p>Esta tarea tiene una baja prioridad.</p>
+{% endif %}
+
 <p>Estado: {% if tarea.estado == 'Completada' %}
                 La tarea ya está completada.
             {% else %}
@@ -23,6 +30,7 @@
 </h3>
 
 
-{% comment "Este es un comentario interno, no visible para el usuario" %}
-    Información adicional o comentario para el desarrollador
+{% comment %}
+        Este bloque de código es solo para mostrar los detalles de la tarea
+        y no se mostrará en el HTML renderizado.
 {% endcomment %}

@@ -3,5 +3,12 @@
     <h2>Usuario: {{ usuario.nombre|truncatechars:50|capfirst }} </h2>
     <p>Correo: {{ usuario.correo|upper }} </p>
     <p>Fecha de registro: {{ usuario.fecha_registro }} </p>
+
+    {% if usuario.fecha_registro < today %}
+        <p>Este usuario ha sido registrado antes de hoy.</p>
+    {% else %}
+        <p>Este usuario ha sido registrado hoy o después.</p>
+    {% endif %}
+
     <p>Id de usuario: {{ usuario.id }}</p>
 </div>

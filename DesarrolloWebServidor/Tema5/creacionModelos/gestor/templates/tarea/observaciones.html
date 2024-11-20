@@ -12,8 +12,22 @@
         {% for asignacionesTareas in asignaciones %}
             <h2>Titulo: {{ asignacionesTareas.tarea.titulo }}</h2>
             <p>Prioridad: {{ asignacionesTareas.tarea.prioridad }}</p>
+
+            {% if tarea.prioridad >= 3 %}
+                <p>Esta tarea tiene una alta prioridad.</p>
+            {% else %}
+                <p>Esta tarea tiene una baja prioridad.</p>
+            {% endif %}
+
             <p>Estado: {{ asignacionesTareas.tarea.estado }}</p>
             <p>Completada: {{ asignacionesTareas.tarea.completada }}</p>
+
+            {% if asignacionesTareas.tarea.estado != 'Completada' %}
+                <p>La tarea aún no está completada.</p>
+            {% else %}
+                <p>La tarea ya está completada.</p>
+            {% endif %}
+
             <p>Fecha de creación: {{ asignacionesTareas.tarea.fecha_creacion }}</p>
             <p>Hora de vencimiento: {{ asignacionesTareas.tarea.hora_vencimiento }}</p>
             <p>Descripcion: {{ asignacionesTareas.tarea.descripcion }}</p>
