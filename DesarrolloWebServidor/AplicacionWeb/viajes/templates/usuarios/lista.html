@@ -9,6 +9,7 @@
 
 {% block contenido %}
 
+    <p>Total de usuarios: {{ usuarios_mostrar|length }}</p>
     {% for usuario in usuarios_mostrar %}
         {% include 'usuarios/usuario_item.html' %}
     {% empty %}

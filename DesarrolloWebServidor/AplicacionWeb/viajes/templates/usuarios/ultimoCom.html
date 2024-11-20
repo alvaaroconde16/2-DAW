@@ -14,7 +14,7 @@
             <p>Correo: {{ comentario.usuario.correo }}</p>
             <p>Edad: {{ comentario.usuario.edad }}</p>
             <p>Teléfono: {{ comentario.usuario.telefono }}</p>
-            <p>Fecha de registro: {{ comentario.usuario.fecha_registro }}</p>
+            <p>Fecha de registro: {{ comentario.usuario.fecha_registro|date:"d-m-Y" }}</p>
             <p>ID del usuario: {{ comentario.usuario.id }}</p>
             <p>Nacionalidad: {{ comentario.usuario.pasaporte.nacionalidad }}</p>
 

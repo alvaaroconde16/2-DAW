@@ -231,74 +231,174 @@ TEMPLATES APLICACIÓN WEB
 
 ESTOS SON LOS 5 TEMPLATE TAGS QUE HE UTILIZADO:
 
-    - FOR...EMPTY: Se utiliza para iterar sobre listas o objetos. Si la lista está vacía, se ejecuta el bloque {% empty %}. Lo he usado en templates como alojamientos.html, comentarios.html, destinos.html, reservas.html, lista.html.
+1. **`FOR...EMPTY`**: Se utiliza para iterar sobre listas u objetos. Si la lista está vacía, se ejecuta el bloque `{% empty %}`.  
+   - En `alojamientos.html`, `comentarios.html`, `destinos.html`, `reservas.html` y `lista.html`, si no hay elementos para iterar, mostramos un mensaje de que no hay elementos disponibles:
+    
+    {% for alojamiento in alojamientos_mostrar %}
+        <div>
+            <h3>{{ alojamiento.nombre }}</h3>
+            <p>{{ alojamiento.direccion }}</p>
+        </div>
+    {% empty %}
+        <p>No hay alojamientos disponibles en este destino.</p>
+    {% endfor %}
+    
 
-    - INCLUDE: Permite incluir el contenido de otro archivo HTML dentro de la plantilla actual. Lo he usado en todas las templates que tenían un bucle for, como alojamientos.html, destinos.html, reservas.html, etc.
 
-    - IF-ELSE: Para mostrar información condicionalmente (por ejemplo, si una reserva tiene extras asociados o si un usuario tiene comentarios registrados). Usada en la template lista.html, reservas.html, comentarios.html.
+2. **`INCLUDE`**: Permite incluir el contenido de otro archivo HTML dentro de la plantilla actual.  
+   - En todas las plantillas que contienen un bucle `for`, como en `alojamientos.html`, `destinos.html`, `reservas.html`, etc., se utiliza para incluir fragmentos de código común o archivos parciales, como una barra de navegación:
+    
+    {% include 'destinos/destinos_item.html' %}
+    
 
-    - FORLOOP.COUNTER: Muestra el número de la iteración actual dentro de un bucle for. Usado en las templates alojamientos.html, destinos.html, reservas.html para mostrar el número de cada ítem listado.
 
-    - COMMENT...ENDCOMMENT: Permite agregar comentarios en el código de la plantilla que no se muestran en el HTML renderizado. Usado para agregar comentarios explicativos dentro de las templates.
+3. **`IF-ELSE`**: Se utiliza para mostrar información condicionalmente, permitiendo una lógica de tipo `if-else` en las plantillas.  
+   - En `reservas_item.html`, `usuario_item.html`, `destinos_item.html`, `total_precios.html`, `comentarios_item.html`, alojamientos_item se usa para verificar si una condición es verdadera o falsa y mostrar información diferente dependiendo del resultado:
+    
+    {% if reserva.numero_personas > 4 %}
+        <p>Reserva para un grupo grande.</p>
+    {% else %}
+        <p>Reserva para un grupo chico.</p> 
+    {% endif %}
+    
 
+
+4. **`FORLOOP.COUNTER`**: Muestra el número de la iteración actual dentro de un bucle `for`.  
+   - En `destinos_item.html`, `reservas_item.html` y `usuario_item.html` se utiliza para mostrar el número de cada ítem listado, mostrando la posición en el bucle:
+    
+    <h4>Reserva #{{ forloop.counter }}</h4>
+
+
+
+5. **`COMMENT...ENDCOMMENT`**: Permite agregar comentarios dentro de la plantilla que no se muestran en el HTML renderizado.  
+   - En `usuario_item.html` se utiliza para agregar comentarios explicativos dentro del código de las templates sin que estos aparezcan en el resultado final visible al usuario:
+    
+    {% comment %}
+        Este bloque de código es solo para mostrar los detalles de la reserva
+        y no se mostrará en el HTML renderizado.
+    {% endcomment %}
+    
 
 
 
 
 ESTOS SON LOS 5 OPERADORES QUE HE UTILIZADO:
 
-    - LENGTH: Se utiliza para obtener la longitud de un objeto iterable (como una lista o queryset). Usado en templates como usuarios.html, reservas.html, destinos.html.
+1. **`!=` (Diferente de)**: Comprueba si dos valores son diferentes. Ejemplo:
+   - En `comentarios_item.html`, destacamos los comentarios que no tienen la calificación máxima:
+    
+    {% if comentario.calificacion != 5 %}
+        <p>Este comentario no tiene la calificación máxima.</p>
+    {% endif %}
+    
 
-    - DEFAULT: Este operador se usa para establecer un valor por defecto si una variable no tiene valor (es None o vacía). Usado en templates como usuarios.html, comentarios.html.
+2. **`>` (Mayor que)**: Muestra elementos que superan un valor. Ejemplo:
+   - En `reservas_item.html`, se resalta si una reserva es para más de 4 personas:
+    
+    {% if reserva.numero_personas > 4 %}
+        <p>Reserva para un grupo grande.</p>
+    {% endif %}
+    
 
-    - DATE: Permite formatear fechas de acuerdo con el formato especificado. Usado en las templates reservas.html, comentarios.html.
+3. **`<` (Menor que)**: Verifica si un valor es menor. Ejemplo:
+   - En `usuario_item.html`, mostramos un mensaje si el usuario es menor de edad:
+    
+    {% if usuario.edad < 18 %}
+        <p>Usuario menor de edad.</p>
+    {% endif %}
+    
 
-    - UPPER: Convierte un texto a mayúsculas. Usado en las templates usuarios.html, comentarios.html.
+4. **`>=` (Mayor o igual que)**: Evalúa si un valor cumple o supera un umbral. Ejemplo:
+   - En `destinos_item.html`, destacamos destinos con alta popularidad:
+    
+    {% if destino.popularidad >= 8 %}
+        <p>Destino altamente popular.</p>
+    {% endif %}
+    
 
-    - LOWER: Convierte un texto a minúsculas. Usado en la template destinos.html.
-
+5. **`<=` (Menor o igual que)**: Comprueba si un valor está dentro de un límite. Ejemplo:
+   - En `total_precios.html`, mostramos un mensaje si el total de precios no supera 500:
+    
+    {% if precio_mostrar.precio__sum <= 500 %}
+        <p>El total de precios está dentro de un rango accesible.</p>
+    {% endif %}
+    
 
 
 
 
 ESTOS SON LOS 10 TEMPLATE FILTERS QUE HE UTILIZADO:
 
-    - DATE: Formatear fechas.
+1. **`date` (Formatear fechas)**: Permite formatear fechas en el formato deseado. Ejemplo:
+   - En `usuario_item.html`, `ultimoCom.html` y `comentarios_item.html`, se muestra la fecha de salida de una reserva en formato día-mes-año:
+    
+    <p>Fecha del comentario: {{ comentario.fecha_comentario|date:"d-m-Y" }}</p>
+    
 
-        <p>Fecha de salida: {{ reserva.fecha_salida|date:"d-m-Y" }}</p>
 
-    - LENGTH: Obtener la cantidad de elementos de una lista.
+2. **`length` (Obtener la cantidad de elementos de una lista)**: Muestra la cantidad de elementos en una lista o colección. Ejemplo:
+   - En `lista.html`, `comentarios.html` y `alojamientos.html`, se muestra el número total de usuarios registrados:
+    
+    <p>Total de usuarios: {{ usuarios_mostrar|length }}</p>
+    
 
-        <p>Total de usuarios: {{ usuarios_mostrar|length }}</p>
+
+3. **`default` (Valor predeterminado si el valor es vacío)**: Establece un valor predeterminado si el valor es vacío o `None`. Ejemplo:
+   - En `comentarios_item.html`, se muestra un mensaje si no hay contenido en un comentario:
     
-    - DEFAULT: Establecer un valor predeterminado si el valor es vacío.
+    <p>Contenido: {{ comentario.contenido|default:"No hay contenido disponible." }}</p>
     
-        <p>Descripción: {{ comentario.contenido|default:"No hay contenido disponible." }}</p>
+
+
+4. **`upper` (Convertir texto a mayúsculas)**: Convierte todo el texto a mayúsculas. Ejemplo:
+   - En `usuario_item.html`, se muestra el nombre del usuario en mayúsculas:
     
-    - UPPER: Convertir texto a mayúsculas.
+    <h2>Nombre: {{ usuario.nombre|upper }}</h2>
     
-        <h2>Nombre: {{ usuario.nombre|upper }}</h2>
+
+
+5. **`lower` (Convertir texto a minúsculas)**: Convierte todo el texto a minúsculas. Ejemplo:
+   - En `destinos_item.html`, se muestra el nombre del destino en minúsculas:
     
-    - LOWER: Convertir texto a minúsculas.
+    <h2>Destino: {{ destino.nombre|lower }}</h2>
     
-        <h2>Destino: {{ destino.nombre|lower }}</h2>
+
+
+6. **`divisibleby` (Verificar si un número es divisible por otro)**: Permite verificar si un número es divisible por otro sin dejar residuo. Este filtro es útil para determinar si un número es par o impar. Ejemplo:
+   - En `reservas.html`, se verifica si el número de reservas es par o impar:
+   
     
-    - YESNO: Mostrar valores personalizados para booleanos.
+    {% if reservas_mostrar|length|divisibleby:2 %}
+        <p>El número de reservas es par.</p>
+    {% else %}
+        <p>El número de reservas es impar.</p>
+    {% endif %}
+
+
+
+7. **`truncatechars` (Limitar el texto a un número específico de caracteres)**: Recorta un texto a una cantidad específica de caracteres. Ejemplo:
+   - En `comentarios_item.html`, se muestra solo los primeros 50 caracteres del comentario:
     
-        <p>¿Activo? {{ usuario.activo|yesno:"Sí,No" }}</p>
+    <p>Contenido: {{ comentario.contenido|default:"No hay contenido disponible."|truncatechars:50 }}</p>
     
-    - TRUNCATECHARS: Limitar el texto a un número específico de caracteres.
+
+
+8. **`pluralize` (Manejar el plural dinámico de las palabras)**: Agrega el plural automáticamente dependiendo de la cantidad. Ejemplo:
+   - En `reservas.html` y `destinos.html`, se maneja el plural del término "comentario" según la cantidad de comentarios:
     
-        <h3>Comentario: {{ comentario.contenido|truncatechars:50 }}</h3>
+    <p>Numero de reservas: {{ reservas_mostrar|length }} reserva{{ reservas_mostrar|pluralize }}</p>
     
-    - PLURALIZE: Manejar el plural dinámico de las palabras.
+
+
+9. **`capfirst` (Convierte la primera letra en mayúscula)**: Convierte solo la primera letra de una cadena a mayúscula. Ejemplo:
+   - En `comentarios_item.html`, se convierte la primera letra del título del comentario a mayúscula:
     
-        <p>Comentarios: {{ comentarios|length }} comentario{{ comentarios|pluralize }}</p>
+    <h3>Título: {{ comentario.titulo|capfirst }}</h3>
     
-    - CAPFIRST: Convierte en mayúscula la primera letra.
     
-        <h3>Título: {{ comentario.titulo|capfirst }}</h3>
-    
-    - FLOATFORMAT: Formatea números de punto flotante a un número fijo de decimales.
-    
-        <p>Precio: {{ reserva.precio|floatformat:2 }}</p>
+
+10. **`floatformat` (Formatea números de punto flotante a un número fijo de decimales)**: Formatea un número de punto flotante con una cantidad fija de decimales. Ejemplo:
+    - En `reservas_item.html`, se muestra el precio de la reserva con 2 decimales:
+     
+    <p>Precio: {{ reserva.precio|floatformat:2 }}</p>
+

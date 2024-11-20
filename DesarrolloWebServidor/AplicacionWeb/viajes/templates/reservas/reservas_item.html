@@ -3,5 +3,13 @@
     <p>Fecha de salida: {{ reserva.fecha_salida }}</p>
     <p>Fecha de llegada: {{ reserva.fecha_llegada }}</p>
     <p>Número de personas: {{ reserva.numero_personas }}</p>
-    <p>Precio: {{ reserva.precio }}</p>
+    <h4>Reserva #{{ forloop.counter }}</h4>
+
+    {% if reserva.numero_personas > 4 %}
+        <p>Reserva para un grupo grande.</p>
+    {% else %}
+        <p>Reserva para un grupo chico.</p> 
+    {% endif %}
+
+    <p>Precio: {{ reserva.precio|floatformat:2 }}</p>
 </div>

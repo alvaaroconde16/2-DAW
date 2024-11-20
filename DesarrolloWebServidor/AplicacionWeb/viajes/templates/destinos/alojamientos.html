@@ -8,9 +8,12 @@
 {% endblock %}
 
 {% block contenido %}
+    
+    <p>Total de alojamientos: {{ alojamientos_mostrar|length }}</p>
     {% for alojamiento in alojamientos_mostrar %}
         {% include 'destinos/alojamientos_item.html' %}
     {% empty %}
         <p>No hay alojamientos disponibles.</p>
     {% endfor %}
+
 {% endblock %}
