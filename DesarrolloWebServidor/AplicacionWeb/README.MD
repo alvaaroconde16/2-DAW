@@ -123,14 +123,14 @@ Este es un modelo intermedio entre Extra y Reserva, que permite la relación man
 
 
 
-MODELO ENTIDAD RELACIÓN
+<br>MODELO ENTIDAD RELACIÓN
 ![Imagen Modelo Entidad Relación](assests/Entidad-relacion_DWS.drawio.png)
 
 
 # #########################################################################################################################################################################
 
 
-URLs y Vistas
+<br>URLs y Vistas
 A continuación se detallan todas las URLs de la aplicación, especificando lo que hace cada vista y los requisitos que cumplen.
 
 1. URL: path('', views.index, name='index'),
@@ -199,7 +199,7 @@ A continuación se detallan todas las URLs de la aplicación, especificando lo q
 
 
 
-PÁGINAS DE ERRORES
+<br>PÁGINAS DE ERRORES
 
 12. URL: error_404_view
 - Funcionalidad: Muestra una página de error 404 personalizada.
@@ -227,9 +227,9 @@ PÁGINAS DE ERRORES
 # #########################################################################################################################################################################
 
 
-TEMPLATES APLICACIÓN WEB
+<br>TEMPLATES APLICACIÓN WEB
 
-ESTOS SON LOS 5 TEMPLATE TAGS QUE HE UTILIZADO:
+<br>ESTOS SON LOS 5 TEMPLATE TAGS QUE HE UTILIZADO:
 
 1. **`FOR...EMPTY`**: Se utiliza para iterar sobre listas u objetos. Si la lista está vacía, se ejecuta el bloque `{% empty %}`.  
    - En `alojamientos.html`, `comentarios.html`, `destinos.html`, `reservas.html` y `lista.html`, si no hay elementos para iterar, mostramos un mensaje de que no hay elementos disponibles:
@@ -282,7 +282,7 @@ ESTOS SON LOS 5 TEMPLATE TAGS QUE HE UTILIZADO:
 
 
 
-ESTOS SON LOS 5 OPERADORES QUE HE UTILIZADO:
+<br>ESTOS SON LOS 5 OPERADORES QUE HE UTILIZADO:
 
 1. **`!=` (Diferente de)**: Comprueba si dos valores son diferentes. Ejemplo:
    - En `comentarios_item.html`, destacamos los comentarios que no tienen la calificación máxima:
@@ -353,14 +353,14 @@ ESTOS SON LOS 5 OPERADORES QUE HE UTILIZADO:
 4. **`upper` (Convertir texto a mayúsculas)**: Convierte todo el texto a mayúsculas. Ejemplo:
    - En `usuario_item.html`, se muestra el nombre del usuario en mayúsculas:
     
-    <h2>Nombre: {{ usuario.nombre|upper }}</h2>
+    <p>Nombre: {{ usuario.nombre|upper }}</p>
     
 
 
 5. **`lower` (Convertir texto a minúsculas)**: Convierte todo el texto a minúsculas. Ejemplo:
    - En `destinos_item.html`, se muestra el nombre del destino en minúsculas:
     
-    <h2>Destino: {{ destino.nombre|lower }}</h2>
+    <p>Destino: {{ destino.nombre|lower }}</p>
     
 
 
