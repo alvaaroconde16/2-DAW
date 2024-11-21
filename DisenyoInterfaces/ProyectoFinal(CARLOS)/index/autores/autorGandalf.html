@@ -11,17 +11,54 @@
 <body class="bg-gray-100">
 
    <!-- Header -->
-    <header class="bg-green-600 text-white px-10 py-3 flex justify-between items-center">
-        <div class="flex items-center">
-            <img src="../../imagenes/logo.png" alt="Logo" class="h-12 w-auto">
-            <span class="text-xl font-bold ml-4">ELFSCAPE TRAVELS</span>
+    <header class="bg-green-600 text-white px-10 py-5">
+        <div class="max-w-7xl mx-auto flex justify-between items-center">
+            <!-- Logo y Nombre -->
+            <div class="flex items-center">
+                <img src="../../imagenes/logo.png" alt="Logo" class="h-12 w-auto">
+                <span class="nombreLogo text-xl font-bold ml-4">ELFSCAPE TRAVELS</span>
+            </div>
+
+            <!-- Número de teléfono y usuario (info-container) -->
+            <div class="flex items-center gap-6">
+                <div class="flex items-center bg-green-800 rounded-full text-white font-bold">
+                    <i class="fa-solid fa-phone mx-3 p-1"></i>
+
+                    <div class="texto-numero p-1">
+                        <p class="text-xs">Para reservar</p>
+                        <span class="numero text-sm font-bold">+34 924 547 772</span>
+                    </div>
+                    
+                    <i class="fa-solid fa-circle-info mx-3 p-1"></i>
+                </div>
+
+                <div class="rounded-full p-2 bg-green-800">
+                    <i class="fa-solid fa-user text-white p-1"></i>
+                </div>
+
+            </div>
         </div>
-        <nav class="flex gap-9 font-bold">
-            <a href="../paginaPrincipal.html" class="hover:text-blue-500">Inicio</a>
-            <a href="../blog.html" class="hover:text-blue-500">Blog</a>
-            <a href="#about" class="hover:text-blue-500">Tienda</a>
-            <a href="../contacto.html" class="hover:text-blue-500">Contacto</a>
-        </nav>
+    </header>
+
+    <!-- Second Header (Nav) -->
+    <header class="bg-gray-700 text-white">
+        <div class="max-w-7xl mx-auto flex justify-between items-center py-3 font-bold">
+            <!-- Navegación -->
+            <nav class="flex gap-12">
+                <a href="../paginaPrincipal.html" class="hover:text-green-600">Inicio</a>
+                <a href="../blog.html" class="hover:text-green-600">Blog</a>
+                <a href="../tienda.html" class="hover:text-green-600">Tienda</a>
+                <a href="../contacto.html" class="hover:text-green-600">Contacto</a>
+            </nav>
+
+            <!-- Redes sociales -->
+            <div class="flex gap-4">
+                <i class="fa-brands fa-youtube text-lg hover:text-green-600"></i>
+                <i class="fa-brands fa-twitter text-lg hover:text-green-600"></i>
+                <i class="fa-brands fa-instagram text-lg hover:text-green-600"></i>
+                <i class="fa-brands fa-facebook text-lg hover:text-green-600"></i>
+            </div>
+        </div>
     </header>
 
 

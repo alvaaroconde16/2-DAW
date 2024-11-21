@@ -5,21 +5,37 @@
 
 
 /*AQUI ESTA EL DISEÑO DEL HEADER*/
-header{
+.firstHead{
     display: flex;
-    justify-content: flex-start;
     align-items: center;
     background-color: #2E8B57;
-    padding: auto;
+    padding: 2px;
+    flex-wrap: nowrap;
 }
 
+.secondHead{
+    display: flex;
+    align-items: center;
+    background-color: #35495a;
+    padding: 0;
+    position: fixed;
+    width: 100%;
+    transition: top 0.1s ease;
+}
+
+
 /*Logotipo de la página*/
+.encabezado{
+    display: flex;
+    align-items: center;
+}
+
 .nombreLogo{
     color: white;
     font-weight: bold;
     margin-left: 7px;
-    margin-right: 20px;
-    font-size: 17px;
+    font-size: 20px;
+    margin-right: 660px;
 }
 
 .logo{
@@ -28,24 +44,26 @@ header{
 }
 
 .logo img{
-    width: 40px;
-    height: 40px;
+    width: 44px;
+    height: 49px;
     margin-top: 10px;
     margin-left: 30px;
-    padding: 5px;
+    padding: 10px;
 }
 
 /*Diseño del nav*/
 .nav-container{
     display: flex;
     align-items: center;
+    justify-content: center;
+    width: 100%;
 }
 
 nav {
     display: flex;
     align-items: center;
-    padding: 10px;
-    margin-right: 20px;
+    padding: 15px 15px 15px 0;
+    margin-right: 740px;
 }
 
 nav ul {
@@ -60,30 +78,53 @@ nav ul {
 nav ul li a{
     text-decoration: none;
     font-weight: bold;
+    font-size: 15px;
     padding: 10px;
     color: white;
 }
 
 .nav-container li a:hover{
-    color: #96a89e;
+    color: #2E8B57;
+}
+
+.emotHead{
+    display: flex;
+    gap: 20px;
+}
+
+.emotHead i{
+    color: white;
+    font-size: 18px;
+}
+
+.emotHead i:hover{
+    color: #2E8B57;
 }
 
 /*Línea separadora del logo y el nav*/
-.separator{
+/*.separator{
     width: 1px; 
     height: 30px; 
     background-color: white; 
     margin: 0 15px; 
-}
+}*/
 
 /*Diseño del numero de contacto del header*/
+
+.info-container {
+    display: flex;
+    align-items: center;
+    justify-content: center; /* Asegura que los elementos dentro de info-container estén centrados */
+}
+
 .number{
     display: flex;
+    padding: 3px;
     align-items: center;
     border-radius: 20px;
     background-color: #21663f;
     margin-right: 20px;
-    margin-left: auto; /*Le decimos al div de telefono que ocupe todo el espacio a la izquierda que queda libre, así lo ponemos en la derecha*/
+    margin-left: 20px;
     color: white;
 }
 
@@ -113,7 +154,7 @@ nav ul li a{
 
 .number:hover{
     background-color: #17472c;
-    transition: 0.3s;
+    transition: 0.2s;
 }
 
 .numero{
@@ -136,10 +177,17 @@ nav ul li a{
     color: white;
 }
 
+.user:hover{
+    background-color: #17472c;
+    border: 3px #17472c solid;
+    transition: 0.2s;
+}
+
 .fa-user{
     padding: 10px;
     font-size: 14px;
 }
+
 
 /*----------------------------------------------------------------------------------------------------------------------------------------------*/
 
@@ -175,7 +223,7 @@ footer{
     flex-wrap: wrap;
     justify-content: center;
     gap: 5rem;
-    margin-top: 20px;
+    margin-top: 40px;
 }
 
 footer div h3{
@@ -253,8 +301,9 @@ footer div h3{
 }
 
 
+
 /*Responsividad*/
-@media(max-width: 1087px){
+/*@media(max-width: 1087px){
     .number{
         display: none;
     }
@@ -312,4 +361,63 @@ footer div h3{
         flex-wrap: wrap;
     }
 
-}   
+}*/
+
+
+/* Responsividad: Pantallas medianas (max-width: 1087px) */
+@media (max-width: 1339px) {
+   .nav-container{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+   }
+
+   nav{
+    margin: 0;
+    margin-left: 36px;
+   }
+
+   .emotHead{
+    margin-right: 38px;
+   }
+
+   .nombreLogo{
+    margin: 0;
+   }
+}
+
+/* Responsividad: Pantallas pequeñas (max-width: 786px) */
+@media (max-width: 786px) {
+    .number{
+        display: none;
+    }
+
+    .user{
+        display: none;
+    }
+
+    .encabezado{
+        display: flex;
+        justify-content: space-between;
+        padding: 5px;
+    }
+
+    .nav-container{
+        display: flex;
+        justify-content: center;
+    }
+
+    .emotHead{
+        display: none;
+    }
+
+    .logo img{
+        margin: 0;
+    }
+}
+
+/* Responsividad: Móviles pequeños (max-width: 768px) */
+@media (max-width: 468px) {
+    
+}

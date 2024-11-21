@@ -8,23 +8,47 @@
     <title>ELFSCAPE TRAVELS</title>
     <link rel="stylesheet" href="../css/headerFooter.css">
     <link rel="stylesheet" href="../css/main.css">
-    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700&display=swap" rel="stylesheet">
 </head>
 <body>
 
     <!--AQUÍ ESTÁ LA CABECERA-->
-    <header>
+    <header class="firstHead">
 
-        <div class="logo">
-            <img src="../imagenes/logo.png" alt="IMGLogo">
+        <div class="nav-container">
+            <div class="encabezado">
+                <div class="logo">
+                    <img src="../imagenes/logo.png" alt="IMGLogo">
+                </div>
+        
+                <div class="nombreLogo">
+                    <p>ELFSCAPE TRAVELS</p>
+                </div>
+            </div>
+    
+            <div class="info-container">
+                <div class="number">
+                    <i class="fa-solid fa-phone"></i> 
+                    <div class="texto-numero">
+                        <p>Para reservar</p>
+                        <span class="numero">+34 924 547 772</span>
+                    </div>
+                    <i class="fa-solid fa-circle-info"></i>
+                </div>
+        
+                <div class="user">
+                    <i class="fa-solid fa-user"></i>
+                </div>
+            </div>
         </div>
+        
 
-        <div class="nombreLogo">
-            <p>ELFSCAPE TRAVELS</p>
-        </div>
+    </header>
+
+
+    <header class="secondHead">
              
         <div class="nav-container">
-            <div class="separator"></div>
             <nav>
                 <ul>
                     <li><a href="paginaPrincipal.html">Inicio</a></li>
@@ -33,19 +57,14 @@
                     <li><a href="contacto.html">Contacto</a></li>
                 </ul>
             </nav>
-        </div>
 
-        <div class="number">
-            <i class="fa-solid fa-phone"></i> <!--Aquí esta el icono del telefono-->
-            <div class="texto-numero">
-                <p>Para reservar</p>
-                <span class="numero">+34 924 547 772</span>
+            <div class="emotHead">
+                <i class="fa-brands fa-youtube"></i>
+                <i class="fa-brands fa-twitter"></i>
+                <i class="fa-brands fa-instagram"></i>
+                <i class="fa-brands fa-facebook"></i>
             </div>
-            <i class="fa-solid fa-circle-info"></i>
-        </div>
 
-        <div class="user">
-            <i class="fa-solid fa-user"></i>
         </div>
 
     </header>
@@ -340,6 +359,22 @@
         <p class="derechos">&copy; 2024 Viajes a través de la Tierra Media. Todos los derechos reservados. © Copyright ELFSCAPE TRAVELS.</p>
 
     </footer>
+
+
+    <script>
+        // Escuchar el evento de scroll
+        window.addEventListener('scroll', () => {
+            const secondHead = document.querySelector('.secondHead'); // Selecciona el segundo header
+            const scrollTop = window.scrollY; // Obtiene el desplazamiento vertical
+    
+            if (scrollTop > 50) {
+                secondHead.style.top = '0'; // Fija el segundo header en la parte superior
+            } else {
+                secondHead.style.top = '88.3px'; // Restablece su posición inicial
+            }
+        });
+    </script>
+    
 
 </body>
 </html>
