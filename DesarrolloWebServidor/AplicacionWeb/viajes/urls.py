@@ -13,4 +13,6 @@ urlpatterns = [
     path('usuarios/ultimo_comentario/', views.ultimo_usuario_comentar, name='ultimo_usuario_comentar'),
     path('usuarios/<int:id_usuario>/comentarios', views.comentarios_usuario, name='comentarios_usuario'),
     path('reservas/total_precios', views.total_precios_reservas, name='total_precios_reservas'),
+    
+    path('usuarios/crear/', views.usuario_create, name='usuario_create')
 ]

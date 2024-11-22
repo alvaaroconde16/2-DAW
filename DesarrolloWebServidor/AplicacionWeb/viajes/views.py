@@ -1,6 +1,7 @@
-from django.shortcuts import render
+from django.shortcuts import render,redirect
 from .models import Usuario, Destino, Reserva, Comentario, Alojamiento, Extra, Pasaporte, Transporte, Promocion, Factura, ExtraReserva
 from django.db.models import Q, Sum
+from .forms import *
 
 # Create your views here.
 def index(request):
@@ -81,6 +82,19 @@ def total_precios_reservas(request):
     total_precio = Reserva.objects.select_related("usuario").aggregate(Sum('precio'))  
 
     return render(request, 'reservas/total_precios.html', {'precio_mostrar':total_precio})
+
+
+
+def usuario_create(request):
+    if request.method == 'POST':
+        form = UsuarioForm(request.POST)
+        if form.is_valid():
+            form.save()  # Guarda el nuevo usuario en la base de datos
+            return redirect('listar_usuarios')  # Redirige a la lista de usuarios después de crear
+    else:
+        form = UsuarioForm()  # Si la solicitud es GET, muestra el formulario vacío
+
+    return render(request, 'usuario_form.html', {'form': form})
 
 
 
