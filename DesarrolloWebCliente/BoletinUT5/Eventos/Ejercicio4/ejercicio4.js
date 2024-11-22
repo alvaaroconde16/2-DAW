@@ -1,21 +1,33 @@
 /*Realizar un examen tipo test online de 2 preguntas con 4 respuestas (sólo se puede seleccionar 1). Cuando el usuario seleccione una respuesta, 
 hacerle saber si es correcta o incorrecta y mostrar la respuesta correcta en un campo de texto aparte.*/
+
 window.addEventListener("load", inicializar)
 
 function inicializar(){
-    document.getElementById('q1').addEventListener('check', checkAnswer)
-    document.getElementById('q2').addEventListener('check', checkAnswer)
+    document.getElementById("quiz-form").reset();
+    
+    let preguntas = document.querySelectorAll('input[type="radio"]')
+
+    preguntas.forEach(function(pregunta){
+        pregunta.addEventListener("click", function(){
+            validarRespuesta(pregunta)
+        })
+    })
 }
 
 
-//Creamos la función para comprobar el resultado
-function checkAnswer(){
-    
+function validarRespuesta(pregunta){
+    const respuestasCorrectas = {
+        pregunta1: 'b',  // Correcta: París
+        pregunta2: 'c',  // Correcta: 7
+    };
 
+    let resultadoId = "resultado-" + pregunta.name;
+    let resultado = document.getElementById(resultadoId);
 
-    if (selectedAnswer.value == correctAnswer) {
-        feedbackElement.textContent = "¡La respuesta es correcta!";
+    if (respuestasCorrectas[pregunta.name] == pregunta.value) {
+        resultado.textContent = "¡La respuesta es correcta!"
     } else {
-        feedbackElement.textContent = "La respuesta es incorrecta :(";
+        resultado.textContent = "La respuesta es incorrecta :("        
     }
 }

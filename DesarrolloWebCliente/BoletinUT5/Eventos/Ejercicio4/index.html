@@ -9,33 +9,28 @@
 
     <h2>EXAMEN TIPO TEST</h2>
 
-    <form action="#" method="POST">
+    <form id="quiz-form">
+        <!-- Pregunta 1 -->
         <div>
-            <label for="pregunta1">1.- ¿Cuál de las siguientes opciones es la capital de Francia?</label>
-                <ul class="options">
-                    <li><input type="radio" name="q1" value="A"> A) 3.14</li>
-                    <li><input type="radio" name="q1" value="B"> B) 3.15</li>
-                    <li><input type="radio" name="q1" value="C"> C) 3.13</li>
-                    <li><input type="radio" name="q1" value="D"> D) 3.10</li>
-                </ul>
+            <h4>¿Cuál es la capital de Francia?</h4>
+            <label><input type="radio" name="pregunta1" value="a"> a) Berlín</label><br>
+            <label><input type="radio" name="pregunta1" value="b"> b) París</label><br>
+            <label><input type="radio" name="pregunta1" value="c"> c) Madrid</label><br>
+            <label><input type="radio" name="pregunta1" value="d"> d) Roma</label><br>
         </div>
 
-        <div id="feedback-q1" class="feedback"></div>
-
-        <br>
-
+        <p id="resultado-pregunta1"></p>
+        
+        <!-- Pregunta 2 -->
         <div>
-            <label for="pregunta2">2.- ¿Cuál es el valor de Pi (π) con dos decimales?</label>
-                <ul class="options">
-                    <li><input type="radio" name="q2" value="A"> A) 3.14</li>
-                    <li><input type="radio" name="q2" value="B"> B) 3.15</li>
-                    <li><input type="radio" name="q2" value="C"> C) 3.13</li>
-                    <li><input type="radio" name="q2" value="D"> D) 3.10</li>
-                </ul>
+            <br><h4>¿Cuántos continentes hay en el mundo?</h4>
+            <label><input type="radio" name="pregunta2" value="a"> a) 5</label><br>
+            <label><input type="radio" name="pregunta2" value="b"> b) 6</label><br>
+            <label><input type="radio" name="pregunta2" value="c"> c) 7</label><br>
+            <label><input type="radio" name="pregunta2" value="d"> d) 8</label><br>
         </div>
-        
-        <div id="feedback-q2" class="feedback"></div>
-        
+
+        <p id="resultado-pregunta2"></p>
     </form>
 
     <script type="text/javascript" src="ejercicio4.js"></script>
