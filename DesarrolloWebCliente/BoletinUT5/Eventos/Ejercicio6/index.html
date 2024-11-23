@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulario de Nombre</title>
+
+    <style>
+        #img{
+            width: 25px;
+            margin-left: 15px;
+        }
+
+        .divForm{
+            display: flex;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Formulario de Nombre</h1>
+    <form id="nombreForm" action="#" method="POST">
+        <label for="nombre">Escribe tu nombre en mayúsculas:</label><br>
+        <div class="divForm">
+            <input type="text" id="nombre" name="nombre" placeholder="" required><br><br>
+        
+            <!-- Botón de envío como imagen -->
+            <input type="image" id="img" src="enviar.png" alt="Enviar" title="Enviar">
+        </div>
+        
+    </form>
+</body>
+</html>
