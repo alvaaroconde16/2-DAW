@@ -23,7 +23,7 @@
     .card img {
         width: 100%;
         padding: 20px;
-        height: 275px; 
+        height: 280px; 
         /* Hace que la imagen cubra el espacio sin deformarse */
     }
 
@@ -34,6 +34,10 @@
 
     i:hover{
         color: #21663f;
+    }
+
+    .text-center img{
+        height: 150px;
     }
 </style>
 
@@ -60,8 +64,8 @@
 
             <!-- Icono de Carrito -->
             <div class="d-flex align-items-center rounded-pill p-2 ms-2">
-                <i class="fa-solid fa-shopping-cart text-white p-1 fs-3"></i>
-                <p class="mb-0 ms-1 fs-bold fw-bold">Cesta</p>
+                <a href=""><i class="fa-solid fa-shopping-cart text-white p-1 fs-3"></i></a>
+                <a href="" class="text-decoration-none text-white"><p class="mb-0 ms-1 fs-bold fw-bold">Cesta</p></a>
             </div>
         </div>
     </header>
@@ -96,7 +100,7 @@
     <!-- Main Banner -->
     <div id="carouselExampleInterval" class="carousel slide container d-flex align-items-center" data-bs-ride="carousel">
         <div class="carousel-inner">
-          <div class="carousel-item active" data-bs-interval="5000">
+          <div class="carousel-item active">
             <img src="../imagenes/articulosCarrusel.png" class="d-block w-100 carousel-img" alt="Artículos Medievales">
             <div class="carousel-caption d-none d-md-block">
                 <h5>Artículos medievales únicos</h5>
@@ -104,7 +108,7 @@
             </div>
           </div>
 
-          <div class="carousel-item" data-bs-interval="5000">
+          <div class="carousel-item">
             <img src="../imagenes/mercadoCarrusel.png" class="d-block w-100 carousel-img" alt="Mercado Medieval">
             <div class="carousel-caption d-none d-md-block">
                 <h5>La experiencia medieval</h5>
@@ -112,7 +116,7 @@
             </div>
           </div>
 
-          <div class="carousel-item" data-bs-interval="5000">
+          <div class="carousel-item">
             <img src="../imagenes/habitacionCarrusel.png" class="d-block w-100 carousel-img" alt="Habitación Medieval">
             <div class="carousel-caption d-none d-md-block">
                 <h5>Decora tu hogar al estilo medieval</h5>
@@ -136,247 +140,260 @@
     <!-- Featured Products -->
     <div class="container my-5">
         <h2 class="text-success fw-bold mb-4">Productos Destacados</h2>
-        <div class="row g-4">
-            
-
-
-            <!-- Carousel de Productos Aleatorios -->
-            <div class="container my-5 bg-white py-4 rounded">
-                <h2 class="text-success fw-bold mb-4 text-center">¡Descubre más productos!</h2>
-                <div id="productosAleatorios" class="carousel slide" data-bs-ride="carousel">
-                    <div class="carousel-inner">
-
-                        <!-- Vista 1 -->
-                        <div class="carousel-item active">
-                            <div class="row g-4">
-                                <div class="col-md-2">
-                                    <div class="text-center">
-                                        <img src="../imagenes/espada.png" alt="Espada de Fantasía" class="img-fluid rounded">
-                                        <p class="fw-bold mt-2">$129.99</p>
-                                    </div>
-                                </div>
-                                <div class="col-md-2">
-                                    <div class="text-center">
-                                        <img src="../imagenes/escudo.png" alt="Escudo Medieval" class="img-fluid rounded">
-                                        <p class="fw-bold mt-2">$89.99</p>
-                                    </div>
-                                </div>
-                                <div class="col-md-2">
-                                    <div class="text-center">
-                                        <img src="../imagenes/copa.png" alt="Copa Medieval" class="img-fluid rounded">
-                                        <p class="fw-bold mt-2">$19.99</p>
-                                    </div>
-                                </div>
-                                <div class="col-md-2">
-                                    <div class="text-center">
-                                        <img src="../imagenes/anilo.png" alt="Anillo de Dragón" class="img-fluid rounded">
-                                        <p class="fw-bold mt-2">$59.99</p>
-                                    </div>
-                                </div>
-                                <div class="col-md-2">
-                                    <div class="text-center">
-                                        <img src="../imagenes/mapa.png" alt="Mapa de la Tierra Media" class="img-fluid rounded">
-                                        <p class="fw-bold mt-2">$19.99</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Vista 2 -->
-                        <div class="carousel-item">
-                            <div class="row g-4">
-                                <div class="col-md-2">
-                                    <div class="text-center">
-                                        <img src="../imagenes/candelabro.png" alt="Candelabro Medieval" class="img-fluid rounded">
-                                        <p class="fw-bold mt-2">$49.99</p>
-                                    </div>
-                                </div>
-                                <div class="col-md-2">
-                                    <div class="text-center">
-                                        <img src="../imagenes/tunica.png" alt="Túnica Medieval" class="img-fluid rounded">
-                                        <p class="fw-bold mt-2">$39.99</p>
-                                    </div>
-                                </div>
-                                <div class="col-md-2">
-                                    <div class="text-center">
-                                        <img src="../imagenes/pociones.png" alt="Set de Pociones" class="img-fluid rounded">
-                                        <p class="fw-bold mt-2">$24.99</p>
-                                    </div>
-                                </div>
-                                <div class="col-md-2">
-                                    <div class="text-center">
-                                        <img src="../imagenes/capa.png" alt="Capa de Fantasía Medieval" class="img-fluid rounded">
-                                        <p class="fw-bold mt-2">$69.99</p>
-                                    </div>
-                                </div>
-                                <div class="col-md-2">
-                                    <div class="text-center">
-                                        <img src="../imagenes/lanza.png" alt="Lanza Medieval" class="img-fluid rounded">
-                                        <p class="fw-bold mt-2">$99.99</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Controles del Carrusel -->
-                    <button class="carousel-control-prev" type="button" data-bs-target="#productosAleatorios" data-bs-slide="prev">
-                        <span class="carousel-control-prev-icon" aria-hidden="true" style="background-color: #21663f;"></span>
-                        <span class="visually-hidden">Anterior</span>
-                    </button>
-                    <button class="carousel-control-next" type="button" data-bs-target="#productosAleatorios" data-bs-slide="next">
-                        <span class="carousel-control-next-icon" aria-hidden="true" style="background-color: #21663f;"></span>
-                        <span class="visually-hidden">Siguiente</span>
-                    </button>
-                </div>
-            </div>
-
-
+        <div class="row g-4">      
 
 
             <!-- Product Card 1 -->
             <div class="col-md-3">
-                <div class="card">
-                    <img src="../imagenes/espada.png" alt="Espada de Fantasía">
-                    <div class="card-body text-center">
-                        <h5 class="card-title">Espada de Fantasía</h5>
-                        <p class="card-text">Precio: $129.99</p>
-                        <button class="btn btn-success">Añadir al Carrito</button>
+                <a href="" class="text-decoration-none">
+                    <div class="card">
+                        <img src="../imagenes/espada.png" alt="Espada de Fantasía">
+                        <div class="card-body text-center">
+                            <h5 class="card-title">Espada de Fantasía</h5>
+                            <p class="card-text">Precio: $129.99</p>
+                            <button class="btn btn-success">Añadir al Carrito</button>
+                        </div>
                     </div>
-                </div>
+                </a>
             </div>
 
             <!-- Product Card 2 -->
             <div class="col-md-3">
-                <div class="card">
-                    <img src="../imagenes/escudo.png" alt="Escudo Medieval">
-                    <div class="card-body text-center">
-                        <h5 class="card-title">Escudo Medieval</h5>
-                        <p class="card-text">Precio: $89.99</p>
-                        <button class="btn btn-success">Añadir al Carrito</button>
+                <a href="" class="text-decoration-none">
+                    <div class="card">
+                        <img src="../imagenes/escudo.png" alt="Escudo Medieval">
+                        <div class="card-body text-center">
+                            <h5 class="card-title">Escudo Medieval</h5>
+                            <p class="card-text">Precio: $89.99</p>
+                            <button class="btn btn-success">Añadir al Carrito</button>
+                        </div>
                     </div>
-                </div>
+                </a>
             </div>
 
             <!-- Product Card 3 -->
             <div class="col-md-3">
-                <div class="card">
-                    <img src="../imagenes/copa.png" alt="Copa Medieval">
-                    <div class="card-body text-center">
-                        <h5 class="card-title">Copa Medieval</h5>
-                        <p class="card-text">Precio: $19.99</p>
-                        <button class="btn btn-success">Añadir al Carrito</button>
+                <a href="" class="text-decoration-none">
+                    <div class="card">
+                        <img src="../imagenes/copa.png" alt="Copa Medieval">
+                        <div class="card-body text-center">
+                            <h5 class="card-title">Copa Medieval</h5>
+                            <p class="card-text">Precio: $19.99</p>
+                            <button class="btn btn-success">Añadir al Carrito</button>
+                        </div>
                     </div>
-                </div>
+                </a>
             </div>
 
             <!-- Product Card 4 -->
             <div class="col-md-3">
-                <div class="card">
-                    <img src="../imagenes/anilo.png" alt="Anillo de Dragón">
-                    <div class="card-body text-center">
-                        <h5 class="card-title">Anillo de Dragón</h5>
-                        <p class="card-text">Precio: $59.99</p>
-                        <button class="btn btn-success">Añadir al Carrito</button>
+                <a href="" class="text-decoration-none">
+                    <div class="card">
+                        <img src="../imagenes/anilo.png" alt="Anillo de Dragón">
+                        <div class="card-body text-center">
+                            <h5 class="card-title">Anillo de Dragón</h5>
+                            <p class="card-text">Precio: $59.99</p>
+                            <button class="btn btn-success">Añadir al Carrito</button>
+                        </div>
+                    </div>
+                </a>
+            </div>
+
+
+            <div class="col-md-12">
+                <!-- Carousel de Productos Aleatorios -->
+                <div class="container bg-white py-4 rounded">
+                    <h2 class="text-success fw-bold mb-4 text-center">¡Descubre más productos!</h2>
+                    <div id="productosAleatorios" class="carousel slide" data-bs-ride="carousel">
+                        <div class="carousel-inner">
+
+                            <!-- Vista 1 -->
+                            <div class="carousel-item active">
+                                <div class="d-flex justify-content-center gap-4 flex-wrap">
+                                    <a href="" class="text-decoration-none"><div class="text-center">
+                                        <img src="../imagenes/espada.png" alt="Espada de Fantasía" class="img-fluid rounded">
+                                        <p class="fw-bold mt-3 text-black">$129.99</p>
+                                    </div></a>
+
+                                    <a href="" class="text-decoration-none"><div class="text-center">
+                                        <img src="../imagenes/escudo.png" alt="Escudo Medieval" class="img-fluid rounded">
+                                        <p class="fw-bold mt-3 text-black">$89.99</p>
+                                    </div></a>
+
+                                    <a href="" class="text-decoration-none"><div class="text-center">
+                                        <img src="../imagenes/copa.png" alt="Copa Medieval" class="img-fluid rounded">
+                                        <p class="fw-bold mt-3 text-black">$19.99</p>
+                                    </div></a>
+
+                                    <a href="" class="text-decoration-none"><div class="text-center">
+                                        <img src="../imagenes/anilo.png" alt="Anillo de Dragón" class="img-fluid rounded">
+                                        <p class="fw-bold mt-3 text-black">$59.99</p>
+                                    </div></a>
+
+                                    <a href="" class="text-decoration-none"><div class="text-center">
+                                        <img src="../imagenes/mapa.png" alt="Mapa de la Tierra Media" class="img-fluid rounded">
+                                        <p class="fw-bold mt-3 text-black">$19.99</p>
+                                    </div></a>
+                                </div>
+                            </div>
+
+                            <!-- Vista 2 -->
+                            <div class="carousel-item">
+                                <div class="d-flex justify-content-center gap-4 flex-wrap">
+                                    <a href="" class="text-decoration-none"><div class="text-center">
+                                        <img src="../imagenes/candelabro.png" alt="Candelabro Medieval" class="img-fluid rounded">
+                                        <p class="fw-bold mt-3 text-black">$49.99</p>
+                                    </div></a>
+
+                                    <a href="" class="text-decoration-none"><div class="text-center">
+                                        <img src="../imagenes/tunica.png" alt="Túnica Medieval" class="img-fluid rounded">
+                                        <p class="fw-bold mt-3 text-black">$39.99</p>
+                                    </div></a>
+
+                                    <a href="" class="text-decoration-none"><div class="text-center">
+                                        <img src="../imagenes/pociones.png" alt="Set de Pociones" class="img-fluid rounded">
+                                        <p class="fw-bold mt-3 text-black">$24.99</p>
+                                    </div></a>
+
+                                    <a href="" class="text-decoration-none"><div class="text-center">
+                                        <img src="../imagenes/capa.png" alt="Capa de Fantasía Medieval" class="img-fluid rounded">
+                                        <p class="fw-bold mt-3 text-black">$69.99</p>
+                                    </div></a>
+
+                                    <a href="" class="text-decoration-none"><div class="text-center">
+                                        <img src="../imagenes/lanza.png" alt="Lanza Medieval" class="img-fluid rounded">
+                                        <p class="fw-bold mt-3 text-black">$99.99</p>
+                                    </div></a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Controles del Carrusel -->
+                        <button class="carousel-control-prev" type="button" data-bs-target="#productosAleatorios" data-bs-slide="prev">
+                            <span class="carousel-control-prev-icon" aria-hidden="true" style="background-color: #21663f;"></span>
+                            <span class="visually-hidden">Anterior</span>
+                        </button>
+                        <button class="carousel-control-next" type="button" data-bs-target="#productosAleatorios" data-bs-slide="next">
+                            <span class="carousel-control-next-icon" aria-hidden="true" style="background-color: #21663f;"></span>
+                            <span class="visually-hidden">Siguiente</span>
+                        </button>
                     </div>
                 </div>
             </div>
 
+
             <!-- Product Card 5 -->
             <div class="col-md-3">
-                <div class="card">
-                    <img src="../imagenes/mapa.png" alt="Mapa de la Tierra Media">
-                    <div class="card-body text-center">
-                        <h5 class="card-title">Mapa de la Tierra Media</h5>
-                        <p class="card-text">Precio: $19.99</p>
-                        <button class="btn btn-success">Añadir al Carrito</button>
+                <a href="" class="text-decoration-none">
+                    <div class="card">
+                        <img src="../imagenes/mapa.png" alt="Mapa de la Tierra Media">
+                        <div class="card-body text-center">
+                            <h5 class="card-title">Mapa de la Tierra Media</h5>
+                            <p class="card-text">Precio: $19.99</p>
+                            <button class="btn btn-success">Añadir al Carrito</button>
+                        </div>
                     </div>
-                </div>
+                </a>
             </div>
 
             <!-- Product Card 6 -->
             <div class="col-md-3">
-                <div class="card">
-                    <img src="../imagenes/candelabro.png" alt="Candelabro Medieval">
-                    <div class="card-body text-center">
-                        <h5 class="card-title">Candelabro Medieval</h5>
-                        <p class="card-text">Precio: $49.99</p>
-                        <button class="btn btn-success">Añadir al Carrito</button>
+                <a href="" class="text-decoration-none">
+                    <div class="card">
+                        <img src="../imagenes/candelabro.png" alt="Candelabro Medieval">
+                        <div class="card-body text-center">
+                            <h5 class="card-title">Candelabro Medieval</h5>
+                            <p class="card-text">Precio: $49.99</p>
+                            <button class="btn btn-success">Añadir al Carrito</button>
+                        </div>
                     </div>
-                </div>
+                </a>
             </div>
 
             <!-- Product Card 7 -->
             <div class="col-md-3">
-                <div class="card">
-                    <img src="../imagenes/tunica.png" alt="Túnica Medieval">
-                    <div class="card-body text-center">
-                        <h5 class="card-title">Túnica Medieval</h5>
-                        <p class="card-text">Precio: $39.99</p>
-                        <button class="btn btn-success">Añadir al Carrito</button>
+                <a href="" class="text-decoration-none">
+                    <div class="card">
+                        <img src="../imagenes/tunica.png" alt="Túnica Medieval">
+                        <div class="card-body text-center">
+                            <h5 class="card-title">Túnica Medieval</h5>
+                            <p class="card-text">Precio: $39.99</p>
+                            <button class="btn btn-success">Añadir al Carrito</button>
+                        </div>
                     </div>
-                </div>
+                </a>
             </div>
 
             <!-- Product Card 8 -->
             <div class="col-md-3">
-                <div class="card">
-                    <img src="../imagenes/pociones.png" alt="Set de Pociones Medievales">
-                    <div class="card-body text-center">
-                        <h5 class="card-title">Set de Pociones Medievales</h5>
-                        <p class="card-text">Precio: $24.99</p>
-                        <button class="btn btn-success">Añadir al Carrito</button>
+                <a href="" class="text-decoration-none">
+                    <div class="card">
+                        <img src="../imagenes/pociones.png" alt="Set de Pociones Medievales">
+                        <div class="card-body text-center">
+                            <h5 class="card-title">Set de Pociones Medievales</h5>
+                            <p class="card-text">Precio: $24.99</p>
+                            <button class="btn btn-success">Añadir al Carrito</button>
+                        </div>
                     </div>
-                </div>
+                </a>
             </div>
 
             <!-- Product Card 9 -->
             <div class="col-md-3">
-                <div class="card">
-                    <img src="../imagenes/capa.png" alt="Capa de Fantasía Medieval">
-                    <div class="card-body text-center">
-                        <h5 class="card-title">Capa de Fantasía Medieval</h5>
-                        <p class="card-text">Precio: $69.99</p>
-                        <button class="btn btn-success">Añadir al Carrito</button>
+                <a href="" class="text-decoration-none">
+                    <div class="card">
+                        <img src="../imagenes/capa.png" alt="Capa de Fantasía Medieval">
+                        <div class="card-body text-center">
+                            <h5 class="card-title">Capa de Fantasía Medieval</h5>
+                            <p class="card-text">Precio: $69.99</p>
+                            <button class="btn btn-success">Añadir al Carrito</button>
+                        </div>
                     </div>
-                </div>
+                </a>
             </div>
 
             <!-- Product Card 10 -->
             <div class="col-md-3">
-                <div class="card">
-                    <img src="../imagenes/lanza.png" alt="Lanza Medieval">
-                    <div class="card-body text-center">
-                        <h5 class="card-title">Lanza Medieval</h5>
-                        <p class="card-text">Precio: $99.99</p>
-                        <button class="btn btn-success">Añadir al Carrito</button>
+                <a href="" class="text-decoration-none">
+                    <div class="card">
+                        <img src="../imagenes/lanza.png" alt="Lanza Medieval">
+                        <div class="card-body text-center">
+                            <h5 class="card-title">Lanza Medieval</h5>
+                            <p class="card-text">Precio: $99.99</p>
+                            <button class="btn btn-success">Añadir al Carrito</button>
+                        </div>
                     </div>
-                </div>
+                </a>
             </div>
 
             <!-- Product Card 11 -->
             <div class="col-md-3">
-                <div class="card">
-                    <img src="../imagenes/gorro.png" alt="Gorro de Mago">
-                    <div class="card-body text-center">
-                        <h5 class="card-title">Gorro de Mago</h5>
-                        <p class="card-text">Precio: $34.99</p>
-                        <button class="btn btn-success">Añadir al Carrito</button>
+                <a href="" class="text-decoration-none">
+                    <div class="card">
+                        <img src="../imagenes/gorro.png" alt="Gorro de Mago">
+                        <div class="card-body text-center">
+                            <h5 class="card-title">Gorro de Mago</h5>
+                            <p class="card-text">Precio: $34.99</p>
+                            <button class="btn btn-success">Añadir al Carrito</button>
+                        </div>
                     </div>
-                </div>
+                </a>
             </div>
 
             <!-- Product Card 12 -->
             <div class="col-md-3">
-                <div class="card">
-                    <img src="../imagenes/libro.png" alt="Libro de Hechizos Antiguo">
-                    <div class="card-body text-center">
-                        <h5 class="card-title">Libro de Hechizos Antiguo</h5>
-                        <p class="card-text">Precio: $79.99</p>
-                        <button class="btn btn-success">Añadir al Carrito</button>
+                <a href="" class="text-decoration-none">
+                    <div class="card">
+                        <img src="../imagenes/libro.png" alt="Libro de Hechizos Antiguo">
+                        <div class="card-body text-center">
+                            <h5 class="card-title">Libro de Hechizos Antiguo</h5>
+                            <p class="card-text">Precio: $79.99</p>
+                            <button class="btn btn-success">Añadir al Carrito</button>
+                        </div>
                     </div>
-                </div>
+                </a>
             </div>
+
 
         </div>
     </div>
