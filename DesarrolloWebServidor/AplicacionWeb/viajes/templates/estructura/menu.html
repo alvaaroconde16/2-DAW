@@ -1,15 +1,63 @@
-<div>
-    <ul>
-        <li><a href="{% url 'index' %}">Inicio</a></li>
-        <li><a href="{% url 'listar_usuarios' %}">Usuarios</a></li>
-        <li><a href="{% url 'listar_reservas' 10 %}">Todas las reservas del usuario 10</a></li>
-        <li><a href="{% url 'reservas_rango' '2000-01-01' '2024-12-31' %}">Reservas entre el 01/01/2000 y el 12/31/2024</a></li>
-        <li><a href="{% url 'reservas_sin_extras' %}">Reservas que no tienen extras asociados</a></li>
-        <li><a href="{% url 'listar_destinos' %}">Destinos</a></li>
-        <li><a href="{% url 'alojamientos_destino' 6 %}">Total de los alojamientos del destino 6</a></li>
-        <li><a href="{% url 'pasaporte_nacionalidad' 'Española' %}">Mostramos los usuarios con nacionalidad Española en el pasaporte</a></li>
-        <li><a href="{% url 'ultimo_usuario_comentar' %}">Último usuario en realizar un comentario</a></li>
-        <li><a href="{% url 'comentarios_usuario' 8 %}">Comentarios del usuario 8</a></li>
-        <li><a href="{% url 'total_precios_reservas' %}">Total de los precios de las reservas</a></li>
-    </ul>
-</div>
+<!-- menu.html -->
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="{% url 'index' %}">Gestor de Tareas</a>
+
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+                <!-- Índice -->
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'index' %}">Inicio</a>
+                </li>
+
+                <!-- Usuarios Dropdown -->
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown">
+                        Usuarios
+                    </a>
+                    <ul class="dropdown-menu" aria-labelledby="navbarDropdownUsuarios">
+                        <li><a class="dropdown-item" href="{% url 'listar_usuarios' %}">Lista de usuarios</a></li>
+                        <li><a class="dropdown-item" href="{% url 'usuario_create' %}">Crear usuario</a></li>
+                        <li><a class="dropdown-item" href="{% url 'comentarios_usuario' 8 %}">Comentarios del usuario 8</a></li>
+                        <li><a class="dropdown-item" href="{% url 'ultimo_usuario_comentar' %}">Último usuario en comentar</a></li>
+                    </ul>
+                </li>
+
+                <!-- Reservas Dropdown -->
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" id="navbarDropdownReservas" role="button" data-bs-toggle="dropdown">
+                        Reservas
+                    </a>
+                    <ul class="dropdown-menu" aria-labelledby="navbarDropdownReservas">
+                        <li><a class="dropdown-item" href="{% url 'listar_reservas' 10 %}">Todas las reservas del usuario 10</a></li>
+                        <li><a class="dropdown-item" href="{% url 'reservas_rango' '2000-01-01' '2024-12-31' %}">Reservas entre el 01/01/2000 y el 12/31/2024</a></li>
+                        <li><a class="dropdown-item" href="{% url 'reservas_sin_extras' %}">Reservas sin extras</a></li>
+                        <li><a class="dropdown-item" href="{% url 'total_precios_reservas' %}">Total precios de las reservas</a></li>
+                    </ul>
+                </li>
+
+                <!-- Destinos Dropdown -->
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownDestinos" role="button" data-bs-toggle="dropdown">
+                        Destinos
+                    </a>
+                    <ul class="dropdown-menu" aria-labelledby="navbarDropdownDestinos">
+                        <li><a class="dropdown-item" href="{% url 'listar_destinos' %}">Ver destinos</a></li>
+                        <li><a class="dropdown-item" href="{% url 'alojamientos_destino' 6 %}">Alojamientos del destino 6</a></li>
+                    </ul>
+                </li>
+
+                <!-- Otros enlaces -->
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'pasaporte_nacionalidad' 'Española' %}">Usuarios con pasaporte español</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'comentarios_usuario' 8 %}">Comentarios del usuario 8</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>

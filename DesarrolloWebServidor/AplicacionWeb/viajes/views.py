@@ -2,6 +2,7 @@ from django.shortcuts import render,redirect
 from .models import Usuario, Destino, Reserva, Comentario, Alojamiento, Extra, Pasaporte, Transporte, Promocion, Factura, ExtraReserva
 from django.db.models import Q, Sum
 from .forms import *
+from django.contrib import messages
 
 # Create your views here.
 def index(request):
@@ -56,7 +57,7 @@ def alojamientos_destino(request, id_destino):
 def pasaporte_nacionalidad(request, nacionalidad):
     usuario = Usuario.objects.select_related("pasaporte").filter(Q(pasaporte__nacionalidad=nacionalidad) | Q(pasaporte__nacionalidad='Española'))
 
-    return render(request, 'usuarios/lista.html', {'usuarios_mostrar':usuario})
+    return render(request, 'usuarios/lista.html', {'usuario':usuario})
 
 
 
@@ -90,11 +91,12 @@ def usuario_create(request):
         form = UsuarioForm(request.POST)
         if form.is_valid():
             form.save()  # Guarda el nuevo usuario en la base de datos
+            messages.success(request, 'Usuario creado con éxito.')
             return redirect('listar_usuarios')  # Redirige a la lista de usuarios después de crear
     else:
         form = UsuarioForm()  # Si la solicitud es GET, muestra el formulario vacío
 
-    return render(request, 'usuario_form.html', {'form': form})
+    return render(request, 'formularios/usuario_form.html', {'form': form})
 
 
 

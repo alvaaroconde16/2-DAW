@@ -40,6 +40,8 @@ INSTALLED_APPS = [
     'viajes',
     'django_seed',
     'debug_toolbar',
+    'django_bootstrap5',
+    'django_bootstrap_icons',
 ]
 
 MIDDLEWARE = [
