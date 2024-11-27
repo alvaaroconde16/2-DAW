@@ -16,11 +16,6 @@
         background-color: #35495a;
     }
 
-    .filter-panel {
-        border-radius: 5px;
-        padding: 20px;
-    }
-
     .bg-cont {
         background-color: #21663f;
     }
@@ -149,10 +144,12 @@
 
             <!-- Panel de Filtros -->
             <div class="col-md-3">
-                <div class="filter-panel bg-white">
+                <div class="bg-white rounded p-4">
+
+                    <a href=""><div class="border text-decoration-none text-center mb-4 p-2">BORRAR FILTROS</div></a>
 
                     <!-- Departamento -->
-                    <div class="filter-section">
+                    <div>
                         <h5 class="filter-section-title">Departamento</h5>
                         <ul class="list-unstyled">
                             <li><a href="#" class="text-decoration-none text-dark">Todo</a></li>
@@ -167,18 +164,10 @@
                     <!-- Precio -->
                     <div class="filter-section">
                         <h5 class="filter-section-title">Precio</h5>
-                        <ul class="list-unstyled">
-                            <li><a href="#" class="text-decoration-none text-dark">Menos de $20</a></li>
-                            <li><a href="#" class="text-decoration-none text-dark">Menos de $50</a></li>
-                            <li><a href="#" class="text-decoration-none text-dark">Menos de $100</a></li>
-                            <li><a href="#" class="text-decoration-none text-dark">Menos de $200</a></li>
-                            <li><a href="#" class="text-decoration-none text-dark">$200 o más</a></li>
-                        </ul>
-
-                        <!-- Barra de rango -->
+                        
                         <div class="mt-3">
                             <label for="priceRange" class="form-label">Rango de precio</label>
-                            <input type="range" class="form-range range-input text-success" id="priceRange" min="0" max="500">
+                            <input type="range" class="text-success" min="0" max="500">
                         </div>
                     </div>
 
