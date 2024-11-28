@@ -22,6 +22,9 @@ class Destino(models.Model):
     pais = models.CharField(max_length=50)
     descripcion = models.TextField(null=True, blank=True)
     popularidad = models.FloatField(validators=[MinValueValidator(0), MaxValueValidator(5)])  #Con validator obligamos a introducir una calificacion entre 0 y 5.
+    
+    def __str__(self):
+        return self.nombre
 
 
 
@@ -34,6 +37,9 @@ class Reserva(models.Model):
 
     #Relación Reserva con Usuario. Many-to-one. Un usuario puede realizar varias reservas, pero cada reserva está asociada a un único usuario.
     usuario = models.ForeignKey(Usuario, on_delete=models.CASCADE)
+    
+    def __str__(self):
+        return self.codigo_reserva
     
 
 
@@ -58,7 +64,7 @@ class Alojamiento(models.Model):
     destino = models.ForeignKey(Destino, on_delete=models.CASCADE)
     
     #Relación Alojamiento con Reserva. Many-to-one. Un alojamiento puede estar en varias reservas, pero una reserva solo puede tener un alojamiento.
-    reserva = models.ForeignKey(Reserva, on_delete=models.CASCADE)
+    reserva = models.ManyToManyField(Reserva)
 
 
 

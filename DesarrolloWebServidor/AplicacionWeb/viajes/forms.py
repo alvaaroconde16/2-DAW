@@ -71,6 +71,7 @@ class UsuarioForm(forms.ModelForm):
             
 ########################################################################################################################################################################
 
+
 class DestinoForm(forms.ModelForm):
     
     class Meta:
@@ -127,6 +128,7 @@ class DestinoForm(forms.ModelForm):
     
 ########################################################################################################################################################################
 
+
 class ReservaForm(forms.ModelForm):
     
     class Meta:
@@ -143,9 +145,6 @@ class ReservaForm(forms.ModelForm):
             "fecha_salida":forms.DateInput(format="%Y-%m-%d", attrs={"type": "date"}),
             "fecha_llegada":forms.DateInput(format="%Y-%m-%d", attrs={"type": "date"}),
         }
-        
-    # Usamos un ModelChoiceField para seleccionar un solo usuario
-    usuario = forms.ModelChoiceField(queryset=Usuario.objects.all(), required=True, label="Selecciona un usuario")
         
     
     def clean(self):
@@ -186,9 +185,74 @@ class ReservaForm(forms.ModelForm):
         if numero_personas < 1:
             self.add_error('numero_personas', 'El número de personas debe ser al menos 1')
 
+
         # Validación de precio: Verificamos que el precio sea mayor que 0
         if precio <= 0:
             self.add_error('precio', 'El precio debe ser un valor positivo')
+            
+            
+        #Siempre devolvemos el conjunto de datos.
+        return self.cleaned_data
+    
+    
+########################################################################################################################################################################
+
+
+class AlojamientoForm(forms.ModelForm):
+    
+    class Meta:
+        model = Alojamiento
+        fields = ['nombre', 'direccion', 'capacidad', 'tipo', 'destino', 'reserva']
+        help_texts = {
+            "nombre": ("200 caracteres como máximo"),
+            "capacidad": "Capacidad de 1 como mínimo",
+        }
+        widgets = {
+            'reserva': forms.CheckboxSelectMultiple(),  # Esto permitirá la selección múltiple de reservas
+        }
+        
+    
+    def clean(self):
+        #Validamos con el modelo actual
+        super().clean()
+        
+        #Obtenemos los campos 
+        nombre = self.cleaned_data.get('nombre')
+        direccion = self.cleaned_data.get('direccion')
+        capacidad = self.cleaned_data.get('capacidad')
+        tipo = self.cleaned_data.get('tipo')
+        destino = self.cleaned_data.get('destino')
+        reserva = self.cleaned_data.get('reserva')
+
+        
+        #Comprobamos que no exista un alojamiento con ese nombre
+        alojamientoNombre = Alojamiento.objects.filter(nombre=nombre).first()
+        if(not alojamientoNombre is None
+           ):
+             if(not self.instance is None and alojamientoNombre.id == self.instance.id):
+                 pass
+             else:
+                self.add_error('nombre','Ya existe un alojamiento con ese nombre')
+                
+                
+        # Validación: Comprobamos que la descripción no exceda los 500 caracteres
+        if len(direccion) > 500:
+            self.add_error('direccion', 'La dirección no puede exceder los 500 caracteres.')
+                
+
+        # Validación: Comprobamos que la capacidad sea al menos 1
+        if capacidad < 1:
+            self.add_error('capacidad', 'La capacidad debe de ser de al menos 1 persona.')
+            
+            
+         # Validación: Comprobamos que se haya seleccionado un destino
+        if not destino:
+            self.add_error('destino', 'Debe seleccionar un destino para el alojamiento.')
+
+
+        # Validación: Comprobamos que se haya seleccionado al menos una reserva
+        if not reserva:
+            self.add_error('reserva', 'Debe seleccionar al menos una reserva para este alojamiento.')
             
             
         #Siempre devolvemos el conjunto de datos.

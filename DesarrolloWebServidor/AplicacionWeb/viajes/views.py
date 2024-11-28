@@ -144,6 +144,20 @@ def reserva_create(request):
     return render(request, 'formularios/reserva_form.html', {'form': form})
 
 
+
+def alojamiento_create(request):
+    if request.method == 'POST':
+        form = AlojamientoForm(request.POST)
+        if form.is_valid():
+            form.save()  # Guarda la nueva reserva en la base de datos
+            messages.success(request, 'Alojamiento creado con éxito.')
+            return redirect('listar_alojamientos')  # Redirige a la lista de reservas después de crear
+    else:
+        form = AlojamientoForm()  # Si la solicitud es GET, muestra el formulario vacío
+
+    return render(request, 'formularios/alojamiento_form.html', {'form': form})
+
+
 ########################################################################################################################################################################
 
 
