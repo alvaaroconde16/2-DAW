@@ -15,7 +15,7 @@
     <p>ID del usuario: {{ usuario.id }}</p>
     <h4>Usuario #{{ forloop.counter }}</h4>
 
-    <h4>Reservas: <a href="{% url 'listar_reservas' usuario.id %}"> Pulsa para ver las reservas</a></h4>
+    <h4>Reservas: <a href="{% url 'listar_reservasUsuario' usuario.id %}"> Pulsa para ver las reservas</a></h4>
     <h4>Comentarios: <a href="{% url 'comentarios_usuario' usuario.id %}"> Pulsa para ver los comentarios</a></h4>
 
     {% comment %}

@@ -1,7 +1,7 @@
 <div>
     <h2>Código de reserva: {{ reserva.codigo_reserva }}</h2>
-    <p>Fecha de salida: {{ reserva.fecha_salida }}</p>
-    <p>Fecha de llegada: {{ reserva.fecha_llegada }}</p>
+    <p>Fecha de salida: {{ reserva.fecha_salida|date:"d-m-Y" }}</p>
+    <p>Fecha de llegada: {{ reserva.fecha_llegada|date:"d-m-Y" }}</p>
     <p>Número de personas: {{ reserva.numero_personas }}</p>
     <h4>Reserva #{{ forloop.counter }}</h4>
 

@@ -1,5 +1,5 @@
 from django.shortcuts import render,redirect
-from .models import Usuario, Destino, Reserva, Comentario, Alojamiento, Extra, Pasaporte, Transporte, Promocion, Factura, ExtraReserva
+from .models import Usuario, Destino, Reserva, Comentario, Alojamiento
 from django.db.models import Q, Sum
 from .forms import *
 from django.contrib import messages
@@ -16,11 +16,18 @@ def listar_usuarios(request):
     return render (request, 'usuarios/lista.html', {'usuarios_mostrar':usuario})
 
 
+#Empezamos mostrando una lista con todas las reservas
+def listar_reservas(request):
+    reserva = Reserva.objects.select_related('usuario').all()
+
+    return render (request, 'reservas/reservas.html', {'reservas_mostrar':reserva})
+
+
 #Ahora vamos a mostrar todas las reservas que tiene cada usuario. Usamos un parámetro entero como es el id_usuario
-def listar_reservas(request, id_usuario):
+def listar_reservasUsuario(request, id_usuario):
     reserva = Reserva.objects.select_related("usuario").filter(usuario_id=id_usuario)
 
-    return render(request, 'reservas/reservas.html', {'reservas_mostrar':reserva})
+    return render(request, 'reservas/reserva_usuario.html', {'reservas_mostrar':reserva})
 
 
 #Mostramos las reservas que estén comprendidas entre un año de inicio y un año de fin. Usamos un parámetro str como es la fecha_inicio y fecha_fin y AND
@@ -42,6 +49,13 @@ def listar_destinos(request):
     destino = Destino.objects.all()
 
     return render(request, 'destinos/destinos.html', {'destinos_mostrar':destino})
+
+
+#Mostramos todos los destinos
+def listar_alojamientos(request):
+    alojamiento = Alojamiento.objects.all()
+
+    return render(request, 'destinos/alojamientos.html', {'alojamientos_mostrar':alojamiento})
 
 
 
@@ -85,7 +99,10 @@ def total_precios_reservas(request):
     return render(request, 'reservas/total_precios.html', {'precio_mostrar':total_precio})
 
 
+########################################################################################################################################################################
 
+
+#A partir de aquí, creamos todos los formulario de creación.
 def usuario_create(request):
     if request.method == 'POST':
         form = UsuarioForm(request.POST)
@@ -98,6 +115,36 @@ def usuario_create(request):
 
     return render(request, 'formularios/usuario_form.html', {'form': form})
 
+
+
+def destino_create(request):
+    if request.method == 'POST':
+        form = DestinoForm(request.POST)
+        if form.is_valid():
+            form.save()  # Guarda el nuevo destino en la base de datos
+            messages.success(request, 'Destino creado con éxito.')
+            return redirect('listar_destinos')  # Redirige a la lista de destinos después de crear
+    else:
+        form = DestinoForm()  # Si la solicitud es GET, muestra el formulario vacío
+
+    return render(request, 'formularios/destino_form.html', {'form': form})
+
+
+
+def reserva_create(request):
+    if request.method == 'POST':
+        form = ReservaForm(request.POST)
+        if form.is_valid():
+            form.save()  # Guarda la nueva reserva en la base de datos
+            messages.success(request, 'Reserva creada con éxito.')
+            return redirect('listar_reservas')  # Redirige a la lista de reservas después de crear
+    else:
+        form = ReservaForm()  # Si la solicitud es GET, muestra el formulario vacío
+
+    return render(request, 'formularios/reserva_form.html', {'form': form})
+
+
+########################################################################################################################################################################
 
 
 #Ahora vamos a crear las 4 páginas de error

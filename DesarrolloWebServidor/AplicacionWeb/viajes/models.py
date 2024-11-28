@@ -12,7 +12,10 @@ class Usuario(models.Model):
     contraseña = models.CharField(max_length=200)
     fecha_registro = models.DateField(null=True, blank=True)
 
-
+    def __str__(self):
+        # Devuelve el nombre del usuario como su representación
+        return self.nombre
+    
 
 class Destino(models.Model):
     nombre = models.CharField(max_length=200)
@@ -30,7 +33,7 @@ class Reserva(models.Model):
     precio = models.DecimalField(max_digits=10, decimal_places=2)  #Pedimos un numero decimal que puede tener como máximo 10 dígitos y 2 plazas decimales.
 
     #Relación Reserva con Usuario. Many-to-one. Un usuario puede realizar varias reservas, pero cada reserva está asociada a un único usuario.
-    usuario = models.OneToOneField(Usuario, on_delete=models.CASCADE)
+    usuario = models.ForeignKey(Usuario, on_delete=models.CASCADE)
     
 
 
