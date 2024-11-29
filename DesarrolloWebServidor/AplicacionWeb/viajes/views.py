@@ -161,6 +161,59 @@ def alojamiento_create(request):
 ########################################################################################################################################################################
 
 
+def usuario_busqueda(request):
+    
+    if(len(request.GET) > 0):
+        form = BusquedaUsuarioForm(request.GET)
+        if form.is_valid():
+            
+            mensaje_busqueda = "Se ha buscado por los siguientes valores:\n"
+            
+            QSusuarios = Usuario.objects.select_related("pasaporte")
+            
+            #obtenemos los filtros
+            edadDesde = form.cleaned_data.get('edad_desde')
+            edadHasta = form.cleaned_data.get('edad_hasta')
+            fechaDesde = form.cleaned_data.get('fecha_desde')
+            fechaHasta = form.cleaned_data.get('fecha_hasta')
+            
+            
+            # Filtrar por edad
+            if edadDesde is not None:
+                usuarios = usuarios.filter(edad__gte=edadHasta)
+
+            if edadDesde is not None:
+                usuarios = usuarios.filter(edad__lte=edadDesde)
+
+
+            # Filtrar por fecha de registro
+            if fechaDesde:
+                usuarios = usuarios.filter(fecha_registro__gte=fechaDesde)
+
+            if fechaHasta:
+                usuarios = usuarios.filter(fecha_registro__lte=fechaHasta)
+            
+            
+            # Filtrar por fecha de registro
+            if fechaDesde:
+                usuarios = usuarios.filter(fecha_registro__gte=fechaDesde)
+
+            if fechaHasta:
+                usuarios = usuarios.filter(fecha_registro__lte=fechaHasta)
+            
+            usuarios = QSusuarios.all()
+    
+            return render(request, 'form/lista_busqueda.html',
+                            {"listar_usuarios":usuarios,
+                             "texto_busqueda":mensaje_busqueda})
+    else:
+        form = BusquedaUsuarioForm(None)
+    return render(request, 'libro/busqueda_avanzada_datepicker.html',{"formulario":form})
+
+
+########################################################################################################################################################################
+
+
 #Ahora vamos a crear las 4 páginas de error
 def error_404_view(request, exception=None):
     return render(request, 'errores/404.html', None, None, 404)

@@ -20,4 +20,6 @@ urlpatterns = [
     path('destinos/crear/', views.destino_create, name='destino_create'),
     path('reservas/crear/', views.reserva_create, name='reserva_create'),
     path('alojamientos/crear/', views.alojamiento_create, name='alojamiento_create'),
+    
+    path('usuarios/busqueda-avanzada/', views.usuario_busqueda, name='usuario_busqueda'),
 ]

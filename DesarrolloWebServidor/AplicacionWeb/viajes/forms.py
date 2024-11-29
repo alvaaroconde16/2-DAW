@@ -69,7 +69,6 @@ class UsuarioForm(forms.ModelForm):
         return self.cleaned_data
             
             
-########################################################################################################################################################################
 
 
 class DestinoForm(forms.ModelForm):
@@ -126,7 +125,6 @@ class DestinoForm(forms.ModelForm):
         return self.cleaned_data
             
     
-########################################################################################################################################################################
 
 
 class ReservaForm(forms.ModelForm):
@@ -195,7 +193,6 @@ class ReservaForm(forms.ModelForm):
         return self.cleaned_data
     
     
-########################################################################################################################################################################
 
 
 class AlojamientoForm(forms.ModelForm):
@@ -257,3 +254,73 @@ class AlojamientoForm(forms.ModelForm):
             
         #Siempre devolvemos el conjunto de datos.
         return self.cleaned_data
+    
+    
+########################################################################################################################################################################
+
+
+class BusquedaUsuarioForm(forms.Form):
+        
+    edad_desde = forms.IntegerField(
+        label="Edad desde",
+        required=False,
+        min_value=0,
+    )
+    
+    edad_hasta = forms.IntegerField(
+        label="Edad hasta",
+        required=False,
+        min_value=0,
+    )
+    
+    fecha_desde = forms.DateField(
+        label="Fecha de registro desde",
+        required=False,
+        widget=forms.DateInput(format="%Y-%m-%d", attrs={"type": "date"}),
+    )
+    
+    fecha_hasta = forms.DateField(
+        label="Fecha de registro hasta",
+        required=False,
+        widget=forms.DateInput(format="%Y-%m-%d", attrs={"type": "date"}),
+    )
+    
+    
+    def clean(self):
+        super().clean()
+
+        # Validamos los campos
+        textoBusqueda = self.cleaned_data.get("textoBusqueda")
+        edad_desde = self.cleaned_data.get("edad_desde")
+        edad_hasta = self.cleaned_data.get("edad_hasta")
+        fecha_desde = self.cleaned_data.get("fecha_desde")
+        fecha_hasta = self.cleaned_data.get("fecha_hasta")
+
+
+        # Verificamos que al menos un campo esté completo
+        if (
+            not edad_desde is None
+            and edad_hasta is None
+            and fecha_desde is None
+            and fecha_hasta is None
+        ):
+            self.add_error('edad_desde','Debe introducir al menos un valor en un campo del formulario')
+            self.add_error('edad_hasta','Debe introducir al menos un valor en un campo del formulario')
+            self.add_error('fecha_desde','Debe introducir al menos un valor en un campo del formulario')
+            self.add_error('fecha_hasta','Debe introducir al menos un valor en un campo del formulario')
+
+
+        # Validación de edades
+        if edad_desde is not None and edad_hasta is not None and edad_hasta < edad_desde:
+            self.add_error("edad_desde", "Edad desde no puede ser mayor que edad hasta.")
+            self.add_error("edad_hasta", "Edad hasta no puede ser menor que edad desde.")
+            
+            
+        #La fecha hasta debe ser mayor o igual a fecha desde. Pero sólo se valida si han introducido ambas fechas
+        if(not fecha_desde is None  and not fecha_hasta is None and fecha_hasta < fecha_desde):
+            self.add_error('fecha_desde','La fecha hasta no puede ser menor que la fecha desde')
+            self.add_error('fecha_hasta','La fecha hasta no puede ser menor que la fecha desde')
+
+        return self.cleaned_data
+    
+    
