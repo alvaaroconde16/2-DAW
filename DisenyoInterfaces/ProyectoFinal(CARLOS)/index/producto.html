@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TIENDA | ELFSCAPE TRAVELS</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link rel="icon" href="../imagenes/logo.png" type="image/png">
+</head>
+
+<style>
+    .bg-header {
+        background-color: #35495a;
+    }
+
+    .bg-cont {
+        background-color: #21663f;
+    }
+
+    .card img {
+        width: 100%;
+        padding: 20px;
+        height: 190px; 
+        /* Hace que la imagen cubra el espacio sin deformarse */
+    }
+
+    .carousel-img {
+        height: 500px;
+        object-fit: cover;
+    }
+
+    i:hover{
+        color: #21663f;
+    }
+
+    .text-center img{
+        height: 150px;
+    }
+</style>
+
+<body class="bg-secondary-subtle">
+
+    <!-- Primer Header (Logo, Barra de Búsqueda, Usuario y Carrito) -->
+    <header class="bg-success text-white py-3">
+        <div class="container d-flex justify-content-between align-items-center">
+            <!-- Logo y Nombre -->
+            <div class="d-flex align-items-center">
+                <img src="../imagenes/logo.png" alt="Logo" class="me-3" style="height: 48px;">
+                <span class="fw-bold fs-5">ELFSCAPE TRAVELS</span>
+            </div>
+
+            <!-- Barra de Búsqueda (se expande en el medio) -->
+            <div class="flex-grow-1 mx-4">
+                <input type="text" class="form-control" placeholder="Buscar..." style="width: 100%;">
+            </div>
+
+            <!-- Icono de Usuario -->
+            <div class="bg-cont rounded-pill p-2">
+                <i class="fa-solid fa-user text-white p-1"></i>
+            </div>
+
+            <!-- Icono de Carrito -->
+            <div class="d-flex align-items-center rounded-pill p-2 ms-2">
+                <a href=""><i class="fa-solid fa-shopping-cart text-white p-1 fs-3"></i></a>
+                <a href="" class="text-decoration-none text-white"><p class="mb-0 ms-1 fs-bold fw-bold">Cesta</p></a>
+            </div>
+        </div>
+    </header>
+
+
+
+
+    <!-- Segundo Header (Navegación y Redes Sociales) -->
+    <header class="bg-header text-white py-2">
+        <div class="container d-flex justify-content-between align-items-center">
+            <!-- Navegación -->
+            <nav class="d-flex gap-5">
+                <a href="paginaPrincipal.html" class="text-white text-decoration-none fw-bold">Inicio</a>
+                <a href="blog.html" class="text-white text-decoration-none fw-bold">Blog</a>
+                <a href="tienda.html" class="text-white text-decoration-none fw-bold">Tienda</a>
+                <a href="contacto.html" class="text-white text-decoration-none fw-bold">Contacto</a>
+            </nav>
+
+            <!-- Redes sociales -->
+            <div class="d-flex gap-3 d-flex flex-wrap">
+                <a href="#" class="text-white fs-5"><i class="fa-brands fa-youtube"></i></a>
+                <a href="#" class="text-white fs-5"><i class="fa-brands fa-twitter"></i></a>
+                <a href="#" class="text-white fs-5"><i class="fa-brands fa-instagram"></i></a>
+                <a href="#" class="text-white fs-5"><i class="fa-brands fa-facebook"></i></a>
+            </div>
+        </div>
+    </header>
+
+
+
+
+
+    <!-- Footer -->
+    <footer class="mt-5">
+
+        <!-- Payment Methods -->
+        <div class="bg-success text-white py-3">
+            <div class="container">
+                <div class="row justify-content-center text-center">
+                    <div class="col-3 col-md-3 col-lg-1">
+                        <i class="fa-brands fa-cc-visa fs-1"></i>
+                    </div>
+                    <div class="col-3 col-md-3 col-lg-1">
+                        <i class="fa-brands fa-cc-paypal fs-1"></i>
+                    </div>
+                    <div class="col-3 col-md-3 col-lg-1">
+                        <i class="fa-brands fa-cc-mastercard fs-1"></i>
+                    </div>
+                    <div class="col-3 col-md-3 col-lg-1">
+                        <i class="fa-brands fa-btc fs-1"></i>
+                    </div>
+                    <div class="col-3 col-md-3 col-lg-1">
+                        <i class="fa-brands fa-cc-diners-club fs-1"></i>
+                    </div>
+                    <div class="col-3 col-md-3 col-lg-1">
+                        <i class="fa-brands fa-cc-amex fs-1"></i>
+                    </div>
+                    <div class="col-3 col-md-3 col-lg-1">
+                        <i class="fa-brands fa-cc-apple-pay fs-1"></i>
+                    </div>
+                    <div class="col-3 col-md-3 col-lg-1">
+                        <i class="fa-brands fa-google-pay fs-1"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+
+        <div class="bg-header text-white py-4">
+            <div class="container">
+                <!-- Footer Content -->
+                <div class="row">
+                    <!-- Información -->
+                    <div class="col-md-3">
+                        <h5 class="font-weight-bold">INFORMACIÓN</h5>
+                        <div class="border-top my-3"></div>
+                        <ul class="list-unstyled">
+                            <li><a href="#" class="text-white text-decoration-none">Condiciones generales</a></li>
+                            <li><a href="#" class="text-white text-decoration-none">Aviso legal</a></li>
+                            <li><a href="#" class="text-white text-decoration-none">Política de cookies</a></li>
+                            <li><a href="#" class="text-white text-decoration-none">Ayuda</a></li>
+                            <li><a href="#" class="text-white text-decoration-none">Reclamaciones</a></li>
+                            <li><a href="#" class="text-white text-decoration-none">¿Quiénes somos?</a></li>
+                        </ul>
+                    </div>
+        
+                    <!-- Contacto -->
+                    <div class="col-md-3">
+                        <h5 class="font-weight-bold">CONTACTO</h5>
+                        <div class="border-top my-3"></div>
+                        <p>Dirección: Calle de la Tierra Media, 123</p>
+                        <p>Teléfono: (123) 456-7890</p>
+                        <p>Email: <a href="mailto:info@tierramedia.com" class="text-white text-decoration-none">info@tierramedia.com</a></p>
+                    </div>
+        
+                    <!-- Enlaces rápidos -->
+                    <div class="col-md-3">
+                        <h5 class="font-weight-bold">ENLACES RÁPIDOS</h5>
+                        <div class="border-top my-3"></div>
+                        <ul class="list-unstyled">
+                            <li><a href="paginaPrincipal.html" class="text-white text-decoration-none">Página Principal</a></li>
+                            <li><a href="blog.html" class="text-white text-decoration-none">Blog</a></li>
+                            <li><a href="tienda.html" class="text-white text-decoration-none">Tienda</a></li>
+                            <li><a href="#categories" class="text-white text-decoration-none">Categorías</a></li>
+                            <li><a href="contacto.html" class="text-white text-decoration-none">Contáctanos</a></li>
+                        </ul>
+                    </div>
+        
+                    <!-- Redes sociales -->
+                    <div class="col-md-3">
+                        <h5 class="font-weight-bold">REDES SOCIALES</h5>
+                        <div class="border-top my-3"></div>
+                        <div class="d-flex gap-3">
+                            <i class="fab fa-twitter fs-4 text-white"></i>
+                            <i class="fab fa-instagram fs-4 text-white"></i>
+                            <i class="fab fa-facebook fs-4 text-white"></i>
+                            <i class="fab fa-youtube fs-4 text-white"></i>
+                            <i class="fab fa-tiktok fs-4 text-white"></i>
+                        </div>
+                    </div>
+                </div>
+        
+                <!-- Footer CopyRight -->
+                <div class="d-flex justify-content-center mt-4">
+                    <p class="text-center">&copy; 2024 Viajes a través de la Tierra Media. Todos los derechos reservados. © Copyright ELFSCAPE TRAVELS.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
