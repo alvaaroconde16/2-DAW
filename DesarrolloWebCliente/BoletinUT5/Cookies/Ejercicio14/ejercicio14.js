@@ -8,6 +8,15 @@ window.addEventListener("load", inicializar)
 
 function inicializar(){
     document.getElementById("cafeForm").reset();
+
+    var nombre = getCookie("nombre");
+    var habitacion = getCookie("habitacion");
+    var cafe = getCookie("cafe");
+
+    if (nombre && habitacion && cafe) {
+      alert("Hola " + nombre + ",")
+    }
+
     document.getElementById("boton").addEventListener("click", enviar)
 }
 
@@ -63,17 +72,6 @@ function getCookie(cname) {
 }
 
 
-function checkCookie() {
-    let nombreCookie = getCookie("nombre");
-    let habitacionCookie = getCookie("habitacion");
-    let cafeCookie = getCookie("cafe");
 
-    if (nombreCookie != "" && habitacionCookie != "" && cafeCookie != "") {
-      document.getElementById("cafe").value = cafeCookie;
-    } else {
-       user = prompt("Please enter your name:","");
-       if (user != "" && user != null) {
-         setCookie("username", user, 30);
-       }
-    }
-}
+
+
