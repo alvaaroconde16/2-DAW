@@ -22,22 +22,25 @@
 
     .card img {
         width: 100%;
-        padding: 20px;
-        height: 190px; 
+        padding: 10px;
+        height: 220px; 
         /* Hace que la imagen cubra el espacio sin deformarse */
     }
 
     .carousel-img {
-        height: 500px;
         object-fit: cover;
     }
 
-    i:hover{
-        color: #21663f;
+    .text-center img{
+        height: 155px;
     }
 
-    .text-center img{
-        height: 150px;
+    .contenido{
+        padding: 0 160px 0 160px;
+    }
+
+    .carousel-item{
+        height: 211px;
     }
 </style>
 
@@ -98,54 +101,114 @@
 
 
     <!-- Main Banner -->
-    <div id="carouselExampleInterval" class="carousel slide container d-flex align-items-center" data-bs-ride="carousel">
+    <div id="carouselExampleInterval" class="carousel slide bg-black d-flex align-items-center py-5" data-bs-ride="carousel">
         <div class="carousel-inner">
-          <div class="carousel-item active">
-            <img src="../imagenes/articulosCarrusel.png" class="d-block w-100 carousel-img" alt="Artículos Medievales">
-            <div class="carousel-caption d-none d-md-block">
-                <h5>Artículos medievales únicos</h5>
-                <p>Encuentra piezas históricas de la Edad Media en nuestra tienda.</p>
-            </div>
-          </div>
 
-          <div class="carousel-item">
-            <img src="../imagenes/mercadoCarrusel.png" class="d-block w-100 carousel-img" alt="Mercado Medieval">
-            <div class="carousel-caption d-none d-md-block">
-                <h5>La experiencia medieval</h5>
-                <p>Sumérgete en la auténtica atmósfera medieval con nuestros productos.</p>
+            <!-- Primera Sección: Bienvenida -->
+            <div class="carousel-item active text-white">
+                <div class="text-center">
+                    <h3 class="text-success">Explora Mundos Medievales</h3>
+                    <p>Descubre aventuras épicas, artefactos únicos y destinos mágicos en nuestra tienda.</p>
+                    <p class="mt-3">Desde las tierras de los caballeros hasta las ciudades élficas, ¡todo está aquí para ti!</p>
+                    <button class="btn btn-success mt-3">Explorar Tienda</button>
+                </div>
             </div>
-          </div>
 
-          <div class="carousel-item">
-            <img src="../imagenes/habitacionCarrusel.png" class="d-block w-100 carousel-img" alt="Habitación Medieval">
-            <div class="carousel-caption d-none d-md-block">
-                <h5>Decora tu hogar al estilo medieval</h5>
-                <p>Desde jarras hasta tapices, transforma tu espacio en algo único.</p>
+            <!-- Segunda Sección: Destinos -->
+            <div class="carousel-item text-white">
+                <div class="d-flex justify-content-center align-items-center flex-wrap">
+
+                    <!-- Viaje a Rivendel -->
+                    <div class="destino text-center mx-4">
+                        <img src="../imagenes/rivendell2.png" alt="Viaje a Rivendel" class="rounded carousel-img" style="width: 150px; height: 150px;">
+                        <h5 class="mt-2">Rivendel</h5>
+                        <p>Descubre el hogar de los elfos y su serenidad eterna.</p>
+                    </div>
+
+                    <!-- Viaje a Mordor -->
+                    <div class="destino text-center mx-4">
+                        <img src="../imagenes/mordor.png" alt="Viaje a Mordor" class="rounded carousel-img" style="width: 150px; height: 150px;">
+                        <h5 class="mt-2">Mordor</h5>
+                        <p>Explora la tierra de Sauron y el Monte del Destino.</p>
+                    </div>
+
+                    <!-- Viaje a Fangorn -->
+                    <div class="destino text-center mx-4">
+                        <img src="../imagenes/fangorn.png" alt="Viaje a Fangorn" class="rounded carousel-img" style="width: 150px; height: 150px;">
+                        <h5 class="mt-2">Fangorn</h5>
+                        <p>Adéntrate en el antiguo bosque y escucha la sabiduría de los ents.</p>
+                    </div>
+
+                    <!-- Viaje a Hobbiton -->
+                    <div class="destino text-center mx-4">
+                        <img src="../imagenes/hobbiton.png" alt="Viaje a Hobbiton" class="rounded carousel-img" style="width: 150px; height: 150px;">
+                        <h5 class="mt-2">Hobbiton</h5>
+                        <p>Relájate entre las colinas verdes de la Comarca.</p>
+                    </div>
+                </div>
             </div>
-          </div>
+
+            <!-- Tercera Sección: Equipo de Guías -->
+            <div class="carousel-item">
+                <div class="d-flex justify-content-center align-items-center flex-wrap">
+                    <div class="guia text-center mx-4 text-white">
+                        <div class="imgGuia">
+                            <img src="../imagenes/gandalf.png" alt="IMGGandalf" class="rounded-circle" style="width: 120px; height: 120px;">
+                        </div>
+                        <h5 class="mt-2">Gandalf</h5>
+                        <p>Experto en regiones montañosas y magia antigua.</p>
+                    </div>
+
+                    <div class="guia text-center mx-4 text-white">
+                        <div class="imgGuia">
+                            <img src="../imagenes/legolas.png" alt="IMGLegolas" class="rounded-circle" style="width: 120px; height: 120px;">
+                        </div>
+                        <h5 class="mt-2">Legolas</h5>
+                        <p>Especialista en bosques y arquería.</p>
+                    </div>
+
+                    <div class="guia text-center mx-4 text-white">
+                        <div class="imgGuia">
+                            <img src="../imagenes/aragorn.png" alt="IMGAragorn" class="rounded-circle" style="width: 120px; height: 120px;">
+                        </div>
+                        <h5 class="mt-2">Aragorn</h5>
+                        <p>Experto en tierras salvajes y rastreo.</p>
+                    </div>
+
+                    <div class="guia text-center mx-4 text-white">
+                        <div class="imgGuia">
+                            <img src="../imagenes/elrond.png" alt="IMGElrond" class="rounded-circle" style="width: 120px; height: 120px;">
+                        </div>
+                        <h5 class="mt-2">Elrond</h5>
+                        <p>Experto en historia y tradiciones élficas.</p>
+                    </div>
+                </div>
+            </div>
         </div>
 
+        <!-- Controles del carrusel -->
         <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleInterval" data-bs-slide="prev">
-          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-          <span class="visually-hidden">Previous</span>
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Anterior</span>
         </button>
         <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleInterval" data-bs-slide="next">
-          <span class="carousel-control-next-icon" aria-hidden="true"></span>
-          <span class="visually-hidden">Next</span>
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Siguiente</span>
         </button>
-      </div>
+    </div>
+
 
 
 
     <!-- Featured Products -->
-    <div class="container my-5">
+    <div class="contenido my-5">
 
         <h2 class="text-success fw-bold mb-4 mb-5">Productos Destacados</h2>
 
         <div class="row">
 
             <!-- Panel de Filtros -->
-            <div class="col-md-3">
+            <div class="col-md-2">
                 <div class="border rounded bg-white p-4">
                     <!-- Borrar filtros -->
                     <a href="" class="text-decoration-none">
@@ -161,7 +224,7 @@
                             <li><a href="#" class="text-decoration-none text-dark">Ropa para viajes</a></li>
                             <li><a href="#" class="text-decoration-none text-dark">Accesorios de campamento</a></li>
                             <li><a href="#" class="text-decoration-none text-dark">Souvenirs</a></li>
-                            <li><a href="#" class="text-decoration-none text-success">Ver más opciones de filtro</a></li>
+                            <li class="mt-2"><a href="#" class="text-decoration-none text-success">Ver más opciones</a></li>
                         </ul>
                     </div>
                 
@@ -170,10 +233,10 @@
                         <h5 class="fw-bold text-success">Precio</h5>
                         <div class="mt-3">
                             <label for="priceRange" class="form-label">Rango de precio</label>
-                            <input type="range" id="priceRange" class="form-range" min="0" max="500">
+                            <input type="range" id="priceRange" class="form-range" min="0" max="2200">
                             <div class="d-flex justify-content-between">
                                 <p>0</p>
-                                <p>500</p>
+                                <p>2200</p>
                             </div>
                         </div>
                     </div>
@@ -206,60 +269,46 @@
 
 
             <!-- AQUI COMIENZA LOS PRODUCTOS -->
-            <div class="col-md-9">
+            <div class="col-md-10">
                 <div class="row g-4">      
 
-                    <!-- Product Card 1 -->
-                    <div class="col-12 col-sm-6 col-md-4 col-lg-3">
-                        <a href="" class="text-decoration-none">
+                    <!-- Viaje 1 -->
+                    <div class="col-12 col-sm-6 col-md-4 col-lg-4">
+                        <a href="rivendel.html" class="text-decoration-none">
                             <div class="card">
-                                <img src="../imagenes/espada.png" alt="Espada de Fantasía">
+                                <img src="../imagenes/rivendell2.png" alt="Viaje a Rivendel">
                                 <div class="card-body text-center">
-                                    <h5 class="card-title">Espada de Fantasía</h5>
-                                    <p class="card-text">Precio: $129.99</p>
-                                    <button class="btn btn-success">Añadir al Carrito</button>
+                                    <h5 class="card-title">Viaje a Rivendel</h5>
+                                    <p class="card-text">Precio: $1500</p>
+                                    <button class="btn btn-success">Reservar ahora</button>
                                 </div>
                             </div>
                         </a>
                     </div>
 
-                    <!-- Product Card 2 -->
-                    <div class="col-12 col-sm-6 col-md-4 col-lg-3">
-                        <a href="" class="text-decoration-none">
+                    <!-- Viaje 2 -->
+                    <div class="col-12 col-sm-6 col-md-4 col-lg-4">
+                        <a href="minas-tirith.html" class="text-decoration-none">
                             <div class="card">
-                                <img src="../imagenes/escudo.png" alt="Escudo Medieval">
+                                <img src="../imagenes/minas.png" alt="Viaje a Minas Tirith">
                                 <div class="card-body text-center">
-                                    <h5 class="card-title">Escudo Medieval</h5>
-                                    <p class="card-text">Precio: $89.99</p>
-                                    <button class="btn btn-success">Añadir al Carrito</button>
+                                    <h5 class="card-title">Viaje a Minas Tirith</h5>
+                                    <p class="card-text">Precio: $1800</p>
+                                    <button class="btn btn-success">Reservar ahora</button>
                                 </div>
                             </div>
                         </a>
                     </div>
 
-                    <!-- Product Card 3 -->
-                    <div class="col-12 col-sm-6 col-md-4 col-lg-3">
-                        <a href="" class="text-decoration-none">
+                    <!-- Viaje 3 -->
+                    <div class="col-12 col-sm-6 col-md-4 col-lg-4">
+                        <a href="edoras.html" class="text-decoration-none">
                             <div class="card">
-                                <img src="../imagenes/copa.png" alt="Copa Medieval">
+                                <img src="../imagenes/edoras2.png" alt="Viaje a Edoras">
                                 <div class="card-body text-center">
-                                    <h5 class="card-title">Copa Medieval</h5>
-                                    <p class="card-text">Precio: $19.99</p>
-                                    <button class="btn btn-success">Añadir al Carrito</button>
-                                </div>
-                            </div>
-                        </a>
-                    </div>
-
-                    <!-- Product Card 4 -->
-                    <div class="col-12 col-sm-6 col-md-4 col-lg-3">
-                        <a href="" class="text-decoration-none">
-                            <div class="card">
-                                <img src="../imagenes/anilo.png" alt="Anillo de Dragón">
-                                <div class="card-body text-center">
-                                    <h5 class="card-title">Anillo de Dragón</h5>
-                                    <p class="card-text">Precio: $59.99</p>
-                                    <button class="btn btn-success">Añadir al Carrito</button>
+                                    <h5 class="card-title">Viaje a Edoras</h5>
+                                    <p class="card-text">Precio: $1200</p>
+                                    <button class="btn btn-success">Reservar ahora</button>
                                 </div>
                             </div>
                         </a>
@@ -269,7 +318,7 @@
                     <div class="col-md-12">
                         <!-- Carousel de Productos Aleatorios -->
                         <div class="container bg-white py-4 rounded">
-                            <h2 class="text-success fw-bold mb-4 text-center">¡Descubre más productos!</h2>
+                            <h2 class="text-success fw-bold mb-4 text-center">¡Descubre más viajes!</h2>
                             <div id="productosAleatorios" class="carousel slide" data-bs-ride="carousel">
                                 <div class="carousel-inner">
 
@@ -282,10 +331,11 @@
                                             </div></a>
 
                                             <a href="" class="text-decoration-none"><div class="text-center">
-                                                <img src="../imagenes/escudo.png" alt="Escudo Medieval" class="img-fluid rounded">
-                                                <p class="fw-bold mt-3 text-black">$89.99</p>
+                                                <img src="../imagenes/capa.png" alt="Capa de Fantasía" class="img-fluid rounded">
+                                                <p class="fw-bold mt-3 text-black">$69.99</p>
                                             </div></a>
 
+                                            
                                             <a href="" class="text-decoration-none"><div class="text-center">
                                                 <img src="../imagenes/copa.png" alt="Copa Medieval" class="img-fluid rounded">
                                                 <p class="fw-bold mt-3 text-black">$19.99</p>
@@ -322,8 +372,8 @@
                                             </div></a>
 
                                             <a href="" class="text-decoration-none"><div class="text-center">
-                                                <img src="../imagenes/capa.png" alt="Capa de Fantasía Medieval" class="img-fluid rounded">
-                                                <p class="fw-bold mt-3 text-black">$69.99</p>
+                                                <img src="../imagenes/gorro.png" alt="Gorro de mago" class="img-fluid rounded">
+                                                <p class="fw-bold mt-3 text-black">$34.99</p>
                                             </div></a>
 
                                             <a href="" class="text-decoration-none"><div class="text-center">
@@ -346,115 +396,89 @@
                             </div>
                         </div>
                     </div>
+                    
 
-
-                    <!-- Product Card 5 -->
-                    <div class="col-12 col-sm-6 col-md-4 col-lg-3">
-                        <a href="" class="text-decoration-none">
+                    <!-- Viaje 4 -->
+                    <div class="col-12 col-sm-6 col-md-4 col-lg-4">
+                        <a href="lothlorien.html" class="text-decoration-none">
                             <div class="card">
-                                <img src="../imagenes/mapa.png" alt="Mapa de la Tierra Media">
+                                <img src="../imagenes/lorien.png" alt="Viaje a Lothlórien">
                                 <div class="card-body text-center">
-                                    <h5 class="card-title">Mapa de la Tierra</h5>
-                                    <p class="card-text">Precio: $19.99</p>
-                                    <button class="btn btn-success">Añadir al Carrito</button>
+                                    <h5 class="card-title">Viaje a Lothlórien</h5>
+                                    <p class="card-text">Precio: $1600</p>
+                                    <button class="btn btn-success">Reservar ahora</button>
                                 </div>
                             </div>
                         </a>
                     </div>
 
-                    <!-- Product Card 6 -->
-                    <div class="col-12 col-sm-6 col-md-4 col-lg-3">
-                        <a href="" class="text-decoration-none">
+
+                    <!-- Viaje 5 -->
+                    <div class="col-12 col-sm-6 col-md-4 col-lg-4">
+                        <a href="mordor.html" class="text-decoration-none">
                             <div class="card">
-                                <img src="../imagenes/candelabro.png" alt="Candelabro Medieval">
+                                <img src="../imagenes/mordor.png" alt="Viaje a Mordor">
                                 <div class="card-body text-center">
-                                    <h5 class="card-title">Candelabro</h5>
-                                    <p class="card-text">Precio: $49.99</p>
-                                    <button class="btn btn-success">Añadir al Carrito</button>
+                                    <h5 class="card-title">Viaje a Mordor</h5>
+                                    <p class="card-text">Precio: $2200</p>
+                                    <button class="btn btn-success">Reservar ahora</button>
                                 </div>
                             </div>
                         </a>
                     </div>
 
-                    <!-- Product Card 7 -->
-                    <div class="col-12 col-sm-6 col-md-4 col-lg-3">
-                        <a href="" class="text-decoration-none">
+                    <!-- Viaje 6 -->
+                    <div class="col-12 col-sm-6 col-md-4 col-lg-4">
+                        <a href="fangorn.html" class="text-decoration-none">
                             <div class="card">
-                                <img src="../imagenes/tunica.png" alt="Túnica Medieval">
+                                <img src="../imagenes/fangorn.png" alt="Viaje a Fangorn">
                                 <div class="card-body text-center">
-                                    <h5 class="card-title">Túnica Medieval</h5>
-                                    <p class="card-text">Precio: $39.99</p>
-                                    <button class="btn btn-success">Añadir al Carrito</button>
+                                    <h5 class="card-title">Viaje a Fangorn</h5>
+                                    <p class="card-text">Precio: $1300</p>
+                                    <button class="btn btn-success">Reservar ahora</button>
                                 </div>
                             </div>
                         </a>
                     </div>
 
-                    <!-- Product Card 8 -->
-                    <div class="col-12 col-sm-6 col-md-4 col-lg-3">
-                        <a href="" class="text-decoration-none">
+
+                    <!-- Viaje 7 -->
+                    <div class="col-12 col-sm-6 col-md-4 col-lg-4">
+                        <a href="hobbiton.html" class="text-decoration-none">
                             <div class="card">
-                                <img src="../imagenes/pociones.png" alt="Set de Pociones Medievales">
+                                <img src="../imagenes/hobbiton.png" alt="Viaje a Hobbiton">
                                 <div class="card-body text-center">
-                                    <h5 class="card-title">Set de Pociones</h5>
-                                    <p class="card-text">Precio: $24.99</p>
-                                    <button class="btn btn-success">Añadir al Carrito</button>
+                                    <h5 class="card-title">Viaje a Hobbiton</h5>
+                                    <p class="card-text">Precio: $950</p>
+                                    <button class="btn btn-success">Reservar ahora</button>
                                 </div>
                             </div>
                         </a>
                     </div>
 
-                    <!-- Product Card 9 -->
-                    <div class="col-12 col-sm-6 col-md-4 col-lg-3">
-                        <a href="" class="text-decoration-none">
+                    <!-- Viaje 8 -->
+                    <div class="col-12 col-sm-6 col-md-4 col-lg-4">
+                        <a href="brie.html" class="text-decoration-none">
                             <div class="card">
-                                <img src="../imagenes/capa.png" alt="Capa de Fantasía Medieval">
+                                <img src="../imagenes/bree.png" alt="Viaje a Bree">
                                 <div class="card-body text-center">
-                                    <h5 class="card-title">Capa de Fantasía</h5>
-                                    <p class="card-text">Precio: $69.99</p>
-                                    <button class="btn btn-success">Añadir al Carrito</button>
+                                    <h5 class="card-title">Viaje a Bree</h5>
+                                    <p class="card-text">Precio: $900</p>
+                                    <button class="btn btn-success">Reservar ahora</button>
                                 </div>
                             </div>
                         </a>
                     </div>
 
-                    <!-- Product Card 10 -->
-                    <div class="col-12 col-sm-6 col-md-4 col-lg-3">
-                        <a href="" class="text-decoration-none">
+                    <!-- Viaje 9 -->
+                    <div class="col-12 col-sm-6 col-md-4 col-lg-4">
+                        <a href="isengard.html" class="text-decoration-none">
                             <div class="card">
-                                <img src="../imagenes/lanza.png" alt="Lanza Medieval">
+                                <img src="../imagenes/isengard.png" alt="Viaje a Isengard">
                                 <div class="card-body text-center">
-                                    <h5 class="card-title">Lanza Medieval</h5>
-                                    <p class="card-text">Precio: $99.99</p>
-                                    <button class="btn btn-success">Añadir al Carrito</button>
-                                </div>
-                            </div>
-                        </a>
-                    </div>
-
-                    <!-- Product Card 11 -->
-                    <div class="col-12 col-sm-6 col-md-4 col-lg-3">
-                        <a href="" class="text-decoration-none">
-                            <div class="card">
-                                <img src="../imagenes/gorro.png" alt="Gorro de Mago">
-                                <div class="card-body text-center">
-                                    <h5 class="card-title">Gorro de Mago</h5>
-                                    <p class="card-text">Precio: $34.99</p>
-                                    <button class="btn btn-success">Añadir al Carrito</button>
-                                </div>
-                            </div>
-                        </a>
-                    </div>
-
-                    <!-- Product Card 12 -->
-                    <div class="col-12 col-sm-6 col-md-4 col-lg-3">
-                        <a href="" class="text-decoration-none">
-                            <div class="card">
-                                <img src="../imagenes/libro.png" alt="Libro de Hechizos Antiguo">
-                                <div class="card-body text-center">
-                                    <h5 class="card-title">Libro de Hechizos</h5>
-                                    <p class="card-text">Precio: $79.99</p>
-                                    <button class="btn btn-success">Añadir al Carrito</button>
+                                    <h5 class="card-title">Viaje a Isengard</h5>
+                                    <p class="card-text">Precio: $1700</p>
+                                    <button class="btn btn-success">Reservar ahora</button>
                                 </div>
                             </div>
                         </a>
