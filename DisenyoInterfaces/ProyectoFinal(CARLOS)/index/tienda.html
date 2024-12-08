@@ -23,8 +23,7 @@
     .card img {
         width: 100%;
         padding: 10px;
-        height: 220px; 
-        /* Hace que la imagen cubra el espacio sin deformarse */
+        height: 220px;
     }
 
     .carousel-img {
@@ -32,7 +31,8 @@
     }
 
     .text-center img{
-        height: 155px;
+        height: 150px;
+        width: 155px;
     }
 
     .contenido{
@@ -67,8 +67,8 @@
 
             <!-- Icono de Carrito -->
             <div class="d-flex align-items-center rounded-pill p-2 ms-2">
-                <a href=""><i class="fa-solid fa-shopping-cart text-white p-1 fs-3"></i></a>
-                <a href="" class="text-decoration-none text-white"><p class="mb-0 ms-1 fs-bold fw-bold">Cesta</p></a>
+                <a href="cesta.html"><i class="fa-solid fa-shopping-cart text-white p-1 fs-3"></i></a>
+                <a href="cesta.html" class="text-decoration-none text-white"><p class="mb-0 ms-1 fs-bold fw-bold">Cesta</p></a>
             </div>
         </div>
     </header>
@@ -98,6 +98,7 @@
     </header>
 
 
+<!--###############################################################################################################################################################-->
 
 
     <!-- Main Banner -->
@@ -120,7 +121,7 @@
 
                     <!-- Viaje a Rivendel -->
                     <div class="destino text-center mx-4">
-                        <img src="../imagenes/rivendell2.png" alt="Viaje a Rivendel" class="rounded carousel-img" style="width: 150px; height: 150px;">
+                        <img src="../imagenes/rivendel6.png" alt="Viaje a Rivendel" class="rounded carousel-img" style="width: 150px; height: 150px;">
                         <h5 class="mt-2">Rivendel</h5>
                         <p>Descubre el hogar de los elfos y su serenidad eterna.</p>
                     </div>
@@ -198,9 +199,10 @@
     </div>
 
 
+<!--###############################################################################################################################################################-->
 
 
-    <!-- Featured Products -->
+    <!-- PRODUCTOS -->
     <div class="contenido my-5">
 
         <h2 class="text-success fw-bold mb-4 mb-5">Productos Destacados</h2>
@@ -268,22 +270,23 @@
             </div>
 
 
+<!--###############################################################################################################################################################-->
+
+
             <!-- AQUI COMIENZA LOS PRODUCTOS -->
             <div class="col-md-10">
                 <div class="row g-4">      
 
                     <!-- Viaje 1 -->
                     <div class="col-12 col-sm-6 col-md-4 col-lg-4">
-                        <a href="rivendel.html" class="text-decoration-none">
-                            <div class="card">
-                                <img src="../imagenes/rivendell2.png" alt="Viaje a Rivendel">
-                                <div class="card-body text-center">
-                                    <h5 class="card-title">Viaje a Rivendel</h5>
-                                    <p class="card-text">Precio: $1500</p>
-                                    <button class="btn btn-success">Reservar ahora</button>
-                                </div>
+                        <div class="card">
+                            <img src="../imagenes/rivendel6.png" alt="Viaje a Rivendel">
+                            <div class="card-body text-center">
+                                <h5 class="card-title">Viaje a Rivendel</h5>
+                                <p class="card-text">Precio: $1500</p>
+                                <a href="producto.html"><button class="btn btn-success">Reservar ahora</button></a>
                             </div>
-                        </a>
+                        </div>
                     </div>
 
                     <!-- Viaje 2 -->
@@ -315,70 +318,67 @@
                     </div>
 
 
+<!--###############################################################################################################################################################-->
+
+
                     <div class="col-md-12">
                         <!-- Carousel de Productos Aleatorios -->
                         <div class="container bg-white py-4 rounded">
-                            <h2 class="text-success fw-bold mb-4 text-center">¡Descubre más viajes!</h2>
+                            <h2 class="text-success fw-bold mb-4 text-center">¡Descubre más productos!</h2>
                             <div id="productosAleatorios" class="carousel slide" data-bs-ride="carousel">
                                 <div class="carousel-inner">
 
                                     <!-- Vista 1 -->
                                     <div class="carousel-item active">
-                                        <div class="d-flex justify-content-center gap-4 flex-wrap">
+                                        <div class="d-flex justify-content-center gap-5 flex-wrap">
                                             <a href="" class="text-decoration-none"><div class="text-center">
-                                                <img src="../imagenes/espada.png" alt="Espada de Fantasía" class="img-fluid rounded">
-                                                <p class="fw-bold mt-3 text-black">$129.99</p>
+                                                <img src="../imagenes/gandalf.png" alt="Gandalf" class="rounded-circle">
+                                                <p class="mb-0 mt-3 fw-bold text-black">Gandalf</p>
                                             </div></a>
 
                                             <a href="" class="text-decoration-none"><div class="text-center">
-                                                <img src="../imagenes/capa.png" alt="Capa de Fantasía" class="img-fluid rounded">
-                                                <p class="fw-bold mt-3 text-black">$69.99</p>
+                                                <img src="../imagenes/legolas.png" alt="Legolas" class="rounded-circle">
+                                                <p class="mb-0 mt-3 fw-bold text-black">Legolas</p>
                                             </div></a>
 
                                             
                                             <a href="" class="text-decoration-none"><div class="text-center">
-                                                <img src="../imagenes/copa.png" alt="Copa Medieval" class="img-fluid rounded">
-                                                <p class="fw-bold mt-3 text-black">$19.99</p>
+                                                <img src="../imagenes/aragorn.png" alt="Aragorn" class="rounded-circle">
+                                                <p class="mb-0 mt-3 fw-bold text-black">Aragorn</p>
                                             </div></a>
 
                                             <a href="" class="text-decoration-none"><div class="text-center">
-                                                <img src="../imagenes/anilo.png" alt="Anillo de Dragón" class="img-fluid rounded">
-                                                <p class="fw-bold mt-3 text-black">$59.99</p>
-                                            </div></a>
-
-                                            <a href="" class="text-decoration-none"><div class="text-center">
-                                                <img src="../imagenes/mapa.png" alt="Mapa de la Tierra Media" class="img-fluid rounded">
-                                                <p class="fw-bold mt-3 text-black">$19.99</p>
+                                                <img src="../imagenes/elrond.png" alt="Elrond" class="rounded-circle">
+                                                <p class="mb-0 mt-3 fw-bold text-black">Elrond</p>
                                             </div></a>
                                         </div>
                                     </div>
 
                                     <!-- Vista 2 -->
                                     <div class="carousel-item">
-                                        <div class="d-flex justify-content-center gap-4 flex-wrap">
+                                        <div class="d-flex justify-content-center gap-5 flex-wrap">
                                             <a href="" class="text-decoration-none"><div class="text-center">
-                                                <img src="../imagenes/candelabro.png" alt="Candelabro Medieval" class="img-fluid rounded">
-                                                <p class="fw-bold mt-3 text-black">$49.99</p>
+                                                <img src="../imagenes/hobbiton.png" alt="Viaje a Hobbiton" class="rounded-circle">
+                                                <p class="mb-0 mt-3 fw-bold text-black">Hobbiton</p>
+                                                <p class="fw-bold text-danger">$950</p>
                                             </div></a>
 
                                             <a href="" class="text-decoration-none"><div class="text-center">
-                                                <img src="../imagenes/tunica.png" alt="Túnica Medieval" class="img-fluid rounded">
-                                                <p class="fw-bold mt-3 text-black">$39.99</p>
+                                                <img src="../imagenes/fangorn.png" alt="Viaje a Fangorn" class="rounded-circle">
+                                                <p class="mb-0 mt-3 fw-bold text-black">Fangorn</p>
+                                                <p class="fw-bold text-danger">$1300</p>
                                             </div></a>
 
                                             <a href="" class="text-decoration-none"><div class="text-center">
-                                                <img src="../imagenes/pociones.png" alt="Set de Pociones" class="img-fluid rounded">
-                                                <p class="fw-bold mt-3 text-black">$24.99</p>
+                                                <img src="../imagenes/isengard.png" alt="Viaje a Isengard" class="rounded-circle">
+                                                <p class="mb-0 mt-3 fw-bold text-black">Isengard</p>
+                                                <p class="fw-bold text-danger">$1700</p>
                                             </div></a>
-
+                                            
                                             <a href="" class="text-decoration-none"><div class="text-center">
-                                                <img src="../imagenes/gorro.png" alt="Gorro de mago" class="img-fluid rounded">
-                                                <p class="fw-bold mt-3 text-black">$34.99</p>
-                                            </div></a>
-
-                                            <a href="" class="text-decoration-none"><div class="text-center">
-                                                <img src="../imagenes/lanza.png" alt="Lanza Medieval" class="img-fluid rounded">
-                                                <p class="fw-bold mt-3 text-black">$99.99</p>
+                                                <img src="../imagenes/mordor.png" alt="Viaje a Mordor" class="rounded-circle">
+                                                <p class="mb-0 mt-3 fw-bold text-black">Mordor</p>
+                                                <p class="fw-bold text-danger">$2200</p>
                                             </div></a>
                                         </div>
                                     </div>
@@ -397,6 +397,9 @@
                         </div>
                     </div>
                     
+
+<!--###############################################################################################################################################################-->
+
 
                     <!-- Viaje 4 -->
                     <div class="col-12 col-sm-6 col-md-4 col-lg-4">
@@ -488,6 +491,8 @@
         </div>
     </div>
 
+
+<!--###############################################################################################################################################################-->
 
 
     <!-- Footer -->

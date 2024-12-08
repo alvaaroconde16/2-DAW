@@ -3,48 +3,37 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PRODUCTO | ELFSCAPE TRAVELS</title>
+    <title>PAGO | ELFSCAPE TRAVELS</title>
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet">
     <!-- Font Awesome -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <link rel="icon" href="../imagenes/logo.png" type="image/png">
+    <style>
+        .bg-header {
+            background-color: #35495a;
+        }
+
+        .bg-cont {
+            background-color: #21663f;
+        }
+
+        i:hover{
+            color: #21663f;
+        }
+
+        .progress{
+            height: 4px;
+        }
+
+        .progress div {
+            width: 50%;
+        }
+    </style>
 </head>
+<body class="bg-light">
 
-<style>
-    .bg-header {
-        background-color: #35495a;
-    }
-
-    .bg-cont {
-        background-color: #21663f;
-    }
-
-    .imagenGrande img{
-        height: 450px;
-        object-fit: cover;
-    }
-
-    .imagenPequeña img{
-        padding: 5px;
-        border-radius: 5px;
-        background-color: white;
-    }
-
-    .card img {
-        width: 100%;
-        padding: 10px;
-        height: 170px; 
-    }
-
-    i:hover{
-        color: #21663f;
-    }
-</style>
-
-<body class="bg-secondary-subtle">
-
-    <!-- Primer Header (Logo, Barra de Búsqueda, Usuario y Carrito) -->
+     <!-- Primer Header (Logo, Barra de Búsqueda, Usuario y Carrito) -->
     <header class="bg-success text-white py-3">
         <div class="container d-flex justify-content-between align-items-center">
             <!-- Logo y Nombre -->
@@ -65,8 +54,8 @@
 
             <!-- Icono de Carrito -->
             <div class="d-flex align-items-center rounded-pill p-2 ms-2">
-                <a href="cesta.html"><i class="fa-solid fa-shopping-cart text-white p-1 fs-3"></i></a>
-                <a href="cesta.html" class="text-decoration-none text-white"><p class="mb-0 ms-1 fs-bold fw-bold">Cesta</p></a>
+                <a href=""><i class="fa-solid fa-shopping-cart text-white p-1 fs-3"></i></a>
+                <a href="" class="text-decoration-none text-white"><p class="mb-0 ms-1 fs-bold fw-bold">Cesta</p></a>
             </div>
         </div>
     </header>
@@ -98,109 +87,116 @@
 <!--###############################################################################################################################################################-->
 
 
-    <!-- Sección Tienda -->
+    <!-- PROCESO DE PAGO -->
     <div class="container my-5">
-        <div class="row gap-3">
-
-            <!-- Imagen principal del producto -->
-            <div class="col-md-12 col-lg-6">
-                <div class="imagenGrande mb-3">
-                    <img src="../imagenes/rivendel6.png" alt="Producto" class="img-fluid border">
-                </div>
-
-
-                <!-- Miniaturas -->
-                <div class="imagenPequeña d-flex gap-2 mb-5">
-                    <img src="../imagenes/rivendel3.png" alt="Miniatura 1" style="width: 80px; height: 80px;">
-                    <img src="../imagenes/rivendel4.png" alt="Miniatura 2" style="width: 80px; height: 80px;">
-                    <img src="../imagenes/rivendel5.png" alt="Miniatura 3" style="width: 80px; height: 80px;">
-                    <img src="../imagenes/rivendell2.png" alt="Miniatura 4" style="width: 80px; height: 80px;">
-                </div>
+        
+        <!-- Barra de progreso -->
+        <div class="mb-5">
+            
+            <div class="progress">
+                <!-- Parte completada (verde) -->
+                <div class="progress-bar bg-success"></div>
             </div>
 
-
-            <!-- Descripción del producto -->
-            <div class="col-md-12 col-lg-5">
-                <h2 class="text-success fw-bold">Viaje a Rivendel</h2>
-                <p class="text-muted">El hogar de los Elfos. Un lugar de paz, conocimiento y belleza en medio de las montañas.</p>
-                <p>⭐⭐⭐⭐⭐ (45 reseñas)</p>
-                <h3 class="text-danger">$1500</h3>
-                <p class="mt-4">
-                    Este exclusivo paquete te llevará al corazón del hogar de los elfos, un lugar lleno de historia, sabiduría y paisajes deslumbrantes. Sumérgete en la tranquilidad de sus bosques encantados, pasea por los majestuosos jardines y contempla la arquitectura mística que ha fascinado a viajeros durante siglos.
-                </p>
-
-
-                <!-- Botón de compra -->
-                <button class="btn btn-success btn-lg mt-3">
-                    <i class="fa-solid fa-cart-plus"></i> Añadir al carrito
-                </button>
+            <!-- Pasos -->
+            <div class="step-indicator d-flex justify-content-between mt-2">
+                <div class="text-success fw-bold">Carrito</div>
+                <div class="text-success fw-bold">Información</div>
+                <div class="fw-bold">Pagar</div>
+                <div class="fw-bold">Confirmación</div>
             </div>
         </div>
+
+
+        <!-- Formulario de Pago -->
+        <div class="row">
+
+            <!-- Formulario -->
+            <div class="col-md-8">
+                <h2 class="text-success mb-4">Información del Pago</h2>
+
+                <form>
+                    <!-- Información Personal -->
+                    <h5 class="mb-3">Datos del Comprador</h5>
+                    <div class="mb-3">
+                        <label for="nombre" class="form-label">Nombre Completo</label>
+                        <input type="text" id="nombre" class="form-control" placeholder="Ingresa tu nombre completo" required>
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="email" class="form-label">Correo Electrónico</label>
+                        <input type="email" id="email" class="form-control" placeholder="Ingresa tu correo" required>
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="direccion" class="form-label">Dirección</label>
+                        <input type="text" id="direccion" class="form-control" placeholder="Calle, número, ciudad" required>
+                    </div>
+
+
+                    <!-- Método de Pago -->
+                    <h5 class="mt-4 mb-3">Método de Pago</h5>
+                    <div class="mb-3">
+                        <label for="tarjeta" class="form-label">Número de Tarjeta</label>
+                        <input type="text" id="tarjeta" class="form-control" placeholder="1234 5678 9101 1121" required>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-6 mb-3">
+                            <label for="fecha" class="form-label">Fecha de Expiración</label>
+                            <input type="text" id="fecha" class="form-control" placeholder="MM/AA" required>
+                        </div>
+
+                        <div class="col-md-6 mb-3">
+                            <label for="cvv" class="form-label">CVV</label>
+                            <input type="text" id="cvv" class="form-control" placeholder="123" required>
+                        </div>
+                    </div>
+
+                    <a href="finCompra.html" class="btn btn-success btn-lg mt-4">Finalizar Compra</a>
+                </form>
+            </div>
 
 
 <!--###############################################################################################################################################################-->
 
 
-        <!-- Productos Relacionados -->
-        <div class="mt-5">
-            <h4 class="text-success fw-bold">Productos Relacionados</h4>
-            <div class="row mt-3">
-            
-                <!-- Viaje 5 -->
-                <div class="col-12 col-sm-6 col-md-4 col-lg-3">
-                    <a href="mordor.html" class="text-decoration-none">
-                        <div class="card">
-                            <img src="../imagenes/mordor.png" alt="Viaje a Mordor">
-                            <div class="card-body text-center">
-                                <h5 class="card-title">Viaje a Mordor</h5>
-                                <p class="card-text">Precio: $2200</p>
-                                <button class="btn btn-success">Reservar ahora</button>
-                            </div>
+            <!-- Resumen de Pedido -->
+            <div class="col-md-4">
+                <h2 class="text-success mb-4">Resumen del Pedido</h2>
+                <ul class="list-group mb-3">
+                    <li class="list-group-item d-flex justify-content-between">
+                        <div>
+                            <h6 class="my-0">Hobbiton</h6>
+                            <small class="text-muted">x1</small>
                         </div>
-                    </a>
-                </div>
+                        <p class="text-muted">$950</p>
+                    </li>
 
-                <!-- Viaje 2 -->
-                <div class="col-12 col-sm-6 col-md-4 col-lg-3">
-                    <a href="minas-tirith.html" class="text-decoration-none">
-                        <div class="card">
-                            <img src="../imagenes/minas.png" alt="Viaje a Minas Tirith">
-                            <div class="card-body text-center">
-                                <h5 class="card-title">Viaje a Minas Tirith</h5>
-                                <p class="card-text">Precio: $1800</p>
-                                <button class="btn btn-success">Reservar ahora</button>
-                            </div>
-                        </div>
-                    </a>
-                </div>
 
-                <!-- Viaje 3 -->
-                <div class="col-12 col-sm-6 col-md-4 col-lg-3">
-                    <a href="edoras.html" class="text-decoration-none">
-                        <div class="card">
-                            <img src="../imagenes/edoras2.png" alt="Viaje a Edoras">
-                            <div class="card-body text-center">
-                                <h5 class="card-title">Viaje a Edoras</h5>
-                                <p class="card-text">Precio: $1200</p>
-                                <button class="btn btn-success">Reservar ahora</button>
-                            </div>
+                    <li class="list-group-item d-flex justify-content-between">
+                        <div>
+                            <h6 class="my-0">Mordor</h6>
+                            <small class="text-muted">x1</small>
                         </div>
-                    </a>
-                </div>
+                        <p class="text-muted">$2200</p>
+                    </li>
 
-                <!-- Viaje 7 -->
-                <div class="col-12 col-sm-6 col-md-4 col-lg-3">
-                    <a href="hobbiton.html" class="text-decoration-none">
-                        <div class="card">
-                            <img src="../imagenes/hobbiton.png" alt="Viaje a Hobbiton">
-                            <div class="card-body text-center">
-                                <h5 class="card-title">Viaje a Hobbiton</h5>
-                                <p class="card-text">Precio: $950</p>
-                                <button class="btn btn-success">Reservar ahora</button>
-                            </div>
+
+                    <li class="list-group-item d-flex justify-content-between">
+                        <div>
+                            <h6 class="my-0">Rivendel</h6>
+                            <small class="text-muted">x1</small>
                         </div>
-                    </a>
-                </div>
+                        <p class="text-muted">$1500</p>
+                    </li>
+
+
+                    <li class="list-group-item d-flex justify-content-between">
+                        <strong>Total</strong>
+                        <strong>$4650</strong>
+                    </li>
+                </ul>
             </div>
         </div>
     </div>
@@ -307,7 +303,6 @@
         </div>
     </footer>
 
-    
     <!-- Bootstrap JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
