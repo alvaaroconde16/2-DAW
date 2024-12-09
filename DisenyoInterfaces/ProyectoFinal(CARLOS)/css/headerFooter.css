@@ -302,66 +302,6 @@ footer div h3{
 
 
 
-/*Responsividad*/
-/*@media(max-width: 1087px){
-    .number{
-        display: none;
-    }
-
-    .user {
-        margin-left: auto;
-    }
-}
-
-
-@media (max-width: 786px) {
-    header{
-        justify-content: space-between;
-    }
-
-    .number{
-        display: none;
-    }
-}
-
-@media (max-width: 768px) {
-    .logo img{
-        padding: 0;
-        padding-top: 15px;
-        margin: 0;
-    }
-
-    .nombreLogo{
-        padding: 0;
-        padding-top: 10px;
-        padding-bottom: 10px;
-        margin: 0;
-    }
-
-    header{
-        display: flex;
-        flex-direction: column;
-        padding-bottom: 20px;
-        justify-content: space-between;
-    }
-    
-    .logo img{
-        display: inline-block;
-    }
-
-    nav{
-        margin: 0;
-    }
-
-    .separator, .user{
-        display: none;
-    }
-
-    .nav ul{
-        flex-wrap: wrap;
-    }
-
-}*/
 
 
 /* Responsividad: Pantallas medianas (max-width: 1087px) */

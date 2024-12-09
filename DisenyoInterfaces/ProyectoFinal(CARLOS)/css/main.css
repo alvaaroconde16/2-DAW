@@ -13,7 +13,7 @@ body{
     display: flex;
     text-align: center;
     justify-content: center;
-    align-items: center; /*Alinea verticalmente al final*/
+    align-items: center; /*Alinea verticalmente al medio*/
 }
 
 .align-end{
@@ -353,9 +353,6 @@ h2{
 
 /*Este media para dispositivos menores de 480px*/
 @media (max-width: 480px) {
-    .grid-servicio{
-        grid-template-columns: 1fr;
-    }
 
     .guia{
         width: 60%;
