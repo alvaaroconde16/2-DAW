@@ -173,52 +173,28 @@ def usuario_busqueda(request):
             # Obtenemos los valores de los campos filtrados
             nombre = formulario.cleaned_data.get('nombre')
             correo = formulario.cleaned_data.get('correo')
-            telefono = formulario.cleaned_data.get('telefono')
-            edad_minima = formulario.cleaned_data.get('edad_minima')
-            edad_maxima = formulario.cleaned_data.get('edad_maxima')
-            fecha_registro_desde = formulario.cleaned_data.get('fecha_registro_desde')
-            fecha_registro_hasta = formulario.cleaned_data.get('fecha_registro_hasta')
+            edad = formulario.cleaned_data.get('edad')
 
-            # Aplicamos los filtros según los valores introducidos en el formulario
 
             # Filtro por nombre
             if nombre:
-                usuarios = usuarios.filter(Q(nombre__icontains=nombre))
+                usuarios = usuarios.filter(nombre__icontains=nombre)
                 mensaje_busqueda += f"Nombre que contenga: {nombre}\n"
-            
+
             # Filtro por correo
             if correo:
                 usuarios = usuarios.filter(correo__icontains=correo)
                 mensaje_busqueda += f"Correo que contenga: {correo}\n"
-            
-            # Filtro por teléfono
-            if telefono:
-                usuarios = usuarios.filter(telefono__icontains=telefono)
-                mensaje_busqueda += f"Teléfono que contenga: {telefono}\n"
 
-            # Filtro por edad mínima
-            if edad_minima is not None:
-                usuarios = usuarios.filter(edad__gte=edad_minima)
-                mensaje_busqueda += f"Edad mínima: {edad_minima}\n"
+            # Filtro por edad
+            if edad is not None:
+                usuarios = usuarios.filter(edad__gte=edad)
+                mensaje_busqueda += f"Edad mínima: {edad}\n"
 
-            # Filtro por edad máxima
-            if edad_maxima is not None:
-                usuarios = usuarios.filter(edad__lte=edad_maxima)
-                mensaje_busqueda += f"Edad máxima: {edad_maxima}\n"
-
-            # Filtro por fecha de registro desde
-            if fecha_registro_desde:
-                usuarios = usuarios.filter(fecha_registro__gte=fecha_registro_desde)
-                mensaje_busqueda += f"Fecha de registro desde: {fecha_registro_desde.strftime('%d-%m-%Y')}\n"
-            
-            # Filtro por fecha de registro hasta
-            if fecha_registro_hasta:
-                usuarios = usuarios.filter(fecha_registro__lte=fecha_registro_hasta)
-                mensaje_busqueda += f"Fecha de registro hasta: {fecha_registro_hasta.strftime('%d-%m-%Y')}\n"
 
             # Pasamos los usuarios filtrados y el mensaje a la plantilla
             return render(request, 'usuarios/lista.html', {
-                'usuario_busqueda': usuarios,
+                'usuarios_mostrar': usuarios,
                 'mensaje_busqueda': mensaje_busqueda
             })
     else:
@@ -228,13 +204,138 @@ def usuario_busqueda(request):
 
 
 
+def reserva_busqueda(request):
+    # Si se ha enviado el formulario (request.GET contiene datos)
+    if request.GET:
+        formulario = BusquedaReservaForm(request.GET)
+
+        if formulario.is_valid():
+            # Obtenemos los valores de los campos filtrados
+            codigo_reserva = formulario.cleaned_data.get('codigo_reserva')
+            fecha = formulario.cleaned_data.get('fecha')
+            numero_personas = formulario.cleaned_data.get('numero_personas')
+
+            # Empezamos con todos las reservas
+            reservas = Reserva.objects.all()
+
+            # Filtro por nombre de reserva
+            if codigo_reserva:
+                reservas = reservas.filter(codigo_reserva__icontains=codigo_reserva)
+
+            # Filtro por fecha de reserva
+            if fecha:
+                reservas = reservas.filter(fecha_salida__date=fecha)
+
+            # Filtro por estado de la reserva
+            if numero_personas:
+                reservas = reservas.filter(numero_personas=numero_personas)
+
+
+            # Mensaje con los filtros aplicados
+            mensaje_busqueda = "Se han encontrado las siguientes reservas con los filtros aplicados:\n"
+
+            if codigo_reserva:
+                mensaje_busqueda += f"Nombre que contenga: {codigo_reserva}\n"
+
+            if fecha:
+                mensaje_busqueda += f"Fecha exacta: {fecha}\n"
+
+            if numero_personas:
+                mensaje_busqueda += f"Numero de personas: {numero_personas}\n"
+
+            # Pasamos las reservas filtradas y el mensaje a la plantilla
+            return render(request, 'reservas/reservas.html', {
+                'reservas_mostrar': reservas,
+                'mensaje_busqueda': mensaje_busqueda
+            })
+    else:
+        formulario = BusquedaReservaForm()
+
+    return render(request, 'formularios/reserva_busqueda.html', {'formulario': formulario})
+
+
+
+def destino_busqueda(request):
+    if request.GET:
+
+        formulario = BusquedaDestinoForm(request.GET)
+
+        if formulario.is_valid():
+
+            # Obtenemos los valores filtrados
+            nombre = formulario.cleaned_data.get('nombre')
+            pais = formulario.cleaned_data.get('pais')
+            popularidad_minima = formulario.cleaned_data.get('popularidad_minima')
+
+            # Filtrar destinos
+            destinos = Destino.objects.all()
+
+            if nombre:
+                destinos = destinos.filter(nombre__icontains=nombre)
+
+            if pais:
+                destinos = destinos.filter(pais__icontains=pais)
+
+            if popularidad_minima is not None:
+                destinos = destinos.filter(popularidad__gte=popularidad_minima)
+
+
+            mensaje_busqueda = "Resultados de búsqueda:"
+            if nombre:
+                mensaje_busqueda += f" Nombre que contiene: {nombre}."
+
+            if pais:
+                mensaje_busqueda += f" País que contiene: {pais}."
+
+            if popularidad_minima is not None:
+                mensaje_busqueda += f" Popularidad mínima: {popularidad_minima}."
+
+            return render(request, 'destinos/destinos.html', {
+                'destinos_mostrar': destinos,
+                'mensaje_busqueda': mensaje_busqueda
+            })
+    else:
+        formulario = BusquedaDestinoForm()
+
+    return render(request, 'formularios/destino_busqueda.html', {'formulario': formulario})
+
+
+
+def alojamiento_busqueda(request):
+    # Si se envía el formulario con datos
+    if request.GET:
+        formulario = BusquedaAlojamientoForm(request.GET)
+        
+        if formulario.is_valid():
+            # Obtener datos filtrados
+            nombre = formulario.cleaned_data.get('nombre')
+            tipo = formulario.cleaned_data.get('tipo')
+            capacidad = formulario.cleaned_data.get('capacidad')
+
+            # Filtrar los alojamientos
+            alojamientos = Alojamiento.objects.all()
+            if nombre:
+                alojamientos = alojamientos.filter(nombre__icontains=nombre)
+            if tipo:
+                alojamientos = alojamientos.filter(tipo__icontains=tipo)
+            if capacidad:
+                alojamientos = alojamientos.filter(capacidad__gte=capacidad)
+            
+            return render(request, 'destinos/alojamientos.html', {
+                'alojamientos_mostrar': alojamientos,
+                'mensaje_busqueda': 'Se encontraron resultados para su búsqueda.',
+            })
+    else:
+        formulario = BusquedaAlojamientoForm()
+
+    return render(request, 'formularios/alojamiento_busqueda.html', {'formulario': formulario})
+
 
 ########################################################################################################################################################################
 
 
 def actualizar_usuario(request, usuario_id):
-    # Obtener el usuario por ID o devolver 404 si no existe
-    usuario = get_object_or_404(Usuario, id=usuario_id)
+    usuario = Usuario.objects.get(id=usuario_id)
 
     # Variable para almacenar los datos del formulario
     datosFormulario = None
@@ -243,25 +344,27 @@ def actualizar_usuario(request, usuario_id):
     if request.method == "POST":
         datosFormulario = request.POST
 
-
     # Creamos el formulario con los datos, y si es un POST, llenamos con los datos del usuario
-    form = UsuarioForm(datosFormulario, instance=usuario)
+    form = UsuarioForm(datosFormulario, instance = usuario)
 
 
     # Si el método es POST y el formulario es válido
-    if request.method == "POST" and form.is_valid():
-        try:
-            # Guardamos los cambios del formulario
-            form.save()
+    if (request.method == "POST"): 
+        if form.is_valid():
+            try:
+                # Guardamos los cambios del formulario
+                form.save()
+                
+                # Mostramos un mensaje de éxito
+                messages.success(request, f"Se ha actualizado el usuario {form.cleaned_data.get('nombre')} correctamente")
+                
+                # Redirigimos al usuario a la lista de usuarios
+                return redirect('listar_usuarios')
             
-            # Mostramos un mensaje de éxito
-            messages.success(request, f"Se ha actualizado el usuario {form.cleaned_data.get('nombre')} correctamente")
-            
-            # Redirigimos al usuario a la lista de usuarios
-            return redirect('usuarios/lista.html')
-        
-        except Exception as error:
-            print(error)  # En un entorno real, deberíamos loguear esto o mostrarlo en la interfaz
+            except Exception as error:
+                print(error)  # En un entorno real, deberíamos loguear esto o mostrarlo en la interfaz
+        else:
+            print("Errores del formulario:", form.errors)
 
     # Renderizamos el formulario en caso de GET o si el formulario no es válido
     return render(request, 'formularios/actualizar_usuario.html', {'form': form, 'usuario': usuario})

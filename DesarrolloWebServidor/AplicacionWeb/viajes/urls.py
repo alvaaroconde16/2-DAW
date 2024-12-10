@@ -22,6 +22,9 @@ urlpatterns = [
     path('alojamientos/crear/', views.alojamiento_create, name='alojamiento_create'),
     
     path('usuarios/busqueda-avanzada/', views.usuario_busqueda, name='usuario_busqueda'),
+    path('reservas/busqueda-avanzada/', views.reserva_busqueda, name='reserva_busqueda'),
+    path('destinos/busqueda-avanzada/', views.destino_busqueda, name='destino_busqueda'),
+    path('alojamientos/busqueda-avanzada/', views.alojamiento_busqueda, name='alojamiento_busqueda'),
     
-    path('usuarios/actualizar-usuario/<int:usuario_id>', views.actualizar_usuario, name='actualizar_usuario'),
+    path('usuarios/actualizar/<int:usuario_id>', views.actualizar_usuario, name='actualizar_usuario'),
 ]

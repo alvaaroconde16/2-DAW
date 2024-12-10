@@ -2,6 +2,7 @@ from django import forms
 from .models import Usuario, Destino, Reserva, Comentario, Alojamiento
 from datetime import date, datetime
 from django.utils import timezone
+from django.core.validators import MaxValueValidator, MinValueValidator
 
 class UsuarioForm(forms.ModelForm):
     
@@ -56,7 +57,7 @@ class UsuarioForm(forms.ModelForm):
         
         #Comprobamos que la contraseña tenga al menos 8 caracteres
         if len(contraseña) < 8:
-            self.add_error('contraseña','Al menos debes indicar 10 caracteres')
+            self.add_error('contraseña','Al menos debes indicar 8 caracteres')
             
             
         #Comprobamos que la fecha de publicación sea mayor que hoy
@@ -265,28 +266,8 @@ class BusquedaUsuarioForm(forms.Form):
     # Campo de búsqueda por correo
     correo = forms.EmailField(required=False, label="Correo Electrónico")
 
-    # Campo de búsqueda por teléfono
-    telefono = forms.CharField(required=False, label="Teléfono", max_length=20)
-
-    # Campo para edad mínima
-    edad_minima = forms.IntegerField(required=False, label="Edad Mínima")
-
-    # Campo para edad máxima
-    edad_maxima = forms.IntegerField(required=False, label="Edad Máxima")
-
-
-    # Campo para fecha de registro desde
-    fecha_registro_desde = forms.DateField(
-        required=False,
-        label="Fecha Desde",
-        widget=forms.DateInput(format="%Y-%m-%d", attrs={"type": "date"},))
-
-
-    # Campo para fecha de registro hasta
-    fecha_registro_hasta = forms.DateField(
-        required=False,
-        label="Fecha Hasta",
-        widget=forms.DateInput(format="%Y-%m-%d", attrs={"type": "date"},))
+    # Campo para edad
+    edad = forms.IntegerField(required=False, label="Edad")
 
     def clean(self):
         # Llamamos al método clean de la clase base para validar el formulario
@@ -295,29 +276,17 @@ class BusquedaUsuarioForm(forms.Form):
         # Obtenemos los valores de los campos
         nombre = cleaned_data.get('nombre')
         correo = cleaned_data.get('correo')
-        telefono = cleaned_data.get('telefono')
-        edad_minima = cleaned_data.get('edad_minima')
-        edad_maxima = cleaned_data.get('edad_maxima')
-        fecha_registro_desde = cleaned_data.get('fecha_registro_desde')
-        fecha_registro_hasta = cleaned_data.get('fecha_registro_hasta')
+        edad = cleaned_data.get('edad')
 
 
         # Verificamos que al menos un campo tenga un valor
         if (not nombre 
             and not correo 
-            and not telefono 
-            and edad_minima is None 
-            and edad_maxima is None 
-            and fecha_registro_desde is None 
-            and fecha_registro_hasta is None):
+            and edad is None ):
             
             self.add_error('nombre', 'Debe introducir al menos un valor en un campo del formulario')
             self.add_error('correo', 'Debe introducir al menos un valor en un campo del formulario')
-            self.add_error('telefono', 'Debe introducir al menos un valor en un campo del formulario')
-            self.add_error('edad_minima', 'Debe introducir al menos un valor en un campo del formulario')
-            self.add_error('edad_maxima', 'Debe introducir al menos un valor en un campo del formulario')
-            self.add_error('fecha_registro_desde', 'Debe introducir al menos un valor en un campo del formulario')
-            self.add_error('fecha_registro_hasta', 'Debe introducir al menos un valor en un campo del formulario')
+            self.add_error('edad', 'Debe introducir al menos un valor en un campo del formulario')
 
 
         else:
@@ -325,21 +294,116 @@ class BusquedaUsuarioForm(forms.Form):
             if nombre and len(nombre) < 3:
                 self.add_error('nombre', 'El nombre debe tener al menos 3 caracteres')
 
-            # La edad mínima no puede ser mayor que la edad máxima
-            if edad_minima is not None and edad_maxima is not None and edad_minima > edad_maxima:
-                self.add_error('edad_minima', 'La edad mínima no puede ser mayor que la edad máxima')
-                self.add_error('edad_maxima', 'La edad máxima no puede ser menor que la edad mínima')
+            # Si la edad se ha introducido y es menor o igual a 0
+            if edad is not None and edad <= 0:
+                self.add_error('edad', 'La edad no puede ser menor que 0')
 
-            # Si se introducen ambas fechas (registro desde y hasta), la fecha hasta no puede ser menor que la fecha desde
-            if fecha_registro_desde and fecha_registro_hasta and fecha_registro_hasta < fecha_registro_desde:
-                self.add_error('fecha_registro_desde', 'La fecha hasta no puede ser menor que la fecha desde')
-                self.add_error('fecha_registro_hasta', 'La fecha hasta no puede ser menor que la fecha desde')
+        return cleaned_data
+    
+
+
+class BusquedaReservaForm(forms.Form):
+    # Campo de búsqueda por nombre de reserva
+    codigo_reserva = forms.CharField(required=False, label="Código de la Reserva")
+
+    # Campo de búsqueda por fecha de reserva
+    fecha = forms.DateField(required=False, label="Fecha de la Reserva", widget=forms.DateInput(attrs={'type': 'date'}))
+
+    # Campo de búsqueda por estado de la reserva
+    numero_personas = forms.IntegerField(required=False, label="Número de personas")
+
+    def clean(self):
+        cleaned_data = super().clean()
+        
+        # Obtener los valores del formulario
+        codigo_reserva = cleaned_data.get('codigo_reserva')
+        fecha = cleaned_data.get('fecha')
+        numero_personas = cleaned_data.get('numero_personas')
+
+
+        # Verificamos que al menos un campo tenga un valor
+        if (not codigo_reserva 
+            and not fecha 
+            and not numero_personas):
+            self.add_error(None, 'Debe introducir al menos un valor en un campo del formulario')
+        
+        else:
+            # Si el nombre se ha introducido, debe tener al menos 3 caracteres
+            if codigo_reserva and len(codigo_reserva) < 3:
+                self.add_error('nombre', 'El nombre debe tener al menos 3 caracteres')
+
+
+            fechaHoy = timezone.now()
+            # Validación de fecha: Verificamos que la fecha no sea anterior a hoy
+            if fecha and fecha < fechaHoy:  # Asegúrate de que 'fecha' no sea None
+                self.add_error('fecha', 'La fecha no puede ser anterior a hoy')
+
+
+            # Si se ha introducido un estado, debe ser uno de los valores válidos
+            if numero_personas and numero_personas <= 0:
+                self.add_error('numero_personas', 'El numero de personas debe ser mayor que 0')
 
         return cleaned_data
 
 
+
+class BusquedaDestinoForm(forms.Form):
+    # Campo de búsqueda por nombre del destino
+    nombre = forms.CharField(required=False, label="Nombre del Destino")
+
+    # Campo de búsqueda por país del destino
+    pais = forms.CharField(required=False, label="País")
+
+    # Campo de búsqueda por popularidad
+    popularidad = forms.FloatField(
+        required=False, 
+        label="Popularidad", 
+        validators=[MinValueValidator(0), MaxValueValidator(5)]
+    )
+
+    def clean(self):
+        cleaned_data = super().clean()
         
+        # Obtener los valores del formulario
+        nombre = cleaned_data.get('nombre')
+        pais = cleaned_data.get('pais')
+        popularidad = cleaned_data.get('popularidad')
 
+        # Verificamos que al menos un campo tenga un valor
+        if not nombre and not pais and popularidad is None:
+            self.add_error(None, 'Debe introducir al menos un valor en un campo del formulario')
+        else:
+            # Validación del nombre
+            if nombre and len(nombre) < 3:
+                self.add_error('nombre', 'El nombre debe tener al menos 3 caracteres')
+            
+            # Validación de popularidad mínima
+            if popularidad is not None and (popularidad < 0 or popularidad > 5):
+                self.add_error('popularidad', 'La popularidad debe estar entre 0 y 5')
 
+        return cleaned_data
+        
+ 
+
+class BusquedaAlojamientoForm(forms.Form):
+    # Campo de búsqueda por nombre de alojamiento
+    nombre = forms.CharField(required=False, label="Nombre del Alojamiento")
     
+    # Campo de búsqueda por tipo de alojamiento
+    tipo = forms.CharField(required=False, label="Tipo de Alojamiento")
     
+    # Campo de búsqueda por capacidad mínima
+    capacidad = forms.IntegerField(required=False, label="Capacidad")
+
+    def clean(self):
+        cleaned_data = super().clean()
+        
+        nombre = cleaned_data.get('nombre')
+        tipo = cleaned_data.get('tipo')
+        capacidad = cleaned_data.get('capacidad')
+
+        # Verificamos que al menos un campo tenga un valor
+        if not nombre and not tipo and not capacidad:
+            self.add_error(None, 'Debe introducir al menos un valor en un campo del formulario.')
+        
+        return cleaned_data
