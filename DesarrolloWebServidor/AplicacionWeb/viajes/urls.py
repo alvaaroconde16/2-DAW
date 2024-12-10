@@ -22,4 +22,6 @@ urlpatterns = [
     path('alojamientos/crear/', views.alojamiento_create, name='alojamiento_create'),
     
     path('usuarios/busqueda-avanzada/', views.usuario_busqueda, name='usuario_busqueda'),
+    
+    path('usuarios/actualizar-usuario/<int:usuario_id>', views.actualizar_usuario, name='actualizar_usuario'),
 ]

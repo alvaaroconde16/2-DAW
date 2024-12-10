@@ -258,69 +258,88 @@ class AlojamientoForm(forms.ModelForm):
     
 ########################################################################################################################################################################
 
-
 class BusquedaUsuarioForm(forms.Form):
-        
-    edad_desde = forms.IntegerField(
-        label="Edad desde",
+    # Campo de búsqueda por nombre
+    nombre = forms.CharField(required=False, label="Nombre")
+
+    # Campo de búsqueda por correo
+    correo = forms.EmailField(required=False, label="Correo Electrónico")
+
+    # Campo de búsqueda por teléfono
+    telefono = forms.CharField(required=False, label="Teléfono", max_length=20)
+
+    # Campo para edad mínima
+    edad_minima = forms.IntegerField(required=False, label="Edad Mínima")
+
+    # Campo para edad máxima
+    edad_maxima = forms.IntegerField(required=False, label="Edad Máxima")
+
+
+    # Campo para fecha de registro desde
+    fecha_registro_desde = forms.DateField(
         required=False,
-        min_value=0,
-    )
-    
-    edad_hasta = forms.IntegerField(
-        label="Edad hasta",
+        label="Fecha Desde",
+        widget=forms.DateInput(format="%Y-%m-%d", attrs={"type": "date"},))
+
+
+    # Campo para fecha de registro hasta
+    fecha_registro_hasta = forms.DateField(
         required=False,
-        min_value=0,
-    )
-    
-    fecha_desde = forms.DateField(
-        label="Fecha de registro desde",
-        required=False,
-        widget=forms.DateInput(format="%Y-%m-%d", attrs={"type": "date"}),
-    )
-    
-    fecha_hasta = forms.DateField(
-        label="Fecha de registro hasta",
-        required=False,
-        widget=forms.DateInput(format="%Y-%m-%d", attrs={"type": "date"}),
-    )
-    
-    
+        label="Fecha Hasta",
+        widget=forms.DateInput(format="%Y-%m-%d", attrs={"type": "date"},))
+
     def clean(self):
-        super().clean()
+        # Llamamos al método clean de la clase base para validar el formulario
+        cleaned_data = super().clean()
 
-        # Validamos los campos
-        textoBusqueda = self.cleaned_data.get("textoBusqueda")
-        edad_desde = self.cleaned_data.get("edad_desde")
-        edad_hasta = self.cleaned_data.get("edad_hasta")
-        fecha_desde = self.cleaned_data.get("fecha_desde")
-        fecha_hasta = self.cleaned_data.get("fecha_hasta")
-
-
-        # Verificamos que al menos un campo esté completo
-        if (
-            not edad_desde is None
-            and edad_hasta is None
-            and fecha_desde is None
-            and fecha_hasta is None
-        ):
-            self.add_error('edad_desde','Debe introducir al menos un valor en un campo del formulario')
-            self.add_error('edad_hasta','Debe introducir al menos un valor en un campo del formulario')
-            self.add_error('fecha_desde','Debe introducir al menos un valor en un campo del formulario')
-            self.add_error('fecha_hasta','Debe introducir al menos un valor en un campo del formulario')
+        # Obtenemos los valores de los campos
+        nombre = cleaned_data.get('nombre')
+        correo = cleaned_data.get('correo')
+        telefono = cleaned_data.get('telefono')
+        edad_minima = cleaned_data.get('edad_minima')
+        edad_maxima = cleaned_data.get('edad_maxima')
+        fecha_registro_desde = cleaned_data.get('fecha_registro_desde')
+        fecha_registro_hasta = cleaned_data.get('fecha_registro_hasta')
 
 
-        # Validación de edades
-        if edad_desde is not None and edad_hasta is not None and edad_hasta < edad_desde:
-            self.add_error("edad_desde", "Edad desde no puede ser mayor que edad hasta.")
-            self.add_error("edad_hasta", "Edad hasta no puede ser menor que edad desde.")
+        # Verificamos que al menos un campo tenga un valor
+        if (not nombre 
+            and not correo 
+            and not telefono 
+            and edad_minima is None 
+            and edad_maxima is None 
+            and fecha_registro_desde is None 
+            and fecha_registro_hasta is None):
             
-            
-        #La fecha hasta debe ser mayor o igual a fecha desde. Pero sólo se valida si han introducido ambas fechas
-        if(not fecha_desde is None  and not fecha_hasta is None and fecha_hasta < fecha_desde):
-            self.add_error('fecha_desde','La fecha hasta no puede ser menor que la fecha desde')
-            self.add_error('fecha_hasta','La fecha hasta no puede ser menor que la fecha desde')
+            self.add_error('nombre', 'Debe introducir al menos un valor en un campo del formulario')
+            self.add_error('correo', 'Debe introducir al menos un valor en un campo del formulario')
+            self.add_error('telefono', 'Debe introducir al menos un valor en un campo del formulario')
+            self.add_error('edad_minima', 'Debe introducir al menos un valor en un campo del formulario')
+            self.add_error('edad_maxima', 'Debe introducir al menos un valor en un campo del formulario')
+            self.add_error('fecha_registro_desde', 'Debe introducir al menos un valor en un campo del formulario')
+            self.add_error('fecha_registro_hasta', 'Debe introducir al menos un valor en un campo del formulario')
 
-        return self.cleaned_data
+
+        else:
+            # Si el nombre se ha introducido, debe tener al menos 3 caracteres
+            if nombre and len(nombre) < 3:
+                self.add_error('nombre', 'El nombre debe tener al menos 3 caracteres')
+
+            # La edad mínima no puede ser mayor que la edad máxima
+            if edad_minima is not None and edad_maxima is not None and edad_minima > edad_maxima:
+                self.add_error('edad_minima', 'La edad mínima no puede ser mayor que la edad máxima')
+                self.add_error('edad_maxima', 'La edad máxima no puede ser menor que la edad mínima')
+
+            # Si se introducen ambas fechas (registro desde y hasta), la fecha hasta no puede ser menor que la fecha desde
+            if fecha_registro_desde and fecha_registro_hasta and fecha_registro_hasta < fecha_registro_desde:
+                self.add_error('fecha_registro_desde', 'La fecha hasta no puede ser menor que la fecha desde')
+                self.add_error('fecha_registro_hasta', 'La fecha hasta no puede ser menor que la fecha desde')
+
+        return cleaned_data
+
+
+        
+
+
     
     

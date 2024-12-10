@@ -1,4 +1,4 @@
-from django.shortcuts import render,redirect
+from django.shortcuts import render,redirect, get_object_or_404
 from .models import Usuario, Destino, Reserva, Comentario, Alojamiento
 from django.db.models import Q, Sum
 from .forms import *
@@ -162,53 +162,109 @@ def alojamiento_create(request):
 
 
 def usuario_busqueda(request):
-    
-    if(len(request.GET) > 0):
-        form = BusquedaUsuarioForm(request.GET)
-        if form.is_valid():
-            
-            mensaje_busqueda = "Se ha buscado por los siguientes valores:\n"
-            
-            QSusuarios = Usuario.objects.select_related("pasaporte")
-            
-            #obtenemos los filtros
-            edadDesde = form.cleaned_data.get('edad_desde')
-            edadHasta = form.cleaned_data.get('edad_hasta')
-            fechaDesde = form.cleaned_data.get('fecha_desde')
-            fechaHasta = form.cleaned_data.get('fecha_hasta')
-            
-            
-            # Filtrar por edad
-            if edadDesde is not None:
-                usuarios = usuarios.filter(edad__gte=edadHasta)
+    # Si se ha enviado el formulario (request.GET contiene datos)
+    if request.GET:
+        formulario = BusquedaUsuarioForm(request.GET)
 
-            if edadDesde is not None:
-                usuarios = usuarios.filter(edad__lte=edadDesde)
+        if formulario.is_valid():
+            mensaje_busqueda = "Se ha buscado por los siguientes filtros:\n"
+            usuarios = Usuario.objects.all()  # Empezamos con todos los usuarios
 
+            # Obtenemos los valores de los campos filtrados
+            nombre = formulario.cleaned_data.get('nombre')
+            correo = formulario.cleaned_data.get('correo')
+            telefono = formulario.cleaned_data.get('telefono')
+            edad_minima = formulario.cleaned_data.get('edad_minima')
+            edad_maxima = formulario.cleaned_data.get('edad_maxima')
+            fecha_registro_desde = formulario.cleaned_data.get('fecha_registro_desde')
+            fecha_registro_hasta = formulario.cleaned_data.get('fecha_registro_hasta')
 
-            # Filtrar por fecha de registro
-            if fechaDesde:
-                usuarios = usuarios.filter(fecha_registro__gte=fechaDesde)
+            # Aplicamos los filtros según los valores introducidos en el formulario
 
-            if fechaHasta:
-                usuarios = usuarios.filter(fecha_registro__lte=fechaHasta)
+            # Filtro por nombre
+            if nombre:
+                usuarios = usuarios.filter(Q(nombre__icontains=nombre))
+                mensaje_busqueda += f"Nombre que contenga: {nombre}\n"
             
+            # Filtro por correo
+            if correo:
+                usuarios = usuarios.filter(correo__icontains=correo)
+                mensaje_busqueda += f"Correo que contenga: {correo}\n"
             
-            # Filtrar por fecha de registro
-            if fechaDesde:
-                usuarios = usuarios.filter(fecha_registro__gte=fechaDesde)
+            # Filtro por teléfono
+            if telefono:
+                usuarios = usuarios.filter(telefono__icontains=telefono)
+                mensaje_busqueda += f"Teléfono que contenga: {telefono}\n"
 
-            if fechaHasta:
-                usuarios = usuarios.filter(fecha_registro__lte=fechaHasta)
+            # Filtro por edad mínima
+            if edad_minima is not None:
+                usuarios = usuarios.filter(edad__gte=edad_minima)
+                mensaje_busqueda += f"Edad mínima: {edad_minima}\n"
+
+            # Filtro por edad máxima
+            if edad_maxima is not None:
+                usuarios = usuarios.filter(edad__lte=edad_maxima)
+                mensaje_busqueda += f"Edad máxima: {edad_maxima}\n"
+
+            # Filtro por fecha de registro desde
+            if fecha_registro_desde:
+                usuarios = usuarios.filter(fecha_registro__gte=fecha_registro_desde)
+                mensaje_busqueda += f"Fecha de registro desde: {fecha_registro_desde.strftime('%d-%m-%Y')}\n"
             
-            usuarios = QSusuarios.all()
-    
-            return render(request, 'form/lista_busqueda.html',
-                            {"listar_usuarios":usuarios,
-                             "texto_busqueda":mensaje_busqueda})
+            # Filtro por fecha de registro hasta
+            if fecha_registro_hasta:
+                usuarios = usuarios.filter(fecha_registro__lte=fecha_registro_hasta)
+                mensaje_busqueda += f"Fecha de registro hasta: {fecha_registro_hasta.strftime('%d-%m-%Y')}\n"
+
+            # Pasamos los usuarios filtrados y el mensaje a la plantilla
+            return render(request, 'usuarios/lista.html', {
+                'usuario_busqueda': usuarios,
+                'mensaje_busqueda': mensaje_busqueda
+            })
     else:
-        form = BusquedaUsuarioForm(None)
-    return render(request, 'libro/busqueda_avanzada_datepicker.html',{"formulario":form})
+        formulario = BusquedaUsuarioForm()
+
+    return render(request, 'formularios/usuario_busqueda.html', {'formulario': formulario})
+
+
+
+
+########################################################################################################################################################################
+
+
+def actualizar_usuario(request, usuario_id):
+    # Obtener el usuario por ID o devolver 404 si no existe
+    usuario = get_object_or_404(Usuario, id=usuario_id)
+
+    # Variable para almacenar los datos del formulario
+    datosFormulario = None
+    
+    # Si la solicitud es POST, obtenemos los datos del formulario
+    if request.method == "POST":
+        datosFormulario = request.POST
+
+
+    # Creamos el formulario con los datos, y si es un POST, llenamos con los datos del usuario
+    form = UsuarioForm(datosFormulario, instance=usuario)
+
+
+    # Si el método es POST y el formulario es válido
+    if request.method == "POST" and form.is_valid():
+        try:
+            # Guardamos los cambios del formulario
+            form.save()
+            
+            # Mostramos un mensaje de éxito
+            messages.success(request, f"Se ha actualizado el usuario {form.cleaned_data.get('nombre')} correctamente")
+            
+            # Redirigimos al usuario a la lista de usuarios
+            return redirect('usuarios/lista.html')
+        
+        except Exception as error:
+            print(error)  # En un entorno real, deberíamos loguear esto o mostrarlo en la interfaz
+
+    # Renderizamos el formulario en caso de GET o si el formulario no es válido
+    return render(request, 'formularios/actualizar_usuario.html', {'form': form, 'usuario': usuario})
 
 
 ########################################################################################################################################################################

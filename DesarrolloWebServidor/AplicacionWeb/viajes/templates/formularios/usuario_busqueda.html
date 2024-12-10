@@ -1,0 +1,59 @@
+{% extends "principal.html" %}
+
+{% block contenido %}
+{% load django_bootstrap5 %}
+
+    <form action="{% url 'usuario_busqueda' %}" method="GET">
+        
+        {% csrf_token %}
+        
+        <!-- Campo de búsqueda por nombre -->
+        <div class="mb-4">
+            {% bootstrap_field formulario.nombre show_label=True %}
+        </div>
+
+        <!-- Campo de búsqueda por correo -->
+        <div class="mb-4">
+            {% bootstrap_field formulario.correo show_label=True %}
+        </div>
+
+        <!-- Campo de búsqueda por teléfono -->
+        <div class="mb-4">
+            {% bootstrap_field formulario.telefono show_label=True %}
+        </div>
+
+        <!-- Campo de edad mínima -->
+        <div class="mb-4">
+            {% bootstrap_field formulario.edad_minima show_label=True %}
+        </div>
+
+        <!-- Campo de edad máxima -->
+        <div class="mb-4">
+            {% bootstrap_field formulario.edad_maxima show_label=True %}
+        </div>
+
+        <!-- Campo de fecha de registro desde -->
+        <div class="mb-4">
+            {% bootstrap_field formulario.fecha_registro_desde show_label=True %}
+            <div class="invalid-feedback">
+                {% for error in formulario.fecha_registro_desde.errors %}
+                    {{ error }}
+                {% endfor %}
+            </div>
+        </div>
+
+        <!-- Campo de fecha de registro hasta -->
+        <div class="mb-4">
+            {% bootstrap_field formulario.fecha_registro_hasta show_label=True %}
+            <div class="invalid-feedback">
+                {% for error in formulario.fecha_registro_hasta.errors %}
+                    {{ error }}
+                {% endfor %}
+            </div>
+        </div>
+
+        <button type="submit" class="btn btn-primary">Buscar Usuario</button>
+        
+    </form>
+
+{% endblock %}

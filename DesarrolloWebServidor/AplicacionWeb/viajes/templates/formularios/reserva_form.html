@@ -1,51 +1,45 @@
-<!-- destino_form.html -->
-
 {% extends 'principal.html' %}
 {% load static %}
 {% load django_bootstrap5 %}
 
 {% block cabecera %}
-<h1>CREAR RESERVA</h1>
+<h1>Búsqueda Avanzada de Usuarios</h1>
 <img src="{% static 'images/logo.png' %}" alt="Logo"/>
 {% endblock %}
 
 {% block contenido %}
 <div class="container mt-5">
-    <h2>Crear Reserva</h2>
-    <form action = "{% url 'reserva_create' %}" method="post">
+    <h2>Buscar Usuarios</h2>
+    <form action="{% url 'usuario_busqueda_avanzada' %}" method="get">
         {% csrf_token %}
 
-        <!-- Campo: Nombre -->
+        <!-- Campo: Texto de búsqueda -->
         <div class="mb-4">
-            {% bootstrap_field form.codigo_reserva show_label=True %}
+            {% bootstrap_field form.texto_busqueda show_label=True %}
         </div>
         
-        <!-- Campo: Fecha de salida -->
+        <!-- Campo: Edad Desde -->
         <div class="mb-4">
-            {% bootstrap_field form.fecha_salida show_label=True %}
-        </div>
-        
-        <!-- Campo: Fecha de llegada -->
-        <div class="mb-4">
-            {% bootstrap_field form.fecha_llegada show_label=True %}
-        </div>
-        
-        <!-- Campo: Numero de personas -->
-        <div class="mb-4">
-            {% bootstrap_field form.numero_personas show_label=True %}
+            {% bootstrap_field form.edad_desde show_label=True %}
         </div>
 
-        <!-- Campo: Precio -->        
+        <!-- Campo: Edad Hasta -->
         <div class="mb-4">
-            {% bootstrap_field form.precio show_label=True %}
+            {% bootstrap_field form.edad_hasta show_label=True %}
         </div>
 
-        <!-- Campo: Usuario -->        
+        <!-- Campo: Fecha Desde -->
         <div class="mb-4">
-            {% bootstrap_field form.usuario show_label=True %}
+            {% bootstrap_field form.fecha_desde show_label=True %}
         </div>
 
-        <button type="submit" class="btn btn-primary">Crear Reserva</button>
+        <!-- Campo: Fecha Hasta -->
+        <div class="mb-4">
+            {% bootstrap_field form.fecha_hasta show_label=True %}
+        </div>
+
+        <!-- Botón de búsqueda -->
+        <button type="submit" class="btn btn-primary">Buscar</button>
     </form>
 </div>
 {% endblock %}
