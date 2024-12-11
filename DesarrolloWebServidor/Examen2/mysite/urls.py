@@ -15,8 +15,16 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
-from django.urls import path
+from django.urls import path, include
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('', include('examen.urls')),
+    path("__debug__/", include("debug_toolbar.urls")),
 ]
+
+
+handler404 = 'examen.views.error_404_view'
+handler403 = 'examen.views.error_403_view'
+handler400 = 'examen.views.error_400_view'
+handler500 = 'examen.views.error_500_view'
