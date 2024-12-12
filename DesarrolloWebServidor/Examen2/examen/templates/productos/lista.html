@@ -1,0 +1,19 @@
+{% extends 'principal.html' %}
+
+{% load static %}
+
+{% block cabecera %}
+<h1>PRODUCTOS</h1>
+<img src="{% static 'images/logo.png' %}" alt="Logo"/>
+{% endblock %}
+
+{% block contenido %}
+
+    <p>Total de productos: {{ productos_mostrar|length }}</p>
+    {% for producto in productos_mostrar %}
+        {% include 'productos/producto_item.html' %}
+    {% empty %}
+        <p>No hay productos disponibles.</p>
+    {% endfor %}
+
+{% endblock %}

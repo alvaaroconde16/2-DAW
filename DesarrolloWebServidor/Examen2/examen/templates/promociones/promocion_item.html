@@ -1,0 +1,24 @@
+<div>
+    <h2>Nombre: {{ promocion.nombre }}</h2>
+    <p>Promociones: {{ promocion.descripcion }}</p>    
+    <p>Descuento: {{ promocion.descuento }}</p>    
+    <p>Fecha de inicio: {{ promocion.fecha_inicio }}</p>    
+    <p>Fecha de fin: {{ promocion.fecha_fin }}</p>    
+    <p>Activa: {{ promocion.activa }}</p>
+
+    <p>Procuto: {{ promocion.producto }}</p>    
+
+    <div>
+        <!-- Enlace estilizado como botón para actualizar la promocion -->
+        <a href="{% url 'actualizar_promocion' promocion.id %}" class="btn btn-outline-success mt-2 mb-5">Actualizar Promocion</a>
+        
+        <!-- Formulario para eliminar la promocion con confirmación -->
+        <form method="post" action="{% url 'eliminar_promocion' promocion.id %}" class="d-inline">
+            {% csrf_token %}
+            <button type="submit" class="btn btn-outline-danger mt-2 mb-5" 
+                onclick="return confirm('¿Estás seguro de que deseas eliminar esta promocion? Esta acción no se puede deshacer.');">
+                Eliminar Promocion
+            </button>
+        </form>
+    </div>
+</div>

@@ -1,0 +1,43 @@
+{% extends 'principal.html' %}
+
+{% block contenido %}
+{% load django_bootstrap5 %}
+
+    <h1>Buscar Promoción</h1>
+    <form method="GET" action="{% url 'promocion_busqueda' %}">
+        {% csrf_token %}
+
+        <!-- Campo de búsqueda por nombre -->
+        <div class="mb-4">
+            {% bootstrap_field formulario.textoBusqueda show_label=True %}
+        </div>
+
+        <!-- Campo de búsqueda por descuento -->
+        <div class="mb-4">
+            {% bootstrap_field formulario.descuento show_label=True %}
+        </div>
+
+        <!-- Campo de búsqueda por fecha inicio -->
+        <div class="mb-4">
+            {% bootstrap_field formulario.fecha_inicio show_label=True %}
+        </div>
+        
+        <!-- Campo de búsqueda por fecha fin -->
+        <div class="mb-4">
+            {% bootstrap_field formulario.fecha_fin show_label=True %}
+        </div>
+
+        <!-- Campo de búsqueda por activa -->
+        <div class="mb-4">
+            {% bootstrap_field formulario.activa show_label=True %}
+        </div>
+
+        <!-- Campo de búsqueda por usuario -->
+        <div class="mb-4">
+            {% bootstrap_field formulario.usuarios show_label=True %}
+        </div>
+
+        <button type="submit" class="btn btn-primary">Buscar Alojamiento</button>
+    </form>
+
+{% endblock %}

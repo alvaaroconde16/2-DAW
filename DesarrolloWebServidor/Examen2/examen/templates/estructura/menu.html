@@ -21,40 +21,33 @@
                         Usuarios
                     </a>
                     <ul class="dropdown-menu" aria-labelledby="usuariosDropdown">
-                        
+                        <li><a class="dropdown-item" href="{% url 'listar_usuarios' %}">Lista de usuarios</a></li>
+                        <li><a class="dropdown-item" href="{% url 'usuario_create' %}">Crear Usuario</a></li>
                     </ul>
                 </li>
 
 
                 <!-- Reservas -->
                 <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" id="reservasDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                        Reservas
+                    <a class="nav-link dropdown-toggle" href="#" id="productosDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        Productos
                     </a>
-                    <ul class="dropdown-menu" aria-labelledby="reservasDropdown">
-                        
+                    <ul class="dropdown-menu" aria-labelledby="productosDropdown">
+                        <li><a class="dropdown-item" href="{% url 'listar_productos' %}">Lista de productos</a></li>
+                        <li><a class="dropdown-item" href="{% url 'producto_create' %}">Crear Producto</a></li>
                     </ul>
                 </li>
 
 
                 <!-- Destinos -->
                 <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" id="destinosDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                        Destinos
+                    <a class="nav-link dropdown-toggle" href="#" id="promocionesDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        Promociones
                     </a>
-                    <ul class="dropdown-menu" aria-labelledby="destinosDropdown">
-                        
-                    </ul>
-                </li>
-
-
-                <!-- Alojamientos -->
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" id="destinosDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                        Alojamientos
-                    </a>
-                    <ul class="dropdown-menu" aria-labelledby="destinosDropdown">
-                        
+                    <ul class="dropdown-menu" aria-labelledby="promocionesDropdown">
+                        <li><a class="dropdown-item" href="{% url 'listar_promociones' %}">Lista de promociones</a></li>
+                        <li><a class="dropdown-item" href="{% url 'promocion_create' %}">Crear Promoción</a></li>
+                        <li><a class="dropdown-item" href="{% url 'promocion_busqueda' %}">Buscar Promoción</a></li>
                     </ul>
                 </li>
             </ul>

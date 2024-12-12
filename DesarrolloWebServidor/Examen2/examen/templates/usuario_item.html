@@ -1,0 +1,12 @@
+<div>
+    <h2>Nombre: {{ usuario.nombre }}</h2>
+    <p>Edad: {{ usuario.edad }}</p>
+
+    {% if usuario.edad < 18 %}
+        <p>Usuario menor de edad.</p>
+    {% else %}
+        <p>Usuario mayor de edad.</p> 
+    {% endif %}
+
+    
+</div>

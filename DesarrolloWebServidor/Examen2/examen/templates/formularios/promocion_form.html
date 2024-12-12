@@ -1,0 +1,63 @@
+<!-- usuario_form.html -->
+
+{% extends 'principal.html' %}
+
+{% load static %}
+
+{% load django_bootstrap5 %}
+
+{% block cabecera %}
+<h1>CREAR PROMOCIÓN</h1>
+<img src="{% static 'images/logo.png' %}" alt="Logo"/>
+{% endblock %}
+
+{% block contenido %}
+<div class="container mt-5">
+    <h2>Crear promocion</h2>
+    <form action = "{% url 'promocion_create' %}" method="post">
+        {% csrf_token %}
+
+        <!-- Campo: Nombre -->
+        <div class="mb-4">
+            {% bootstrap_field form.nombre show_label=True %}
+        </div>
+        
+        <!-- Campo: Descripcion -->
+        <div class="mb-4">
+            {% bootstrap_field form.descripcion show_label=True %}
+        </div>
+
+        <!-- Campo: Descuento -->
+        <div class="mb-4">
+            {% bootstrap_field form.descuento show_label=True %}
+        </div>
+
+        <!-- Campo: Fecha de inicio -->
+        <div class="mb-4">
+            {% bootstrap_field form.fecha_inicio show_label=True %}
+        </div>
+
+        <!-- Campo: Fecha de final -->
+        <div class="mb-4">
+            {% bootstrap_field form.fecha_fin show_label=True %}
+        </div>
+
+        <!-- Campo: Activa -->
+        <div class="mb-4">
+            {% bootstrap_field form.activa show_label=True %}
+        </div>
+
+        <!-- Campo: Producto -->
+        <div class="mb-4">
+            {% bootstrap_field form.producto show_label=True %}
+        </div>
+
+        <!-- Campo: Usuario -->
+        <div class="mb-4">
+            {% bootstrap_field form.usuario show_label=True %}
+        </div>
+        
+        <button type="submit" class="btn btn-primary">Crear Producto</button>
+    </form>
+</div>
+{% endblock %}
