@@ -12,4 +12,16 @@
 
     <p>Usuario: {{ comentario.usuario.nombre }}</p>
 
+    <!-- Enlace estilizado como botón para actualizar la reserva -->
+    <a href="{% url 'actualizar_comentario' comentario.id %}" class="btn btn-outline-success mt-2 mb-5">Actualizar Comentario</a>
+
+    <!-- Formulario para eliminar la reserva con confirmación -->
+    <form method="post" action="{% url 'eliminar_comentario' comentario.id %}" class="d-inline">
+        {% csrf_token %}
+        <button type="submit" class="btn btn-outline-danger mt-2 mb-5" 
+            onclick="return confirm('¿Estás seguro de que deseas eliminar este comentario? Esta acción no se puede deshacer.');">
+            Eliminar Comentario
+        </button>
+    </form>
+
 </div>

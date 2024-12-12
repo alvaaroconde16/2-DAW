@@ -18,7 +18,6 @@
             <p>ID del usuario: {{ comentario.usuario.id }}</p>
             <p>Nacionalidad: {{ comentario.usuario.pasaporte.nacionalidad }}</p>
 
-            <h3>Reservas: <a href="{% url 'listar_reservas' comentario.usuario.id %}"> Pulsa para ver las reservas</h3></a>
             <h2>Comentario: {{ comentario.contenido }}</h2>
         </div>
     {% endfor %}

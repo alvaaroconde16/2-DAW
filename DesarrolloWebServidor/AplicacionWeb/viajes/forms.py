@@ -138,7 +138,6 @@ class ReservaForm(forms.ModelForm):
             "fecha_salida": ("La fecha de salida debe ser igual o mayor a hoy"),
             "numero_personas": ("El número de personas debe ser 1 como mínimo"),
             "precio": ("El precio debe ser un valor positivo"),
-            "autores":("Mantén pulsada la tecla control para seleccionar varios elementos")
         }
         widgets = {
             "fecha_salida":forms.DateInput(format="%Y-%m-%d", attrs={"type": "date"}),
@@ -256,6 +255,56 @@ class AlojamientoForm(forms.ModelForm):
         #Siempre devolvemos el conjunto de datos.
         return self.cleaned_data
     
+
+
+class ComentarioForm(forms.ModelForm):
+    
+    class Meta:
+        model = Comentario
+        fields = ['titulo', 'contenido', 'calificacion', 'usuario']
+        help_texts = {
+            "nombre": ("200 caracteres como máximo"),
+            "contenido": ("No puede exceder los 500 caracteres"),
+        }
+        widgets = {
+            "fecha_comentario":forms.DateInput(format="%Y-%m-%d", attrs={"type": "date"}),
+        }
+        
+    
+    def clean(self):
+        #Validamos con el modelo actual
+        super().clean()
+        
+        #Obtenemos los campos 
+        titulo = self.cleaned_data.get('titulo')
+        contenido = self.cleaned_data.get('contenido')
+        calificacion = self.cleaned_data.get('calificacion')
+        usuario = self.cleaned_data.get('usuario')
+
+        
+        #Comprobamos que no exista un alojamiento con ese nombre
+        comentarioNombre = Comentario.objects.filter(titulo=titulo).first()
+        if(not comentarioNombre is None
+           ):
+             if(not self.instance is None and comentarioNombre.id == self.instance.id):
+                 pass
+             else:
+                self.add_error('titulo','Ya existe un comentario con ese título')
+                
+                
+        # Validación: Comprobamos que la descripción no exceda los 500 caracteres
+        if len(contenido) > 500:
+            self.add_error('contenido', 'El contenido no puede exceder los 500 caracteres.')
+            
+        # Validación: Comprobamos que se haya seleccionado un destino
+        if not (0 <= calificacion <= 5):
+            self.add_error('calificacion', 'La calificacion debe estar entre 0 y 5.')
+            
+            
+        #Siempre devolvemos el conjunto de datos.
+        return self.cleaned_data
+    
+    
     
 ########################################################################################################################################################################
 
@@ -333,7 +382,7 @@ class BusquedaReservaForm(forms.Form):
                 self.add_error('nombre', 'El nombre debe tener al menos 3 caracteres')
 
 
-            fechaHoy = timezone.now()
+            fechaHoy = date.today()
             # Validación de fecha: Verificamos que la fecha no sea anterior a hoy
             if fecha and fecha < fechaHoy:  # Asegúrate de que 'fecha' no sea None
                 self.add_error('fecha', 'La fecha no puede ser anterior a hoy')
@@ -406,4 +455,42 @@ class BusquedaAlojamientoForm(forms.Form):
         if not nombre and not tipo and not capacidad:
             self.add_error(None, 'Debe introducir al menos un valor en un campo del formulario.')
         
+        return cleaned_data
+    
+
+
+class BusquedaComentarioForm(forms.Form):
+    # Campo de búsqueda por nombre del destino
+    titulo = forms.CharField(required=False, label="Título del Comentario")
+
+    # Campo de búsqueda por país del destino
+    contenido = forms.CharField(required=False, label="Contenido")
+
+    # Campo de búsqueda por popularidad
+    calificacion = forms.FloatField(
+        required=False, 
+        label="Calificacion", 
+        validators=[MinValueValidator(0), MaxValueValidator(5)]
+    )
+
+    def clean(self):
+        cleaned_data = super().clean()
+        
+        # Obtener los valores del formulario
+        titulo = cleaned_data.get('titulo')
+        contenido = cleaned_data.get('contenido')
+        calificacion = cleaned_data.get('calificacion')
+
+        # Verificamos que al menos un campo tenga un valor
+        if not titulo and not contenido and calificacion is None:
+            self.add_error(None, 'Debe introducir al menos un valor en un campo del formulario')
+        else:
+            # Validación del nombre
+            if titulo and len(titulo) < 3:
+                self.add_error('titulo', 'El titulo debe tener al menos 3 caracteres')
+            
+            # Validación de calificacion mínima
+            if calificacion is not None and (calificacion < 0 or calificacion > 5):
+                self.add_error('calificacion', 'La calificacion debe estar entre 0 y 5')
+
         return cleaned_data

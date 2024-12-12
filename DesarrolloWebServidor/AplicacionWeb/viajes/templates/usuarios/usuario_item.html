@@ -18,8 +18,19 @@
     <h4>Reservas: <a href="{% url 'listar_reservasUsuario' usuario.id %}"> Pulsa para ver las reservas</a></h4>
     <h4>Comentarios: <a href="{% url 'comentarios_usuario' usuario.id %}"> Pulsa para ver los comentarios</a></h4>
 
-    <!-- Enlace estilizado como botón para actualizar el usuario -->
-    <a href="{% url 'actualizar_usuario' usuario.id %}" class="btn btn-outline-success mt-2 mb-5">Actualizar Usuario</a>
+    <div>
+        <!-- Enlace estilizado como botón para actualizar el usuario -->
+        <a href="{% url 'actualizar_usuario' usuario.id %}" class="btn btn-outline-success mt-2 mb-5">Actualizar Usuario</a>
+        
+        <!-- Formulario para eliminar el usuario con confirmación -->
+        <form method="post" action="{% url 'eliminar_usuario' usuario.id %}" class="d-inline">
+            {% csrf_token %}
+            <button type="submit" class="btn btn-outline-danger mt-2 mb-5" 
+                onclick="return confirm('¿Estás seguro de que deseas eliminar este usuario? Esta acción no se puede deshacer.');">
+                Eliminar Usuario
+            </button>
+        </form>
+    </div>
 
     {% comment %}
         Este bloque de código es solo para mostrar los detalles de la reserva

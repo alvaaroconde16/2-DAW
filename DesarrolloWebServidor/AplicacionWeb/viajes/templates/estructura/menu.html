@@ -71,6 +71,21 @@
                         <li><a class="dropdown-item" href="{% url 'alojamiento_busqueda' %}">Buscar alojamiento</a></li>
                     </ul>
                 </li>
+
+
+                <!-- Comentarios -->
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="comentariosDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        Comentarios
+                    </a>
+                    <ul class="dropdown-menu" aria-labelledby="destinosDropdown">
+                        <li><a class="dropdown-item" href="{% url 'listar_comentarios' %}">Lista de comentarios</a></li>
+                        <li><a class="dropdown-item" href="{% url 'ultimo_usuario_comentar' %}">Último Usuario en comentar</a></li>
+                        <li><a class="dropdown-item" href="{% url 'comentarios_usuario' 8 %}">Comentarios del usuario 8</a></li>
+                        <li><a class="dropdown-item" href="{% url 'comentario_create' %}">Crear comentario</a></li>
+                        <li><a class="dropdown-item" href="{% url 'comentario_busqueda' %}">Buscar comentario</a></li>
+                    </ul>
+                </li>
             </ul>
 
             <!-- Formulario de búsqueda alineado a la derecha -->

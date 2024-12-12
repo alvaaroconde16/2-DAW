@@ -12,6 +12,7 @@ urlpatterns = [
     path('alojamientos/listar', views.listar_alojamientos, name='listar_alojamientos'),
     path('destinos/<int:id_destino>/alojamientos', views.alojamientos_destino, name='alojamientos_destino'),
     path('usuarios/pasaporte/<str:nacionalidad>', views.pasaporte_nacionalidad, name='pasaporte_nacionalidad'),
+    path('comentarios/listar', views.listar_comentarios, name='listar_comentarios'),
     path('usuarios/ultimo_comentario/', views.ultimo_usuario_comentar, name='ultimo_usuario_comentar'),
     path('usuarios/<int:id_usuario>/comentarios', views.comentarios_usuario, name='comentarios_usuario'),
     path('reservas/total_precios', views.total_precios_reservas, name='total_precios_reservas'),
@@ -20,11 +21,24 @@ urlpatterns = [
     path('destinos/crear/', views.destino_create, name='destino_create'),
     path('reservas/crear/', views.reserva_create, name='reserva_create'),
     path('alojamientos/crear/', views.alojamiento_create, name='alojamiento_create'),
+    path('comentarios/crear/', views.comentario_create, name='comentario_create'),
     
     path('usuarios/busqueda-avanzada/', views.usuario_busqueda, name='usuario_busqueda'),
     path('reservas/busqueda-avanzada/', views.reserva_busqueda, name='reserva_busqueda'),
     path('destinos/busqueda-avanzada/', views.destino_busqueda, name='destino_busqueda'),
     path('alojamientos/busqueda-avanzada/', views.alojamiento_busqueda, name='alojamiento_busqueda'),
+    path('comentarios/busqueda-avanzada/', views.comentario_busqueda, name='comentario_busqueda'),
     
     path('usuarios/actualizar/<int:usuario_id>', views.actualizar_usuario, name='actualizar_usuario'),
+    path('reservas/actualizar/<int:reserva_id>', views.actualizar_reserva, name='actualizar_reserva'),
+    path('destinos/actualizar/<int:destino_id>', views.actualizar_destino, name='actualizar_destino'),
+    path('alojamientos/actualizar/<int:alojamiento_id>', views.actualizar_alojamiento, name='actualizar_alojamiento'),
+    path('comentarios/actualizar/<int:comentario_id>', views.actualizar_comentario, name='actualizar_comentario'),
+
+    path('usuarios/eliminar/<int:usuario_id>', views.eliminar_usuario, name='eliminar_usuario'),
+    path('reservas/eliminar/<int:reserva_id>', views.eliminar_reserva, name='eliminar_reserva'),
+    path('destinos/eliminar/<int:destino_id>', views.eliminar_destino, name='eliminar_destino'),
+    path('alojamiento/eliminar/<int:alojamiento_id>', views.eliminar_alojamiento, name='eliminar_alojamiento'),
+    path('comentario/eliminar/<int:comentario_id>', views.eliminar_comentario, name='eliminar_comentario'),
+
 ]

@@ -12,4 +12,17 @@
     {% endif %}
 
     <p>Precio: {{ reserva.precio|floatformat:2 }}</p>
+
+    <!-- Enlace estilizado como botón para actualizar la reserva -->
+    <a href="{% url 'actualizar_reserva' reserva.id %}" class="btn btn-outline-success mt-2 mb-5">Actualizar Reserva</a>
+
+    <!-- Formulario para eliminar la reserva con confirmación -->
+    <form method="post" action="{% url 'eliminar_reserva' reserva.id %}" class="d-inline">
+        {% csrf_token %}
+        <button type="submit" class="btn btn-outline-danger mt-2 mb-5" 
+            onclick="return confirm('¿Estás seguro de que deseas eliminar esta reserva? Esta acción no se puede deshacer.');">
+            Eliminar Reserva
+        </button>
+    </form>
+
 </div>

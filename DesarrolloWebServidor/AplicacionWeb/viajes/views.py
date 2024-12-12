@@ -58,10 +58,16 @@ def listar_alojamientos(request):
     return render(request, 'destinos/alojamientos.html', {'alojamientos_mostrar':alojamiento})
 
 
+def listar_comentarios(request):
+    comentario = Comentario.objects.select_related('usuario').all()
+
+    return render(request, 'usuarios/comentarios.html', {'comentarios_mostrar':comentario})
+
+
 
 #vamos a mostrar todos los alojamientos asociados a un destino
 def alojamientos_destino(request, id_destino):
-    alojamiento = Alojamiento.objects.select_related("destino", "reserva").filter(destino_id=id_destino)
+    alojamiento = Alojamiento.objects.select_related("destino").filter(destino_id=id_destino)
 
     return render(request, 'destinos/alojamientos.html', {'alojamientos_mostrar':alojamiento})
 
@@ -158,7 +164,23 @@ def alojamiento_create(request):
     return render(request, 'formularios/alojamiento_form.html', {'form': form})
 
 
+
+def comentario_create(request):
+    if request.method == 'POST':
+        form = ComentarioForm(request.POST)
+        if form.is_valid():
+            form.save()  # Guarda la nueva reserva en la base de datos
+            messages.success(request, 'Comentario creado con éxito.')
+            return redirect('listar_comentarios')  # Redirige a la lista de reservas después de crear
+    else:
+        form = ComentarioForm()  # Si la solicitud es GET, muestra el formulario vacío
+
+    return render(request, 'formularios/comentario_form.html', {'form': form})
+
+
 ########################################################################################################################################################################
+
+################################################################        AQUÍ COMIENZAN LOS READ      #################################################################
 
 
 def usuario_busqueda(request):
@@ -331,7 +353,56 @@ def alojamiento_busqueda(request):
     return render(request, 'formularios/alojamiento_busqueda.html', {'formulario': formulario})
 
 
+
+def comentario_busqueda(request):
+    # Si se envía el formulario con datos
+    if request.GET:
+
+        formulario = BusquedaComentarioForm(request.GET)
+        
+        if formulario.is_valid():
+            # Obtener datos filtrados
+            titulo = formulario.cleaned_data.get('titulo')
+            contenido = formulario.cleaned_data.get('contenido')
+            calificacion = formulario.cleaned_data.get('calificacion')
+
+            # Filtrar los alojamientos
+            comentarios = Comentario.objects.all()
+            
+            if titulo:
+                comentarios = comentarios.filter(titulo__icontains=titulo)
+
+            if contenido:
+                comentarios = comentarios.filter(contenido__icontains=comentarios)
+
+            if calificacion is not None:
+                comentarios = comentarios.filter(calificacion__gte=calificacion)
+
+
+            mensaje_busqueda = "Resultados de búsqueda:"
+            if titulo:
+                mensaje_busqueda += f" Titulo que contiene: {titulo}."
+
+            if contenido:
+                mensaje_busqueda += f" Contenido que contiene: {contenido}."
+
+            if calificacion is not None:
+                mensaje_busqueda += f" Calificación: {calificacion}."
+
+
+            return render(request, 'usuarios/comentarios.html', {
+                'comentarios_mostrar': comentarios,
+                'mensaje_busqueda': 'Se encontraron resultados para su búsqueda.',
+            })
+    else:
+        formulario = BusquedaComentarioForm()
+
+    return render(request, 'formularios/comentario_busqueda.html', {'formulario': formulario})
+
+
 ########################################################################################################################################################################
+
+################################################################        AQUÍ COMIENZAN LOS UPDATE      #################################################################
 
 
 def actualizar_usuario(request, usuario_id):
@@ -368,6 +439,212 @@ def actualizar_usuario(request, usuario_id):
 
     # Renderizamos el formulario en caso de GET o si el formulario no es válido
     return render(request, 'formularios/actualizar_usuario.html', {'form': form, 'usuario': usuario})
+
+
+
+def actualizar_reserva(request, reserva_id):
+    reserva = Reserva.objects.get(id=reserva_id)
+
+    # Variable para almacenar los datos del formulario
+    datosFormulario = None
+    
+    # Si la solicitud es POST, obtenemos los datos del formulario
+    if request.method == "POST":
+        datosFormulario = request.POST
+
+    # Creamos el formulario con los datos, y si es un POST, llenamos con los datos del usuario
+    form = ReservaForm(datosFormulario, instance = reserva)
+
+
+    # Si el método es POST y el formulario es válido
+    if (request.method == "POST"): 
+        if form.is_valid():
+            try:
+                # Guardamos los cambios del formulario
+                form.save()
+                
+                # Mostramos un mensaje de éxito
+                messages.success(request, f"Se ha actualizado la reserva {form.cleaned_data.get('codigo_reserva')} correctamente")
+                
+                # Redirigimos al usuario a la lista de usuarios
+                return redirect('listar_reservas')
+            
+            except Exception as error:
+                print(error)  # En un entorno real, deberíamos loguear esto o mostrarlo en la interfaz
+        else:
+            print("Errores del formulario:", form.errors)
+
+    # Renderizamos el formulario en caso de GET o si el formulario no es válido
+    return render(request, 'formularios/actualizar_reserva.html', {'form': form, 'usuario': reserva})
+
+
+
+def actualizar_destino(request, destino_id):
+    destino = Destino.objects.get(id=destino_id)
+
+    # Variable para almacenar los datos del formulario
+    datosFormulario = None
+    
+    # Si la solicitud es POST, obtenemos los datos del formulario
+    if request.method == "POST":
+        datosFormulario = request.POST
+
+    # Creamos el formulario con los datos, y si es un POST, llenamos con los datos del usuario
+    form = DestinoForm(datosFormulario, instance = destino)
+
+
+    # Si el método es POST y el formulario es válido
+    if (request.method == "POST"): 
+        if form.is_valid():
+            try:
+                # Guardamos los cambios del formulario
+                form.save()
+                
+                # Mostramos un mensaje de éxito
+                messages.success(request, f"Se ha actualizado el destino {form.cleaned_data.get('nombre')} correctamente")
+                
+                # Redirigimos al usuario a la lista de usuarios
+                return redirect('listar_destinos')
+            
+            except Exception as error:
+                print(error)  # En un entorno real, deberíamos loguear esto o mostrarlo en la interfaz
+        else:
+            print("Errores del formulario:", form.errors)
+
+    # Renderizamos el formulario en caso de GET o si el formulario no es válido
+    return render(request, 'formularios/actualizar_destino.html', {'form': form, 'destino': destino}) 
+
+
+
+def actualizar_alojamiento(request, alojamiento_id):
+    alojamiento = Alojamiento.objects.get(id=alojamiento_id)
+
+    # Variable para almacenar los datos del formulario
+    datosFormulario = None
+    
+    # Si la solicitud es POST, obtenemos los datos del formulario
+    if request.method == "POST":
+        datosFormulario = request.POST
+
+    # Creamos el formulario con los datos, y si es un POST, llenamos con los datos del usuario
+    form = AlojamientoForm(datosFormulario, instance = alojamiento)
+
+
+    # Si el método es POST y el formulario es válido
+    if (request.method == "POST"): 
+        if form.is_valid():
+            try:
+                # Guardamos los cambios del formulario
+                form.save()
+                
+                # Mostramos un mensaje de éxito
+                messages.success(request, f"Se ha actualizado el alojamiento {form.cleaned_data.get('nombre')} correctamente")
+                
+                # Redirigimos al usuario a la lista de usuarios
+                return redirect('listar_alojamientos')
+            
+            except Exception as error:
+                print(error)  # En un entorno real, deberíamos loguear esto o mostrarlo en la interfaz
+        else:
+            print("Errores del formulario:", form.errors)
+
+    # Renderizamos el formulario en caso de GET o si el formulario no es válido
+    return render(request, 'formularios/actualizar_alojamiento.html', {'form': form, 'alojamiento': alojamiento}) 
+
+
+
+def actualizar_comentario(request, comentario_id):
+    comentario = Comentario.objects.get(id=comentario_id)
+
+    # Variable para almacenar los datos del formulario
+    datosFormulario = None
+    
+    # Si la solicitud es POST, obtenemos los datos del formulario
+    if request.method == "POST":
+        datosFormulario = request.POST
+
+    # Creamos el formulario con los datos, y si es un POST, llenamos con los datos del usuario
+    form = ComentarioForm(datosFormulario, instance = comentario)
+
+
+    # Si el método es POST y el formulario es válido
+    if (request.method == "POST"): 
+        if form.is_valid():
+            try:
+                # Guardamos los cambios del formulario
+                form.save()
+                
+                # Mostramos un mensaje de éxito
+                messages.success(request, f"Se ha actualizado el comentario {form.cleaned_data.get('titulo')} correctamente")
+                
+                # Redirigimos al usuario a la lista de usuarios
+                return redirect('listar_comentarios')
+            
+            except Exception as error:
+                print(error)  # En un entorno real, deberíamos loguear esto o mostrarlo en la interfaz
+        else:
+            print("Errores del formulario:", form.errors)
+
+    # Renderizamos el formulario en caso de GET o si el formulario no es válido
+    return render(request, 'formularios/actualizar_comentario.html', {'form': form, 'comentario': comentario}) 
+
+
+########################################################################################################################################################################
+
+################################################################        AQUÍ COMIENZAN LOS DELETE      #################################################################
+
+def eliminar_usuario(request,usuario_id):
+    usuario = Usuario.objects.get(id=usuario_id)
+    try:
+        usuario.delete()
+        messages.success(request, "Se ha elimnado el usuario "+usuario.nombre+" correctamente")
+    except Exception as error:
+        print(error)
+    return redirect('listar_usuarios')
+
+
+
+def eliminar_reserva(request,reserva_id):
+    reserva = Reserva.objects.get(id=reserva_id)
+    try:
+        reserva.delete()
+        messages.success(request, "Se ha elimnado la reserva "+reserva.codigo_reserva+" correctamente")
+    except Exception as error:
+        print(error)
+    return redirect('listar_reservas')
+
+
+
+def eliminar_destino(request,destino_id):
+    destino = Destino.objects.get(id=destino_id)
+    try:
+        destino.delete()
+        messages.success(request, "Se ha elimnado el destino "+destino.nombre+" correctamente")
+    except Exception as error:
+        print(error)
+    return redirect('listar_destinos')
+
+
+
+def eliminar_alojamiento(request,alojamiento_id):
+    alojamiento = Alojamiento.objects.get(id=alojamiento_id)
+    try:
+        alojamiento.delete()
+        messages.success(request, "Se ha elimnado el alojamiento "+alojamiento.nombre+" correctamente")
+    except Exception as error:
+        print(error)
+    return redirect('listar_alojamientos')
+
+
+
+def eliminar_comentario(request,comentario_id):
+    comentario = Comentario.objects.get(id=comentario_id)
+    try:
+        comentario.delete()
+        messages.success(request, "Se ha elimnado el comentario "+comentario.titulo+" correctamente")
+    except Exception as error:
+        print(error)
+    return redirect('listar_comentarios')
 
 
 ########################################################################################################################################################################
