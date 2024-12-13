@@ -8,7 +8,7 @@ class UsuarioForm(forms.ModelForm):
     
     class Meta:
         model = Usuario
-        fields = ['nombre', 'correo', 'telefono', 'edad', 'contraseña', 'fecha_registro']
+        fields = ['nombre', 'correo', 'telefono', 'edad', 'contraseña', 'fecha_registro', 'imagen']
         help_texts = {
             "nombre": ("200 caracteres como máximo"),
         }

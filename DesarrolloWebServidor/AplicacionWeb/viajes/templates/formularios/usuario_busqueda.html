@@ -3,7 +3,7 @@
 {% block contenido %}
 {% load django_bootstrap5 %}
 
-    <form action="{% url 'usuario_busqueda' %}" method="GET">
+    <form action="{% url 'usuario_busqueda' %}" method="GET" enctype="multipart/form-data">
         
         {% csrf_token %}
         

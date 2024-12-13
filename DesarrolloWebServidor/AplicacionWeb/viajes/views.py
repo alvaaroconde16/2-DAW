@@ -119,7 +119,7 @@ def total_precios_reservas(request):
 #A partir de aquí, creamos todos los formulario de creación.
 def usuario_create(request):
     if request.method == 'POST':
-        form = UsuarioForm(request.POST)
+        form = UsuarioForm(request.POST, request.FILES) # Nos aseguramos de incluir request.FILES
         if form.is_valid():
             form.save()  # Guarda el nuevo usuario en la base de datos
             messages.success(request, 'Usuario creado con éxito.')
@@ -478,13 +478,15 @@ def actualizar_usuario(request, usuario_id):
 
     # Variable para almacenar los datos del formulario
     datosFormulario = None
+    archivosFormulario = None
     
     # Si la solicitud es POST, obtenemos los datos del formulario
     if request.method == "POST":
         datosFormulario = request.POST
+        archivosFormulario = request.FILES
 
     # Creamos el formulario con los datos, y si es un POST, llenamos con los datos del usuario
-    form = UsuarioForm(datosFormulario, instance = usuario)
+    form = UsuarioForm(datosFormulario, archivosFormulario, instance = usuario)
 
 
     # Si el método es POST y el formulario es válido

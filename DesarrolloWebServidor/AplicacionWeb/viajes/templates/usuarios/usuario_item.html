@@ -19,6 +19,14 @@
     <h4>Comentarios: <a href="{% url 'comentarios_usuario' usuario.id %}"> Pulsa para ver los comentarios</a></h4>
 
     <div>
+        {% if usuario.imagen %}
+            <img src="{{ usuario.imagen.url }}" alt="Imagen de {{ usuario.nombre }}" width="100">
+        {% else %}
+            <span>No hay imagen</span>
+        {% endif %}
+    </div>
+
+
         <!-- Enlace estilizado como botón para actualizar el usuario -->
         <a href="{% url 'actualizar_usuario' usuario.id %}" class="btn btn-outline-success mt-2 mb-5">Actualizar Usuario</a>
         

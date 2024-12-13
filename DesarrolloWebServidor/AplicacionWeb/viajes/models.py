@@ -11,6 +11,7 @@ class Usuario(models.Model):
     edad = models.IntegerField()
     contraseña = models.CharField(max_length=200)
     fecha_registro = models.DateField(null=True, blank=True)
+    imagen = models.ImageField(upload_to='usuarios/', null=True, blank=True)
 
     def __str__(self):
         # Devuelve el nombre del usuario como su representación
