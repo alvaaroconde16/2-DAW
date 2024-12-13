@@ -404,6 +404,11 @@ A continuación se detallan todas las URLs de la aplicación, especificando lo q
 
 
 
+# #########################################################################################################################################################################
+
+
+
+<br><br>
 
 # Proyecto CRUD - Gestión de Usuario, Comentarios, Reservas y más
 
@@ -429,6 +434,8 @@ Este proyecto contiene un conjunto de funcionalidades CRUD (Crear, Leer, Actuali
     - Permite eliminar un usuario del sistema.
 
 
+<br>
+
 
 ### 2. **COMENTARIO**
 
@@ -448,6 +455,8 @@ Este proyecto contiene un conjunto de funcionalidades CRUD (Crear, Leer, Actuali
     - Permite eliminar un comentario.
 
 
+<br>
+
 
 ### 3. **DESTINO**
 
@@ -465,6 +474,8 @@ Este proyecto contiene un conjunto de funcionalidades CRUD (Crear, Leer, Actuali
     #### 3.4 Eliminar Destino
     - Permite eliminar un destino.
 
+
+<br>
 
 
 ### 4. **RESERVA**
@@ -484,6 +495,8 @@ Este proyecto contiene un conjunto de funcionalidades CRUD (Crear, Leer, Actuali
     - Permite eliminar una reserva.
 
 
+<br>
+
 
 ### 5. **ALOJAMIENTO**
 
@@ -502,6 +515,8 @@ Este proyecto contiene un conjunto de funcionalidades CRUD (Crear, Leer, Actuali
     - Permite eliminar un alojamiento.
 
 
+<br>
+
 
 ### 6. **PROMOCIÓN**
 
@@ -519,6 +534,8 @@ Este proyecto contiene un conjunto de funcionalidades CRUD (Crear, Leer, Actuali
     #### 6.4 Eliminar Promoción
     - Permite eliminar una promoción.
 
+
+<br>
 
 
 ## VALIDACIONES IMPLEMENTADAS
@@ -550,6 +567,8 @@ Este proyecto contiene un conjunto de funcionalidades CRUD (Crear, Leer, Actuali
    - La fecha de inicio debe ser anterior a la fecha de fin.
 
 
+<br>
+
 
 ## WIDGETS UTILIZADOS
 
@@ -577,3 +596,82 @@ Este proyecto contiene un conjunto de funcionalidades CRUD (Crear, Leer, Actuali
    - Widget: `forms.DateInput(attrs={"type": "date"})`
    - Se utiliza para los campos "fecha_inicio" y "fecha_fin", permitiendo seleccionar fechas con un calendario.
 
+
+
+# #########################################################################################################################################################################
+
+
+<br><br>
+
+
+# Proyecto Django: Gestión de Usuarios con Imágenes
+
+Este proyecto utiliza Django para gestionar usuarios y permitir la subida de imágenes asociadas a cada uno. A continuación, se detallan los pasos realizados para configurar correctamente la subida y visualización de imágenes.
+
+
+<br>
+
+
+## Configuración del Proyecto
+
+### 1. Configuración de `settings.py`
+
+- **Archivos Estáticos**: Se configuró la ruta para los archivos estáticos (`STATIC_URL`) que Django utilizará para servir archivos como hojas de estilo y scripts JavaScript.
+    
+ - **Archivos de Medios**: Se configuró la ruta para los archivos de medios (`MEDIA_URL` y `MEDIA_ROOT`), que se utilizan para almacenar y acceder a los archivos subidos por los usuarios, como las imágenes.
+
+
+<br>
+
+
+### 2. Creación del Modelo `Usuario`
+
+- Se añadió un campo de tipo `ImageField` al modelo `Usuario`, lo que permite almacenar imágenes de perfil para cada usuario.
+
+
+<br>
+
+
+### 3. Creación del Formulario para Subir Imágenes
+
+- El formulario para crear y editar usuarios fue modificado para manejar archivos subidos por el usuario. Se utiliza `request.FILES` para recibir y procesar estos archivos en el servidor.
+
+- También se configuró el formulario para permitir la actualización de imágenes de usuario ya existentes.
+
+
+<br>
+
+
+### 4. Actualización de Plantillas para Mostrar la Imagen
+
+- Se modificaron las plantillas de Django para mostrar las imágenes de perfil de los usuarios. Si un usuario tiene una imagen asociada, se muestra en su perfil. Si no, se muestra un mensaje indicando que no hay imagen.
+
+- Para enviar archivos a través de formularios, se añadió el atributo `enctype="multipart/form-data"` al formulario HTML.
+
+
+<br>
+
+
+### 5. Configuración de URLs para Archivos de Medios
+
+- Durante el desarrollo, es necesario servir los archivos de medios, como imágenes. Se añadió una configuración en el archivo `urls.py` para que Django sirviera estos archivos correctamente cuando se está ejecutando en modo de desarrollo.
+
+
+<br>
+
+
+### 6. Verificación de la Imagen en la Base de Datos
+
+- Al crear o actualizar un usuario con una imagen, esta se almacena en la carpeta `media/usuarios/`. La ruta relativa de la imagen se guarda en la base de datos.
+
+- Cuando se necesita mostrar la imagen en una plantilla, se accede a la ruta correspondiente utilizando la propiedad `usuario.imagen.url`.
+
+
+<br>
+
+
+## Solución de Problemas
+
+- **Error "No hay imagen"**: Si las imágenes no se muestran correctamente, asegúrate de que la carpeta `media/usuarios/` exista en tu proyecto y de que los archivos se estén guardando correctamente en ella. También, verifica que las configuraciones de `MEDIA_URL` y `MEDIA_ROOT` en `settings.py` estén correctamente definidas.
+
+- **Revisar Configuración de URLs**: Si las imágenes no se sirven, asegúrate de que la configuración en `urls.py` incluye la ruta a los archivos de medios en modo de desarrollo.
