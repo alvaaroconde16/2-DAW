@@ -402,3 +402,178 @@ A continuación se detallan todas las URLs de la aplicación, especificando lo q
      
     <p>Precio: {{ reserva.precio|floatformat:2 }}</p>
 
+
+
+
+# Proyecto CRUD - Gestión de Usuario, Comentarios, Reservas y más
+
+Este proyecto contiene un conjunto de funcionalidades CRUD (Crear, Leer, Actualizar, Eliminar) para gestionar datos de **Usuarios**, **Comentarios**, **Destinos**, **Reservas**, **Alojamientos** y **Promociones**.
+
+## Funcionalidades Implementadas
+
+### 1. **USUARIO**
+
+    #### 1.1 Crear Usuario
+    - Formulario con validación:
+    - El correo electrónico debe ser válido.
+    - La contraseña debe tener una longitud mínima de 6 caracteres.
+    - El teléfono debe tener un formato correcto.
+    
+    #### 1.2 Leer Usuarios
+    - Muestra todos los usuarios registrados.
+
+    #### 1.3 Actualizar Usuario
+    - Permite editar los datos del usuario.
+    
+    #### 1.4 Eliminar Usuario
+    - Permite eliminar un usuario del sistema.
+
+
+
+### 2. **COMENTARIO**
+
+    #### 2.1 Crear Comentario
+    - Formulario con validación:
+    - El **título** debe ser único.
+    - La **calificación** debe estar entre 0 y 5.
+    - El **contenido** no debe exceder los 500 caracteres.
+    
+    #### 2.2 Leer Comentarios
+    - Muestra todos los comentarios realizados por los usuarios.
+
+    #### 2.3 Actualizar Comentario
+    - Permite editar el contenido y la calificación de un comentario existente.
+
+    #### 2.4 Eliminar Comentario
+    - Permite eliminar un comentario.
+
+
+
+### 3. **DESTINO**
+
+    #### 3.1 Crear Destino
+    - Formulario con validación:
+    - El **nombre** debe ser único.
+    - El **país** no puede estar vacío.
+    
+    #### 3.2 Leer Destinos
+    - Muestra todos los destinos.
+
+    #### 3.3 Actualizar Destino
+    - Permite editar la información de un destino.
+
+    #### 3.4 Eliminar Destino
+    - Permite eliminar un destino.
+
+
+
+### 4. **RESERVA**
+
+    #### 4.1 Crear Reserva
+    - Formulario con validación:
+    - El **número de personas** debe ser mayor que 0.
+    - El **precio** debe ser un número positivo.
+    
+    #### 4.2 Leer Reservas
+    - Muestra todas las reservas.
+
+    #### 4.3 Actualizar Reserva
+    - Permite editar la fecha de salida, llegada, y el número de personas de la reserva.
+
+    #### 4.4 Eliminar Reserva
+    - Permite eliminar una reserva.
+
+
+
+### 5. **ALOJAMIENTO**
+
+    #### 5.1 Crear Alojamiento
+    - Formulario con validación:
+    - El **nombre** debe ser único.
+    - La **dirección** debe tener una longitud mínima de 10 caracteres.
+    
+    #### 5.2 Leer Alojamientos
+    - Muestra todos los alojamientos disponibles.
+
+    #### 5.3 Actualizar Alojamiento
+    - Permite editar el nombre, dirección y capacidad de un alojamiento.
+
+    #### 5.4 Eliminar Alojamiento
+    - Permite eliminar un alojamiento.
+
+
+
+### 6. **PROMOCIÓN**
+
+    #### 6.1 Crear Promoción
+    - Formulario con validación:
+    - El **descuento** debe estar entre 0 y 100.
+    - La **fecha de inicio** debe ser anterior a la **fecha de fin**.
+    
+    #### 6.2 Leer Promociones
+    - Muestra todas las promociones activas.
+
+    #### 6.3 Actualizar Promoción
+    - Permite editar la descripción y las fechas de una promoción.
+
+    #### 6.4 Eliminar Promoción
+    - Permite eliminar una promoción.
+
+
+
+## VALIDACIONES IMPLEMENTADAS
+
+1. **Usuario:**
+   - El correo electrónico debe ser válido.
+   - La contraseña debe tener al menos 6 caracteres.
+   - El teléfono debe tener un formato válido.
+   
+2. **Comentario:**
+   - El título debe ser único.
+   - La calificación debe estar entre 0 y 5.
+   - El contenido no puede exceder los 500 caracteres.
+
+3. **Destino:**
+   - El nombre debe ser único.
+   - El país no puede estar vacío.
+
+4. **Reserva:**
+   - El número de personas debe ser mayor que 0.
+   - El precio debe ser un número positivo.
+
+5. **Alojamiento:**
+   - El nombre debe ser único.
+   - La dirección debe tener una longitud mínima de 10 caracteres.
+
+6. **Promoción:**
+   - El descuento debe estar entre 0 y 100.
+   - La fecha de inicio debe ser anterior a la fecha de fin.
+
+
+
+## WIDGETS UTILIZADOS
+
+1. **Usuario:**
+   - Widget: `forms.TextInput(attrs={"placeholder": "Introduce tu nombre"})`
+   - Se utiliza para el campo "nombre", con un texto de ayuda que proporciona un "placeholder".
+
+2. **Comentario:**
+   - Widget: `forms.Textarea(attrs={"rows": 5, "placeholder": "Escribe el contenido del comentario"})`
+   - Se utiliza para el campo "contenido", con un área de texto que tiene un tamaño de 5 filas y un "placeholder".
+
+3. **Destino:**
+   - Widget: `forms.NumberInput(attrs={"min": 1, "step": 0.1})`
+   - Se utiliza para el campo "popularidad", con un campo de tipo número que acepta decimales.
+
+4. **Reserva:**
+   - Widget: `forms.Select(attrs={"class": "custom-select"})`
+   - Se utiliza para el campo "usuario", con un select que permite seleccionar un usuario.
+
+5. **Alojamiento:**
+   - Widget: `forms.CheckboxSelectMultiple(attrs={"class": "checkbox-group"})`
+   - Se utiliza para el campo "tipo", permitiendo seleccionar múltiples valores.
+
+6. **Promoción:**
+   - Widget: `forms.DateInput(attrs={"type": "date"})`
+   - Se utiliza para los campos "fecha_inicio" y "fecha_fin", permitiendo seleccionar fechas con un calendario.
+
