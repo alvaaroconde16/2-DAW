@@ -30,17 +30,20 @@ urlpatterns = [
     path('destinos/busqueda-avanzada/', views.destino_busqueda, name='destino_busqueda'),
     path('alojamientos/busqueda-avanzada/', views.alojamiento_busqueda, name='alojamiento_busqueda'),
     path('comentarios/busqueda-avanzada/', views.comentario_busqueda, name='comentario_busqueda'),
+    path('promociones/busqueda-avanzada/', views.promocion_busqueda, name='promocion_busqueda'),
     
     path('usuarios/actualizar/<int:usuario_id>', views.actualizar_usuario, name='actualizar_usuario'),
     path('reservas/actualizar/<int:reserva_id>', views.actualizar_reserva, name='actualizar_reserva'),
     path('destinos/actualizar/<int:destino_id>', views.actualizar_destino, name='actualizar_destino'),
     path('alojamientos/actualizar/<int:alojamiento_id>', views.actualizar_alojamiento, name='actualizar_alojamiento'),
     path('comentarios/actualizar/<int:comentario_id>', views.actualizar_comentario, name='actualizar_comentario'),
+    path('promociones/actualizar/<int:promocion_id>', views.actualizar_promocion, name='actualizar_promocion'),
 
     path('usuarios/eliminar/<int:usuario_id>', views.eliminar_usuario, name='eliminar_usuario'),
     path('reservas/eliminar/<int:reserva_id>', views.eliminar_reserva, name='eliminar_reserva'),
     path('destinos/eliminar/<int:destino_id>', views.eliminar_destino, name='eliminar_destino'),
     path('alojamiento/eliminar/<int:alojamiento_id>', views.eliminar_alojamiento, name='eliminar_alojamiento'),
     path('comentario/eliminar/<int:comentario_id>', views.eliminar_comentario, name='eliminar_comentario'),
+    path('promocion/eliminar/<int:promocion_id>', views.eliminar_promocion, name='eliminar_promocion'),
 
 ]

@@ -541,3 +541,41 @@ class BusquedaComentarioForm(forms.Form):
                 self.add_error('calificacion', 'La calificacion debe estar entre 0 y 5')
 
         return cleaned_data
+    
+
+
+class BusquedaPromocionForm(forms.Form):
+    # Campo de búsqueda por nombre de la promoción
+    nombre = forms.CharField(required=False, label="Nombre de la Promoción")
+
+    # Campo de búsqueda por descripción
+    descripcion = forms.CharField(required=False, label="Descripción")
+
+    # Campo de búsqueda por descuento
+    descuento_porcentaje = forms.FloatField(
+        required=False, 
+        label="Descuento (%)", 
+        validators=[MinValueValidator(0), MaxValueValidator(100)]
+    )
+
+    def clean(self):
+        cleaned_data = super().clean()
+        
+        # Obtener los valores del formulario
+        nombre = cleaned_data.get('nombre')
+        descripcion = cleaned_data.get('descripcion')
+        descuento_porcentaje = cleaned_data.get('descuento_porcentaje')
+
+        # Verificamos que al menos un campo tenga un valor
+        if not nombre and not descripcion and descuento_porcentaje is None:
+            self.add_error(None, 'Debe introducir al menos un valor en un campo del formulario')
+        else:
+            # Validación del nombre
+            if nombre and len(nombre) < 3:
+                self.add_error('nombre', 'El nombre debe tener al menos 3 caracteres')
+            
+            # Validación del porcentaje de descuento
+            if descuento_porcentaje is not None and (descuento_porcentaje < 0 or descuento_porcentaje > 100):
+                self.add_error('descuento_porcentaje', 'El descuento debe estar entre 0 y 100')
+
+        return cleaned_data

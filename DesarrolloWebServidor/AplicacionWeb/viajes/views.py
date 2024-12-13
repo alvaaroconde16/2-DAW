@@ -424,6 +424,50 @@ def comentario_busqueda(request):
     return render(request, 'formularios/comentario_busqueda.html', {'formulario': formulario})
 
 
+
+def promocion_busqueda(request):
+    if request.GET:
+        formulario = BusquedaPromocionForm(request.GET)
+
+        if formulario.is_valid():
+            # Obtenemos los valores filtrados
+            nombre = formulario.cleaned_data.get('nombre')
+            descripcion = formulario.cleaned_data.get('descripcion')
+            descuento_porcentaje = formulario.cleaned_data.get('descuento_porcentaje')
+
+            # Filtrar promociones
+            promociones = Promocion.objects.all()
+
+            if nombre:
+                promociones = promociones.filter(nombre__icontains=nombre)
+
+            if descripcion:
+                promociones = promociones.filter(descripcion__icontains=descripcion)
+
+            if descuento_porcentaje is not None:
+                promociones = promociones.filter(descuento_porcentaje__gte=descuento_porcentaje)
+
+            # Construir mensaje de búsqueda
+            mensaje_busqueda = "Resultados de búsqueda:"
+            if nombre:
+                mensaje_busqueda += f" Nombre que contiene: {nombre}."
+
+            if descripcion:
+                mensaje_busqueda += f" Descripción que contiene: {descripcion}."
+
+            if descuento_porcentaje is not None:
+                mensaje_busqueda += f" Descuento mínimo: {descuento_porcentaje}%."
+
+            return render(request, 'promociones/lista.html', {
+                'promociones_mostrar': promociones,
+                'mensaje_busqueda': mensaje_busqueda
+            })
+    else:
+        formulario = BusquedaPromocionForm()
+
+    return render(request, 'formularios/promocion_busqueda.html', {'formulario': formulario})
+
+
 ########################################################################################################################################################################
 
 ################################################################        AQUÍ COMIENZAN LOS UPDATE      #################################################################
@@ -610,7 +654,43 @@ def actualizar_comentario(request, comentario_id):
             print("Errores del formulario:", form.errors)
 
     # Renderizamos el formulario en caso de GET o si el formulario no es válido
-    return render(request, 'formularios/actualizar_comentario.html', {'form': form, 'comentario': comentario}) 
+    return render(request, 'formularios/actualizar_comentario.html', {'form': form, 'comentario': comentario})
+
+
+
+def actualizar_promocion(request, promocion_id):
+    promocion = Promocion.objects.get(id=promocion_id)
+
+    # Variable para almacenar los datos del formulario
+    datosFormulario = None
+    
+    # Si la solicitud es POST, obtenemos los datos del formulario
+    if request.method == "POST":
+        datosFormulario = request.POST
+
+    # Creamos el formulario con los datos, y si es un POST, llenamos con los datos de la promoción
+    form = PromocionForm(datosFormulario, instance=promocion)
+
+    # Si el método es POST y el formulario es válido
+    if request.method == "POST":
+        if form.is_valid():
+            try:
+                # Guardamos los cambios del formulario
+                form.save()
+                
+                # Mostramos un mensaje de éxito
+                messages.success(request, f"Se ha actualizado la promoción {form.cleaned_data.get('nombre')} correctamente")
+                
+                # Redirigimos al usuario a la lista de promociones
+                return redirect('listar_promociones')
+            
+            except Exception as error:
+                print(error)  # En un entorno real, deberíamos loguear esto o manejarlo en la interfaz
+        else:
+            print("Errores del formulario:", form.errors)
+
+    # Renderizamos el formulario en caso de GET o si el formulario no es válido
+    return render(request, 'formularios/actualizar_promocion.html', {'form': form, 'promocion': promocion})
 
 
 ########################################################################################################################################################################
@@ -669,6 +749,17 @@ def eliminar_comentario(request,comentario_id):
     except Exception as error:
         print(error)
     return redirect('listar_comentarios')
+
+
+
+def eliminar_promocion(request,promocion_id):
+    promocion = Promocion.objects.get(id=promocion_id)
+    try:
+        promocion.delete()
+        messages.success(request, "Se ha elimnado la promocion "+promocion.nombre+" correctamente")
+    except Exception as error:
+        print(error)
+    return redirect('listar_promociones')
 
 
 ########################################################################################################################################################################
