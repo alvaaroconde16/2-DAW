@@ -10,6 +10,7 @@ urlpatterns = [
     re_path(r'^reservas/sin_extras/[a-zA-Z0-9]*$', views.reservas_sin_extras, name='reservas_sin_extras'),
     path('destinos/listar', views.listar_destinos, name='listar_destinos'),
     path('alojamientos/listar', views.listar_alojamientos, name='listar_alojamientos'),
+    path('promociones/listar', views.listar_promociones, name='listar_promociones'),
     path('destinos/<int:id_destino>/alojamientos', views.alojamientos_destino, name='alojamientos_destino'),
     path('usuarios/pasaporte/<str:nacionalidad>', views.pasaporte_nacionalidad, name='pasaporte_nacionalidad'),
     path('comentarios/listar', views.listar_comentarios, name='listar_comentarios'),
@@ -22,6 +23,7 @@ urlpatterns = [
     path('reservas/crear/', views.reserva_create, name='reserva_create'),
     path('alojamientos/crear/', views.alojamiento_create, name='alojamiento_create'),
     path('comentarios/crear/', views.comentario_create, name='comentario_create'),
+    path('promociones/crear/', views.promocion_create, name='promocion_create'),
     
     path('usuarios/busqueda-avanzada/', views.usuario_busqueda, name='usuario_busqueda'),
     path('reservas/busqueda-avanzada/', views.reserva_busqueda, name='reserva_busqueda'),

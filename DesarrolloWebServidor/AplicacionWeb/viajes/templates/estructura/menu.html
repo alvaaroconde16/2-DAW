@@ -86,6 +86,20 @@
                         <li><a class="dropdown-item" href="{% url 'comentario_busqueda' %}">Buscar comentario</a></li>
                     </ul>
                 </li>
+
+
+                <!-- Promociones -->
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="pormocionesDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        Promociones
+                    </a>
+                    <ul class="dropdown-menu" aria-labelledby="promocionesDropdown">
+                        <li><a class="dropdown-item" href="{% url 'listar_promociones' %}">Lista de comentarios</a></li>
+                        <li><a class="dropdown-item" href="{% url 'comentarios_usuario' 8 %}">Comentarios del usuario 8</a></li>
+                        <li><a class="dropdown-item" href="{% url 'comentario_create' %}">Crear comentario</a></li>
+                        <li><a class="dropdown-item" href="{% url 'comentario_busqueda' %}">Buscar comentario</a></li>
+                    </ul>
+                </li>
             </ul>
 
             <!-- Formulario de búsqueda alineado a la derecha -->

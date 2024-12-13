@@ -1,5 +1,5 @@
 from django import forms
-from .models import Usuario, Destino, Reserva, Comentario, Alojamiento
+from .models import Usuario, Destino, Reserva, Comentario, Alojamiento, Promocion
 from datetime import date, datetime
 from django.utils import timezone
 from django.core.validators import MaxValueValidator, MinValueValidator
@@ -302,6 +302,53 @@ class ComentarioForm(forms.ModelForm):
             
             
         #Siempre devolvemos el conjunto de datos.
+        return self.cleaned_data
+    
+
+
+class PromocionForm(forms.ModelForm):
+    
+    class Meta:
+        model = Promocion
+        fields = ['nombre', 'descripcion', 'descuento_porcentaje', 'fecha_inicio', 'fecha_fin', 'activo', 'alojamiento', 'destino']
+        help_texts = {
+            "nombre": ("100 caracteres como máximo"),
+            "descripcion": ("Descripción detallada de la promoción."),
+            "descuento_porcentaje": ("Ingrese un porcentaje entre 0 y 100."),
+        }
+        widgets = {
+            "fecha_inicio": forms.DateInput(format="%Y-%m-%d", attrs={"type": "date"}),
+            "fecha_fin": forms.DateInput(format="%Y-%m-%d", attrs={"type": "date"}),
+        }
+    
+    def clean(self):
+        # Validamos los datos con el modelo actual
+        super().clean()
+
+        # Obtenemos los campos
+        nombre = self.cleaned_data.get('nombre')
+        descuento_porcentaje = self.cleaned_data.get('descuento_porcentaje')
+        fecha_inicio = self.cleaned_data.get('fecha_inicio')
+        fecha_fin = self.cleaned_data.get('fecha_fin')
+
+        # Validación: Verificar que no exista una promoción con el mismo nombre
+        promo_existente = Promocion.objects.filter(nombre=nombre).first()
+        if promo_existente and (not self.instance or promo_existente.id != self.instance.id):
+            self.add_error('nombre', 'Ya existe una promoción con este nombre.')
+
+        # Validación: El descuento debe estar entre 0 y 100
+        if not (0 <= descuento_porcentaje <= 100):
+            self.add_error('descuento_porcentaje', 'El porcentaje de descuento debe estar entre 0 y 100.')
+
+        # Validación: La fecha de inicio debe ser anterior a la fecha de fin
+        if fecha_inicio and fecha_fin and fecha_inicio > fecha_fin:
+            self.add_error('fecha_fin', 'La fecha de fin debe ser posterior a la fecha de inicio.')
+
+        # Validación: La fecha de inicio no puede ser en el pasado
+        if fecha_inicio and fecha_inicio < date.today():
+            self.add_error('fecha_inicio', 'La fecha de inicio no puede ser en el pasado.')
+
+        # Siempre devolvemos el conjunto de datos
         return self.cleaned_data
     
     

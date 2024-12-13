@@ -64,6 +64,12 @@ def listar_comentarios(request):
     return render(request, 'usuarios/comentarios.html', {'comentarios_mostrar':comentario})
 
 
+def listar_promociones(request):
+    promocion = Promocion.objects.select_related('alojamiento').prefetch_related('destino').all()
+
+    return render(request, 'promociones/lista.html', {'promociones_mostrar':promocion})
+
+
 
 #vamos a mostrar todos los alojamientos asociados a un destino
 def alojamientos_destino(request, id_destino):
@@ -178,6 +184,22 @@ def comentario_create(request):
         form = ComentarioForm()  # Si la solicitud es GET, muestra el formulario vacío
 
     return render(request, 'formularios/comentario_form.html', {'form': form})
+
+
+
+
+def promocion_create(request):
+    if request.method == 'POST':
+        form = PromocionForm(request.POST)
+        if form.is_valid():
+            form.save()  # Guarda la nueva promoción en la base de datos
+            messages.success(request, 'Promoción creada con éxito.')
+            return redirect('listar_promociones')  # Redirige a la lista de promociones después de crear
+    else:
+        form = PromocionForm()  # Si la solicitud es GET, muestra el formulario vacío
+
+    return render(request, 'formularios/promocion_form.html', {'form': form})
+
 
 
 ########################################################################################################################################################################

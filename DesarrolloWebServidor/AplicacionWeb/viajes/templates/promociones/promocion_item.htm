@@ -1,0 +1,17 @@
+<div>
+    <h2>Nombre: {{ promocion.nombre|upper }}</h2>
+    <p>Descripción: {{ promocion.descripcion }}</p>
+    <p>Descuento: {{ promocion.descuento_porcentaje }}</p>
+
+    <p>Fecha de inicio: {{ promocion.fecha_inicio|date:"d-m-Y" }}</p>
+    <p>Fecha de final: {{ promocion.fecha_fin|date:"d-m-Y" }}</p>
+    <p>Activa: {{ promocion.activo }}</p>
+    <p>ID del promocion: {{ promocion.id }}</p>
+    <h4>promocion #{{ forloop.counter }}</h4>
+
+    {% comment %}
+        Este bloque de código es solo para mostrar los detalles de la reserva
+        y no se mostrará en el HTML renderizado.
+    {% endcomment %}
+    
+</div>
