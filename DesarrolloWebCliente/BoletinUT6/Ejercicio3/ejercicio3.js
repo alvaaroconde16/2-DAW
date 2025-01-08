@@ -18,5 +18,20 @@ function funcionDom(){
     carMiddle.textContent = 'Chevrolet'
     carList.insertBefore(carMiddle, cars[2])
 
+    let carBeforeBMW = document.createElement('li');
+    carBeforeBMW.textContent = 'Honda';
+
+    let carAfterBMW = document.createElement('li');
+    carAfterBMW.textContent = 'Nissan';
+
+    for (let index = 0; index < cars.length; index++) {
+        if (cars[index].textContent == 'BMW') {
+            // Insertar antes de "BMW"
+            carList.insertBefore(carBeforeBMW, cars[index])
+
+            //Insertar despues de "BMW"
+            carList.insertBefore(carAfterBMW, cars[index].nextSibling);
+        }
+    }
     
 }
