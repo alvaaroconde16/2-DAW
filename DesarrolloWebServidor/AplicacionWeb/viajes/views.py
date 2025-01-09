@@ -6,6 +6,10 @@ from django.contrib import messages
 
 # Create your views here.
 def index(request):
+    
+    if(not "fecha_inicio" in request.session):
+        request.session["fecha_inicio"] = datetime.now().strftime('%d/%m/%Y %H:%M')
+    
     return render(request, 'principal.html')
 
 
