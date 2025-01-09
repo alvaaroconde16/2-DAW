@@ -6,6 +6,7 @@ function funcionDom(){
 
     //Creamos la tabla
     let tabla = document.createElement('table');
+    tabla.style.borderCollapse = "collapse";
 
 
     //Hacemos el bucle para ir creando la tabla
@@ -16,6 +17,9 @@ function funcionDom(){
         for (let j = 0; j <= 20; j++) {
             let columna = document.createElement('td');
             let texto = document.createTextNode(`${i}, ${j}`)  //Le damos un texto a las columnas
+
+            columna.style.border = "1px solid black";
+            columna.style.padding = "5px";
             
             //Agregamos el texto a la columna
             columna.appendChild(texto)
