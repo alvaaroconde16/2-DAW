@@ -3,6 +3,7 @@ from .models import Usuario, Destino, Reserva, Comentario, Alojamiento, Promocio
 from datetime import date, datetime
 from django.utils import timezone
 from django.core.validators import MaxValueValidator, MinValueValidator
+from django.contrib.auth.forms import UserCreationForm
 
 class UsuarioForm(forms.ModelForm):
     
@@ -579,3 +580,19 @@ class BusquedaPromocionForm(forms.Form):
                 self.add_error('descuento_porcentaje', 'El descuento debe estar entre 0 y 100')
 
         return cleaned_data
+    
+
+########################################################################################################################################################################
+
+
+class RegistroForm(UserCreationForm):
+    roles = (
+        (Usuario.CLIENTE, 'cliente'),
+        (Usuario.PROVEEDOR, 'proveedor'),
+    )
+
+    rol = forms.ChoiceField(choices=roles)
+
+    class Meta:
+        model = Usuario
+        fields = ('username', 'email', 'password1', 'password2', 'rol')

@@ -1,22 +1,52 @@
 from django.db import models
 from django.utils import timezone
 from django.core.validators import MaxValueValidator, MinValueValidator
+from django.contrib.auth.models import AbstractUser
 
 
 # Create your models here.
-class Usuario(models.Model):
+class Usuario(AbstractUser):
+    ADMINISTRADOR = 1
+    CLIENTE = 2
+    PROVEEDOR = 3
+    ROLES = [
+        (ADMINISTRADOR, 'administrador'),
+        (CLIENTE, 'cliente'),
+        (PROVEEDOR, 'proveedor'),
+    ]
+
     nombre = models.CharField(max_length=200, verbose_name="Nombre Completo")
     correo = models.EmailField()  #Para introducir el email
     telefono = models.CharField(max_length=20)
-    edad = models.IntegerField()
+    edad = models.IntegerField(null=True)
     contraseña = models.CharField(max_length=200)
     fecha_registro = models.DateField(null=True, blank=True)
     imagen = models.ImageField(upload_to='usuarios/', null=True, blank=True)
+    
+    role = models.PositiveSmallIntegerField(choices=ROLES, default=1)
 
     def __str__(self):
         # Devuelve el nombre del usuario como su representación
         return self.nombre
     
+
+
+# Modelo Cliente
+class Cliente(models.Model):
+    usuario = models.OneToOneField(Usuario, on_delete=models.CASCADE, related_name='cliente')
+    preferencias_viaje = models.TextField(null=True, blank=True)  # Campo personalizado para el cliente
+    numero_viajes = models.PositiveIntegerField(default=0)  # Número de viajes realizados
+
+
+
+# Modelo Proveedor
+class Proveedor(models.Model):
+    usuario = models.OneToOneField(Usuario, on_delete=models.CASCADE, related_name='proveedor')
+    empresa = models.CharField(max_length=200)  # Nombre de la empresa del proveedor
+    servicios_ofrecidos = models.TextField(null=True, blank=True)  # Descripción de los servicios
+    rating = models.FloatField(default=0, validators=[MinValueValidator(0), MaxValueValidator(5)])  # Calificación promedio
+
+
 
 class Destino(models.Model):
     nombre = models.CharField(max_length=200)

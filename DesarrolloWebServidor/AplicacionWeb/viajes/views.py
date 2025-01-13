@@ -1,8 +1,10 @@
 from django.shortcuts import render,redirect, get_object_or_404
-from .models import Usuario, Destino, Reserva, Comentario, Alojamiento
+from .models import Usuario, Destino, Reserva, Comentario, Alojamiento, Cliente, Proveedor
 from django.db.models import Q, Sum
 from .forms import *
 from django.contrib import messages
+from django.contrib.auth.models import Group
+from django.contrib.auth import login
 
 # Create your views here.
 def index(request):
@@ -766,6 +768,33 @@ def eliminar_promocion(request,promocion_id):
     except Exception as error:
         print(error)
     return redirect('listar_promociones')
+
+
+########################################################################################################################################################################
+
+
+def registrar_usuario(request):
+    if request.method == 'POST':
+        formulario = RegistroForm(request.POST)
+        if formulario.is_valid():
+            user = formulario.save()
+            rol = int(formulario.cleaned_data.get('rol'))
+            if(rol == Usuario.CLIENTE):
+                grupo = Group.objects.get(name='Clientes')
+                grupo.user_set.add(user)
+                cliente = Cliente.objects.create(usuario = user)
+                cliente.save()
+            elif(rol == Usuario.PROVEEDOR):
+                grupo = Group.objects.get(name='Proveedores')
+                grupo.user_set.add(user)
+                proveedor = Proveedor.objects.create(usuario = user)
+                proveedor.save()
+
+            login(request, user)
+            return redirect('index')
+    else:
+        formulario = RegistroForm()
+    return render(request, 'registration/signup.html', {'formulario': formulario})
 
 
 ########################################################################################################################################################################

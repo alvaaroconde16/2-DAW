@@ -134,3 +134,9 @@ INTERNAL_IPS = ["127.0.0.1"]
 # Ruta de archivos media
 MEDIA_URL = '/media/'  # URL que será usada en las plantillas para acceder a archivos de medios
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')  # Ruta física en el sistema de archivos donde se guardarán los archivos
+
+
+AUTH_USER_MODEL = 'viajes.Usuario'
+
+LOGIN_REDIRECT_URL = 'index'
+LOGOUT_REDIRECT_URL = 'index'
