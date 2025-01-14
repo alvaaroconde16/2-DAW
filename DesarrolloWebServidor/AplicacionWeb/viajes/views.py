@@ -5,6 +5,7 @@ from .forms import *
 from django.contrib import messages
 from django.contrib.auth.models import Group
 from django.contrib.auth import login
+from django.contrib.auth.decorators import login_required
 
 # Create your views here.
 def index(request):
@@ -778,16 +779,22 @@ def registrar_usuario(request):
         formulario = RegistroForm(request.POST)
         if formulario.is_valid():
             user = formulario.save()
-            rol = int(formulario.cleaned_data.get('rol'))
+            rol = str(formulario.cleaned_data.get('rol'))
+            
             if(rol == Usuario.CLIENTE):
                 grupo = Group.objects.get(name='Clientes')
                 grupo.user_set.add(user)
                 cliente = Cliente.objects.create(usuario = user)
                 cliente.save()
+                
             elif(rol == Usuario.PROVEEDOR):
                 grupo = Group.objects.get(name='Proveedores')
                 grupo.user_set.add(user)
-                proveedor = Proveedor.objects.create(usuario = user)
+                
+                empresa = formulario.cleaned_data.get('empresa')
+                rating = formulario.cleaned_data.get('rating')
+                
+                proveedor = Proveedor.objects.create(usuario = user, empresa = empresa, rating = rating)
                 proveedor.save()
 
             login(request, user)

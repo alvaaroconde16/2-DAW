@@ -591,8 +591,10 @@ class RegistroForm(UserCreationForm):
         (Usuario.PROVEEDOR, 'proveedor'),
     )
 
-    rol = forms.ChoiceField(choices=roles)
+    role = forms.ChoiceField(choices=roles)
+    empresa = forms.CharField(max_length=200, required=False, label="Nombre de la Empresa")
+    rating = forms.FloatField(required=False,label="Calificación Promedia")
 
     class Meta:
         model = Usuario
-        fields = ('username', 'email', 'password1', 'password2', 'rol')
+        fields = ('nombre', 'username', 'correo', 'telefono', 'password1', 'password2', 'role')

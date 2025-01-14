@@ -24,10 +24,6 @@ class Usuario(AbstractUser):
     imagen = models.ImageField(upload_to='usuarios/', null=True, blank=True)
     
     role = models.PositiveSmallIntegerField(choices=ROLES, default=1)
-
-    def __str__(self):
-        # Devuelve el nombre del usuario como su representación
-        return self.nombre
     
 
 
@@ -43,7 +39,6 @@ class Cliente(models.Model):
 class Proveedor(models.Model):
     usuario = models.OneToOneField(Usuario, on_delete=models.CASCADE, related_name='proveedor')
     empresa = models.CharField(max_length=200)  # Nombre de la empresa del proveedor
-    servicios_ofrecidos = models.TextField(null=True, blank=True)  # Descripción de los servicios
     rating = models.FloatField(default=0, validators=[MinValueValidator(0), MaxValueValidator(5)])  # Calificación promedio
 
 
