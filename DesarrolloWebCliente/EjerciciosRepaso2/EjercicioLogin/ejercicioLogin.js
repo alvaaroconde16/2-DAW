@@ -8,11 +8,11 @@ function functionDom() {
     var regexCorreo = /^[a-zA-Z0-9._+-]+@dwc.com$/;
 
     //Rellenar los campos con cookies si existen
-    //var savedCorreo = getCookie('correo');
-    //var savedDepartamento = getCookie('departamento');
+    var savedCorreo = getCookie('correo');
+    var savedDepartamento = getCookie('departamento');
 
-    var savedCorreo = localStorage.getItem('correo');
-    var savedDepartamento = localStorage.getItem('departamento');
+    /*var savedCorreo = localStorage.getItem('correo');
+    var savedDepartamento = localStorage.getItem('departamento');*/
 
     if (savedCorreo) {
         correo.value = savedCorreo;
@@ -34,13 +34,13 @@ function functionDom() {
             alert('Correo válido. Datos enviados correctamente.');
 
             // Guardar cookies
-            //setCookie('correo', correo, 365);
-            //setCookie('departamento', departamento, 365);
+            setCookie('correo', correo, 365);
+            setCookie('departamento', departamento, 365);
 
 
             // Guardar en localStorage
-            localStorage.setItem('correo', correo);
-            localStorage.setItem('departamento', departamento);
+            /*localStorage.setItem('correo', correo);
+            localStorage.setItem('departamento', departamento);*/
 
             // Simular envío del formulario
             document.getElementById('formulario').submit();
@@ -49,7 +49,7 @@ function functionDom() {
 }
 
 // Función para crear una cookie
-/*function setCookie(name, value, days) {
+function setCookie(name, value, days) {
     let expires = "";
     if (days) {
         let date = new Date();
@@ -57,10 +57,10 @@ function functionDom() {
         expires = "; expires=" + date.toUTCString();
     }
     document.cookie = name + "=" + (value || "") + expires + "; path=/";
-}*/
+}
 
 // Función para obtener una cookie
-/*function getCookie(name) {
+function getCookie(name) {
     var nameEQ = name + "=";
     var ca = document.cookie.split(';');
     for (let i = 0; i < ca.length; i++) {
@@ -68,4 +68,4 @@ function functionDom() {
         if (c.indexOf(nameEQ) === 0) return c.substring(nameEQ.length);
     }
     return null;
-}*/
+}
