@@ -59,7 +59,7 @@ function funcionDom(){
         divEscudo1.classList.add('escudo');
 
         let escudo1 = document.createElement('img');
-        escudo1.setAttribute('src', partidos.url_escudo_eq1);
+        escudo1.setAttribute('src', partido.url_escudo_eq1);
         divEscudo1.appendChild(escudo1);
         div.appendChild(divEscudo1);
 
@@ -97,13 +97,14 @@ function funcionDom(){
         divEscudo2.classList.add('escudo');
 
         let escudo2 = document.createElement('img');
-        escudo2.setAttribute('src', partidos.url_escudo_eq2);
+        escudo2.setAttribute('src', partido.url_escudo_eq2);
         divEscudo2.appendChild(escudo2);
         div.appendChild(divEscudo2);
 
 
         //Creamos ahora la lista
         let lista = document.createElement('ul');
+        lista.style.display = 'none';
         div.appendChild(lista);
 
         //Empezamos creando la cronica
@@ -120,5 +121,49 @@ function funcionDom(){
         aVivimos.textContent = "Así lo vivimos";
         liVivimos.appendChild(aVivimos);
         lista.appendChild(liVivimos)
+
+
+        //Al pasar por encima de las imagenes mostramos la lista. Esperamos 3 segundos para que desaparezca
+        escudo1.addEventListener('mouseover', function(){
+            lista.style.display = 'block';
+        })
+
+        escudo1.addEventListener('mouseout', function(){
+            setTimeout(() => {
+                lista.style.display = 'none';
+            }, 3000);
+        })
+
+        escudo2.addEventListener('mouseover', function(){
+              lista.style.display = 'block';
+        })
+
+        escudo2.addEventListener('mouseout', function(){
+            setTimeout(() => {
+                lista.style.display = 'none';
+            }, 3000);
+        })
+
+
+        //Cuando pasamos el raton por encima del marcador, aumentamos el tamaño de la fuente en 2 puntos
+        resultado1.addEventListener('mouseover', function(){
+            resultado1.style.fontSize = '20px';
+            resultado2.style.fontSize = '20px';
+        })
+
+        resultado1.addEventListener('mouseout', function(){
+            resultado1.style.fontSize = '18px';
+            resultado2.style.fontSize = '18px';
+        })
+
+        resultado2.addEventListener('mouseover', function(){
+            resultado1.style.fontSize = '20px';
+            resultado2.style.fontSize = '20px';
+        })
+
+        resultado2.addEventListener('mouseout', function(){
+            resultado1.style.fontSize = '18px';
+            resultado2.style.fontSize = '18px';
+        })
     })
 }
