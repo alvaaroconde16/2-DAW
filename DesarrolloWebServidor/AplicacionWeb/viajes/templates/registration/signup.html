@@ -17,7 +17,7 @@
     let rating = document.querySelector('input[name="rating"]').parentElement; 
 
     // Función para mostrar/ocultar campos
-    function toggles() {
+    function mostrar() {
         if (role.value == '3') {  // '3' es el valor para "Proveedor"
             empresa.style.display = 'block'; // Mostrar el campo empresa
             rating.style.display = 'block'; // Mostrar el campo rating
@@ -28,10 +28,10 @@
     }
 
     // Ocultar inicialmente
-    toggles();
+    mostrar();
 
     // Agregar evento para cambiar campos al cambiar el rol
-    role.addEventListener('change', toggles);
+    role.addEventListener('change', mostrar);
 </script>
 
 
